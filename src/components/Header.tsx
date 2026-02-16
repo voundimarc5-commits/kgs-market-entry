@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Menu, X } from "lucide-react";
+import KGSCoin from "./KGSCoin";
 
 const Header = () => {
   const { lang, setLang, t } = useLanguage();
@@ -24,12 +25,7 @@ const Header = () => {
       <div className="container mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-full border-2 border-primary flex items-center justify-center">
-            <span className="font-serif-display text-primary font-bold text-sm tracking-widest">KGS</span>
-          </div>
-          <span className="font-serif-display text-lg font-semibold text-foreground tracking-wide">
-            Flow
-          </span>
+          <KGSCoin size={40} />
         </a>
 
         {/* Desktop nav */}

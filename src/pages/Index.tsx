@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import FinancialBackground from "@/components/FinancialBackground";
 import ProcessSection from "@/components/ProcessSection";
 import ScopeSection from "@/components/ScopeSection";
 import PaymentSection from "@/components/PaymentSection";
@@ -9,7 +10,8 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      <FinancialBackground />
       <Header />
       <main>
         <HeroSection />
