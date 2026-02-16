@@ -8,7 +8,6 @@ const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navItems = [
-    { key: "nav.process", href: "#process" },
     { key: "nav.scope", href: "#scope" },
     { key: "nav.payment", href: "#payment" },
     { key: "nav.contact", href: "#contact" },
