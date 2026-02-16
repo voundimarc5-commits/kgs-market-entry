@@ -1,5 +1,4 @@
 import { useLanguage } from "@/contexts/LanguageContext";
-import KGSCoin from "./KGSCoin";
 
 const HeroSection = () => {
   const { t } = useLanguage();
@@ -16,10 +15,6 @@ const HeroSection = () => {
         <div className="absolute top-2/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent animate-flow-line animation-delay-400" />
         <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent animate-flow-line animation-delay-800" />
 
-        {/* KGS Coin watermark */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.06]">
-          <KGSCoin size={500} className="animate-[spin_120s_linear_infinite]" />
-        </div>
 
         {/* Corner decorations */}
         <div className="absolute top-20 left-8 w-24 h-24 border-l border-t border-primary/20" />
