@@ -33,13 +33,13 @@ const KGSCoin = ({ size = 40, className = "" }: { size?: number; className?: str
           <stop offset="100%" stopColor="hsl(43 42% 32%)" />
         </radialGradient>
 
-        {/* Text metallic fill */}
+        {/* Text metallic fill - higher contrast */}
         <linearGradient id={`${id}-text`} x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="hsl(43 60% 82%)" />
-          <stop offset="25%" stopColor="hsl(43 55% 65%)" />
-          <stop offset="50%" stopColor="hsl(43 50% 50%)" />
-          <stop offset="75%" stopColor="hsl(43 55% 62%)" />
-          <stop offset="100%" stopColor="hsl(43 60% 78%)" />
+          <stop offset="0%" stopColor="hsl(43 70% 90%)" />
+          <stop offset="30%" stopColor="hsl(43 65% 78%)" />
+          <stop offset="50%" stopColor="hsl(43 60% 65%)" />
+          <stop offset="70%" stopColor="hsl(43 65% 75%)" />
+          <stop offset="100%" stopColor="hsl(43 70% 88%)" />
         </linearGradient>
 
         {/* Emboss / raised text effect */}
@@ -148,30 +148,32 @@ const KGSCoin = ({ size = 40, className = "" }: { size?: number; className?: str
         <path d="M 52 128 Q 76 132 100 130 Q 124 132 148 128" fill="none" stroke="hsl(43 50% 55%)" strokeWidth="1" opacity="0.5" />
         <path d="M 55 124 Q 77 127 100 126 Q 123 127 145 124" fill="none" stroke="hsl(43 40% 35%)" strokeWidth="0.5" opacity="0.4" />
 
-        {/* KGS main text - embossed */}
+        {/* KGS main text - embossed, larger and bolder */}
         <text
-          x="100" y="106"
+          x="100" y="104"
           textAnchor="middle"
           dominantBaseline="middle"
           fontFamily="'Cormorant Garamond', serif"
-          fontSize="50"
-          fontWeight="700"
+          fontSize="58"
+          fontWeight="800"
           fill={`url(#${id}-text)`}
-          letterSpacing="6"
+          stroke="hsl(43 40% 30%)"
+          strokeWidth="0.8"
+          letterSpacing="8"
           filter={`url(#${id}-emboss)`}
         >
           KGS
         </text>
 
-        {/* FLOW sub-text */}
+        {/* FLOW sub-text - brighter */}
         <text
-          x="100" y="145"
+          x="100" y="148"
           textAnchor="middle"
           fontFamily="'Inter', sans-serif"
-          fontSize="11"
-          fontWeight="500"
-          fill="hsl(43 50% 58%)"
-          letterSpacing="8"
+          fontSize="13"
+          fontWeight="600"
+          fill="hsl(43 60% 72%)"
+          letterSpacing="10"
           filter={`url(#${id}-emboss)`}
         >
           FLOW
