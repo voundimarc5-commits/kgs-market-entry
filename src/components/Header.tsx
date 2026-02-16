@@ -27,7 +27,7 @@ const Header = () => {
           <KGSCoin size={44} className="md:w-12 md:h-12 shrink-0" />
           <div className="flex flex-col leading-none min-w-0">
             <span className="font-serif-display text-sm md:text-lg font-bold text-foreground tracking-wide truncate">KGS FLOW</span>
-            <span className="text-[8px] md:text-[10px] font-sans-body text-muted-foreground tracking-widest uppercase truncate">Kora Global Systems</span>
+            <span className="text-[8px] md:text-[9px] font-sans-body text-muted-foreground tracking-widest uppercase truncate">Kora Global Systems</span>
           </div>
         </a>
 
