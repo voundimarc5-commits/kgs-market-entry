@@ -12,7 +12,6 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Background decorative elements */}
       <div className="absolute inset-0">
-        {/* Subtle geometric lines */}
         <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent animate-flow-line" />
         <div className="absolute top-2/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent animate-flow-line animation-delay-400" />
         <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent animate-flow-line animation-delay-800" />
@@ -34,9 +33,12 @@ const HeroSection = () => {
           <span className="text-xs font-sans-body text-primary tracking-widest uppercase">KGS Flow</span>
         </div>
 
-        <h1 className="font-serif-display text-4xl md:text-6xl lg:text-7xl font-semibold text-foreground leading-tight mb-6 animate-fade-in-up animation-delay-200">
+        <h1 className="font-serif-display text-4xl md:text-6xl lg:text-7xl font-semibold text-foreground leading-tight mb-2 animate-fade-in-up animation-delay-200">
           {t("hero.title")}
         </h1>
+        <p className="font-serif-display text-3xl md:text-5xl lg:text-6xl font-semibold text-primary leading-tight mb-6 animate-fade-in-up animation-delay-300">
+          {t("hero.title2")}
+        </p>
 
         <p className="text-lg md:text-xl text-muted-foreground font-sans-body max-w-2xl mx-auto mb-10 animate-fade-in-up animation-delay-400 leading-relaxed">
           {t("hero.subtitle")}
@@ -44,7 +46,7 @@ const HeroSection = () => {
 
         <button
           onClick={scrollToContact}
-          className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 text-sm font-medium tracking-wide hover:bg-primary/90 transition-all duration-300 rounded-sm animate-fade-in-up animation-delay-600"
+          className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-10 py-4 text-sm font-bold tracking-widest hover:bg-primary/90 transition-all duration-300 rounded-sm animate-fade-in-up animation-delay-600"
         >
           {t("hero.cta")}
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">
@@ -52,8 +54,13 @@ const HeroSection = () => {
           </svg>
         </button>
 
+        {/* Micro-text */}
+        <p className="mt-4 text-xs text-muted-foreground/60 font-sans-body animate-fade-in-up animation-delay-700">
+          {t("hero.micro")}
+        </p>
+
         {/* Decorative divider */}
-        <div className="mt-20 flex items-center justify-center gap-4 animate-fade-in-up animation-delay-800">
+        <div className="mt-16 flex items-center justify-center gap-4 animate-fade-in-up animation-delay-800">
           <div className="w-16 h-px bg-primary/30" />
           <div className="w-2 h-2 rotate-45 border border-primary/40" />
           <div className="w-16 h-px bg-primary/30" />

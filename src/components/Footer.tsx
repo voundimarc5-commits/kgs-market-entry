@@ -8,6 +8,7 @@ const Footer = () => {
     { key: "nav.scope", href: "#scope" },
     { key: "nav.payment", href: "#payment" },
     { key: "nav.contact", href: "#contact" },
+    { key: "nav.faq", href: "#faq" },
   ];
 
   return (

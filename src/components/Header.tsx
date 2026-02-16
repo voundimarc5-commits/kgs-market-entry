@@ -12,6 +12,7 @@ const Header = () => {
     { key: "nav.scope", href: "#scope" },
     { key: "nav.payment", href: "#payment" },
     { key: "nav.contact", href: "#contact" },
+    { key: "nav.faq", href: "#faq" },
   ];
 
   const scrollTo = (href: string) => {
@@ -23,12 +24,10 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Logo */}
         <a href="#" className="flex items-center gap-2">
           <KGSCoin size={40} />
         </a>
 
-        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <button
@@ -40,7 +39,6 @@ const Header = () => {
             </button>
           ))}
 
-          {/* Language switcher */}
           <div className="flex items-center gap-1 border border-border rounded-full px-1 py-0.5">
             <button
               onClick={() => setLang("fr")}
@@ -68,13 +66,11 @@ const Header = () => {
           </button>
         </nav>
 
-        {/* Mobile toggle */}
         <button className="md:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
       {mobileOpen && (
         <div className="md:hidden bg-background border-b border-border px-6 pb-6 space-y-4">
           {navItems.map((item) => (
