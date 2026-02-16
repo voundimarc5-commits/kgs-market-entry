@@ -29,7 +29,7 @@ const ScopeSection = () => {
         {/* Positioning statement */}
         <div className="max-w-3xl mx-auto mb-16 scroll-reveal">
           <div className="border border-primary/20 rounded-sm p-8 text-center bg-card">
-            <p className="text-muted-foreground font-sans-body text-sm md:text-base leading-relaxed italic">
+            <p className="text-foreground font-serif-display text-base md:text-lg leading-relaxed font-bold uppercase tracking-wide">
               "{t("positioning")}"
             </p>
           </div>
@@ -38,11 +38,11 @@ const ScopeSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* What we do */}
           <div className="scroll-reveal border border-primary/20 rounded-sm p-8 bg-card">
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center justify-center gap-3 mb-6">
               <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
                 <Check size={16} className="text-primary" />
               </div>
-              <h3 className="font-serif-display text-xl font-semibold text-foreground">
+              <h3 className="font-serif-display text-xl font-semibold text-foreground text-center">
                 {t("scope.do.title")}
               </h3>
             </div>
@@ -58,11 +58,11 @@ const ScopeSection = () => {
 
           {/* What we don't do */}
           <div className="scroll-reveal border border-border rounded-sm p-8 bg-card" style={{ transitionDelay: "0.15s" }}>
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center justify-center gap-3 mb-6">
               <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center">
                 <X size={16} className="text-muted-foreground" />
               </div>
-              <h3 className="font-serif-display text-xl font-semibold text-foreground">
+              <h3 className="font-serif-display text-xl font-semibold text-foreground text-center">
                 {t("scope.dont.title")}
               </h3>
             </div>
