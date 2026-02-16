@@ -1,4 +1,6 @@
 const KGSCoin = ({ size = 40, className = "" }: { size?: number; className?: string }) => {
+  const id = `coin-${Math.random().toString(36).slice(2, 8)}`;
+
   return (
     <svg
       width={size}
@@ -7,139 +9,194 @@ const KGSCoin = ({ size = 40, className = "" }: { size?: number; className?: str
       className={className}
       xmlns="http://www.w3.org/2000/svg"
     >
-      {/* Outer coin edge with ridges */}
       <defs>
-        <linearGradient id="coinGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="hsl(43 52% 70%)" />
-          <stop offset="30%" stopColor="hsl(43 52% 54%)" />
-          <stop offset="50%" stopColor="hsl(43 52% 75%)" />
-          <stop offset="70%" stopColor="hsl(43 52% 50%)" />
-          <stop offset="100%" stopColor="hsl(43 52% 65%)" />
+        {/* 3D edge gradient - dark to light for depth */}
+        <radialGradient id={`${id}-edge`} cx="40%" cy="35%" r="60%">
+          <stop offset="0%" stopColor="hsl(43 60% 65%)" />
+          <stop offset="50%" stopColor="hsl(43 55% 50%)" />
+          <stop offset="100%" stopColor="hsl(43 40% 28%)" />
+        </radialGradient>
+
+        {/* Main face 3D gradient - top-left highlight */}
+        <radialGradient id={`${id}-face`} cx="38%" cy="32%" r="65%">
+          <stop offset="0%" stopColor="hsl(43 60% 72%)" />
+          <stop offset="25%" stopColor="hsl(43 58% 60%)" />
+          <stop offset="55%" stopColor="hsl(43 52% 50%)" />
+          <stop offset="80%" stopColor="hsl(43 48% 40%)" />
+          <stop offset="100%" stopColor="hsl(43 40% 30%)" />
+        </radialGradient>
+
+        {/* Inner ring bevel */}
+        <radialGradient id={`${id}-bevel`} cx="42%" cy="35%" r="55%">
+          <stop offset="0%" stopColor="hsl(43 55% 62%)" />
+          <stop offset="50%" stopColor="hsl(43 50% 48%)" />
+          <stop offset="100%" stopColor="hsl(43 42% 32%)" />
+        </radialGradient>
+
+        {/* Text metallic fill */}
+        <linearGradient id={`${id}-text`} x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="hsl(43 60% 82%)" />
+          <stop offset="25%" stopColor="hsl(43 55% 65%)" />
+          <stop offset="50%" stopColor="hsl(43 50% 50%)" />
+          <stop offset="75%" stopColor="hsl(43 55% 62%)" />
+          <stop offset="100%" stopColor="hsl(43 60% 78%)" />
         </linearGradient>
-        <linearGradient id="coinFace" x1="20%" y1="0%" x2="80%" y2="100%">
-          <stop offset="0%" stopColor="hsl(43 52% 62%)" />
-          <stop offset="40%" stopColor="hsl(43 52% 50%)" />
-          <stop offset="60%" stopColor="hsl(43 52% 58%)" />
-          <stop offset="100%" stopColor="hsl(43 52% 45%)" />
-        </linearGradient>
-        <linearGradient id="textGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="hsl(43 52% 80%)" />
-          <stop offset="50%" stopColor="hsl(43 52% 55%)" />
-          <stop offset="100%" stopColor="hsl(43 52% 75%)" />
-        </linearGradient>
-        <filter id="coinShadow">
-          <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="hsl(43 52% 54%)" floodOpacity="0.3" />
+
+        {/* Emboss / raised text effect */}
+        <filter id={`${id}-emboss`}>
+          <feGaussianBlur in="SourceAlpha" stdDeviation="1" result="blur" />
+          <feOffset in="blur" dx="-1" dy="-1" result="offsetLight" />
+          <feOffset in="blur" dx="1" dy="1" result="offsetDark" />
+          <feFlood floodColor="hsl(43 60% 85%)" floodOpacity="0.6" result="lightColor" />
+          <feFlood floodColor="hsl(43 40% 20%)" floodOpacity="0.7" result="darkColor" />
+          <feComposite in="lightColor" in2="offsetLight" operator="in" result="lightShadow" />
+          <feComposite in="darkColor" in2="offsetDark" operator="in" result="darkShadow" />
+          <feMerge>
+            <feMergeNode in="lightShadow" />
+            <feMergeNode in="darkShadow" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
         </filter>
-        <filter id="innerShadow">
-          <feOffset dx="0" dy="1" />
-          <feGaussianBlur stdDeviation="1" />
-          <feComposite operator="out" in="SourceGraphic" />
-          <feComponentTransfer>
-            <feFuncA type="linear" slope="0.3" />
-          </feComponentTransfer>
-          <feBlend in="SourceGraphic" />
+
+        {/* Drop shadow for the whole coin */}
+        <filter id={`${id}-shadow`} x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="3" dy="5" stdDeviation="6" floodColor="hsl(0 0% 0%)" floodOpacity="0.5" />
         </filter>
+
+        {/* Specular highlight */}
+        <radialGradient id={`${id}-shine`} cx="35%" cy="28%" r="40%">
+          <stop offset="0%" stopColor="hsl(43 80% 95%)" stopOpacity="0.35" />
+          <stop offset="50%" stopColor="hsl(43 60% 80%)" stopOpacity="0.1" />
+          <stop offset="100%" stopColor="hsl(43 60% 70%)" stopOpacity="0" />
+        </radialGradient>
+
+        {/* Rim light gradient */}
+        <linearGradient id={`${id}-rim`} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="hsl(43 60% 75%)" stopOpacity="0.8" />
+          <stop offset="50%" stopColor="hsl(43 50% 45%)" stopOpacity="0.3" />
+          <stop offset="100%" stopColor="hsl(43 40% 25%)" stopOpacity="0.6" />
+        </linearGradient>
       </defs>
 
-      {/* Outer ring with coin-edge ridges */}
-      <circle cx="100" cy="100" r="96" fill="url(#coinGradient)" filter="url(#coinShadow)" />
-      
-      {/* Coin ridges (serrated edge) */}
-      {Array.from({ length: 72 }).map((_, i) => {
-        const angle = (i * 5 * Math.PI) / 180;
-        const x1 = 100 + 96 * Math.cos(angle);
-        const y1 = 100 + 96 * Math.sin(angle);
-        const x2 = 100 + 90 * Math.cos(angle);
-        const y2 = 100 + 90 * Math.sin(angle);
-        return (
-          <line
-            key={i}
-            x1={x1}
-            y1={y1}
-            x2={x2}
-            y2={y2}
-            stroke="hsl(43 52% 40%)"
-            strokeWidth="0.8"
-            opacity="0.5"
-          />
-        );
-      })}
+      {/* Main coin body with 3D shadow */}
+      <g filter={`url(#${id}-shadow)`}>
+        {/* Outer edge / rim - creates thickness illusion */}
+        <circle cx="100" cy="102" r="94" fill="hsl(43 40% 25%)" />
+        <circle cx="100" cy="100" r="94" fill={`url(#${id}-edge)`} />
 
-      {/* Inner coin face */}
-      <circle cx="100" cy="100" r="88" fill="url(#coinFace)" />
-      
-      {/* Decorative inner ring */}
-      <circle cx="100" cy="100" r="82" fill="none" stroke="hsl(43 52% 68%)" strokeWidth="1" opacity="0.6" />
-      <circle cx="100" cy="100" r="78" fill="none" stroke="hsl(43 52% 40%)" strokeWidth="0.5" opacity="0.4" />
-      
-      {/* Decorative dots around inner ring */}
-      {Array.from({ length: 36 }).map((_, i) => {
-        const angle = (i * 10 * Math.PI) / 180;
-        const x = 100 + 80 * Math.cos(angle);
-        const y = 100 + 80 * Math.sin(angle);
-        return (
-          <circle
-            key={`dot-${i}`}
-            cx={x}
-            cy={y}
-            r="1"
-            fill="hsl(43 52% 70%)"
-            opacity="0.5"
-          />
-        );
-      })}
+        {/* Serrated edge ridges */}
+        {Array.from({ length: 120 }).map((_, i) => {
+          const angle = (i * 3 * Math.PI) / 180;
+          const x1 = 100 + 94 * Math.cos(angle);
+          const y1 = 100 + 94 * Math.sin(angle);
+          const x2 = 100 + 89 * Math.cos(angle);
+          const y2 = 100 + 89 * Math.sin(angle);
+          return (
+            <line
+              key={i}
+              x1={x1} y1={y1} x2={x2} y2={y2}
+              stroke={i % 2 === 0 ? "hsl(43 55% 60%)" : "hsl(43 40% 30%)"}
+              strokeWidth="0.6"
+              opacity="0.7"
+            />
+          );
+        })}
 
-      {/* Star/cross decorative elements at cardinal points */}
-      {[0, 90, 180, 270].map((deg) => {
-        const angle = (deg * Math.PI) / 180;
-        const x = 100 + 74 * Math.cos(angle);
-        const y = 100 + 74 * Math.sin(angle);
-        return (
-          <g key={`star-${deg}`}>
-            <circle cx={x} cy={y} r="2.5" fill="hsl(43 52% 72%)" opacity="0.7" />
-            <circle cx={x} cy={y} r="1" fill="hsl(43 52% 85%)" />
-          </g>
-        );
-      })}
+        {/* Raised inner rim ring */}
+        <circle cx="100" cy="100" r="86" fill={`url(#${id}-bevel)`} />
+        <circle cx="100" cy="100" r="86" fill="none" stroke="hsl(43 60% 68%)" strokeWidth="1.2" opacity="0.5" />
 
-      {/* KGS text - engraved style */}
-      <text
-        x="100"
-        y="108"
-        textAnchor="middle"
-        dominantBaseline="middle"
-        fontFamily="'Cormorant Garamond', serif"
-        fontSize="48"
-        fontWeight="700"
-        fill="url(#textGradient)"
-        letterSpacing="8"
-        filter="url(#innerShadow)"
-      >
-        KGS
-      </text>
+        {/* Main coin face */}
+        <circle cx="100" cy="100" r="82" fill={`url(#${id}-face)`} />
 
-      {/* Subtle engraved lines above and below text */}
-      <line x1="55" y1="75" x2="145" y2="75" stroke="hsl(43 52% 65%)" strokeWidth="1" opacity="0.5" />
-      <line x1="60" y1="80" x2="140" y2="80" stroke="hsl(43 52% 60%)" strokeWidth="0.5" opacity="0.3" />
-      <line x1="55" y1="130" x2="145" y2="130" stroke="hsl(43 52% 65%)" strokeWidth="1" opacity="0.5" />
-      <line x1="60" y1="125" x2="140" y2="125" stroke="hsl(43 52% 60%)" strokeWidth="0.5" opacity="0.3" />
+        {/* Inner decorative rings */}
+        <circle cx="100" cy="100" r="78" fill="none" stroke="hsl(43 55% 60%)" strokeWidth="0.8" opacity="0.4" />
+        <circle cx="100" cy="100" r="75" fill="none" stroke="hsl(43 40% 35%)" strokeWidth="0.5" opacity="0.5" />
 
-      {/* FLOW text below */}
-      <text
-        x="100"
-        y="148"
-        textAnchor="middle"
-        fontFamily="'Inter', sans-serif"
-        fontSize="14"
-        fontWeight="400"
-        fill="hsl(43 52% 65%)"
-        letterSpacing="6"
-      >
-        FLOW
-      </text>
+        {/* Decorative beading around inner circle */}
+        {Array.from({ length: 48 }).map((_, i) => {
+          const angle = (i * 7.5 * Math.PI) / 180;
+          const x = 100 + 76.5 * Math.cos(angle);
+          const y = 100 + 76.5 * Math.sin(angle);
+          return (
+            <circle
+              key={`bead-${i}`}
+              cx={x} cy={y} r="1.2"
+              fill="hsl(43 55% 60%)"
+              opacity="0.5"
+            />
+          );
+        })}
 
-      {/* Coin shine/highlight */}
-      <ellipse cx="75" cy="65" rx="30" ry="20" fill="hsl(43 52% 90%)" opacity="0.08" transform="rotate(-30 75 65)" />
+        {/* Cardinal point decorations (small diamonds) */}
+        {[0, 90, 180, 270].map((deg) => {
+          const angle = (deg * Math.PI) / 180;
+          const x = 100 + 71 * Math.cos(angle);
+          const y = 100 + 71 * Math.sin(angle);
+          return (
+            <g key={`diamond-${deg}`} transform={`translate(${x},${y}) rotate(45)`}>
+              <rect x="-2.5" y="-2.5" width="5" height="5" fill="hsl(43 55% 62%)" opacity="0.6" />
+              <rect x="-1.5" y="-1.5" width="3" height="3" fill="hsl(43 60% 78%)" opacity="0.5" />
+            </g>
+          );
+        })}
+
+        {/* Engraved lines above and below text */}
+        <path d="M 52 76 Q 76 72 100 74 Q 124 72 148 76" fill="none" stroke="hsl(43 50% 55%)" strokeWidth="1" opacity="0.5" />
+        <path d="M 55 80 Q 77 77 100 78 Q 123 77 145 80" fill="none" stroke="hsl(43 40% 35%)" strokeWidth="0.5" opacity="0.4" />
+
+        <path d="M 52 128 Q 76 132 100 130 Q 124 132 148 128" fill="none" stroke="hsl(43 50% 55%)" strokeWidth="1" opacity="0.5" />
+        <path d="M 55 124 Q 77 127 100 126 Q 123 127 145 124" fill="none" stroke="hsl(43 40% 35%)" strokeWidth="0.5" opacity="0.4" />
+
+        {/* KGS main text - embossed */}
+        <text
+          x="100" y="106"
+          textAnchor="middle"
+          dominantBaseline="middle"
+          fontFamily="'Cormorant Garamond', serif"
+          fontSize="50"
+          fontWeight="700"
+          fill={`url(#${id}-text)`}
+          letterSpacing="6"
+          filter={`url(#${id}-emboss)`}
+        >
+          KGS
+        </text>
+
+        {/* FLOW sub-text */}
+        <text
+          x="100" y="145"
+          textAnchor="middle"
+          fontFamily="'Inter', sans-serif"
+          fontSize="11"
+          fontWeight="500"
+          fill="hsl(43 50% 58%)"
+          letterSpacing="8"
+          filter={`url(#${id}-emboss)`}
+        >
+          FLOW
+        </text>
+
+        {/* Year / detail marks */}
+        <text
+          x="100" y="60"
+          textAnchor="middle"
+          fontFamily="'Inter', sans-serif"
+          fontSize="7"
+          fontWeight="400"
+          fill="hsl(43 45% 50%)"
+          letterSpacing="3"
+          opacity="0.6"
+        >
+          ★ KORA GLOBAL ★
+        </text>
+
+        {/* Specular highlight overlay for 3D pop */}
+        <circle cx="100" cy="100" r="82" fill={`url(#${id}-shine)`} />
+
+        {/* Subtle rim light */}
+        <circle cx="100" cy="100" r="93" fill="none" stroke={`url(#${id}-rim)`} strokeWidth="1.5" />
+      </g>
     </svg>
   );
 };
