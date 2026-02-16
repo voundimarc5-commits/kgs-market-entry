@@ -4,7 +4,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { MessageCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
-const WHATSAPP_LINK = "https://wa.me/XXXXXXXXXXX"; // TODO: replace with actual number
+const WHATSAPP_LINK = "https://wa.me/447404062008";
 
 const ContactSection = () => {
   const { t } = useLanguage();
@@ -13,6 +13,7 @@ const ContactSection = () => {
 
   const [form, setForm] = useState({
     name: "",
+    whatsapp: "",
     type: "",
     amount: "",
     country: "",
@@ -34,18 +35,19 @@ const ContactSection = () => {
       return;
     }
 
-    // Build WhatsApp message
-    const msg = `*${t("contact.title")}*\n\n*${t("contact.name")}:* ${form.name}\n*${t("contact.type")}:* ${form.type}\n*${t("contact.amount")}:* ${form.amount}\n*${t("contact.country")}:* ${form.country}\n*Message:* ${form.message}`;
+    const msg = `*${t("contact.title")}*\n\n*${t("contact.name")}:* ${form.name}\n*WhatsApp:* ${form.whatsapp}\n*${t("contact.type")}:* ${form.type}\n*${t("contact.amount")}:* ${form.amount}\n*${t("contact.country")}:* ${form.country}\n*Message:* ${form.message}`;
     const url = `${WHATSAPP_LINK}?text=${encodeURIComponent(msg)}`;
     window.open(url, "_blank");
   };
 
+  const inputClasses = "w-full bg-card border border-border rounded-sm px-4 py-3 text-sm text-foreground font-sans-body placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 transition-colors";
+
   return (
     <section id="contact" className="py-24 md:py-32 bg-secondary/30" ref={ref}>
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16 scroll-reveal">
+        <div className="text-center mb-6 scroll-reveal">
           <span className="text-xs font-sans-body text-primary tracking-widest uppercase mb-4 block">
-            Contact
+            {t("contact.label")}
           </span>
           <h2 className="font-serif-display text-3xl md:text-5xl font-semibold text-foreground">
             {t("contact.title")}
@@ -57,6 +59,11 @@ const ContactSection = () => {
           </div>
         </div>
 
+        {/* Intro text */}
+        <p className="text-center text-sm text-muted-foreground font-sans-body max-w-xl mx-auto mb-12 scroll-reveal">
+          {t("contact.intro")}
+        </p>
+
         <div className="max-w-xl mx-auto scroll-reveal">
           <form onSubmit={handleSubmit} className="space-y-5">
             {/* Name */}
@@ -64,13 +71,15 @@ const ContactSection = () => {
               <label className="block text-xs font-sans-body text-muted-foreground mb-1.5 tracking-wide uppercase">
                 {t("contact.name")} *
               </label>
-              <input
-                name="name"
-                value={form.name}
-                onChange={handleChange}
-                required
-                className="w-full bg-card border border-border rounded-sm px-4 py-3 text-sm text-foreground font-sans-body placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 transition-colors"
-              />
+              <input name="name" value={form.name} onChange={handleChange} required className={inputClasses} />
+            </div>
+
+            {/* WhatsApp number */}
+            <div>
+              <label className="block text-xs font-sans-body text-muted-foreground mb-1.5 tracking-wide uppercase">
+                {t("contact.whatsapp_number")}
+              </label>
+              <input name="whatsapp" value={form.whatsapp} onChange={handleChange} placeholder="+44..." className={inputClasses} />
             </div>
 
             {/* Type */}
@@ -78,13 +87,7 @@ const ContactSection = () => {
               <label className="block text-xs font-sans-body text-muted-foreground mb-1.5 tracking-wide uppercase">
                 {t("contact.type")} *
               </label>
-              <select
-                name="type"
-                value={form.type}
-                onChange={handleChange}
-                required
-                className="w-full bg-card border border-border rounded-sm px-4 py-3 text-sm text-foreground font-sans-body focus:outline-none focus:border-primary/50 transition-colors"
-              >
+              <select name="type" value={form.type} onChange={handleChange} required className={inputClasses}>
                 <option value="" disabled>—</option>
                 <option value="payment">{t("contact.type.payment")}</option>
                 <option value="info">{t("contact.type.info")}</option>
@@ -98,24 +101,13 @@ const ContactSection = () => {
                 <label className="block text-xs font-sans-body text-muted-foreground mb-1.5 tracking-wide uppercase">
                   {t("contact.amount")}
                 </label>
-                <input
-                  name="amount"
-                  value={form.amount}
-                  onChange={handleChange}
-                  placeholder="ex: 500 EUR"
-                  className="w-full bg-card border border-border rounded-sm px-4 py-3 text-sm text-foreground font-sans-body placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 transition-colors"
-                />
+                <input name="amount" value={form.amount} onChange={handleChange} placeholder="ex: 500 EUR" className={inputClasses} />
               </div>
               <div>
                 <label className="block text-xs font-sans-body text-muted-foreground mb-1.5 tracking-wide uppercase">
                   {t("contact.country")}
                 </label>
-                <input
-                  name="country"
-                  value={form.country}
-                  onChange={handleChange}
-                  className="w-full bg-card border border-border rounded-sm px-4 py-3 text-sm text-foreground font-sans-body placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 transition-colors"
-                />
+                <input name="country" value={form.country} onChange={handleChange} className={inputClasses} />
               </div>
             </div>
 
@@ -124,18 +116,12 @@ const ContactSection = () => {
               <label className="block text-xs font-sans-body text-muted-foreground mb-1.5 tracking-wide uppercase">
                 {t("contact.message")}
               </label>
-              <textarea
-                name="message"
-                value={form.message}
-                onChange={handleChange}
-                rows={4}
-                className="w-full bg-card border border-border rounded-sm px-4 py-3 text-sm text-foreground font-sans-body placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 transition-colors resize-none"
-              />
+              <textarea name="message" value={form.message} onChange={handleChange} rows={4} className={`${inputClasses} resize-none`} />
             </div>
 
             <button
               type="submit"
-              className="w-full bg-primary text-primary-foreground py-3.5 text-sm font-medium tracking-wide hover:bg-primary/90 transition-colors rounded-sm"
+              className="w-full bg-primary text-primary-foreground py-3.5 text-sm font-bold tracking-widest hover:bg-primary/90 transition-colors rounded-sm"
             >
               {t("contact.submit")}
             </button>
