@@ -24,8 +24,12 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2">
-          <KGSCoin size={40} />
+        <a href="#" className="flex items-center gap-3">
+          <KGSCoin size={36} className="md:w-10 md:h-10" />
+          <div className="flex flex-col leading-none">
+            <span className="font-serif-display text-base md:text-lg font-bold text-foreground tracking-wide">KGS FLOW</span>
+            <span className="text-[9px] md:text-[10px] font-sans-body text-muted-foreground tracking-widest uppercase">Kora Global Systems</span>
+          </div>
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -66,43 +70,45 @@ const Header = () => {
           </button>
         </nav>
 
-        <button className="md:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {mobileOpen && (
-        <div className="md:hidden bg-background border-b border-border px-6 pb-6 space-y-4">
-          {navItems.map((item) => (
-            <button
-              key={item.key}
-              onClick={() => scrollTo(item.href)}
-              className="block text-sm text-muted-foreground hover:text-primary transition-colors"
-            >
-              {t(item.key)}
-            </button>
-          ))}
-          <div className="flex items-center gap-2">
+        <div className="flex md:hidden items-center gap-3">
+          <div className="flex items-center gap-1 border border-border rounded-full px-1 py-0.5">
             <button
               onClick={() => setLang("fr")}
-              className={`text-xs px-3 py-1 rounded-full border ${
-                lang === "fr" ? "bg-primary text-primary-foreground border-primary" : "border-border text-muted-foreground"
+              className={`text-[10px] px-2 py-0.5 rounded-full transition-colors ${
+                lang === "fr" ? "bg-primary text-primary-foreground" : "text-muted-foreground"
               }`}
             >
               FR
             </button>
             <button
               onClick={() => setLang("en")}
-              className={`text-xs px-3 py-1 rounded-full border ${
-                lang === "en" ? "bg-primary text-primary-foreground border-primary" : "border-border text-muted-foreground"
+              className={`text-[10px] px-2 py-0.5 rounded-full transition-colors ${
+                lang === "en" ? "bg-primary text-primary-foreground" : "text-muted-foreground"
               }`}
             >
               EN
             </button>
           </div>
+          <button className="text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
+            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
+      </div>
+
+      {mobileOpen && (
+        <div className="md:hidden bg-background/95 backdrop-blur-md border-b border-border px-6 pb-5 pt-3 space-y-3 animate-in slide-in-from-top-2 duration-200">
+          {navItems.map((item) => (
+            <button
+              key={item.key}
+              onClick={() => scrollTo(item.href)}
+              className="block w-full text-left text-sm font-sans-body text-muted-foreground hover:text-primary transition-colors py-1.5 border-b border-border/30 last:border-0"
+            >
+              {t(item.key)}
+            </button>
+          ))}
           <button
             onClick={() => scrollTo("#contact")}
-            className="block w-full text-sm font-medium bg-primary text-primary-foreground px-5 py-2 rounded-sm"
+            className="block w-full text-sm font-medium bg-primary text-primary-foreground px-5 py-2.5 rounded-sm mt-2"
           >
             {t("nav.cta")}
           </button>

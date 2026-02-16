@@ -50,7 +50,7 @@ const translations: Record<string, Record<Language, string>> = {
 
   // Process
   "process.label": { fr: "Processus", en: "Process" },
-  "process.title": { fr: "Comment ça fonctionne", en: "How it works" },
+  "process.title": { fr: "Comment ça fonctionne ?", en: "How does it work?" },
   "process.step1.title": { fr: "Soumission", en: "Submission" },
   "process.step1.desc": {
     fr: "Vous soumettez votre demande via notre formulaire ou WhatsApp.",
