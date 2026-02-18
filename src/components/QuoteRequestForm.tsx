@@ -1,45 +1,31 @@
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Send, CheckCircle, ArrowRight, MessageCircle } from "lucide-react";
 
 const WHATSAPP_LINK = "https://wa.me/447404062008";
 
-const countries = [
-  { code: "CM", fr: "Cameroun", en: "Cameroon" },
-  { code: "GA", fr: "Gabon", en: "Gabon" },
-  { code: "CI", fr: "Côte d'Ivoire", en: "Côte d'Ivoire" },
-  { code: "SN", fr: "Sénégal", en: "Senegal" },
-  { code: "FR", fr: "France", en: "France" },
-  { code: "GB", fr: "Royaume-Uni", en: "United Kingdom" },
-  { code: "US", fr: "États-Unis", en: "United States" },
-  { code: "CA", fr: "Canada", en: "Canada" },
-  { code: "CH", fr: "Suisse", en: "Switzerland" },
+const currencies = [
+  { code: "USD", fr: "USD – Dollar américain", en: "USD – US Dollar" },
+  { code: "EUR", fr: "EUR – Euro", en: "EUR – Euro" },
+  { code: "GBP", fr: "GBP – Livre sterling", en: "GBP – British Pound" },
+  { code: "CHF", fr: "CHF – Franc suisse", en: "CHF – Swiss Franc" },
+  { code: "CAD", fr: "CAD – Dollar canadien", en: "CAD – Canadian Dollar" },
+  { code: "XAF", fr: "XAF – Franc CFA (CEMAC)", en: "XAF – Central African CFA Franc" },
+  { code: "XOF", fr: "XOF – Franc CFA (UEMOA)", en: "XOF – West African CFA Franc" },
 ];
 
-const paymentMethodsByCountry: Record<string, string[]> = {
-  CM: ["mobile_money", "bank_transfer", "card", "cash_deposit", "not_sure"],
-  GA: ["mobile_money", "bank_transfer", "card", "cash_deposit", "not_sure"],
-  CI: ["mobile_money", "bank_transfer", "card", "cash_deposit", "not_sure"],
-  SN: ["mobile_money", "bank_transfer", "card", "cash_deposit", "not_sure"],
-  FR: ["bank_transfer", "card", "digital_wallet", "not_sure"],
-  GB: ["bank_transfer", "card", "digital_wallet", "not_sure"],
-  US: ["bank_transfer", "card", "digital_wallet", "not_sure"],
-  CA: ["bank_transfer", "card", "digital_wallet", "not_sure"],
-  CH: ["bank_transfer", "card", "digital_wallet", "not_sure"],
-};
-
-const paymentMethodLabels: Record<string, Record<string, string>> = {
-  bank_transfer: { fr: "Virement bancaire", en: "Bank transfer" },
-  card: { fr: "Carte (débit/crédit)", en: "Card (debit/credit)" },
-  mobile_money: { fr: "Mobile Money", en: "Mobile money" },
-  cash_deposit: { fr: "Dépôt espèces", en: "Cash deposit" },
-  digital_wallet: { fr: "Portefeuille numérique", en: "Digital wallet" },
-  not_sure: { fr: "Pas encore sûr", en: "Not sure yet" },
-};
+const paymentMethods = [
+  { value: "bank_transfer", fr: "Virement bancaire", en: "Bank transfer" },
+  { value: "card", fr: "Carte", en: "Card" },
+  { value: "mobile_money", fr: "Mobile Money", en: "Mobile money" },
+  { value: "digital_wallet", fr: "Portefeuille numérique", en: "Digital wallet" },
+  { value: "cash_based", fr: "Solution en espèces (si applicable)", en: "Cash-based solution (where applicable)" },
+  { value: "not_sure", fr: "Pas encore sûr", en: "Not sure yet" },
+];
 
 const clientTypes = {
-  fr: ["Particulier", "Entreprise", "Organisation"],
-  en: ["Individual", "Business", "Organisation"],
+  fr: ["Particulier", "Entreprise / Organisation"],
+  en: ["Individual", "Business / Organisation"],
 };
 
 const urgencyOptions = {
@@ -53,40 +39,27 @@ const QuoteRequestForm = () => {
 
   const [direction, setDirection] = useState<"send" | "receive">("send");
   const [amount, setAmount] = useState("");
-  const [fromCountry, setFromCountry] = useState("");
-  const [toCountry, setToCountry] = useState("");
+  const [fromCurrency, setFromCurrency] = useState("");
+  const [toCurrency, setToCurrency] = useState("");
   const [email, setEmail] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("");
   const [clientType, setClientType] = useState("");
   const [urgency, setUrgency] = useState("");
   const [purpose, setPurpose] = useState("");
 
-  const availableMethods = useMemo(() => {
-    const methods = new Set<string>();
-    if (fromCountry && paymentMethodsByCountry[fromCountry]) {
-      paymentMethodsByCountry[fromCountry].forEach((m) => methods.add(m));
-    }
-    if (toCountry && paymentMethodsByCountry[toCountry]) {
-      paymentMethodsByCountry[toCountry].forEach((m) => methods.add(m));
-    }
-    return Array.from(methods);
-  }, [fromCountry, toCountry]);
-
-  const canSubmit = amount && parseFloat(amount) > 0 && fromCountry && toCountry && email.includes("@");
+  const canSubmit = amount && parseFloat(amount) > 0 && fromCurrency && toCurrency && email.includes("@");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!canSubmit) return;
 
-    const fromLabel = countries.find((c) => c.code === fromCountry)?.[lang] || fromCountry;
-    const toLabel = countries.find((c) => c.code === toCountry)?.[lang] || toCountry;
     const dirLabel = direction === "send"
       ? (lang === "fr" ? "envoyer" : "send")
       : (lang === "fr" ? "que le destinataire reçoive" : "recipient receives");
 
     const msg = lang === "fr"
-      ? `Demande de devis — Je souhaite ${dirLabel} ${amount} EUR de ${fromLabel} vers ${toLabel}. Email: ${email}${clientType ? `. Type: ${clientType}` : ""}${urgency ? `. Urgence: ${urgency}` : ""}${purpose ? `. Contexte: ${purpose}` : ""}`
-      : `Quote request — I want to ${dirLabel} ${amount} EUR from ${fromLabel} to ${toLabel}. Email: ${email}${clientType ? `. Type: ${clientType}` : ""}${urgency ? `. Urgency: ${urgency}` : ""}${purpose ? `. Context: ${purpose}` : ""}`;
+      ? `Demande de devis — Je souhaite ${dirLabel} ${amount} ${fromCurrency} → ${toCurrency}. Email: ${email}${clientType ? `. Type: ${clientType}` : ""}${urgency ? `. Urgence: ${urgency}` : ""}${paymentMethod ? `. Méthode: ${paymentMethods.find(m => m.value === paymentMethod)?.fr}` : ""}${purpose ? `. Contexte: ${purpose}` : ""}`
+      : `Quote request — I want to ${dirLabel} ${amount} ${fromCurrency} → ${toCurrency}. Email: ${email}${clientType ? `. Type: ${clientType}` : ""}${urgency ? `. Urgency: ${urgency}` : ""}${paymentMethod ? `. Method: ${paymentMethods.find(m => m.value === paymentMethod)?.en}` : ""}${purpose ? `. Context: ${purpose}` : ""}`;
 
     window.open(`${WHATSAPP_LINK}?text=${encodeURIComponent(msg)}`, "_blank");
     setSubmitted(true);
@@ -96,8 +69,8 @@ const QuoteRequestForm = () => {
     setSubmitted(false);
     setDirection("send");
     setAmount("");
-    setFromCountry("");
-    setToCountry("");
+    setFromCurrency("");
+    setToCurrency("");
     setEmail("");
     setPaymentMethod("");
     setClientType("");
@@ -207,22 +180,22 @@ const QuoteRequestForm = () => {
             />
           </div>
 
-          {/* From / To */}
+          {/* From / To Currency */}
           <div className="grid grid-cols-2 gap-3">
             <div>
               <label className={labelClasses}>{t("quote.from")} *</label>
-              <select value={fromCountry} onChange={(e) => { setFromCountry(e.target.value); setPaymentMethod(""); }} className={selectClasses} required>
+              <select value={fromCurrency} onChange={(e) => setFromCurrency(e.target.value)} className={selectClasses} required>
                 <option value="" disabled>—</option>
-                {countries.map((c) => (
+                {currencies.map((c) => (
                   <option key={c.code} value={c.code}>{c[lang]}</option>
                 ))}
               </select>
             </div>
             <div>
               <label className={labelClasses}>{t("quote.to")} *</label>
-              <select value={toCountry} onChange={(e) => { setToCountry(e.target.value); setPaymentMethod(""); }} className={selectClasses} required>
+              <select value={toCurrency} onChange={(e) => setToCurrency(e.target.value)} className={selectClasses} required>
                 <option value="" disabled>—</option>
-                {countries.map((c) => (
+                {currencies.map((c) => (
                   <option key={c.code} value={c.code}>{c[lang]}</option>
                 ))}
               </select>
@@ -251,19 +224,16 @@ const QuoteRequestForm = () => {
             <div className="flex-1 h-px bg-border" />
           </div>
 
-          {/* Payment method (dynamic) */}
-          {availableMethods.length > 0 && (
-            <div>
-              <label className={labelClasses}>{t("quote.payment_method")}</label>
-              <select value={paymentMethod} onChange={(e) => setPaymentMethod(e.target.value)} className={selectClasses}>
-                <option value="">—</option>
-                {availableMethods.map((m) => (
-                  <option key={m} value={m}>{paymentMethodLabels[m]?.[lang] || m}</option>
-                ))}
-              </select>
-            </div>
-          )}
-
+          {/* Payment method (static list, optional) */}
+          <div>
+            <label className={labelClasses}>{t("quote.payment_method")}</label>
+            <select value={paymentMethod} onChange={(e) => setPaymentMethod(e.target.value)} className={selectClasses}>
+              <option value="">—</option>
+              {paymentMethods.map((m) => (
+                <option key={m.value} value={m.value}>{m[lang]}</option>
+              ))}
+            </select>
+          </div>
           {/* Client type */}
           <div>
             <label className={labelClasses}>{t("quote.client_type")}</label>
