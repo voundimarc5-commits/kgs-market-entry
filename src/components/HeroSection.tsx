@@ -1,8 +1,13 @@
 import { useLanguage } from "@/contexts/LanguageContext";
-import DevisCalculator from "./DevisCalculator";
+import QuoteRequestForm from "./QuoteRequestForm";
 
 const HeroSection = () => {
   const { t } = useLanguage();
+
+  const scrollToForm = () => {
+    const el = document.getElementById("quote-form");
+    el?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
@@ -34,19 +39,27 @@ const HeroSection = () => {
               {t("hero.title2")}
             </p>
 
-            <p className="text-base md:text-lg text-muted-foreground font-sans-body max-w-lg mb-6 animate-fade-in-up animation-delay-400 leading-relaxed">
+            <p className="text-base md:text-lg text-muted-foreground font-sans-body max-w-lg mb-8 animate-fade-in-up animation-delay-400 leading-relaxed">
               {t("hero.subtitle")}
             </p>
 
+            {/* CTA button */}
+            <button
+              onClick={scrollToForm}
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 text-sm font-bold tracking-widest hover:bg-primary/90 transition-all duration-300 rounded-sm animate-fade-in-up animation-delay-600"
+            >
+              {t("hero.cta")}
+            </button>
+
             {/* Micro-text */}
-            <p className="text-xs text-muted-foreground/60 font-sans-body animate-fade-in-up animation-delay-600">
+            <p className="text-xs text-muted-foreground/60 font-sans-body animate-fade-in-up animation-delay-700 mt-4">
               {t("hero.micro")}
             </p>
           </div>
 
-          {/* Right: Devis Calculator */}
-          <div className="flex-1 w-full max-w-md">
-            <DevisCalculator />
+          {/* Right: Quote Form */}
+          <div className="flex-1 w-full max-w-lg">
+            <QuoteRequestForm />
           </div>
         </div>
 

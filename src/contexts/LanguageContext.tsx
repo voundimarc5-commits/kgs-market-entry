@@ -15,40 +15,60 @@ const translations: Record<string, Record<Language, string>> = {
   "nav.payment": { fr: "Modalités", en: "Payment" },
   "nav.contact": { fr: "Demande", en: "Request" },
   "nav.faq": { fr: "FAQ", en: "FAQ" },
-  "nav.cta": { fr: "Faire une demande", en: "Make a request" },
+  "nav.cta": { fr: "Demander un devis", en: "Request a quote" },
 
   // Hero
   "hero.title": {
-    fr: "Besoin de faire un paiement à l'international ?",
-    en: "Need to make an international payment?",
+    fr: "Demandez un devis en moins de 2 minutes",
+    en: "Request a Quote in under 2 minutes",
   },
   "hero.title2": {
-    fr: "Nous vous accompagnons de A à Z.",
-    en: "We support you every step of the way.",
+    fr: "Recevez un devis confirmé sous 6 heures.",
+    en: "Get a confirmed quote within up to 6 hours.",
   },
   "hero.subtitle": {
-    fr: "KGS Flow vous aide à organiser, exécuter et suivre vos paiements vers des tiers, avec un accompagnement humain et un processus clair.",
-    en: "KGS Flow helps you organize, execute and track your payments to third parties, with human support and a clear process.",
+    fr: "Aucun paiement n'est initié sur cette plateforme. Nous analysons votre besoin et vous proposons la meilleure route pour votre opération.",
+    en: "No payment is initiated on this platform. We analyze your needs and propose the best route for your operation.",
   },
-  "hero.cta": { fr: "FAIRE UNE DEMANDE", en: "MAKE A REQUEST" },
+  "hero.cta": { fr: "DEMANDER UN DEVIS", en: "REQUEST A QUOTE" },
   "hero.micro": {
-    fr: "Réponse rapide • Accompagnement personnalisé • Processus encadré",
-    en: "Quick response • Personalized support • Structured process",
+    fr: "Réponse sous 6h • Accompagnement personnalisé • Processus encadré",
+    en: "Response within 6h • Personalized support • Structured process",
   },
 
-  // Devis calculator
-  "devis.title": { fr: "Estimation rapide", en: "Quick estimate" },
-  "devis.amount": { fr: "Montant à envoyer", en: "Amount to send" },
-  "devis.from": { fr: "Depuis", en: "From" },
-  "devis.to": { fr: "Vers", en: "To" },
-  "devis.result_label": { fr: "Frais de service estimés", en: "Estimated service fee" },
-  "devis.note": {
-    fr: "Cette estimation est indicative. Les frais définitifs sont communiqués après analyse de votre demande.",
-    en: "This estimate is indicative. Final fees are communicated after analysis of your request.",
+  // Quote form
+  "quote.form_title": { fr: "Demande de devis", en: "Quote Request" },
+  "quote.form_helper": {
+    fr: "Renseignez les détails ci-dessous et nous vous confirmerons la meilleure route et le devis final.",
+    en: "Fill in the details below and we'll confirm the best route and final quote.",
   },
-  "devis.cta": { fr: "Soumettre cette demande", en: "Submit this request" },
+  "quote.direction": { fr: "Direction", en: "Direction" },
+  "quote.direction_send": { fr: "Je souhaite envoyer", en: "I want to send" },
+  "quote.direction_receive": { fr: "Le destinataire doit recevoir", en: "Recipient should receive" },
+  "quote.amount": { fr: "Montant", en: "Amount" },
+  "quote.from": { fr: "Pays d'envoi", en: "From country" },
+  "quote.to": { fr: "Pays de destination", en: "To country" },
+  "quote.email": { fr: "Email", en: "Email" },
+  "quote.optional": { fr: "Optionnel mais recommandé", en: "Optional but recommended" },
+  "quote.payment_method": { fr: "Moyen de paiement préféré", en: "Preferred payment method" },
+  "quote.client_type": { fr: "Type de client", en: "Client type" },
+  "quote.urgency": { fr: "Urgence", en: "Urgency" },
+  "quote.purpose": { fr: "Contexte", en: "Purpose" },
+  "quote.purpose_placeholder": { fr: "Contexte bref (optionnel)", en: "Brief context (optional)" },
+  "quote.submit": { fr: "SOUMETTRE LA DEMANDE", en: "SUBMIT REQUEST" },
+  "quote.disclaimer": {
+    fr: "Cette demande est à des fins d'estimation et de discussion uniquement. Aucun paiement n'est initié sur cette plateforme. Les conditions définitives sont confirmées manuellement avant exécution.",
+    en: "This request is for estimation and discussion purposes only. No payment is initiated on this platform. Final terms are confirmed manually prior to execution.",
+  },
+  "quote.success_title": { fr: "Demande reçue", en: "Request received" },
+  "quote.success_text": {
+    fr: "Nous examinerons votre demande et vous enverrons un devis confirmé sous 6 heures maximum.",
+    en: "We'll review and send a confirmed quote within up to 6 hours.",
+  },
+  "quote.another": { fr: "Nouvelle demande", en: "Submit another request" },
+  "quote.contact_us": { fr: "Nous contacter", en: "Contact us" },
 
-  // About / Donner du sens
+  // About
   "about.label": { fr: "Pourquoi KGS Flow", en: "Why KGS Flow" },
   "about.title": { fr: "Donner du sens à votre paiement", en: "Making sense of your payment" },
   "about.text1": {
@@ -115,50 +135,23 @@ const translations: Record<string, Record<Language, string>> = {
   "scope.label": { fr: "Périmètre", en: "Scope" },
   "scope.title": { fr: "Notre périmètre", en: "Our scope" },
   "scope.do.title": { fr: "Ce que nous faisons", en: "What we do" },
-  "scope.do.1": {
-    fr: "Assistance à l'exécution de paiements",
-    en: "Payment execution assistance",
-  },
-  "scope.do.2": {
-    fr: "Organisation et coordination des opérations",
-    en: "Operations organization and coordination",
-  },
-  "scope.do.3": {
-    fr: "Suivi et communication client",
-    en: "Follow-up and client communication",
-  },
+  "scope.do.1": { fr: "Assistance à l'exécution de paiements", en: "Payment execution assistance" },
+  "scope.do.2": { fr: "Organisation et coordination des opérations", en: "Operations organization and coordination" },
+  "scope.do.3": { fr: "Suivi et communication client", en: "Follow-up and client communication" },
   "scope.dont.title": { fr: "Ce que nous ne faisons pas", en: "What we don't do" },
-  "scope.dont.1": {
-    fr: "Transfert d'argent pour le compte de tiers",
-    en: "Money transfers on behalf of third parties",
-  },
-  "scope.dont.2": {
-    fr: "Services bancaires ou financiers réglementés",
-    en: "Regulated banking or financial services",
-  },
-  "scope.dont.3": {
-    fr: "Services de change, remittance ou exchange",
-    en: "Currency exchange or remittance services",
-  },
+  "scope.dont.1": { fr: "Transfert d'argent pour le compte de tiers", en: "Money transfers on behalf of third parties" },
+  "scope.dont.2": { fr: "Services bancaires ou financiers réglementés", en: "Regulated banking or financial services" },
+  "scope.dont.3": { fr: "Services de change, remittance ou exchange", en: "Currency exchange or remittance services" },
 
   // FAQ
   "faq.label": { fr: "Questions fréquentes", en: "Frequently asked questions" },
   "faq.title": { fr: "FAQ", en: "FAQ" },
   "faq.q1": { fr: "KGS Flow est-il une banque ?", en: "Is KGS Flow a bank?" },
-  "faq.a1": {
-    fr: "Non. KGS Flow est un service d'assistance et de facilitation de paiement.",
-    en: "No. KGS Flow is a payment assistance and facilitation service.",
-  },
+  "faq.a1": { fr: "Non. KGS Flow est un service d'assistance et de facilitation de paiement.", en: "No. KGS Flow is a payment assistance and facilitation service." },
   "faq.q2": { fr: "Puis-je payer directement sur le site ?", en: "Can I pay directly on the website?" },
-  "faq.a2": {
-    fr: "Non. Les modalités de règlement sont communiquées après validation de la demande.",
-    en: "No. Payment terms are communicated after request validation.",
-  },
+  "faq.a2": { fr: "Non. Les modalités de règlement sont communiquées après validation de la demande.", en: "No. Payment terms are communicated after request validation." },
   "faq.q3": { fr: "Ma demande est-elle automatique ?", en: "Is my request automatic?" },
-  "faq.a3": {
-    fr: "Non. Chaque demande est analysée et suivie individuellement.",
-    en: "No. Each request is individually analyzed and followed up.",
-  },
+  "faq.a3": { fr: "Non. Chaque demande est analysée et suivie individuellement.", en: "No. Each request is individually analyzed and followed up." },
 
   // Positioning statement
   "positioning": {
@@ -168,16 +161,17 @@ const translations: Record<string, Record<Language, string>> = {
 
   // Footer
   "footer.disclaimer": {
-    fr: "KGS Flow est un service d'assistance et de facilitation de paiement. Nous ne sommes pas une institution financière et ne fournissons pas de services de transfert d'argent.",
-    en: "KGS Flow is a payment assistance and facilitation service. We are not a financial institution and do not provide money transfer services.",
+    fr: "KGS Flow est un service d'assistance et de facilitation de paiement. Nous accompagnons nos clients dans l'organisation, l'exécution et le suivi de paiements vers des tiers, dans le cadre de prestations de service. KGS Flow n'est pas une institution financière, ni un service de transfert d'argent.",
+    en: "KGS Flow is a payment assistance and facilitation service. We support our clients in organizing, executing, and tracking payments to third parties, within the framework of service provisions. KGS Flow is not a financial institution, nor a money transfer service.",
   },
   "footer.division": {
     fr: "Division opérationnelle de Kora Global Systems",
     en: "Operational division of Kora Global Systems",
   },
-  "footer.rights": {
-    fr: "Tous droits réservés.",
-    en: "All rights reserved.",
+  "footer.rights": { fr: "Tous droits réservés.", en: "All rights reserved." },
+  "footer.presence": {
+    fr: "Présence : Europe • Afrique Centrale • Amérique du Nord",
+    en: "Presence: Europe • Central Africa • North America",
   },
 };
 
