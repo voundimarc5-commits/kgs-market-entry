@@ -19,35 +19,35 @@ const translations: Record<string, Record<Language, string>> = {
 
   // Hero
   "hero.title": {
-    fr: "Demandez un devis en moins de 2 minutes",
-    en: "Request a Quote in under 2 minutes",
+    fr: "Demandez un devis pour votre scénario multi-devises",
+    en: "Request a Quote for Your Cross-Currency Scenario",
   },
   "hero.title2": {
-    fr: "Recevez un devis confirmé sous 6 heures.",
-    en: "Get a confirmed quote within up to 6 hours.",
+    fr: "Explorez un scénario indicatif et recevez une réponse confirmée sous quelques heures.",
+    en: "Explore an indicative scenario and receive a confirmed response within a few hours.",
   },
   "hero.subtitle": {
-    fr: "Aucun paiement n'est initié sur cette plateforme. Nous analysons votre besoin et vous proposons la meilleure route pour votre opération.",
-    en: "No payment is initiated on this platform. We analyze your needs and propose the best route for your operation.",
+    fr: "Aucun paiement n'est initié sur cette plateforme.",
+    en: "No payment is initiated on this platform.",
   },
   "hero.cta": { fr: "DEMANDER UN DEVIS", en: "REQUEST A QUOTE" },
   "hero.micro": {
-    fr: "Réponse sous 6h • Accompagnement personnalisé • Processus encadré",
-    en: "Response within 6h • Personalized support • Structured process",
+    fr: "Aucun paiement n'est initié sur cette plateforme.",
+    en: "No payment is initiated on this platform.",
   },
 
   // Quote form
   "quote.form_title": { fr: "Demande de devis", en: "Quote Request" },
   "quote.form_helper": {
-    fr: "Renseignez les détails ci-dessous et nous vous confirmerons la meilleure route et le devis final.",
-    en: "Fill in the details below and we'll confirm the best route and final quote.",
+    fr: "Renseignez quelques détails ci-dessous pour recevoir un devis indicatif. Les conditions définitives sont confirmées avant toute exécution.",
+    en: "Provide a few details below to receive an indicative quote. Final terms are confirmed prior to any execution.",
   },
   "quote.direction": { fr: "Direction", en: "Direction" },
   "quote.direction_send": { fr: "Je souhaite envoyer", en: "I want to send" },
   "quote.direction_receive": { fr: "Le destinataire doit recevoir", en: "Recipient should receive" },
   "quote.amount": { fr: "Montant", en: "Amount" },
-  "quote.from": { fr: "Pays d'envoi", en: "From country" },
-  "quote.to": { fr: "Pays de destination", en: "To country" },
+  "quote.from": { fr: "Devise d'envoi", en: "From currency" },
+  "quote.to": { fr: "Devise de destination", en: "To currency" },
   "quote.email": { fr: "Email", en: "Email" },
   "quote.optional": { fr: "Optionnel mais recommandé", en: "Optional but recommended" },
   "quote.payment_method": { fr: "Moyen de paiement préféré", en: "Preferred payment method" },
@@ -62,8 +62,8 @@ const translations: Record<string, Record<Language, string>> = {
   },
   "quote.success_title": { fr: "Demande reçue", en: "Request received" },
   "quote.success_text": {
-    fr: "Nous examinerons votre demande et vous enverrons un devis confirmé sous 6 heures maximum.",
-    en: "We'll review and send a confirmed quote within up to 6 hours.",
+    fr: "Un membre de notre équipe examinera votre scénario et vous fournira une réponse, généralement sous quelques heures.",
+    en: "A member of our team will review your scenario and provide a response, typically within a few hours.",
   },
   "quote.another": { fr: "Nouvelle demande", en: "Submit another request" },
   "quote.contact_us": { fr: "Nous contacter", en: "Contact us" },
