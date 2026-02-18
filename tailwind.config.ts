@@ -19,14 +19,12 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        "flow-blue": {
-          DEFAULT: "hsl(var(--flow-blue))",
-          light: "hsl(var(--flow-blue-light))",
+        gold: {
+          DEFAULT: "hsl(var(--gold))",
+          light: "hsl(var(--gold-light))",
         },
-        "flow-slate": "hsl(var(--flow-slate))",
-        "flow-muted": "hsl(var(--flow-muted))",
-        "flow-surface": "hsl(var(--flow-surface))",
-        "flow-warm": "hsl(var(--flow-warm))",
+        silver: "hsl(var(--silver))",
+        cream: "hsl(var(--cream))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

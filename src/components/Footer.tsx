@@ -1,26 +1,26 @@
 import { useLanguage } from "@/contexts/LanguageContext";
-import KGSCoin from "./KGSCoin";
 
 const Footer = () => {
   const { t } = useLanguage();
 
   const navItems = [
-    { key: "nav.understanding", href: "#understanding" },
-    { key: "nav.support", href: "#support" },
+    { key: "nav.process", href: "#process" },
+    { key: "nav.scope", href: "#scope" },
+    { key: "nav.payment", href: "#payment" },
     { key: "nav.contact", href: "#contact" },
+    { key: "nav.faq", href: "#faq" },
   ];
 
   return (
-    <footer className="border-t border-border py-16 bg-card">
+    <footer className="border-t border-border py-16">
       <div className="container mx-auto px-6">
-        {/* Logo + Disclaimer */}
+        {/* Disclaimer */}
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <KGSCoin size={32} className="mx-auto mb-4" />
-          <p className="text-xs text-muted-foreground font-body leading-relaxed mb-4">
+          <div className="w-10 h-10 mx-auto mb-4 rounded-full border border-primary/30 flex items-center justify-center">
+            <span className="font-serif-display text-primary font-bold text-[10px] tracking-widest">KGS</span>
+          </div>
+          <p className="text-xs text-muted-foreground font-sans-body leading-relaxed">
             {t("footer.disclaimer")}
-          </p>
-          <p className="text-xs text-muted-foreground/70 font-body">
-            {t("footer.presence")}
           </p>
         </div>
 
@@ -30,7 +30,7 @@ const Footer = () => {
             <a
               key={item.key}
               href={item.href}
-              className="text-xs text-muted-foreground hover:text-primary transition-colors font-body"
+              className="text-xs text-muted-foreground hover:text-primary transition-colors font-sans-body"
             >
               {t(item.key)}
             </a>
@@ -39,11 +39,11 @@ const Footer = () => {
 
         {/* Bottom */}
         <div className="text-center space-y-2">
-          <p className="text-xs text-muted-foreground/60 font-body">
+          <p className="text-xs text-muted-foreground/60 font-sans-body">
             {t("footer.division")}
           </p>
-          <p className="text-xs text-muted-foreground/40 font-body">
-            © 2024 KGS Flow. {t("footer.rights")}
+          <p className="text-xs text-muted-foreground/40 font-sans-body">
+            © {new Date().getFullYear()} KGS Flow. {t("footer.rights")}
           </p>
         </div>
       </div>
