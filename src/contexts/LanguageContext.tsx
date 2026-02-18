@@ -19,21 +19,21 @@ const translations: Record<string, Record<Language, string>> = {
 
   // Hero
   "hero.title": {
-    fr: "Demandez un devis pour votre scénario multi-devises",
-    en: "Request a Quote for Your Cross-Currency Scenario",
+    fr: "Vos paiements internationaux,",
+    en: "Your international payments,",
   },
   "hero.title2": {
-    fr: "Explorez un scénario indicatif et recevez une réponse confirmée sous quelques heures.",
-    en: "Explore an indicative scenario and receive a confirmed response within a few hours.",
+    fr: "accompagnés de A à Z.",
+    en: "guided from A to Z.",
   },
   "hero.subtitle": {
-    fr: "Aucun paiement n'est initié sur cette plateforme.",
-    en: "No payment is initiated on this platform.",
+    fr: "Nous analysons votre besoin, organisons la meilleure route et assurons le suivi jusqu'à confirmation. Vous restez informé à chaque étape.",
+    en: "We analyze your needs, organize the best route and ensure follow-up until confirmation. You stay informed at every step.",
   },
   "hero.cta": { fr: "DEMANDER UN DEVIS", en: "REQUEST A QUOTE" },
   "hero.micro": {
-    fr: "Aucun paiement n'est initié sur cette plateforme.",
-    en: "No payment is initiated on this platform.",
+    fr: "Réponse sous quelques heures • Accompagnement personnalisé • Processus encadré",
+    en: "Response within hours • Personalized support • Structured process",
   },
 
   // Quote form
