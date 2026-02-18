@@ -1,4 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Mail } from "lucide-react";
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -37,13 +38,31 @@ const Footer = () => {
           ))}
         </div>
 
+        {/* Presence */}
+        <div className="text-center mb-6">
+          <p className="text-xs text-muted-foreground/70 font-sans-body tracking-wide">
+            {t("footer.presence")}
+          </p>
+        </div>
+
+        {/* Contact */}
+        <div className="flex justify-center mb-8">
+          <a
+            href="mailto:contact@kgsflow.com"
+            className="inline-flex items-center gap-2 text-xs text-muted-foreground hover:text-primary transition-colors font-sans-body"
+          >
+            <Mail size={14} />
+            contact@kgsflow.com
+          </a>
+        </div>
+
         {/* Bottom */}
         <div className="text-center space-y-2">
           <p className="text-xs text-muted-foreground/60 font-sans-body">
             {t("footer.division")}
           </p>
           <p className="text-xs text-muted-foreground/40 font-sans-body">
-            © {new Date().getFullYear()} KGS Flow. {t("footer.rights")}
+            © 2024 KGS Flow. {t("footer.rights")}
           </p>
         </div>
       </div>

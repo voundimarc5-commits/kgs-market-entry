@@ -62,7 +62,7 @@ const Header = () => {
           </div>
 
           <button
-            onClick={() => scrollTo("#contact")}
+            onClick={() => scrollTo("#quote-form")}
             className="text-sm font-medium bg-primary text-primary-foreground px-5 py-2 rounded-sm hover:bg-primary/90 transition-colors"
           >
             {t("nav.cta")}
@@ -106,7 +106,7 @@ const Header = () => {
             </button>
           ))}
           <button
-            onClick={() => scrollTo("#contact")}
+            onClick={() => scrollTo("#quote-form")}
             className="block w-full text-sm font-medium bg-primary text-primary-foreground px-5 py-2.5 rounded-sm mt-2"
           >
             {t("nav.cta")}
