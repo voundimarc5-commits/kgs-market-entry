@@ -13,8 +13,7 @@ const Footer = () => {
     { key: "nav.faq", href: "#faq" },
   ];
 
-  // Combine legal text into a single scrolling line
-  const legalScrollText = t("footer.legal_text").replace(/\n\n/g, " — ");
+
 
   return (
     <footer className="border-t border-border/50 bg-secondary/20">
@@ -69,18 +68,15 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Legal Notice — scrolling banner at the very bottom */}
-      <div className="w-full bg-primary/5 border-t border-primary/10 overflow-hidden py-2.5">
-        <div className="animate-scroll-x whitespace-nowrap">
-          <span className="text-[11px] text-primary/60 font-sans-body tracking-wide mx-16">
-            {t("footer.legal_title")} — {legalScrollText}
-          </span>
-          <span className="text-[11px] text-primary/60 font-sans-body tracking-wide mx-16">
-            {t("footer.legal_title")} — {legalScrollText}
-          </span>
-          <span className="text-[11px] text-primary/60 font-sans-body tracking-wide mx-16">
-            {t("footer.legal_title")} — {legalScrollText}
-          </span>
+      {/* Legal Notice — static block at the very bottom */}
+      <div className="w-full bg-primary/5 border-t border-primary/10 px-6 py-6">
+        <div className="max-w-3xl mx-auto text-center space-y-3">
+          <p className="text-[11px] text-primary/70 font-sans-body font-medium tracking-widest uppercase">
+            {t("footer.legal_title")}
+          </p>
+          <p className="text-[10px] text-muted-foreground/60 font-sans-body leading-relaxed tracking-wide">
+            {t("footer.legal_text")}
+          </p>
         </div>
       </div>
     </footer>
