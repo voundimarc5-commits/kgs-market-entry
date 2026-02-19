@@ -6,13 +6,13 @@ const AboutSection = () => {
   const ref = useScrollReveal();
 
   return (
-    <section id="about" className="py-24 md:py-32" ref={ref}>
+    <section id="about" className="py-16 md:py-24" ref={ref}>
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16 scroll-reveal">
+        <div className="text-center mb-10 scroll-reveal">
           <span className="text-xs font-sans-body text-primary tracking-widest uppercase mb-4 block">
             {t("about.label")}
           </span>
-          <h2 className="font-serif-display text-3xl md:text-5xl font-semibold text-foreground">
+          <h2 className="font-serif-display text-3xl md:text-5xl font-semibold text-foreground uppercase tracking-wide">
             {t("about.title")}
           </h2>
           <div className="mt-6 flex items-center justify-center gap-4">

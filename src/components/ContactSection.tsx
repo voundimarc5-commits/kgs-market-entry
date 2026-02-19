@@ -43,13 +43,13 @@ const ContactSection = () => {
   const inputClasses = "w-full bg-card border border-border rounded-sm px-4 py-3 text-sm text-foreground font-sans-body placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 transition-colors";
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-secondary/30" ref={ref}>
+    <section id="contact" className="py-16 md:py-24 bg-secondary/30" ref={ref}>
       <div className="container mx-auto px-6">
         <div className="text-center mb-6 scroll-reveal">
           <span className="text-xs font-sans-body text-primary tracking-widest uppercase mb-4 block">
             {t("contact.label")}
           </span>
-          <h2 className="font-serif-display text-3xl md:text-5xl font-semibold text-foreground">
+          <h2 className="font-serif-display text-3xl md:text-5xl font-semibold text-foreground uppercase tracking-wide">
             {t("contact.title")}
           </h2>
           <div className="mt-6 flex items-center justify-center gap-4">
