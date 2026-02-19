@@ -233,6 +233,9 @@ const QuoteRequestForm = () => {
                 <option key={m.value} value={m.value}>{m[lang]}</option>
               ))}
             </select>
+            <p className="text-[9px] text-muted-foreground/50 font-sans-body mt-1 leading-relaxed">
+              {t("quote.payment_method_note")}
+            </p>
           </div>
           {/* Client type */}
           <div>
@@ -277,6 +280,9 @@ const QuoteRequestForm = () => {
             {t("quote.submit")}
             <ArrowRight size={16} />
           </button>
+          <p className="text-[9px] text-muted-foreground/50 font-sans-body mt-1 text-center leading-relaxed">
+            {t("quote.submit_note")}
+          </p>
         </form>
 
         {/* Compliance disclaimer */}

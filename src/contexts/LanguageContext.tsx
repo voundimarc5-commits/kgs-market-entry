@@ -11,8 +11,8 @@ interface LanguageContextType {
 const translations: Record<string, Record<Language, string>> = {
   // Banner
   "banner.disclaimer": {
-    fr: "Avertissement : KGS Flow ne fournit pas de services financiers, n'exécute pas de transactions et ne détient pas de fonds. Toutes les opérations financières sont menées exclusivement par des prestataires tiers agréés.",
-    en: "Disclaimer: KGS Flow does not provide financial services, does not execute transactions, and does not custody funds. All financial operations are conducted exclusively by licensed third-party providers.",
+    fr: "Avertissement — KGS Flow est une solution structurelle d'orchestration. Elle ne fournit pas de services financiers, n'exécute pas de transactions et ne détient aucun fonds. Toutes les opérations financières sont réalisées par des prestataires tiers agréés.",
+    en: "Disclaimer — KGS Flow is a structural orchestration solution. It does not provide financial services, does not execute transactions, and does not custody any funds. All financial operations are carried out by licensed third-party providers.",
   },
 
   // Nav
@@ -56,12 +56,14 @@ const translations: Record<string, Record<Language, string>> = {
   "quote.to": { fr: "Devise de destination", en: "To currency" },
   "quote.email": { fr: "Email", en: "Email" },
   "quote.optional": { fr: "Optionnel mais recommandé", en: "Optional but recommended" },
-  "quote.payment_method": { fr: "Moyen de paiement préféré", en: "Preferred payment method" },
+  "quote.payment_method": { fr: "Canal envisagé (indicatif)", en: "Preferred channel (indicative)" },
+  "quote.payment_method_note": { fr: "À titre informatif uniquement. KGS Flow ne traite aucun paiement.", en: "For informational purposes only. KGS Flow does not process any payments." },
   "quote.client_type": { fr: "Type de client", en: "Client type" },
   "quote.urgency": { fr: "Urgence", en: "Urgency" },
   "quote.purpose": { fr: "Contexte", en: "Purpose" },
   "quote.purpose_placeholder": { fr: "Contexte bref (optionnel)", en: "Brief context (optional)" },
   "quote.submit": { fr: "SOUMETTRE LA DEMANDE", en: "SUBMIT REQUEST" },
+  "quote.submit_note": { fr: "Demande non contraignante à des fins de cadrage et de structuration uniquement.", en: "Non-binding request for framing and structuring purposes only." },
   "quote.disclaimer": {
     fr: "Cette demande est à des fins d'estimation et de discussion uniquement. Aucun paiement n'est initié sur cette plateforme. Les conditions définitives sont confirmées manuellement avant mise en œuvre.",
     en: "This request is for estimation and discussion purposes only. No payment is initiated on this platform. Final terms are confirmed manually prior to execution.",
@@ -176,8 +178,8 @@ const translations: Record<string, Record<Language, string>> = {
   },
   "footer.rights": { fr: "Tous droits réservés.", en: "All rights reserved." },
   "footer.presence": {
-    fr: "Présence : Europe • Afrique Centrale • Amérique du Nord",
-    en: "Presence: Europe • Central Africa • North America",
+    fr: "Zone d'activité principale : Afrique centrale",
+    en: "Primary area of activity: Central Africa",
   },
   "footer.legal_title": { fr: "Mentions légales", en: "Legal Notice" },
   "footer.legal_text": {
