@@ -9,10 +9,12 @@ import ScopeSection from "@/components/ScopeSection";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import DisclaimerBanner from "@/components/DisclaimerBanner";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background relative">
+      <DisclaimerBanner />
       <FinancialBackground />
       <Header />
       <main>

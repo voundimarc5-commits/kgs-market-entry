@@ -56,6 +56,16 @@ const Footer = () => {
           </a>
         </div>
 
+        {/* Legal Notice */}
+        <div className="max-w-3xl mx-auto mb-12 border-t border-border pt-10">
+          <h3 className="font-serif-display text-base font-semibold text-foreground text-center mb-4">
+            {t("footer.legal_title")}
+          </h3>
+          <div className="text-xs text-muted-foreground/70 font-sans-body leading-relaxed whitespace-pre-line text-center">
+            {t("footer.legal_text")}
+          </div>
+        </div>
+
         {/* Bottom */}
         <div className="text-center space-y-2">
           <p className="text-xs text-muted-foreground/60 font-sans-body">
