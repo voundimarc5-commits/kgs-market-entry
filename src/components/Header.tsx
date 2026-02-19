@@ -24,7 +24,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2 min-w-0">
-          <KGSCoin size={44} className="md:w-12 md:h-12 shrink-0" />
+          <KGSCoin size={44} className="md:w-12 md:h-12 shrink-0 animate-spin-pause-slow" />
           <div className="flex flex-col leading-none min-w-0">
             <span className="font-serif-display text-sm md:text-lg font-bold text-foreground tracking-wide truncate">KGS FLOW</span>
             <span className="text-[8px] md:text-[9px] font-sans-body text-muted-foreground tracking-widest uppercase truncate">Kora Global Systems</span>
