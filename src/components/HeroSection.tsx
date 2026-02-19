@@ -32,10 +32,10 @@ const HeroSection = () => {
               <span className="text-xs font-sans-body text-primary tracking-widest uppercase">KGS Flow</span>
             </div>
 
-            <h1 className="font-serif-display text-[2.1rem] md:text-5xl lg:text-6xl font-black text-foreground leading-[1.05] mb-3 animate-fade-in-up animation-delay-200 uppercase tracking-tight">
+            <h1 className="font-serif-display text-[2.1rem] md:text-5xl lg:text-6xl font-black text-foreground leading-[1.05] mb-3 animate-fade-in-up animation-delay-200 uppercase tracking-[0.04em]">
               {t("hero.title")}
             </h1>
-            <p className="font-serif-display text-[1.4rem] md:text-3xl lg:text-4xl font-semibold text-primary leading-tight mb-6 animate-fade-in-up animation-delay-300">
+            <p className="font-serif-display text-[1.4rem] md:text-3xl lg:text-4xl font-semibold text-primary leading-tight mb-6 animate-fade-in-up animation-delay-300 tracking-wide">
               {t("hero.title2")}
             </p>
 
