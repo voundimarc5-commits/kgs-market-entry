@@ -1,23 +1,15 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import { AlertTriangle } from "lucide-react";
 
 const DisclaimerBanner = () => {
   const { t } = useLanguage();
 
-  const text = t("banner.disclaimer");
-
   return (
-    <div className="w-full bg-primary/10 border-b border-primary/20 overflow-hidden py-0.5">
-      <div className="animate-scroll-x whitespace-nowrap">
-        <span className="text-[8px] text-primary/70 font-sans-body tracking-wider mx-10">
-          {text}
-        </span>
-        <span className="text-[8px] text-primary/70 font-sans-body tracking-wider mx-10">
-          {text}
-        </span>
-        <span className="text-[8px] text-primary/70 font-sans-body tracking-wider mx-10">
-          {text}
-        </span>
-      </div>
+    <div className="w-full bg-background/80 border-b border-border/50 flex items-center justify-center gap-2 px-4 py-1.5" style={{ height: "30px" }}>
+      <AlertTriangle size={12} className="text-muted-foreground/60 shrink-0" />
+      <span className="text-[10px] text-muted-foreground/70 font-sans-body tracking-wide truncate">
+        {t("banner.disclaimer")}
+      </span>
     </div>
   );
 };
