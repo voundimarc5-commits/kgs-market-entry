@@ -25,8 +25,8 @@ const translations: Record<string, Record<Language, string>> = {
 
   // Hero
   "hero.title": {
-    fr: "Vos flux internationaux,",
-    en: "Your international flows,",
+    fr: "VOS FLUX INTERNATIONAUX",
+    en: "YOUR INTERNATIONAL FLOWS",
   },
   "hero.title2": {
     fr: "structurés de A à Z.",

@@ -10,7 +10,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-8 pb-12">
       {/* Background decorative elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent animate-flow-line" />
@@ -23,11 +23,11 @@ const HeroSection = () => {
       </div>
 
       <div className="relative z-10 container mx-auto px-6">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           {/* Left: Text content */}
           <div className="flex-1 text-center lg:text-left max-w-xl">
             {/* Small badge */}
-            <div className="inline-flex items-center gap-2 border border-primary/30 rounded-full px-4 py-1.5 mb-8 animate-fade-in-up">
+            <div className="inline-flex items-center gap-2 border border-primary/30 rounded-full px-4 py-1.5 mb-6 animate-fade-in-up">
               <div className="w-1.5 h-1.5 rounded-full bg-primary" />
               <span className="text-xs font-sans-body text-primary tracking-widest uppercase">KGS Flow</span>
             </div>
@@ -39,7 +39,7 @@ const HeroSection = () => {
               {t("hero.title2")}
             </p>
 
-            <p className="text-base md:text-lg text-muted-foreground font-sans-body max-w-lg mb-8 animate-fade-in-up animation-delay-400 leading-relaxed">
+            <p className="text-sm md:text-base text-muted-foreground font-sans-body max-w-lg mb-6 animate-fade-in-up animation-delay-400 leading-relaxed">
               {t("hero.subtitle")}
             </p>
 
@@ -64,7 +64,7 @@ const HeroSection = () => {
         </div>
 
         {/* Decorative divider */}
-        <div className="mt-16 flex items-center justify-center gap-4 animate-fade-in-up animation-delay-800">
+        <div className="mt-10 flex items-center justify-center gap-4 animate-fade-in-up animation-delay-800">
           <div className="w-16 h-px bg-primary/30" />
           <div className="w-2 h-2 rotate-45 border border-primary/40" />
           <div className="w-16 h-px bg-primary/30" />

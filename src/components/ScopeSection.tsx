@@ -10,13 +10,13 @@ const ScopeSection = () => {
   const dontItems = ["scope.dont.1", "scope.dont.2", "scope.dont.3"];
 
   return (
-    <section id="scope" className="py-24 md:py-32 bg-secondary/30" ref={ref}>
+    <section id="scope" className="py-16 md:py-24 bg-secondary/30" ref={ref}>
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16 scroll-reveal">
+        <div className="text-center mb-10 scroll-reveal">
           <span className="text-xs font-sans-body text-primary tracking-widest uppercase mb-4 block">
             {t("scope.title")}
           </span>
-          <h2 className="font-serif-display text-3xl md:text-5xl font-semibold text-foreground">
+          <h2 className="font-serif-display text-3xl md:text-5xl font-semibold text-foreground uppercase tracking-wide">
             {t("scope.title")}
           </h2>
           <div className="mt-6 flex items-center justify-center gap-4">

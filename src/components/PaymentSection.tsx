@@ -7,13 +7,13 @@ const PaymentSection = () => {
   const ref = useScrollReveal();
 
   return (
-    <section id="payment" className="py-24 md:py-32" ref={ref}>
+    <section id="payment" className="py-16 md:py-24" ref={ref}>
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16 scroll-reveal">
+        <div className="text-center mb-10 scroll-reveal">
           <span className="text-xs font-sans-body text-primary tracking-widest uppercase mb-4 block">
             {t("payment.label")}
           </span>
-          <h2 className="font-serif-display text-3xl md:text-5xl font-semibold text-foreground">
+          <h2 className="font-serif-display text-3xl md:text-5xl font-semibold text-foreground uppercase tracking-wide">
             {t("payment.title")}
           </h2>
           <div className="mt-6 flex items-center justify-center gap-4">

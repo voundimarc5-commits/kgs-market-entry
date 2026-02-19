@@ -14,9 +14,11 @@ import DisclaimerBanner from "@/components/DisclaimerBanner";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background relative">
-      <DisclaimerBanner />
       <FinancialBackground />
       <Header />
+      <div className="pt-16">
+        <DisclaimerBanner />
+      </div>
       <main>
         <HeroSection />
         <AboutSection />
