@@ -32,17 +32,21 @@ const ProcessSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
           {steps.map((step, i) => (
-            <div key={i} className="scroll-reveal text-center group" style={{ transitionDelay: `${i * 0.15}s` }}>
-              <div className="text-5xl font-serif-display text-primary/20 font-bold mb-4">
+            <div
+              key={i}
+              className="scroll-reveal text-center group cursor-pointer transition-all duration-500 ease-out hover:scale-110 hover:-translate-y-2 active:scale-110 active:-translate-y-2"
+              style={{ transitionDelay: `${i * 0.15}s` }}
+            >
+              <div className="text-5xl font-serif-display text-primary/20 font-bold mb-4 transition-colors duration-300 group-hover:text-primary/40">
                 {String(i + 1).padStart(2, "0")}
               </div>
-              <div className="w-14 h-14 mx-auto mb-4 rounded-full border border-primary/30 flex items-center justify-center group-hover:border-primary/60 transition-colors">
-                <step.icon size={22} className="text-primary" strokeWidth={1.5} />
+              <div className="w-14 h-14 mx-auto mb-4 rounded-full border border-primary/30 flex items-center justify-center transition-all duration-500 group-hover:border-primary group-hover:bg-primary/10 group-hover:shadow-[0_0_20px_hsl(38_55%_52%/0.2)]">
+                <step.icon size={22} className="text-primary transition-transform duration-500 group-hover:scale-110" strokeWidth={1.5} />
               </div>
-              <h3 className="font-serif-display text-xl font-semibold text-foreground mb-2">
+              <h3 className="font-serif-display text-xl font-semibold text-foreground mb-2 transition-colors duration-300 group-hover:text-primary">
                 {t(step.titleKey)}
               </h3>
-              <p className="text-sm text-muted-foreground font-sans-body leading-relaxed">
+              <p className="text-sm text-muted-foreground font-sans-body leading-relaxed transition-colors duration-300 group-hover:text-foreground/80">
                 {t(step.descKey)}
               </p>
             </div>

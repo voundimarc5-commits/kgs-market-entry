@@ -1,6 +1,43 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Check, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+
+const AnimatedCheck = ({ delay = 0 }: { delay?: number }) => {
+  const [pulse, setPulse] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPulse(true);
+      setTimeout(() => setPulse(false), 600);
+    }, 3000 + delay * 400);
+    return () => clearInterval(interval);
+  }, [delay]);
+
+  return (
+    <div className={`transition-all duration-500 ${pulse ? "scale-125 rotate-12" : "scale-100 rotate-0"}`}>
+      <Check size={16} className={`text-primary transition-all duration-500 ${pulse ? "drop-shadow-[0_0_6px_hsl(38_55%_52%/0.6)]" : ""}`} />
+    </div>
+  );
+};
+
+const AnimatedX = ({ delay = 0 }: { delay?: number }) => {
+  const [pulse, setPulse] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPulse(true);
+      setTimeout(() => setPulse(false), 600);
+    }, 3500 + delay * 400);
+    return () => clearInterval(interval);
+  }, [delay]);
+
+  return (
+    <div className={`transition-all duration-500 ${pulse ? "scale-125 -rotate-12" : "scale-100 rotate-0"}`}>
+      <X size={16} className={`text-muted-foreground transition-all duration-500 ${pulse ? "opacity-60" : ""}`} />
+    </div>
+  );
+};
 
 const ScopeSection = () => {
   const { t } = useLanguage();
@@ -37,39 +74,43 @@ const ScopeSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* What we do */}
-          <div className="scroll-reveal border border-primary/20 rounded-sm p-8 bg-card">
+          <div className="scroll-reveal border border-primary/20 rounded-sm p-8 bg-card transition-all duration-500 hover:border-primary/40 hover:shadow-[0_0_30px_hsl(38_55%_52%/0.08)]">
             <div className="flex items-center justify-center gap-3 mb-6">
               <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                <Check size={16} className="text-primary" />
+                <AnimatedCheck />
               </div>
               <h3 className="font-serif-display text-xl font-semibold text-foreground text-center">
                 {t("scope.do.title")}
               </h3>
             </div>
             <ul className="space-y-4">
-              {doItems.map((key) => (
-                <li key={key} className="flex items-start gap-3">
-                  <Check size={16} className="text-primary mt-0.5 shrink-0" />
-                  <span className="text-sm text-muted-foreground font-sans-body">{t(key)}</span>
+              {doItems.map((key, i) => (
+                <li key={key} className="flex items-start gap-3 group/item hover:translate-x-1 transition-transform duration-300">
+                  <div className="mt-0.5 shrink-0">
+                    <AnimatedCheck delay={i} />
+                  </div>
+                  <span className="text-sm text-muted-foreground font-sans-body transition-colors duration-300 group-hover/item:text-foreground/80">{t(key)}</span>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* What we don't do */}
-          <div className="scroll-reveal border border-border rounded-sm p-8 bg-card" style={{ transitionDelay: "0.15s" }}>
+          <div className="scroll-reveal border border-border rounded-sm p-8 bg-card transition-all duration-500 hover:border-muted-foreground/30" style={{ transitionDelay: "0.15s" }}>
             <div className="flex items-center justify-center gap-3 mb-6">
               <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center">
-                <X size={16} className="text-muted-foreground" />
+                <AnimatedX />
               </div>
               <h3 className="font-serif-display text-xl font-semibold text-foreground text-center">
                 {t("scope.dont.title")}
               </h3>
             </div>
             <ul className="space-y-4">
-              {dontItems.map((key) => (
-                <li key={key} className="flex items-start gap-3">
-                  <X size={16} className="text-muted-foreground mt-0.5 shrink-0" />
+              {dontItems.map((key, i) => (
+                <li key={key} className="flex items-start gap-3 group/item hover:translate-x-1 transition-transform duration-300">
+                  <div className="mt-0.5 shrink-0">
+                    <AnimatedX delay={i} />
+                  </div>
                   <span className="text-sm text-muted-foreground font-sans-body">{t(key)}</span>
                 </li>
               ))}

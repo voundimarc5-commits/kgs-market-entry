@@ -46,9 +46,9 @@ const HeroSection = () => {
             {/* CTA button */}
             <button
               onClick={scrollToForm}
-              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 text-sm font-bold tracking-widest hover:bg-primary/90 transition-all duration-300 rounded-sm animate-fade-in-up animation-delay-600"
+              className="group/cta inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 text-sm font-bold tracking-widest hover:bg-primary/90 hover:shadow-[0_0_25px_hsl(38_55%_52%/0.4)] hover:scale-105 active:scale-105 transition-all duration-300 rounded-sm animate-fade-in-up animation-delay-600"
             >
-              {t("hero.cta")}
+              <span className="inline-block transition-transform duration-300 group-hover/cta:translate-x-1">{t("hero.cta")}</span>
             </button>
 
             {/* Micro-text */}
