@@ -116,6 +116,16 @@
 .animation-delay-700 { animation-delay: 0.7s; }
 .animation-delay-800 { animation-delay: 0.8s; }
 
+/* Scrolling banner */
+@keyframes scroll-x {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+.animate-scroll-x {
+  animation: scroll-x 30s linear infinite;
+}
+
 /* Scroll reveal */
 .scroll-reveal {
   opacity: 0;
