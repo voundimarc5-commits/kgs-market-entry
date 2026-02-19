@@ -151,3 +151,7 @@
 .animate-spin-pause {
   animation: spin-pause 4s ease-in-out infinite;
 }
+
+.animate-spin-pause-slow {
+  animation: spin-pause 8s ease-in-out infinite;
+}
