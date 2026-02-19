@@ -79,7 +79,7 @@ const ContactSection = () => {
               <label className="block text-xs font-sans-body text-muted-foreground mb-1.5 tracking-wide uppercase">
                 {t("contact.whatsapp_number")}
               </label>
-              <input name="whatsapp" value={form.whatsapp} onChange={handleChange} placeholder="+44..." className={inputClasses} />
+              <input name="whatsapp" value={form.whatsapp} onChange={handleChange} placeholder="+237" className={inputClasses} />
             </div>
 
             {/* Type */}
