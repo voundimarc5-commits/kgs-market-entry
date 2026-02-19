@@ -121,7 +121,7 @@ const ContactSection = () => {
 
             <button
               type="submit"
-              className="w-full bg-primary text-primary-foreground py-3.5 text-sm font-bold tracking-widest hover:bg-primary/90 transition-colors rounded-sm"
+              className="w-full bg-primary text-primary-foreground py-3.5 text-sm font-bold tracking-widest hover:bg-primary/90 hover:shadow-[0_0_25px_hsl(38_55%_52%/0.4)] hover:scale-[1.02] active:scale-[1.02] transition-all duration-300 rounded-sm"
             >
               {t("contact.submit")}
             </button>
