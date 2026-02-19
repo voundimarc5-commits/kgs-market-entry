@@ -6,15 +6,15 @@ const DisclaimerBanner = () => {
   const text = t("banner.disclaimer");
 
   return (
-    <div className="w-full bg-muted border-b border-border overflow-hidden py-1.5 fixed top-0 left-0 z-[60]">
+    <div className="w-full bg-secondary/80 border-b border-border/50 overflow-hidden py-1.5 fixed top-0 left-0 z-[60]">
       <div className="animate-scroll-x whitespace-nowrap">
-        <span className="text-[11px] text-muted-foreground font-sans-body tracking-wide mx-8">
+        <span className="text-[10px] text-muted-foreground/80 font-sans-body tracking-wider mx-12">
           {text}
         </span>
-        <span className="text-[11px] text-muted-foreground font-sans-body tracking-wide mx-8">
+        <span className="text-[10px] text-muted-foreground/80 font-sans-body tracking-wider mx-12">
           {text}
         </span>
-        <span className="text-[11px] text-muted-foreground font-sans-body tracking-wide mx-8">
+        <span className="text-[10px] text-muted-foreground/80 font-sans-body tracking-wider mx-12">
           {text}
         </span>
       </div>
