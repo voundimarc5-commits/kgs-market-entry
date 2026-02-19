@@ -1,5 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Mail } from "lucide-react";
+import kgsCoinLogo from "@/assets/kgs-coin-logo.png";
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -20,9 +21,11 @@ const Footer = () => {
       <div className="container mx-auto px-6 py-14">
         {/* Disclaimer */}
         <div className="max-w-3xl mx-auto text-center mb-10">
-          <div className="w-10 h-10 mx-auto mb-4 rounded-full border border-primary/20 flex items-center justify-center">
-            <span className="font-serif-display text-primary font-bold text-[10px] tracking-[0.2em]">KGS</span>
-          </div>
+          <img 
+            src={kgsCoinLogo} 
+            alt="KGS Flow" 
+            className="w-12 h-12 mx-auto mb-4 animate-spin-pause"
+          />
           <p className="text-[11px] text-muted-foreground/70 font-sans-body leading-relaxed tracking-wide">
             {t("footer.disclaimer")}
           </p>

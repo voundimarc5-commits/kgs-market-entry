@@ -138,3 +138,16 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Coin spin-pause animation */
+@keyframes spin-pause {
+  0% { transform: rotateY(0deg); }
+  20% { transform: rotateY(360deg); }
+  50% { transform: rotateY(360deg); }
+  70% { transform: rotateY(720deg); }
+  100% { transform: rotateY(720deg); }
+}
+
+.animate-spin-pause {
+  animation: spin-pause 4s ease-in-out infinite;
+}
