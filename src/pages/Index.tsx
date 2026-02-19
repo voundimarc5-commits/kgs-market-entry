@@ -10,6 +10,7 @@ import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import DisclaimerBanner from "@/components/DisclaimerBanner";
+import ScopeGovernance from "@/components/ScopeGovernance";
 
 const Index = () => {
   return (
@@ -28,6 +29,7 @@ const Index = () => {
         <ScopeSection />
         <FAQSection />
       </main>
+      <ScopeGovernance />
       <Footer />
       <WhatsAppButton />
     </div>

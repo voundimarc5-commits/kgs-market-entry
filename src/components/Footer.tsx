@@ -1,5 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 import kgsCoinLogo from "@/assets/kgs-coin-logo.png";
 
 const Footer = () => {
@@ -55,6 +56,19 @@ const Footer = () => {
             <Mail size={12} strokeWidth={1.5} />
             contact@koraglobalsystems.com
           </a>
+        </div>
+
+        {/* Legal page links */}
+        <div className="flex flex-wrap justify-center gap-6 mb-8">
+          <Link to="/legal-notice" className="text-[10px] text-muted-foreground/50 hover:text-primary transition-colors font-sans-body tracking-wider underline underline-offset-2">
+            {t("footer.link_legal")}
+          </Link>
+          <Link to="/terms-of-use" className="text-[10px] text-muted-foreground/50 hover:text-primary transition-colors font-sans-body tracking-wider underline underline-offset-2">
+            {t("footer.link_terms")}
+          </Link>
+          <Link to="/privacy-policy" className="text-[10px] text-muted-foreground/50 hover:text-primary transition-colors font-sans-body tracking-wider underline underline-offset-2">
+            {t("footer.link_privacy")}
+          </Link>
         </div>
 
         {/* Bottom line */}
