@@ -1,7 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Check, X } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 const AnimatedCheck = ({ delay = 0 }: { delay?: number }) => {
   const [pulse, setPulse] = useState(false);
@@ -43,15 +43,15 @@ const ScopeSection = () => {
   const { t } = useLanguage();
   const ref = useScrollReveal();
 
-  const doItems = ["scope.do.1", "scope.do.2", "scope.do.3"];
-  const dontItems = ["scope.dont.1", "scope.dont.2", "scope.dont.3"];
+  const doItems = ["scope.do.1", "scope.do.2", "scope.do.3", "scope.do.4", "scope.do.5"];
+  const dontItems = ["scope.dont.1", "scope.dont.2", "scope.dont.3", "scope.dont.4"];
 
   return (
     <section id="scope" className="py-16 md:py-24 bg-secondary/30" ref={ref}>
       <div className="container mx-auto px-6">
         <div className="text-center mb-10 scroll-reveal">
           <span className="text-xs font-sans-body text-primary tracking-widest uppercase mb-4 block">
-            {t("scope.title")}
+            {t("scope.label")}
           </span>
           <h2 className="font-serif-display text-3xl md:text-5xl font-semibold text-foreground uppercase tracking-wide">
             {t("scope.title")}
@@ -60,15 +60,6 @@ const ScopeSection = () => {
             <div className="w-12 h-px bg-primary/40" />
             <div className="w-1.5 h-1.5 rotate-45 border border-primary/50" />
             <div className="w-12 h-px bg-primary/40" />
-          </div>
-        </div>
-
-        {/* Positioning statement */}
-        <div className="max-w-3xl mx-auto mb-16 scroll-reveal">
-          <div className="border border-primary/20 rounded-sm p-8 text-center bg-card">
-            <p className="text-foreground font-serif-display text-base md:text-lg leading-relaxed font-bold uppercase tracking-wide">
-              "{t("positioning")}"
-            </p>
           </div>
         </div>
 
@@ -115,6 +106,15 @@ const ScopeSection = () => {
                 </li>
               ))}
             </ul>
+          </div>
+        </div>
+
+        {/* Closing statement */}
+        <div className="max-w-3xl mx-auto mt-12 scroll-reveal">
+          <div className="border border-primary/20 rounded-sm p-8 text-center bg-card">
+            <p className="text-foreground font-serif-display text-base md:text-lg leading-relaxed font-bold uppercase tracking-wide">
+              {t("scope.closing")}
+            </p>
           </div>
         </div>
       </div>

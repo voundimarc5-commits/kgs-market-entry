@@ -7,14 +7,12 @@ const Footer = () => {
   const { t } = useLanguage();
 
   const navItems = [
-    { key: "nav.process", href: "#process" },
+    { key: "nav.about", href: "#about" },
+    { key: "nav.method", href: "#process" },
     { key: "nav.scope", href: "#scope" },
-    { key: "nav.payment", href: "#payment" },
+    { key: "nav.engagement", href: "#engagement" },
     { key: "nav.contact", href: "#contact" },
-    { key: "nav.faq", href: "#faq" },
   ];
-
-
 
   return (
     <footer className="border-t border-border/50 bg-secondary/20">
@@ -23,7 +21,7 @@ const Footer = () => {
         <div className="max-w-3xl mx-auto text-center mb-10">
           <img 
             src={kgsCoinLogo} 
-            alt="KGS Flow" 
+            alt="KGS Market Entry" 
             className="w-12 h-12 mx-auto mb-4 animate-spin-pause"
           />
           <p className="text-[11px] text-muted-foreground/70 font-sans-body leading-relaxed tracking-wide">
@@ -77,7 +75,7 @@ const Footer = () => {
             {t("footer.division")}
           </p>
           <p className="text-[10px] text-muted-foreground/30 font-sans-body tracking-wider">
-            © 2024 KGS Flow. {t("footer.rights")}
+            © 2024 KGS Market Entry. {t("footer.rights")}
           </p>
         </div>
       </div>

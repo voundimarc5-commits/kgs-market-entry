@@ -2,11 +2,12 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import FinancialBackground from "@/components/FinancialBackground";
 import AboutSection from "@/components/AboutSection";
+import WhyStructureSection from "@/components/WhyStructureSection";
+import ProjectTypesSection from "@/components/ProjectTypesSection";
 import ProcessSection from "@/components/ProcessSection";
-import ContactSection from "@/components/ContactSection";
-import PaymentSection from "@/components/PaymentSection";
+import EngagementSection from "@/components/EngagementSection";
 import ScopeSection from "@/components/ScopeSection";
-import FAQSection from "@/components/FAQSection";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import DisclaimerBanner from "@/components/DisclaimerBanner";
@@ -23,11 +24,12 @@ const Index = () => {
       <main>
         <HeroSection />
         <AboutSection />
+        <WhyStructureSection />
+        <ProjectTypesSection />
         <ProcessSection />
-        <ContactSection />
-        <PaymentSection />
+        <EngagementSection />
         <ScopeSection />
-        <FAQSection />
+        <ContactSection />
       </main>
       <ScopeGovernance />
       <Footer />

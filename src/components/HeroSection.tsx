@@ -1,11 +1,16 @@
 import { useLanguage } from "@/contexts/LanguageContext";
-import QuoteRequestForm from "./QuoteRequestForm";
+import ClarityReviewForm from "./ClarityReviewForm";
 
 const HeroSection = () => {
   const { t } = useLanguage();
 
   const scrollToForm = () => {
-    const el = document.getElementById("quote-form");
+    const el = document.getElementById("clarity-form");
+    el?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const scrollToMethod = () => {
+    const el = document.getElementById("process");
     el?.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -29,7 +34,7 @@ const HeroSection = () => {
             {/* Small badge */}
             <div className="inline-flex items-center gap-2 border border-primary/30 rounded-full px-4 py-1.5 mb-6 animate-fade-in-up">
               <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-              <span className="text-xs font-sans-body text-primary tracking-widest uppercase">KGS Flow</span>
+              <span className="text-xs font-sans-body text-primary tracking-widest uppercase">KGS Market Entry</span>
             </div>
 
             <h1 className="font-serif-display text-[2.1rem] md:text-5xl lg:text-6xl font-black text-foreground leading-[1.05] mb-3 animate-fade-in-up animation-delay-200 uppercase tracking-[0.04em]">
@@ -39,17 +44,25 @@ const HeroSection = () => {
               {t("hero.title2")}
             </p>
 
-            <p className="text-sm md:text-base text-muted-foreground font-sans-body max-w-lg mb-6 animate-fade-in-up animation-delay-400 leading-relaxed">
+            <p className="text-sm md:text-base text-muted-foreground font-sans-body max-w-lg mb-6 animate-fade-in-up animation-delay-400 leading-relaxed whitespace-pre-line">
               {t("hero.subtitle")}
             </p>
 
-            {/* CTA button */}
-            <button
-              onClick={scrollToForm}
-              className="group/cta inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 text-sm font-bold tracking-widest hover:bg-primary/90 hover:shadow-[0_0_25px_hsl(38_55%_52%/0.4)] hover:scale-105 active:scale-105 transition-all duration-300 rounded-sm animate-fade-in-up animation-delay-600"
-            >
-              <span className="inline-block transition-transform duration-300 group-hover/cta:translate-x-1">{t("hero.cta")}</span>
-            </button>
+            {/* CTA buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 animate-fade-in-up animation-delay-600">
+              <button
+                onClick={scrollToForm}
+                className="group/cta inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 text-sm font-bold tracking-widest hover:bg-primary/90 hover:shadow-[0_0_25px_hsl(38_55%_52%/0.4)] hover:scale-105 active:scale-105 transition-all duration-300 rounded-sm"
+              >
+                <span className="inline-block transition-transform duration-300 group-hover/cta:translate-x-1">{t("hero.cta")}</span>
+              </button>
+              <button
+                onClick={scrollToMethod}
+                className="inline-flex items-center justify-center gap-2 border border-primary/30 text-primary px-8 py-3.5 text-sm font-bold tracking-widest hover:bg-primary/10 transition-all duration-300 rounded-sm"
+              >
+                {t("hero.cta2")}
+              </button>
+            </div>
 
             {/* Micro-text */}
             <p className="text-xs text-muted-foreground/60 font-sans-body animate-fade-in-up animation-delay-700 mt-4">
@@ -57,9 +70,9 @@ const HeroSection = () => {
             </p>
           </div>
 
-          {/* Right: Quote Form */}
+          {/* Right: Clarity Review Form */}
           <div className="flex-1 w-full max-w-lg">
-            <QuoteRequestForm />
+            <ClarityReviewForm />
           </div>
         </div>
 
