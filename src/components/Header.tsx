@@ -8,10 +8,11 @@ const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navItems = [
+    { key: "nav.about", href: "#about" },
+    { key: "nav.method", href: "#process" },
     { key: "nav.scope", href: "#scope" },
-    { key: "nav.payment", href: "#payment" },
+    { key: "nav.engagement", href: "#engagement" },
     { key: "nav.contact", href: "#contact" },
-    { key: "nav.faq", href: "#faq" },
   ];
 
   const scrollTo = (href: string) => {
@@ -26,7 +27,7 @@ const Header = () => {
         <a href="#" className="flex items-center gap-2 min-w-0">
           <KGSCoin size={44} className="md:w-12 md:h-12 shrink-0 animate-spin-pause-slow" />
           <div className="flex flex-col leading-none min-w-0">
-            <span className="font-serif-display text-sm md:text-lg font-bold text-foreground tracking-wide truncate">KGS FLOW</span>
+            <span className="font-serif-display text-sm md:text-lg font-bold text-foreground tracking-wide truncate">KGS MARKET ENTRY</span>
             <span className="text-[8px] md:text-[9px] font-sans-body text-muted-foreground tracking-widest uppercase truncate">Kora Global Systems</span>
           </div>
         </a>
@@ -62,7 +63,7 @@ const Header = () => {
           </div>
 
           <button
-            onClick={() => scrollTo("#quote-form")}
+            onClick={() => scrollTo("#clarity-form")}
             className="text-sm font-medium bg-primary text-primary-foreground px-5 py-2 rounded-sm hover:bg-primary/90 transition-colors"
           >
             {t("nav.cta")}
@@ -106,7 +107,7 @@ const Header = () => {
             </button>
           ))}
           <button
-            onClick={() => scrollTo("#quote-form")}
+            onClick={() => scrollTo("#clarity-form")}
             className="block w-full text-sm font-medium bg-primary text-primary-foreground px-5 py-2.5 rounded-sm mt-2"
           >
             {t("nav.cta")}

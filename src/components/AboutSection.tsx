@@ -27,7 +27,7 @@ const AboutSection = () => {
             <p className="text-muted-foreground font-sans-body text-sm md:text-base leading-relaxed">
               {t("about.text1")}
             </p>
-            <p className="text-foreground font-sans-body text-sm md:text-base leading-relaxed font-medium">
+            <p className="text-foreground font-sans-body text-sm md:text-base leading-relaxed font-medium whitespace-pre-line">
               {t("about.text2")}
             </p>
           </div>
