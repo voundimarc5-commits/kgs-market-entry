@@ -10,7 +10,7 @@ import ScopeSection from "@/components/ScopeSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import DisclaimerBanner from "@/components/DisclaimerBanner";
+
 import ScopeGovernance from "@/components/ScopeGovernance";
 
 const Index = () => {
@@ -18,9 +18,7 @@ const Index = () => {
     <div className="min-h-screen bg-background relative">
       <FinancialBackground />
       <Header />
-      <div className="pt-16">
-        <DisclaimerBanner />
-      </div>
+      <div className="pt-16" />
       <main>
         <HeroSection />
         <AboutSection />
