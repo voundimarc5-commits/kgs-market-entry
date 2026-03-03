@@ -1,5 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import ClarityReviewForm from "./ClarityReviewForm";
+import heroImage from "@/assets/hero-africa-project.jpg";
 
 const HeroSection = () => {
   const { t } = useLanguage();
@@ -16,6 +17,17 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-8 pb-12">
+      {/* Hero background image with overlay */}
+      <div className="absolute inset-0">
+        <img
+          src={heroImage}
+          alt="Modern construction project in Africa"
+          className="w-full h-full object-cover"
+          loading="eager"
+        />
+        <div className="absolute inset-0 bg-background/85" />
+      </div>
+
       {/* Background decorative elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent animate-flow-line" />
@@ -52,7 +64,7 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-3 animate-fade-in-up animation-delay-600">
               <button
                 onClick={scrollToForm}
-                className="group/cta inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 text-sm font-bold tracking-widest hover:bg-primary/90 hover:shadow-[0_0_25px_hsl(38_55%_52%/0.4)] hover:scale-105 active:scale-105 transition-all duration-300 rounded-sm"
+                className="group/cta inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 text-sm font-bold tracking-widest hover:bg-primary/90 hover:shadow-[0_0_25px_hsl(38_55%_42%/0.4)] hover:scale-105 active:scale-105 transition-all duration-300 rounded-sm"
               >
                 <span className="inline-block transition-transform duration-300 group-hover/cta:translate-x-1">{t("hero.cta")}</span>
               </button>

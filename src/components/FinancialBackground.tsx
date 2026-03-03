@@ -38,12 +38,12 @@ const FinancialBackground = () => {
     };
 
     const charts = [
-      { data: generateChartData(200, 1), yOffset: 0.2, opacity: 0.07, color: "43, 60%, 58%" },
-      { data: generateChartData(200, 2.5), yOffset: 0.45, opacity: 0.05, color: "43, 50%, 50%" },
-      { data: generateChartData(200, 4), yOffset: 0.7, opacity: 0.06, color: "43, 55%, 55%" },
-      { data: generateChartData(200, 0.5), yOffset: 0.35, opacity: 0.04, color: "0, 0%, 60%" },
-      { data: generateChartData(200, 3), yOffset: 0.6, opacity: 0.04, color: "43, 45%, 48%" },
-      { data: generateChartData(200, 5.5), yOffset: 0.85, opacity: 0.05, color: "43, 52%, 52%" },
+      { data: generateChartData(200, 1), yOffset: 0.2, opacity: 0.04, color: "38, 55%, 42%" },
+      { data: generateChartData(200, 2.5), yOffset: 0.45, opacity: 0.03, color: "38, 50%, 50%" },
+      { data: generateChartData(200, 4), yOffset: 0.7, opacity: 0.035, color: "38, 55%, 45%" },
+      { data: generateChartData(200, 0.5), yOffset: 0.35, opacity: 0.02, color: "220, 10%, 50%" },
+      { data: generateChartData(200, 3), yOffset: 0.6, opacity: 0.025, color: "38, 45%, 48%" },
+      { data: generateChartData(200, 5.5), yOffset: 0.85, opacity: 0.03, color: "38, 52%, 45%" },
     ];
 
     // Particles
