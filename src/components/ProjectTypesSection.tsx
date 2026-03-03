@@ -3,6 +3,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Home, Store, Monitor } from "lucide-react";
 import hospitalityImg from "@/assets/hospitality-interior.jpg";
 import cityscapeImg from "@/assets/africa-cityscape.jpg";
+import digitalImg from "@/assets/digital-structuring.jpg";
 
 const ProjectTypesSection = () => {
   const { t } = useLanguage();
@@ -11,7 +12,7 @@ const ProjectTypesSection = () => {
   const types = [
     { icon: Home, titleKey: "projecttypes.type1.title", descKey: "projecttypes.type1.desc", image: hospitalityImg },
     { icon: Store, titleKey: "projecttypes.type2.title", descKey: "projecttypes.type2.desc", image: cityscapeImg },
-    { icon: Monitor, titleKey: "projecttypes.type3.title", descKey: "projecttypes.type3.desc", image: null },
+    { icon: Monitor, titleKey: "projecttypes.type3.title", descKey: "projecttypes.type3.desc", image: digitalImg },
   ];
 
   return (
