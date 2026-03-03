@@ -1,10 +1,10 @@
-import kgsCoinLogo from "@/assets/kgs-coin-logo.png";
+import kgsMarketEntryLogo from "@/assets/kgs-market-entry-logo.png";
 
 const KGSCoin = ({ size = 40, className = "" }: { size?: number; className?: string }) => {
   return (
     <img
-      src={kgsCoinLogo}
-      alt="KGS Flow"
+      src={kgsMarketEntryLogo}
+      alt="KGS Market Entry"
       width={size}
       height={size}
       className={`object-contain ${className}`}
