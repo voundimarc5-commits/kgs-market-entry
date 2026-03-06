@@ -1,7 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Mail } from "lucide-react";
 import { Link } from "react-router-dom";
-import kgsCoinLogo from "@/assets/kgs-coin-logo.png";
+import kgsCoinLogo from "@/assets/kgs-market-entry-logo.png";
 
 const Footer = () => {
   const { t } = useLanguage();
