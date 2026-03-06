@@ -1,7 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Mail } from "lucide-react";
 import { Link } from "react-router-dom";
-import kgsCoinLogo from "@/assets/kgs-coin-logo.png";
+import kgsCoinLogo from "@/assets/kgs-market-entry-logo.png";
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -18,11 +18,11 @@ const Footer = () => {
     <footer className="border-t border-border/50 bg-secondary/20">
       <div className="container mx-auto px-6 py-14">
         {/* Disclaimer */}
-        <div className="max-w-3xl mx-auto text-center mb-10">
+      <div className="max-w-3xl mx-auto text-center mb-10">
           <img 
             src={kgsCoinLogo} 
             alt="KGS Market Entry" 
-            className="w-12 h-12 mx-auto mb-4 animate-spin-pause"
+            className="w-16 h-16 mx-auto mb-4"
           />
           <p className="text-[11px] text-muted-foreground/70 font-sans-body leading-relaxed tracking-wide">
             {t("footer.disclaimer")}
