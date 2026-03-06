@@ -24,10 +24,11 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2 min-w-0">
+        <a href="#" className="flex items-center gap-3 min-w-0">
           <KGSCoin size={44} className="md:w-12 md:h-12 shrink-0 animate-spin-pause-slow" />
-          <div className="flex flex-col leading-none min-w-0">
-            <span className="font-serif-display text-sm md:text-lg font-bold text-foreground tracking-wide truncate">KGS</span>
+          <div className="flex flex-col leading-tight min-w-0">
+            <span className="font-serif-display text-base md:text-xl font-bold tracking-wide truncate" style={{ color: 'hsl(38, 55%, 42%)' }}>Market Entry</span>
+            <span className="text-[9px] md:text-[10px] text-muted-foreground/70 font-sans-body tracking-[0.15em] uppercase">Kora Global Systems</span>
           </div>
         </a>
 
