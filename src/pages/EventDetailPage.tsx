@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import PlatformLayout from "@/components/platform/PlatformLayout";
 import ScrollReveal from "@/components/platform/ScrollReveal";
 import { events } from "@/data/mockData";
+import ParallaxHero from "@/components/platform/ParallaxHero";
 import { ArrowLeft, MapPin, Calendar, Users, Briefcase, Globe, CheckCircle, ExternalLink } from "lucide-react";
 
 const images = import.meta.glob("@/assets/*.jpg", { eager: true, import: "default" }) as Record<string, string>;
@@ -44,34 +45,24 @@ const EventDetailPage = () => {
 
   return (
     <PlatformLayout>
-      {/* Hero banner */}
-      <div className="relative h-64 md:h-80 overflow-hidden">
-        {bgImage && (
-          <>
-            <img src={bgImage} alt="" className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/40" />
-          </>
-        )}
-        {!bgImage && <div className="absolute inset-0 bg-card" />}
-        <div className="absolute bottom-0 left-0 right-0 p-6">
-          <div className="container mx-auto max-w-4xl">
-            <Link to="/events" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground mb-4">
-              <ArrowLeft size={14} /> Back to events
-            </Link>
-            <div className="flex items-center gap-2 mb-3">
-              <span className="text-[10px] uppercase tracking-wider text-primary-foreground font-semibold bg-primary px-2.5 py-1 rounded-sm">
-                {event.sector}
+      <ParallaxHero image={bgImage}>
+        <div className="container mx-auto max-w-4xl">
+          <Link to="/events" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground mb-4">
+            <ArrowLeft size={14} /> Back to events
+          </Link>
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-[10px] uppercase tracking-wider text-primary-foreground font-semibold bg-primary px-2.5 py-1 rounded-sm">
+              {event.sector}
+            </span>
+            {event.badge && (
+              <span className="text-[10px] uppercase tracking-wider font-medium bg-accent/80 text-accent-foreground px-2 py-1 rounded-sm">
+                {event.badge}
               </span>
-              {event.badge && (
-                <span className="text-[10px] uppercase tracking-wider font-medium bg-accent/80 text-accent-foreground px-2 py-1 rounded-sm">
-                  {event.badge}
-                </span>
-              )}
-            </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground">{event.name}</h1>
+            )}
           </div>
+          <h1 className="text-3xl md:text-4xl font-bold text-foreground">{event.name}</h1>
         </div>
-      </div>
+      </ParallaxHero>
 
       <section className="py-12">
         <div className="container mx-auto px-6 max-w-4xl">
