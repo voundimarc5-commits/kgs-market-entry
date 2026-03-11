@@ -21,9 +21,7 @@ const PlatformHeader = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b border-border">
       <div className="container mx-auto px-6 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-sm">K</span>
-          </div>
+          <img src={kgsLogo} alt="KGS Market Entry" className="w-10 h-10 object-contain" />
           <div className="flex flex-col leading-tight">
             <span className="text-sm font-semibold tracking-wide text-foreground">KGS Market Entry</span>
             <span className="text-[9px] text-muted-foreground tracking-[0.12em] uppercase">Kora Global Systems</span>
