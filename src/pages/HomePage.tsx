@@ -22,7 +22,11 @@ const IMAGE_MAP: Record<string, string> = {
 
 const HomePage = () => {
   const { t } = useLanguage();
-  const featuredOpps = opportunities.filter((o) => o.featured);
+  const [selectedSector, setSelectedSector] = useState("All");
+
+  const filteredOpps = selectedSector === "All"
+    ? opportunities
+    : opportunities.filter((o) => o.sector === selectedSector);
 
   return (
     <PlatformLayout>
