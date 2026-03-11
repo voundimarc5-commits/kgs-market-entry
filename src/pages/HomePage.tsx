@@ -235,7 +235,7 @@ const HomePage = () => {
 
           {/* Featured insight large card */}
           <ScrollReveal delay={100}>
-            <div className="glass-card rounded-xl overflow-hidden mb-6 group cursor-pointer card-lift">
+            <Link to="/insights" className="glass-card rounded-xl overflow-hidden mb-6 group cursor-pointer card-lift block hover:border-primary/30">
               <div className="grid grid-cols-1 md:grid-cols-2">
                 <div className="relative h-48 md:h-auto overflow-hidden">
                   <img
@@ -261,7 +261,7 @@ const HomePage = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
