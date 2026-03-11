@@ -3,13 +3,15 @@ import PlatformLayout from "@/components/platform/PlatformLayout";
 import { countries, opportunities, events } from "@/data/mockData";
 import { ArrowLeft, MapPin, Calendar, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useLocalizedData } from "@/hooks/useLocalizedData";
 
 const CountryDetailPage = () => {
   const { code } = useParams();
   const { t } = useLanguage();
-  const country = countries.find((c) => c.code === code);
+  const { localizeCountry, localizeOpp, localizeEvent, dateLocale } = useLocalizedData();
+  const rawCountry = countries.find((c) => c.code === code);
 
-  if (!country) {
+  if (!rawCountry) {
     return (
       <PlatformLayout>
         <div className="container mx-auto px-6 py-20 text-center">
@@ -20,8 +22,9 @@ const CountryDetailPage = () => {
     );
   }
 
-  const countryOpps = opportunities.filter((o) => o.country === country.name);
-  const countryEvents = events.filter((e) => e.country === country.name);
+  const country = localizeCountry(rawCountry);
+  const countryOpps = opportunities.filter((o) => o.country === rawCountry.name).map(localizeOpp);
+  const countryEvents = events.filter((e) => e.country === rawCountry.name).map(localizeEvent);
 
   return (
     <PlatformLayout>
@@ -56,7 +59,7 @@ const CountryDetailPage = () => {
                   <Link key={opp.id} to={`/opportunities/${opp.id}`} className="glass-card rounded-lg p-4 flex items-center justify-between hover:border-primary/30 transition-all group block">
                     <div>
                       <h3 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">{opp.title}</h3>
-                      <p className="text-xs text-muted-foreground mt-1">{opp.sector} • Deadline: {new Date(opp.deadline).toLocaleDateString("en-US", { month: "short", year: "numeric" })}</p>
+                      <p className="text-xs text-muted-foreground mt-1">{opp.sector} • {t("opp.deadline")}: {new Date(opp.deadline).toLocaleDateString(dateLocale, { month: "short", year: "numeric" })}</p>
                     </div>
                     <ArrowRight size={14} className="text-muted-foreground shrink-0" />
                   </Link>
@@ -78,7 +81,7 @@ const CountryDetailPage = () => {
                       <h3 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">{evt.name}</h3>
                       <div className="flex items-center gap-4 mt-2">
                         <div className="flex items-center gap-1 text-xs text-muted-foreground"><MapPin size={11} /> {evt.city}</div>
-                        <div className="flex items-center gap-1 text-xs text-muted-foreground"><Calendar size={11} /> {new Date(evt.date).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}</div>
+                        <div className="flex items-center gap-1 text-xs text-muted-foreground"><Calendar size={11} /> {new Date(evt.date).toLocaleDateString(dateLocale, { month: "long", day: "numeric", year: "numeric" })}</div>
                       </div>
                     </div>
                     <ArrowRight size={14} className="text-muted-foreground shrink-0" />

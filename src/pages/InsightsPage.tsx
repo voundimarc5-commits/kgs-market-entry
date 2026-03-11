@@ -3,6 +3,7 @@ import ScrollReveal from "@/components/platform/ScrollReveal";
 import { insights } from "@/data/mockData";
 import { Clock, ArrowRight, TrendingUp, BookOpen } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useLocalizedData } from "@/hooks/useLocalizedData";
 
 import financialDistrict from "@/assets/financial-district.jpg";
 import nairobiTechHub from "@/assets/nairobi-tech-hub.jpg";
@@ -23,9 +24,12 @@ const IMAGE_MAP: Record<string, string> = {
 };
 
 const InsightsPage = () => {
-  const featured = insights[0];
-  const rest = insights.slice(1);
   const { t } = useLanguage();
+  const { localizeInsight, localizeCategory, dateLocale } = useLocalizedData();
+
+  const localizedInsights = insights.map(localizeInsight);
+  const featured = localizedInsights[0];
+  const rest = localizedInsights.slice(1);
 
   return (
     <PlatformLayout>
@@ -74,7 +78,7 @@ const InsightsPage = () => {
                       {t("insights.featured")}
                     </span>
                     <span className="text-[10px] uppercase tracking-wider text-accent font-semibold bg-accent/10 px-2 py-1 rounded">
-                      {featured.category}
+                      {localizeCategory(featured.category)}
                     </span>
                   </div>
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
@@ -89,7 +93,7 @@ const InsightsPage = () => {
                         <Clock size={10} /> {featured.readTime}
                       </div>
                       <span>•</span>
-                      <span>{new Date(featured.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</span>
+                      <span>{new Date(featured.date).toLocaleDateString(dateLocale, { month: "short", day: "numeric", year: "numeric" })}</span>
                     </div>
                     <span className="text-primary text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
                       {t("insights.read")} <ArrowRight size={14} />
@@ -125,7 +129,7 @@ const InsightsPage = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
                     <div className="absolute top-3 left-3 flex items-center gap-2">
                       <span className="text-[10px] uppercase tracking-wider text-primary font-bold bg-background/80 backdrop-blur-sm px-2 py-1 rounded border border-primary/20">
-                        {article.category}
+                        {localizeCategory(article.category)}
                       </span>
                     </div>
                   </div>
@@ -145,7 +149,7 @@ const InsightsPage = () => {
                         </div>
                       </div>
                       <span className="text-[10px] text-muted-foreground">
-                        {new Date(article.date).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
+                        {new Date(article.date).toLocaleDateString(dateLocale, { month: "short", day: "numeric" })}
                       </span>
                     </div>
                   </div>

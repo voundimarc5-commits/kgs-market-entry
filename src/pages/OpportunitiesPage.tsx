@@ -5,6 +5,7 @@ import OpportunityCard from "@/components/platform/OpportunityCard";
 import { opportunities, sectors, opportunityTypes } from "@/data/mockData";
 import { Search, TrendingUp } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useLocalizedData } from "@/hooks/useLocalizedData";
 
 import financialDistrict from "@/assets/financial-district.jpg";
 
@@ -13,11 +14,13 @@ const OpportunitiesPage = () => {
   const [selectedType, setSelectedType] = useState("All");
   const [search, setSearch] = useState("");
   const { t } = useLanguage();
+  const { localizeSector, localizeType, localizeOpp } = useLocalizedData();
 
   const filtered = opportunities.filter((o) => {
     const matchSector = selectedSector === "All" || o.sector === selectedSector;
     const matchType = selectedType === "All" || o.type === selectedType;
-    const matchSearch = !search || o.title.toLowerCase().includes(search.toLowerCase()) || o.country.toLowerCase().includes(search.toLowerCase());
+    const lo = localizeOpp(o);
+    const matchSearch = !search || lo.title.toLowerCase().includes(search.toLowerCase()) || o.country.toLowerCase().includes(search.toLowerCase());
     return matchSector && matchType && matchSearch;
   });
 
@@ -67,14 +70,14 @@ const OpportunitiesPage = () => {
                 onChange={(e) => setSelectedSector(e.target.value)}
                 className="bg-secondary border border-border rounded-md px-3 py-2.5 text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-primary"
               >
-                {sectors.map((s) => <option key={s} value={s}>{s === "All" ? t("opps.all_sectors") : s}</option>)}
+                {sectors.map((s) => <option key={s} value={s}>{s === "All" ? t("opps.all_sectors") : localizeSector(s)}</option>)}
               </select>
               <select
                 value={selectedType}
                 onChange={(e) => setSelectedType(e.target.value)}
                 className="bg-secondary border border-border rounded-md px-3 py-2.5 text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-primary"
               >
-                {opportunityTypes.map((tp) => <option key={tp} value={tp}>{tp === "All" ? t("opps.all_types") : tp}</option>)}
+                {opportunityTypes.map((tp) => <option key={tp} value={tp}>{tp === "All" ? t("opps.all_types") : localizeType(tp)}</option>)}
               </select>
             </div>
           </ScrollReveal>
