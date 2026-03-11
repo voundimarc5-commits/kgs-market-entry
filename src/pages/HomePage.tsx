@@ -9,14 +9,14 @@ import PlatformLayout from "@/components/platform/PlatformLayout";
 import ScrollReveal from "@/components/platform/ScrollReveal";
 import { opportunities, events, insights } from "@/data/mockData";
 
-import lagosSkyline from "@/assets/lagos-skyline.jpg";
+import heroAfricaModern from "@/assets/hero-africa-modern.jpg";
 import financialDistrict from "@/assets/financial-district.jpg";
 import nairobiTechHub from "@/assets/nairobi-tech-hub.jpg";
 
 const IMAGE_MAP: Record<string, string> = {
   "financial-district": financialDistrict,
   "nairobi-tech-hub": nairobiTechHub,
-  "lagos-skyline": lagosSkyline,
+  "lagos-skyline": heroAfricaModern,
 };
 
 const HomePage = () => {
