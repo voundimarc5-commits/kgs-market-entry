@@ -3,13 +3,15 @@ import ScrollReveal from "@/components/platform/ScrollReveal";
 import EventCard from "@/components/platform/EventCard";
 import { events } from "@/data/mockData";
 import { Calendar } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 import fintechConference from "@/assets/fintech-conference.jpg";
 
 const EventsPage = () => {
+  const { t } = useLanguage();
+
   return (
     <PlatformLayout>
-      {/* Hero */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0">
           <img src={fintechConference} alt="" className="w-full h-full object-cover" />
@@ -19,17 +21,17 @@ const EventsPage = () => {
           <ScrollReveal>
             <div className="inline-flex items-center gap-2 text-xs text-primary bg-primary/10 px-3 py-1.5 rounded-full mb-4 border border-primary/20">
               <Calendar size={12} />
-              Business Events
+              {t("events.badge")}
             </div>
           </ScrollReveal>
           <ScrollReveal delay={100}>
             <h1 className="text-3xl md:text-5xl font-black text-foreground mb-3">
-              African Business <span className="text-gradient-gold">Events</span>
+              {t("events.title")} <span className="text-gradient-gold">{t("events.title_highlight")}</span>
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={200}>
             <p className="text-sm md:text-base text-muted-foreground max-w-xl">
-              Conferences, summits and networking events across the African continent.
+              {t("events.desc")}
             </p>
           </ScrollReveal>
         </div>

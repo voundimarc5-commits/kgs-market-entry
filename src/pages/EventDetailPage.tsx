@@ -4,6 +4,7 @@ import ScrollReveal from "@/components/platform/ScrollReveal";
 import { events } from "@/data/mockData";
 import ParallaxHero from "@/components/platform/ParallaxHero";
 import { ArrowLeft, MapPin, Calendar, Users, Briefcase, Globe, CheckCircle, ExternalLink } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const images = import.meta.glob("@/assets/*.jpg", { eager: true, import: "default" }) as Record<string, string>;
 
@@ -28,14 +29,15 @@ const getImageForEvent = (sector: string): string | undefined => {
 
 const EventDetailPage = () => {
   const { id } = useParams();
+  const { t } = useLanguage();
   const event = events.find((e) => e.id === id);
 
   if (!event) {
     return (
       <PlatformLayout>
         <div className="container mx-auto px-6 py-20 text-center">
-          <h1 className="text-2xl font-bold text-foreground mb-4">Event not found</h1>
-          <Link to="/events" className="text-primary text-sm">← Back to events</Link>
+          <h1 className="text-2xl font-bold text-foreground mb-4">{t("event.not_found")}</h1>
+          <Link to="/events" className="text-primary text-sm">← {t("event.back")}</Link>
         </div>
       </PlatformLayout>
     );
@@ -48,7 +50,7 @@ const EventDetailPage = () => {
       <ParallaxHero image={bgImage}>
         <div className="container mx-auto max-w-4xl">
           <Link to="/events" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground mb-4">
-            <ArrowLeft size={14} /> Back to events
+            <ArrowLeft size={14} /> {t("event.back")}
           </Link>
           <div className="flex items-center gap-2 mb-3">
             <span className="text-[10px] uppercase tracking-wider text-primary-foreground font-semibold bg-primary px-2.5 py-1 rounded-sm">
@@ -66,42 +68,40 @@ const EventDetailPage = () => {
 
       <section className="py-12">
         <div className="container mx-auto px-6 max-w-4xl">
-          {/* Event Overview */}
           <ScrollReveal>
             <div className="mb-8">
-              <h2 className="text-lg font-semibold text-foreground mb-3">Event Overview</h2>
+              <h2 className="text-lg font-semibold text-foreground mb-3">{t("event.overview")}</h2>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {event.description || `${event.name} is a premier gathering of industry leaders, investors, entrepreneurs and policymakers in ${event.city}, ${event.country}. The event brings together key stakeholders from the ${event.sector.toLowerCase()} sector to explore partnerships, share insights and drive economic growth across Africa.`}
               </p>
             </div>
           </ScrollReveal>
 
-          {/* Key Information */}
           <ScrollReveal delay={100}>
             <div className="glass-card rounded-lg p-6 mb-8">
-              <h2 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-4">Key Information</h2>
+              <h2 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-4">{t("event.key_info")}</h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 <div>
-                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><MapPin size={12} /> Location</div>
+                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><MapPin size={12} /> {t("event.location")}</div>
                   <p className="text-sm font-medium text-foreground">{event.city}, {event.country}</p>
                 </div>
                 <div>
-                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><Calendar size={12} /> Date</div>
+                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><Calendar size={12} /> {t("event.date")}</div>
                   <p className="text-sm font-medium text-foreground">
                     {new Date(event.date).toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" })}
                   </p>
                 </div>
                 <div>
-                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><Users size={12} /> Organizer</div>
+                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><Users size={12} /> {t("event.organizer")}</div>
                   <p className="text-sm font-medium text-foreground">{event.organizer}</p>
                 </div>
                 <div>
-                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><Briefcase size={12} /> Sector</div>
+                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><Briefcase size={12} /> {t("event.sector")}</div>
                   <p className="text-sm font-medium text-foreground">{event.sector}</p>
                 </div>
                 {event.website && (
                   <div>
-                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><Globe size={12} /> Website</div>
+                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><Globe size={12} /> {t("event.website")}</div>
                     <a href={event.website} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-primary hover:underline">{event.website}</a>
                   </div>
                 )}
@@ -109,10 +109,9 @@ const EventDetailPage = () => {
             </div>
           </ScrollReveal>
 
-          {/* Why Attend */}
           <ScrollReveal delay={200}>
             <div className="mb-8">
-              <h2 className="text-lg font-semibold text-foreground mb-3">Why Attend</h2>
+              <h2 className="text-lg font-semibold text-foreground mb-3">{t("event.why_attend")}</h2>
               <ul className="space-y-3">
                 {(event.whyAttend || [
                   `Connect with leading ${event.sector.toLowerCase()} stakeholders across Africa`,
@@ -129,10 +128,9 @@ const EventDetailPage = () => {
             </div>
           </ScrollReveal>
 
-          {/* Who Should Attend */}
           <ScrollReveal delay={300}>
             <div className="mb-10">
-              <h2 className="text-lg font-semibold text-foreground mb-3">Who Should Attend</h2>
+              <h2 className="text-lg font-semibold text-foreground mb-3">{t("event.who_attend")}</h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 {(event.audience || ["Entrepreneurs", "Investors", "Startups", "Corporates"]).map((type) => (
                   <div key={type} className="glass-card rounded-lg p-4 text-center">
@@ -143,12 +141,11 @@ const EventDetailPage = () => {
             </div>
           </ScrollReveal>
 
-          {/* Registration CTA */}
           <ScrollReveal delay={400}>
             <div className="glass-card rounded-xl p-8 text-center animate-glow-pulse">
-              <h2 className="text-xl font-bold text-foreground mb-3">Interested in attending?</h2>
+              <h2 className="text-xl font-bold text-foreground mb-3">{t("event.interested")}</h2>
               <p className="text-sm text-muted-foreground mb-6 max-w-md mx-auto">
-                Register for {event.name} or contact KGS Market Entry for assistance with event access and introductions.
+                {t("event.register_desc").replace("{name}", event.name)}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 {event.website && (
@@ -158,14 +155,14 @@ const EventDetailPage = () => {
                     rel="noopener noreferrer"
                     className="btn-glow inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-md text-sm font-semibold transition-all"
                   >
-                    <ExternalLink size={14} /> Visit Official Website
+                    <ExternalLink size={14} /> {t("event.visit_website")}
                   </a>
                 )}
                 <Link
                   to="/services"
                   className="inline-flex items-center justify-center gap-2 bg-secondary text-foreground px-6 py-3 rounded-md text-sm font-medium hover:bg-secondary/80 transition-colors border border-border"
                 >
-                  Contact KGS Market Entry
+                  {t("event.contact_kgs")}
                 </Link>
               </div>
             </div>

@@ -9,21 +9,17 @@ interface LanguageContextType {
 }
 
 const translations: Record<string, Record<Language, string>> = {
-  // Banner
+  // ─── OLD ADVISORY SITE TRANSLATIONS ───
   "banner.static_disclaimer": {
     fr: "KGS Market Entry fournit uniquement des services de conseil et de structuration. L'exécution relève de prestataires tiers indépendants.",
     en: "KGS Market Entry provides advisory and structuring services only. Execution remains the responsibility of independent third-party providers.",
   },
-
-  // Nav
   "nav.about": { fr: "Notre approche", en: "Our approach" },
   "nav.method": { fr: "Méthode", en: "Method" },
   "nav.scope": { fr: "Périmètre", en: "Scope" },
   "nav.engagement": { fr: "Engagement", en: "Engagement" },
   "nav.contact": { fr: "Contact", en: "Contact" },
   "nav.cta": { fr: "Clarity Review", en: "Clarity Review" },
-
-  // Hero
   "hero.title": { fr: "STRUCTURATION STRATÉGIQUE", en: "STRATEGIC STRUCTURING" },
   "hero.title2": { fr: "pour vos projets en Afrique.", en: "for Projects in Africa." },
   "hero.subtitle": {
@@ -36,8 +32,6 @@ const translations: Record<string, Record<Language, string>> = {
     fr: "Engagement sélectif • Structuration avant exécution • Cadre défini",
     en: "Selective engagement • Structure before execution • Defined framework",
   },
-
-  // Clarity Review Form
   "clarity.form_title": { fr: "Project Clarity Review", en: "Project Clarity Review" },
   "clarity.form_helper": {
     fr: "Décrivez brièvement votre projet pour recevoir une évaluation structurée écrite. Engagement : 90€ – 150€.",
@@ -67,8 +61,6 @@ const translations: Record<string, Record<Language, string>> = {
   },
   "clarity.another": { fr: "Nouvelle demande", en: "Submit another request" },
   "clarity.contact_us": { fr: "Nous contacter", en: "Contact us" },
-
-  // About / What We Are
   "about.label": { fr: "Qui nous sommes", en: "What we are" },
   "about.title": { fr: "Un cabinet de structuration stratégique moderne", en: "A Modern Strategic Structuring Office" },
   "about.text1": {
@@ -79,14 +71,9 @@ const translations: Record<string, Record<Language, string>> = {
     fr: "Nous ne construisons pas.\nNous ne gérons pas les opérations quotidiennes.\nNous n'exécutons pas sur le terrain.\n\nNous définissons le périmètre, sélectionnons les prestataires pertinents et créons des cadres d'engagement structurés avant le déploiement du capital.",
     en: "We do not build.\nWe do not manage daily operations.\nWe do not execute on the ground.\n\nWe define scope, select relevant providers and create structured engagement frameworks before capital is deployed.",
   },
-
-  // Why Structure Matters
   "whystructure.label": { fr: "Pourquoi structurer", en: "Why structure matters" },
   "whystructure.title": { fr: "Pourquoi la structuration est essentielle", en: "Why Structure Matters" },
-  "whystructure.intro": {
-    fr: "Les projets échouent à distance pour des raisons prévisibles :",
-    en: "Projects fail at distance for predictable reasons:",
-  },
+  "whystructure.intro": { fr: "Les projets échouent à distance pour des raisons prévisibles :", en: "Projects fail at distance for predictable reasons:" },
   "whystructure.reason1": { fr: "Périmètre non défini", en: "Undefined scope" },
   "whystructure.reason2": { fr: "Mauvais prestataires", en: "Wrong providers" },
   "whystructure.reason3": { fr: "Accords informels", en: "Informal agreements" },
@@ -96,31 +83,15 @@ const translations: Record<string, Record<Language, string>> = {
     fr: "KGS Market Entry existe pour introduire de la clarté avant l'exposition.",
     en: "KGS Market Entry exists to introduce clarity before exposure.",
   },
-
-  // Project Types
   "projecttypes.label": { fr: "Types de projets", en: "Project types" },
   "projecttypes.title": { fr: "Types de projets", en: "Project Types" },
   "projecttypes.type1.title": { fr: "Immobilier léger & Hôtellerie", en: "Light Real Estate & Hospitality" },
-  "projecttypes.type1.desc": {
-    fr: "Rénovations, aménagements Airbnb, modernisation de villas, intégration d'accès structurés.",
-    en: "Renovations, Airbnb upgrades, villa modernisation, structured access integration.",
-  },
+  "projecttypes.type1.desc": { fr: "Rénovations, aménagements Airbnb, modernisation de villas, intégration d'accès structurés.", en: "Renovations, Airbnb upgrades, villa modernisation, structured access integration." },
   "projecttypes.type2.title": { fr: "Business physiques", en: "Physical Businesses" },
-  "projecttypes.type2.desc": {
-    fr: "Restaurants, boutiques, espaces beauté, petites opérations structurées.",
-    en: "Restaurants, boutiques, beauty spaces, small structured operations.",
-  },
+  "projecttypes.type2.desc": { fr: "Restaurants, boutiques, espaces beauté, petites opérations structurées.", en: "Restaurants, boutiques, beauty spaces, small structured operations." },
   "projecttypes.type3.title": { fr: "Couche de structuration digitale", en: "Digital Structuring Layer" },
-  "projecttypes.type3.desc": {
-    fr: "Outils, automatisation, reporting, cadres opérationnels.",
-    en: "Tools, automation, reporting, operational frameworks.",
-  },
-  "projecttypes.footer": {
-    fr: "Nous nous concentrons sur la clarté et la viabilité — pas sur le volume.",
-    en: "We focus on clarity and viability — not volume.",
-  },
-
-  // Process / Method
+  "projecttypes.type3.desc": { fr: "Outils, automatisation, reporting, cadres opérationnels.", en: "Tools, automation, reporting, operational frameworks." },
+  "projecttypes.footer": { fr: "Nous nous concentrons sur la clarté et la viabilité — pas sur le volume.", en: "We focus on clarity and viability — not volume." },
   "process.label": { fr: "Méthode", en: "Method" },
   "process.title": { fr: "Modèle de structuration en trois étapes", en: "Three-Step Structuring Model" },
   "process.step1.title": { fr: "Définir", en: "Define" },
@@ -129,37 +100,18 @@ const translations: Record<string, Record<Language, string>> = {
   "process.step2.desc": { fr: "Shortlist structurée de prestataires pertinents.", en: "Structured shortlist of relevant providers." },
   "process.step3.title": { fr: "Sécuriser", en: "Secure" },
   "process.step3.desc": { fr: "Flux de communication défini et visibilité structurée.", en: "Defined communication flow and structured visibility." },
-
-  // Engagement Path
   "engagement.label": { fr: "Parcours d'engagement", en: "Engagement path" },
   "engagement.title": { fr: "Parcours d'engagement", en: "Engagement Path" },
-
   "engagement.tier1.title": { fr: "Project Clarity Review", en: "Project Clarity Review" },
   "engagement.tier1.subtitle": { fr: "Le point d'entrée.", en: "The entry point." },
-  "engagement.tier1.desc": {
-    fr: "Une évaluation écrite structurée de votre projet.",
-    en: "A structured written assessment of your project.",
-  },
-  "engagement.tier1.includes": {
-    fr: "Analyse structurée de l'intake\nVisibilité des risques\nOrientation de faisabilité\nCatégories de prestataires\nProchaines étapes stratégiques",
-    en: "Structured intake analysis\nRisk visibility\nFeasibility orientation\nProvider categories\nStrategic next steps",
-  },
+  "engagement.tier1.desc": { fr: "Une évaluation écrite structurée de votre projet.", en: "A structured written assessment of your project." },
+  "engagement.tier1.includes": { fr: "Analyse structurée de l'intake\nVisibilité des risques\nOrientation de faisabilité\nCatégories de prestataires\nProchaines étapes stratégiques", en: "Structured intake analysis\nRisk visibility\nFeasibility orientation\nProvider categories\nStrategic next steps" },
   "engagement.tier1.price": { fr: "Engagement : 90€ – 150€", en: "Engagement: €90 – €150" },
   "engagement.tier1.cta": { fr: "Demander une Clarity Review", en: "Request Clarity Review" },
-
   "engagement.tier2.title": { fr: "Partner Match & Structure", en: "Partner Match & Structure" },
-  "engagement.tier2.desc": {
-    fr: "Pour les clients prêts à avancer.\nShortlist structurée, introduction contrôlée, périmètre d'engagement défini.\n\nEngagement défini après la phase de clarté.",
-    en: "For clients ready to move forward.\nStructured shortlist, controlled introduction, defined engagement perimeter.\n\nEngagement defined after clarity phase.",
-  },
-
+  "engagement.tier2.desc": { fr: "Pour les clients prêts à avancer.\nShortlist structurée, introduction contrôlée, périmètre d'engagement défini.\n\nEngagement défini après la phase de clarté.", en: "For clients ready to move forward.\nStructured shortlist, controlled introduction, defined engagement perimeter.\n\nEngagement defined after clarity phase." },
   "engagement.tier3.title": { fr: "Project Oversight", en: "Project Oversight" },
-  "engagement.tier3.desc": {
-    fr: "Supervision structurée légère pour les clients opérant à distance.\nDisponible après la phase de structuration.",
-    en: "Light structured supervision for clients operating at distance.\nAvailable after structuring phase.",
-  },
-
-  // Scope
+  "engagement.tier3.desc": { fr: "Supervision structurée légère pour les clients opérant à distance.\nDisponible après la phase de structuration.", en: "Light structured supervision for clients operating at distance.\nAvailable after structuring phase." },
   "scope.label": { fr: "Périmètre", en: "Scope" },
   "scope.title": { fr: "Ce que nous faisons / Ce que nous ne faisons pas", en: "What We Do / What We Don't" },
   "scope.do.title": { fr: "Ce que nous faisons", en: "We do" },
@@ -173,18 +125,8 @@ const translations: Record<string, Record<Language, string>> = {
   "scope.dont.2": { fr: "Gérer les paiements", en: "Manage payments" },
   "scope.dont.3": { fr: "Garantir des résultats", en: "Guarantee outcomes" },
   "scope.dont.4": { fr: "Remplacer les prestataires locaux", en: "Replace local contractors" },
-  "scope.closing": {
-    fr: "Nous sommes la structure. Pas l'opérateur.",
-    en: "We are the structure. Not the operator.",
-  },
-
-  // Positioning
-  "positioning": {
-    fr: "KGS Market Entry est une couche de confiance stratégique au sein de l'écosystème KGS.\nNous opérons avec un engagement sélectif.\nTous les projets ne sont pas acceptés.",
-    en: "KGS Market Entry is a strategic trust layer within the KGS ecosystem.\nWe operate with selective engagement.\nNot all projects are accepted.",
-  },
-
-  // Contact
+  "scope.closing": { fr: "Nous sommes la structure. Pas l'opérateur.", en: "We are the structure. Not the operator." },
+  "positioning": { fr: "KGS Market Entry est une couche de confiance stratégique au sein de l'écosystème KGS.\nNous opérons avec un engagement sélectif.\nTous les projets ne sont pas acceptés.", en: "KGS Market Entry is a strategic trust layer within the KGS ecosystem.\nWe operate with selective engagement.\nNot all projects are accepted." },
   "contact.label": { fr: "Contact", en: "Contact" },
   "contact.title": { fr: "Discutons de votre projet", en: "Let's discuss your project" },
   "contact.intro": { fr: "Chaque demande est analysée individuellement pour garantir un cadrage adapté.", en: "Each request is individually analyzed to ensure appropriate framing." },
@@ -198,137 +140,270 @@ const translations: Record<string, Record<Language, string>> = {
   "contact.message": { fr: "Message", en: "Message" },
   "contact.submit": { fr: "Envoyer", en: "Send" },
   "contact.whatsapp": { fr: "Ou contactez-nous directement via WhatsApp", en: "Or contact us directly via WhatsApp" },
-
-  // Footer
-  "footer.disclaimer": {
-    fr: "KGS Market Entry fournit uniquement des services de conseil et de structuration. L'exécution relève de la responsabilité de prestataires tiers indépendants.",
-    en: "KGS Market Entry provides advisory and structuring services only. Execution remains the responsibility of independent third-party providers.",
-  },
+  "footer.disclaimer": { fr: "KGS Market Entry fournit uniquement des services de conseil et de structuration. L'exécution relève de la responsabilité de prestataires tiers indépendants.", en: "KGS Market Entry provides advisory and structuring services only. Execution remains the responsibility of independent third-party providers." },
   "footer.division": { fr: "Division stratégique de Kora Global Systems", en: "Strategic division of Kora Global Systems" },
   "footer.rights": { fr: "Tous droits réservés.", en: "All rights reserved." },
   "footer.presence": { fr: "Zone d'activité principale : Afrique", en: "Primary area of activity: Africa" },
   "footer.legal_title": { fr: "Mentions légales", en: "Legal Notice" },
-  "footer.legal_text": {
-    fr: "KGS Market Entry fournit uniquement des services de conseil et de structuration.\nL'exécution relève de la responsabilité de prestataires tiers indépendants.",
-    en: "KGS Market Entry provides advisory and structuring services only.\nExecution remains the responsibility of independent third-party providers.",
-  },
+  "footer.legal_text": { fr: "KGS Market Entry fournit uniquement des services de conseil et de structuration.\nL'exécution relève de la responsabilité de prestataires tiers indépendants.", en: "KGS Market Entry provides advisory and structuring services only.\nExecution remains the responsibility of independent third-party providers." },
   "footer.link_legal": { fr: "Mentions légales", en: "Legal Notice" },
   "footer.link_terms": { fr: "Conditions d'utilisation", en: "Terms of Use" },
   "footer.link_privacy": { fr: "Politique de confidentialité", en: "Privacy Policy" },
-
-  // Legal pages shared
   "legal.back": { fr: "Retour à l'accueil", en: "Back to home" },
-
-  // Legal Notice page
   "legalnotice.title": { fr: "Mentions légales — KGS Market Entry", en: "Legal Notice — KGS Market Entry" },
-  "legalnotice.intro": {
-    fr: "KGS Market Entry est une solution de structuration opérationnelle au sein de l'écosystème Kora Global Systems.",
-    en: "KGS Market Entry is an operational structuring solution within the Kora Global Systems ecosystem.",
-  },
+  "legalnotice.intro": { fr: "KGS Market Entry est une solution de structuration opérationnelle au sein de l'écosystème Kora Global Systems.", en: "KGS Market Entry is an operational structuring solution within the Kora Global Systems ecosystem." },
   "legalnotice.entity_label": { fr: "Entité juridique :", en: "Legal Entity:" },
   "legalnotice.jurisdiction_label": { fr: "Juridiction :", en: "Jurisdiction:" },
   "legalnotice.jurisdiction": { fr: "États-Unis d'Amérique — Wyoming (WY)", en: "United States of America — Wyoming (WY)" },
   "legalnotice.nature_label": { fr: "Nature de KGS Market Entry :", en: "Nature of KGS Market Entry:" },
-  "legalnotice.nature": {
-    fr: "Structuration opérationnelle, coordination et conseil en matière de projets internationaux.",
-    en: "Operational structuring, coordination, and advisory support for international projects.",
-  },
+  "legalnotice.nature": { fr: "Structuration opérationnelle, coordination et conseil en matière de projets internationaux.", en: "Operational structuring, coordination, and advisory support for international projects." },
   "legalnotice.not_label": { fr: "KGS Market Entry NE fait PAS :", en: "KGS Market Entry does NOT:" },
   "legalnotice.not1": { fr: "Fournir des services financiers", en: "Provide financial services" },
   "legalnotice.not2": { fr: "Exécuter des paiements ou des transferts", en: "Execute payments or transfers" },
   "legalnotice.not3": { fr: "Détenir, conserver, convertir ou gérer des fonds", en: "Custody, hold, convert, or manage funds" },
   "legalnotice.not4": { fr: "Agir en tant qu'intermédiaire financier", en: "Act as a financial intermediary" },
-  "legalnotice.thirdparty": {
-    fr: "Toutes les opérations d'exécution sont réalisées exclusivement par des prestataires tiers indépendants.",
-    en: "All execution operations are carried out exclusively by independent third-party providers.",
-  },
-
-  // Terms of Use page
+  "legalnotice.thirdparty": { fr: "Toutes les opérations d'exécution sont réalisées exclusivement par des prestataires tiers indépendants.", en: "All execution operations are carried out exclusively by independent third-party providers." },
   "terms.title": { fr: "Conditions d'utilisation — KGS Market Entry", en: "Terms of Use — KGS Market Entry" },
   "terms.s1.title": { fr: "1. Usage informatif uniquement", en: "1. Informational Purpose Only" },
-  "terms.s1.text": {
-    fr: "Ce site web est fourni uniquement à des fins d'information, de structuration et de pré-engagement.\nAucun contenu de ce site ne constitue une offre, une instruction d'exécution ou un accord contraignant.",
-    en: "This website is provided solely for informational, structural, and pre-engagement purposes.\nNo content on this site constitutes an offer, execution instruction, or binding agreement.",
-  },
+  "terms.s1.text": { fr: "Ce site web est fourni uniquement à des fins d'information, de structuration et de pré-engagement.\nAucun contenu de ce site ne constitue une offre, une instruction d'exécution ou un accord contraignant.", en: "This website is provided solely for informational, structural, and pre-engagement purposes.\nNo content on this site constitutes an offer, execution instruction, or binding agreement." },
   "terms.s2.title": { fr: "2. Nature de KGS Market Entry", en: "2. Nature of KGS Market Entry" },
-  "terms.s2.text": {
-    fr: "KGS Market Entry opère strictement comme une couche de conseil et de structuration.\nSon rôle se limite à :",
-    en: "KGS Market Entry operates strictly as an advisory and structuring layer.\nIts role is limited to:",
-  },
-  "terms.s2.list": {
-    fr: "Analyser les besoins opérationnels\nStructurer des parcours conformes\nCoordonner la communication entre les parties",
-    en: "Analyzing operational needs\nStructuring compliant pathways\nCoordinating communication between parties",
-  },
+  "terms.s2.text": { fr: "KGS Market Entry opère strictement comme une couche de conseil et de structuration.\nSon rôle se limite à :", en: "KGS Market Entry operates strictly as an advisory and structuring layer.\nIts role is limited to:" },
+  "terms.s2.list": { fr: "Analyser les besoins opérationnels\nStructurer des parcours conformes\nCoordonner la communication entre les parties", en: "Analyzing operational needs\nStructuring compliant pathways\nCoordinating communication between parties" },
   "terms.s3.title": { fr: "3. Aucun service financier", en: "3. No Financial Services" },
-  "terms.s3.text": {
-    fr: "KGS Market Entry n'est pas une banque, un prestataire de services de paiement, un courtier ou un intermédiaire financier.\n\nKGS Market Entry ne fait pas :",
-    en: "KGS Market Entry is not a bank, payment service provider, broker, or financial intermediary.\n\nKGS Market Entry does not:",
-  },
-  "terms.s3.list": {
-    fr: "Collecter des fonds\nDétenir des actifs clients\nExécuter des transferts\nGarantir des résultats",
-    en: "Collect funds\nHold client assets\nExecute transfers\nGuarantee outcomes",
-  },
+  "terms.s3.text": { fr: "KGS Market Entry n'est pas une banque, un prestataire de services de paiement, un courtier ou un intermédiaire financier.\n\nKGS Market Entry ne fait pas :", en: "KGS Market Entry is not a bank, payment service provider, broker, or financial intermediary.\n\nKGS Market Entry does not:" },
+  "terms.s3.list": { fr: "Collecter des fonds\nDétenir des actifs clients\nExécuter des transferts\nGarantir des résultats", en: "Collect funds\nHold client assets\nExecute transfers\nGuarantee outcomes" },
   "terms.s4.title": { fr: "4. Prestataires tiers", en: "4. Third-Party Providers" },
-  "terms.s4.text": {
-    fr: "Toute exécution ou activité opérationnelle est réalisée exclusivement par des prestataires tiers indépendants opérant sous leurs propres licences.\n\nKGS Market Entry n'assume aucune responsabilité pour les actions ou résultats des prestataires tiers.",
-    en: "All execution or operational activities are carried out exclusively by independent third-party providers operating under their own licenses.\n\nKGS Market Entry assumes no responsibility for third-party actions or outcomes.",
-  },
+  "terms.s4.text": { fr: "Toute exécution ou activité opérationnelle est réalisée exclusivement par des prestataires tiers indépendants opérant sous leurs propres licences.\n\nKGS Market Entry n'assume aucune responsabilité pour les actions ou résultats des prestataires tiers.", en: "All execution or operational activities are carried out exclusively by independent third-party providers operating under their own licenses.\n\nKGS Market Entry assumes no responsibility for third-party actions or outcomes." },
   "terms.s5.title": { fr: "5. Aucune automatisation ni exécution instantanée", en: "5. No Automation or Instant Execution" },
-  "terms.s5.text": {
-    fr: "Toutes les interactions sur cette plateforme sont non automatisées.\nTout engagement potentiel est confirmé manuellement, en dehors de la plateforme, après examen contextuel.",
-    en: "All interactions on this platform are non-automated.\nAny potential engagement is confirmed manually, outside the platform, after contextual review.",
-  },
+  "terms.s5.text": { fr: "Toutes les interactions sur cette plateforme sont non automatisées.\nTout engagement potentiel est confirmé manuellement, en dehors de la plateforme, après examen contextuel.", en: "All interactions on this platform are non-automated.\nAny potential engagement is confirmed manually, outside the platform, after contextual review." },
   "terms.s6.title": { fr: "6. Limitation de responsabilité", en: "6. Limitation of Liability" },
-  "terms.s6.text": {
-    fr: "KGS Market Entry ne saurait être tenu responsable de toute perte directe ou indirecte découlant de l'utilisation de ce site web.",
-    en: "KGS Market Entry shall not be liable for any direct or indirect loss arising from the use of this website.",
-  },
+  "terms.s6.text": { fr: "KGS Market Entry ne saurait être tenu responsable de toute perte directe ou indirecte découlant de l'utilisation de ce site web.", en: "KGS Market Entry shall not be liable for any direct or indirect loss arising from the use of this website." },
   "terms.s7.title": { fr: "7. Droit applicable", en: "7. Governing Law" },
-  "terms.s7.text": {
-    fr: "Ces conditions sont régies par les lois de l'État du Wyoming, États-Unis d'Amérique.",
-    en: "These Terms are governed by the laws of the State of Wyoming, United States of America.",
-  },
-
-  // Privacy Policy page
+  "terms.s7.text": { fr: "Ces conditions sont régies par les lois de l'État du Wyoming, États-Unis d'Amérique.", en: "These Terms are governed by the laws of the State of Wyoming, United States of America." },
   "privacy.title": { fr: "Politique de confidentialité — KGS Market Entry", en: "Privacy Policy — KGS Market Entry" },
   "privacy.s1.title": { fr: "1. Collecte de données", en: "1. Data Collection" },
-  "privacy.s1.text": {
-    fr: "KGS Market Entry peut collecter des informations de contact et contextuelles limitées lorsque les utilisateurs soumettent des formulaires ou des demandes.",
-    en: "KGS Market Entry may collect limited contact and contextual information when users submit forms or inquiries.",
-  },
+  "privacy.s1.text": { fr: "KGS Market Entry peut collecter des informations de contact et contextuelles limitées lorsque les utilisateurs soumettent des formulaires ou des demandes.", en: "KGS Market Entry may collect limited contact and contextual information when users submit forms or inquiries." },
   "privacy.s2.title": { fr: "2. Finalité", en: "2. Purpose" },
   "privacy.s2.text": { fr: "Les informations sont utilisées uniquement pour :", en: "Information is used solely for:" },
-  "privacy.s2.list": {
-    fr: "Analyse opérationnelle préliminaire\nCommunication\nÉvaluation contextuelle",
-    en: "Preliminary operational analysis\nCommunication\nContextual evaluation",
-  },
+  "privacy.s2.list": { fr: "Analyse opérationnelle préliminaire\nCommunication\nÉvaluation contextuelle", en: "Preliminary operational analysis\nCommunication\nContextual evaluation" },
   "privacy.s3.title": { fr: "3. Aucune donnée financière", en: "3. No Financial Data" },
   "privacy.s3.text": { fr: "KGS Market Entry ne demande, ne stocke et ne traite pas :", en: "KGS Market Entry does not request, store, or process:" },
-  "privacy.s3.list": {
-    fr: "Identifiants bancaires\nInformations de paiement\nDonnées financières sensibles",
-    en: "Banking credentials\nPayment information\nSensitive financial data",
-  },
+  "privacy.s3.list": { fr: "Identifiants bancaires\nInformations de paiement\nDonnées financières sensibles", en: "Banking credentials\nPayment information\nSensitive financial data" },
   "privacy.s4.title": { fr: "4. Partage de données", en: "4. Data Sharing" },
-  "privacy.s4.text": {
-    fr: "Les données peuvent être partagées avec des prestataires de confiance strictement à des fins de coordination opérationnelle.",
-    en: "Data may be shared with trusted service providers strictly for operational coordination purposes.",
-  },
+  "privacy.s4.text": { fr: "Les données peuvent être partagées avec des prestataires de confiance strictement à des fins de coordination opérationnelle.", en: "Data may be shared with trusted service providers strictly for operational coordination purposes." },
   "privacy.s5.title": { fr: "5. Droits des utilisateurs", en: "5. User Rights" },
-  "privacy.s5.text": {
-    fr: "Les utilisateurs peuvent demander l'accès ou la suppression de leurs données en contactant contact@koraglobalsystems.com.",
-    en: "Users may request access or deletion of their data by contacting contact@koraglobalsystems.com.",
-  },
-
-  // Scope & Governance block
+  "privacy.s5.text": { fr: "Les utilisateurs peuvent demander l'accès ou la suppression de leurs données en contactant contact@koraglobalsystems.com.", en: "Users may request access or deletion of their data by contacting contact@koraglobalsystems.com." },
   "governance.title": { fr: "Positionnement — KGS Market Entry", en: "Positioning — KGS Market Entry" },
-  "governance.text": {
-    fr: "KGS Market Entry est une couche de confiance stratégique au sein de l'écosystème KGS.\n\nNous opérons avec un engagement sélectif.\nTous les projets ne sont pas acceptés.",
-    en: "KGS Market Entry is a strategic trust layer within the KGS ecosystem.\n\nWe operate with selective engagement.\nNot all projects are accepted.",
-  },
-  "governance.disclaimer": {
-    fr: "KGS Market Entry fournit uniquement des services de conseil et de structuration. L'exécution relève de prestataires tiers indépendants.",
-    en: "KGS Market Entry provides advisory and structuring services only. Execution remains the responsibility of independent third-party providers.",
-  },
+  "governance.text": { fr: "KGS Market Entry est une couche de confiance stratégique au sein de l'écosystème KGS.\n\nNous opérons avec un engagement sélectif.\nTous les projets ne sont pas acceptés.", en: "KGS Market Entry is a strategic trust layer within the KGS ecosystem.\n\nWe operate with selective engagement.\nNot all projects are accepted." },
+  "governance.disclaimer": { fr: "KGS Market Entry fournit uniquement des services de conseil et de structuration. L'exécution relève de prestataires tiers indépendants.", en: "KGS Market Entry provides advisory and structuring services only. Execution remains the responsibility of independent third-party providers." },
+
+  // ─── PLATFORM HEADER & NAV ───
+  "platform.nav.home": { fr: "Accueil", en: "Home" },
+  "platform.nav.opportunities": { fr: "Opportunités", en: "Opportunities" },
+  "platform.nav.countries": { fr: "Pays", en: "Countries" },
+  "platform.nav.events": { fr: "Événements", en: "Events" },
+  "platform.nav.insights": { fr: "Analyses", en: "Insights" },
+  "platform.nav.services": { fr: "Services", en: "Services" },
+  "platform.nav.about": { fr: "À propos", en: "About" },
+  "platform.nav.join_brief": { fr: "Rejoindre le Brief", en: "Join Brief" },
+  "platform.nav.join_brief_full": { fr: "Rejoindre l'Opportunity Brief", en: "Join the Opportunity Brief" },
+
+  // ─── HOMEPAGE ───
+  "home.hero.title": { fr: "Découvrez les opportunités", en: "Discover Opportunities" },
+  "home.hero.title_highlight": { fr: "à travers l'Afrique", en: "Across Africa" },
+  "home.hero.subtitle": { fr: "Explorez les investissements, programmes économiques, événements d'affaires et opportunités de marché à travers le continent africain.", en: "Explore investments, economic programs, business events and market opportunities across the African continent." },
+  "home.hero.cta_explore": { fr: "Explorer les opportunités", en: "Explore Opportunities" },
+  "home.hero.cta_newsletter": { fr: "Rejoindre l'Opportunity Brief", en: "Join the Opportunity Brief" },
+  "home.hero.stat_opps": { fr: "Opportunités actives", en: "Active Opportunities" },
+  "home.hero.stat_countries": { fr: "Pays suivis", en: "Countries Tracked" },
+  "home.hero.stat_events": { fr: "Événements d'affaires", en: "Business Events" },
+  "home.hero.tagline": { fr: "Plateforme d'intelligence des marchés africains", en: "African Market Intelligence Platform" },
+
+  "home.map.badge": { fr: "Intelligence de marché", en: "Market Intelligence" },
+  "home.map.title": { fr: "Carte interactive de l'Afrique", en: "Interactive Africa Map" },
+  "home.map.desc": { fr: "Cliquez sur n'importe quel pays mis en évidence pour explorer les opportunités actives, événements et analyses de marché. Notre couverture s'étend sur 11 économies africaines clés.", en: "Click on any highlighted country to explore active opportunities, events and market insights. Our coverage spans 11 key African economies." },
+  "home.map.legend_opps": { fr: "Opportunités actives", en: "Active opportunities" },
+  "home.map.legend_events": { fr: "Événements à venir", en: "Upcoming events" },
+  "home.map.legend_untracked": { fr: "Non suivi", en: "Untracked" },
+
+  "home.featured.badge": { fr: "En vedette", en: "Featured" },
+  "home.featured.title": { fr: "Opportunités en vedette", en: "Featured Opportunities" },
+  "home.featured.desc": { fr: "Programmes et investissements à fort impact à travers le continent.", en: "High-impact programs and investments across the continent." },
+  "home.featured.view_all": { fr: "Voir tout", en: "View all" },
+
+  "home.events.badge": { fr: "Événements", en: "Events" },
+  "home.events.title": { fr: "Prochains événements d'affaires en Afrique", en: "Upcoming African Business Events" },
+  "home.events.desc": { fr: "Conférences, sommets et opportunités de réseautage clés.", en: "Key conferences, summits, and networking opportunities." },
+  "home.events.view_all": { fr: "Voir tout", en: "View all" },
+
+  "home.insights.badge": { fr: "Intelligence", en: "Intelligence" },
+  "home.insights.title": { fr: "Analyses de marché", en: "Market Insights" },
+  "home.insights.desc": { fr: "Intelligence et analyses sur les marchés africains.", en: "Intelligence and analysis on African markets." },
+  "home.insights.view_all": { fr: "Voir tout", en: "View all" },
+
+  "home.newsletter.title": { fr: "Restez en avance sur les opportunités africaines", en: "Stay Ahead of African Opportunities" },
+  "home.newsletter.desc": { fr: "Recevez des opportunités sélectionnées, événements d'affaires et analyses d'investissement à travers l'Afrique.", en: "Receive curated opportunities, business events and investment insights across Africa." },
+  "home.newsletter.placeholder": { fr: "Entrez votre email", en: "Enter your email" },
+  "home.newsletter.subscribe": { fr: "S'abonner", en: "Subscribe" },
+
+  // ─── OPPORTUNITY RADAR ───
+  "radar.title": { fr: "Radar des opportunités en Afrique", en: "Africa Opportunity Radar" },
+  "radar.desc": { fr: "Les dernières opportunités économiques et programmes à travers les marchés africains.", en: "The latest economic opportunities and programs across African markets." },
+  "radar.col_country": { fr: "Pays", en: "Country" },
+  "radar.col_opportunity": { fr: "Opportunité", en: "Opportunity" },
+  "radar.col_sector": { fr: "Secteur", en: "Sector" },
+  "radar.col_deadline": { fr: "Échéance", en: "Deadline" },
+  "radar.view_all": { fr: "Voir toutes les opportunités", en: "View all opportunities" },
+
+  // ─── OPPORTUNITIES PAGE ───
+  "opps.badge": { fr: "Investissements & Programmes", en: "Investment & Programs" },
+  "opps.title": { fr: "Opportunités", en: "Opportunities" },
+  "opps.desc": { fr: "Explorez les opportunités d'investissement, programmes et initiatives à travers les marchés africains.", en: "Explore investment opportunities, programs and initiatives across African markets." },
+  "opps.search": { fr: "Rechercher des opportunités...", en: "Search opportunities..." },
+  "opps.all_sectors": { fr: "Tous les secteurs", en: "All Sectors" },
+  "opps.all_types": { fr: "Tous les types", en: "All Types" },
+  "opps.found": { fr: "opportunités trouvées", en: "opportunities found" },
+  "opps.no_match": { fr: "Aucune opportunité ne correspond à vos filtres.", en: "No opportunities match your filters." },
+
+  // ─── OPPORTUNITY DETAIL ───
+  "opp.back": { fr: "Retour aux opportunités", en: "Back to opportunities" },
+  "opp.key_info": { fr: "Informations clés", en: "Key Information" },
+  "opp.country": { fr: "Pays", en: "Country" },
+  "opp.sector": { fr: "Secteur", en: "Sector" },
+  "opp.deadline": { fr: "Échéance", en: "Deadline" },
+  "opp.investment_size": { fr: "Taille de l'investissement", en: "Investment Size" },
+  "opp.website": { fr: "Site web", en: "Website" },
+  "opp.source": { fr: "Source", en: "Source" },
+  "opp.overview": { fr: "Vue d'ensemble de l'opportunité", en: "Opportunity Overview" },
+  "opp.investment_context": { fr: "Contexte d'investissement", en: "Investment Context" },
+  "opp.how_to_participate": { fr: "Comment participer", en: "How to Participate" },
+  "opp.need_help": { fr: "Besoin d'aide pour entrer sur ce marché ?", en: "Need help entering this market?" },
+  "opp.need_help_desc": { fr: "Contactez KGS Market Entry pour du conseil stratégique, du support en due diligence et l'accès au marché.", en: "Contact KGS Market Entry for strategic advisory, due diligence support and market access." },
+  "opp.visit_website": { fr: "Visiter le site officiel", en: "Visit Official Website" },
+  "opp.contact_kgs": { fr: "Contacter KGS Market Entry", en: "Contact KGS Market Entry" },
+
+  // ─── COUNTRIES PAGE ───
+  "countries.badge": { fr: "Couverture pays", en: "Country Coverage" },
+  "countries.title": { fr: "Explorer les", en: "Explore" },
+  "countries.title_highlight": { fr: "pays", en: "Countries" },
+  "countries.desc": { fr: "Explorez les marchés africains avec des opportunités actives et des événements d'affaires.", en: "Explore African markets with active opportunities and business events." },
+  "countries.opportunities": { fr: "opportunités", en: "opportunities" },
+  "countries.events": { fr: "événements", en: "events" },
+
+  // ─── COUNTRY DETAIL ───
+  "country.not_found": { fr: "Pays non trouvé", en: "Country not found" },
+  "country.back": { fr: "Retour aux pays", en: "Back to countries" },
+  "country.key_sectors": { fr: "Secteurs clés", en: "Key Sectors" },
+  "country.active_opps": { fr: "Opportunités actives", en: "Active Opportunities" },
+  "country.no_opps": { fr: "Aucune opportunité active pour le moment.", en: "No active opportunities at this time." },
+  "country.upcoming_events": { fr: "Événements à venir", en: "Upcoming Events" },
+  "country.no_events": { fr: "Aucun événement à venir pour le moment.", en: "No upcoming events at this time." },
+
+  // ─── EVENTS PAGE ───
+  "events.badge": { fr: "Événements d'affaires", en: "Business Events" },
+  "events.title": { fr: "Événements d'affaires", en: "African Business" },
+  "events.title_highlight": { fr: "africains", en: "Events" },
+  "events.desc": { fr: "Conférences, sommets et événements de réseautage à travers le continent africain.", en: "Conferences, summits and networking events across the African continent." },
+
+  // ─── EVENT DETAIL ───
+  "event.back": { fr: "Retour aux événements", en: "Back to events" },
+  "event.not_found": { fr: "Événement non trouvé", en: "Event not found" },
+  "event.overview": { fr: "Aperçu de l'événement", en: "Event Overview" },
+  "event.key_info": { fr: "Informations clés", en: "Key Information" },
+  "event.location": { fr: "Lieu", en: "Location" },
+  "event.date": { fr: "Date", en: "Date" },
+  "event.organizer": { fr: "Organisateur", en: "Organizer" },
+  "event.sector": { fr: "Secteur", en: "Sector" },
+  "event.website": { fr: "Site web", en: "Website" },
+  "event.why_attend": { fr: "Pourquoi participer", en: "Why Attend" },
+  "event.who_attend": { fr: "Qui devrait participer", en: "Who Should Attend" },
+  "event.interested": { fr: "Intéressé à participer ?", en: "Interested in attending?" },
+  "event.register_desc": { fr: "Inscrivez-vous ou contactez KGS Market Entry pour de l'aide avec l'accès à l'événement et les introductions.", en: "Register or contact KGS Market Entry for assistance with event access and introductions." },
+  "event.visit_website": { fr: "Visiter le site officiel", en: "Visit Official Website" },
+  "event.contact_kgs": { fr: "Contacter KGS Market Entry", en: "Contact KGS Market Entry" },
+
+  // ─── INSIGHTS PAGE ───
+  "insights.badge": { fr: "Intelligence de marché", en: "Market Intelligence" },
+  "insights.title": { fr: "Analyses de", en: "Market" },
+  "insights.title_highlight": { fr: "marché", en: "Insights" },
+  "insights.desc": { fr: "Intelligence, analyses et tendances des marchés africains. Recherche sélectionnée par le desk intelligence de KGS.", en: "Intelligence, analysis, and trends shaping African markets. Curated research from the KGS intelligence desk." },
+  "insights.featured": { fr: "En vedette", en: "Featured" },
+  "insights.latest": { fr: "Dernières analyses", en: "Latest Analysis" },
+  "insights.read": { fr: "Lire", en: "Read" },
+  "insights.newsletter_title": { fr: "Recevez le Brief Intelligence hebdomadaire", en: "Get the Weekly Intelligence Brief" },
+  "insights.newsletter_desc": { fr: "Analyses sélectionnées sur les marchés africains, tendances d'investissement et opportunités d'affaires — livrées dans votre boîte mail.", en: "Curated insights on African markets, investment trends and business opportunities — delivered to your inbox." },
+
+  // ─── SERVICES PAGE ───
+  "services.title": { fr: "Services d'entrée sur le marché", en: "Market Entry Services" },
+  "services.desc": { fr: "Services de structuration stratégique et de conseil pour les organisations entrant ou se développant sur les marchés africains.", en: "Strategic structuring and advisory services for organizations entering or expanding across African markets." },
+  "services.s1.title": { fr: "Structuration de projet", en: "Project Structuring" },
+  "services.s1.desc": { fr: "Définir le périmètre, réduire l'exposition et créer des cadres d'engagement structurés avant le déploiement du capital.", en: "Define scope, reduce exposure, and create structured engagement frameworks before capital is deployed." },
+  "services.s2.title": { fr: "Stratégie d'entrée sur le marché", en: "Market Entry Strategy" },
+  "services.s2.desc": { fr: "Naviguer les environnements réglementaires, identifier le positionnement marché et développer des stratégies go-to-market actionnables à travers les marchés africains.", en: "Navigate regulatory environments, identify market positioning, and develop actionable go-to-market strategies across African markets." },
+  "services.s3.title": { fr: "Intelligence des opportunités", en: "Opportunity Intelligence" },
+  "services.s3.desc": { fr: "Accédez à une intelligence sélectionnée sur les programmes d'investissement, obligations souveraines, initiatives d'innovation et événements d'affaires.", en: "Access curated intelligence on investment programs, sovereign bonds, innovation initiatives, and business events." },
+  "services.s4.title": { fr: "Identification de partenaires", en: "Partner Identification" },
+  "services.s4.desc": { fr: "Identifier et évaluer les partenaires potentiels, prestataires de services et parties prenantes institutionnelles pour votre projet.", en: "Identify and vet potential partners, service providers, and institutional stakeholders for your project." },
+  "services.cta_title": { fr: "Prêt à entrer sur le marché africain ?", en: "Ready to enter the African market?" },
+  "services.cta_desc": { fr: "Notre équipe fournit du conseil structuré pour vous aider à naviguer les opportunités avec clarté.", en: "Our team provides structured advisory to help you navigate opportunities with clarity." },
+  "services.cta_button": { fr: "Demander une consultation", en: "Request Consultation" },
+
+  // ─── ABOUT PAGE ───
+  "about_page.title": { fr: "À propos de KGS Market Entry", en: "About KGS Market Entry" },
+  "about_page.p1": { fr: "KGS Market Entry est une plateforme d'intelligence des marchés africains conçue pour centraliser les opportunités économiques, programmes d'investissement et événements stratégiques à travers le continent.", en: "KGS Market Entry is an African market intelligence platform designed to centralize economic opportunities, investment programs and strategic events across the continent." },
+  "about_page.p2": { fr: "La plateforme sert de hub de découverte et d'intelligence pour les investisseurs, institutions et organisations cherchant un accès structuré aux marchés africains. Nous agrégeons, vérifions et présentons des opportunités couvrant les obligations souveraines, programmes d'innovation, événements d'affaires et initiatives sectorielles.", en: "The platform serves as a discovery and intelligence hub for investors, institutions, and organizations seeking structured access to African markets. We aggregate, verify, and present opportunities spanning sovereign bonds, innovation programs, business events, and sector-specific initiatives." },
+  "about_page.p3": { fr: "Notre mission est d'apporter transparence, structure et accessibilité au paysage des opportunités africaines — permettant une prise de décision éclairée pour ceux qui cherchent à investir, s'associer ou se développer à travers le continent.", en: "Our mission is to bring transparency, structure, and accessibility to the African opportunity landscape — enabling informed decision-making for those looking to invest, partner, or expand across the continent." },
+  "about_page.kgs_title": { fr: "Partie de Kora Global Systems", en: "Part of Kora Global Systems" },
+  "about_page.kgs_desc": { fr: "KGS Market Entry opère comme une division stratégique de Kora Global Systems, un écosystème de structuration et de conseil axé sur la connexion des parties prenantes internationales avec les marchés africains à travers la clarté, la conformité et des cadres structurés.", en: "KGS Market Entry operates as a strategic division of Kora Global Systems, a structuring and advisory ecosystem focused on connecting international stakeholders with African markets through clarity, compliance, and structured frameworks." },
+  "about_page.disclaimer_title": { fr: "Avertissement", en: "Disclaimer" },
+  "about_page.disclaimer_text": { fr: "KGS Market Entry fournit uniquement des services de conseil et de structuration. La plateforme agrège des informations publiquement disponibles et ne constitue pas un conseil financier. Les décisions d'investissement doivent être prises avec un accompagnement professionnel approprié. L'exécution relève de la responsabilité de prestataires tiers indépendants.", en: "KGS Market Entry provides advisory and structuring services only. The platform aggregates publicly available information and does not constitute financial advice. Investment decisions should be made with proper professional guidance. Execution remains the responsibility of independent third-party providers." },
+
+  // ─── NEWSLETTER PAGE ───
+  "newsletter.title": { fr: "L'African Opportunity Brief", en: "The African Opportunity Brief" },
+  "newsletter.desc": { fr: "Intelligence sélectionnée sur les opportunités africaines, livrée dans votre boîte mail.", en: "Curated intelligence on African opportunities, delivered to your inbox." },
+  "newsletter.free": { fr: "Gratuit", en: "Free" },
+  "newsletter.free_price": { fr: "0€", en: "€0" },
+  "newsletter.free_period": { fr: "/mois", en: "/month" },
+  "newsletter.free_desc": { fr: "Mises à jour essentielles sur les opportunités", en: "Essential opportunity updates" },
+  "newsletter.free_f1": { fr: "Points forts hebdomadaires des opportunités", en: "Weekly opportunity highlights" },
+  "newsletter.free_f2": { fr: "Mises à jour des événements", en: "Event updates" },
+  "newsletter.free_cta": { fr: "S'abonner gratuitement", en: "Subscribe Free" },
+  "newsletter.premium": { fr: "Premium", en: "Premium" },
+  "newsletter.premium_price": { fr: "8€", en: "€8" },
+  "newsletter.premium_year": { fr: "ou 70€ /an", en: "or €70 /year" },
+  "newsletter.premium_desc": { fr: "Accès complet à l'intelligence", en: "Full intelligence access" },
+  "newsletter.premium_f1": { fr: "Accès anticipé aux opportunités", en: "Early access opportunities" },
+  "newsletter.premium_f2": { fr: "Analyses d'intelligence de marché", en: "Market intelligence insights" },
+  "newsletter.premium_f3": { fr: "Alertes opportunités", en: "Opportunity alerts" },
+  "newsletter.premium_f4": { fr: "Notifications prioritaires d'événements", en: "Priority event notifications" },
+  "newsletter.premium_cta": { fr: "Obtenir Premium", en: "Get Premium" },
+  "newsletter.recommended": { fr: "Recommandé", en: "Recommended" },
+  "newsletter.email_placeholder": { fr: "Entrez votre email", en: "Enter your email" },
+
+  // ─── FOOTER (PLATFORM) ───
+  "pfooter.tagline": { fr: "Plateforme d'intelligence et d'opportunités des marchés africains par Kora Global Systems.", en: "African Market Intelligence & Opportunity Platform by Kora Global Systems." },
+  "pfooter.platform": { fr: "Plateforme", en: "Platform" },
+  "pfooter.company": { fr: "Entreprise", en: "Company" },
+  "pfooter.legal": { fr: "Légal", en: "Legal" },
+  "pfooter.rights": { fr: "Tous droits réservés.", en: "All rights reserved." },
+  "pfooter.disclaimer": { fr: "KGS Market Entry fournit uniquement des services de conseil et de structuration.", en: "KGS Market Entry provides advisory and structuring services only." },
+  "pfooter.link_opps": { fr: "Opportunités", en: "Opportunities" },
+  "pfooter.link_countries": { fr: "Pays", en: "Countries" },
+  "pfooter.link_events": { fr: "Événements", en: "Events" },
+  "pfooter.link_insights": { fr: "Analyses", en: "Insights" },
+  "pfooter.link_services": { fr: "Services", en: "Services" },
+  "pfooter.link_about": { fr: "À propos", en: "About" },
+  "pfooter.link_newsletter": { fr: "Newsletter", en: "Newsletter" },
+  "pfooter.link_legal": { fr: "Mentions légales", en: "Legal Notice" },
+  "pfooter.link_terms": { fr: "Conditions d'utilisation", en: "Terms of Use" },
+  "pfooter.link_privacy": { fr: "Politique de confidentialité", en: "Privacy Policy" },
+
+  // ─── CARDS ───
+  "card.view_opportunity": { fr: "Voir l'opportunité", en: "View Opportunity" },
+  "card.view_event": { fr: "Voir l'événement", en: "View Event" },
+
+  // ─── NOT FOUND ───
+  "notfound.title": { fr: "Page non trouvée", en: "Page not found" },
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);

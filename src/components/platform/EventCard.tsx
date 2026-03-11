@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { MapPin, Calendar, Users, ArrowRight } from "lucide-react";
 import type { AfricaEvent } from "@/data/mockData";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const images = import.meta.glob("@/assets/*.jpg", { eager: true, import: "default" }) as Record<string, string>;
 
@@ -32,6 +33,7 @@ const BADGE_COLORS: Record<string, string> = {
 
 const EventCard = ({ event }: { event: AfricaEvent }) => {
   const bgImage = getImageForEvent(event.sector);
+  const { t } = useLanguage();
 
   return (
     <Link
@@ -76,7 +78,7 @@ const EventCard = ({ event }: { event: AfricaEvent }) => {
         </div>
 
         <span className="inline-flex items-center gap-1.5 text-xs text-primary font-semibold group-hover:gap-2.5 transition-all">
-          View Event <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" />
+          {t("card.view_event")} <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" />
         </span>
       </div>
     </Link>

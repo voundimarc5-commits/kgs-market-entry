@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { MapPin, Calendar, ArrowRight } from "lucide-react";
 import type { Opportunity } from "@/data/mockData";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const images = import.meta.glob("@/assets/*.jpg", { eager: true, import: "default" }) as Record<string, string>;
 
@@ -24,6 +25,7 @@ const getImageForSector = (sector: string): string | undefined => {
 
 const OpportunityCard = ({ opportunity }: { opportunity: Opportunity }) => {
   const bgImage = getImageForSector(opportunity.sector);
+  const { t } = useLanguage();
 
   return (
     <Link
@@ -66,7 +68,7 @@ const OpportunityCard = ({ opportunity }: { opportunity: Opportunity }) => {
         </div>
 
         <span className="inline-flex items-center gap-1.5 text-xs text-primary font-semibold group-hover:gap-2.5 transition-all">
-          View Opportunity <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" />
+          {t("card.view_opportunity")} <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" />
         </span>
       </div>
     </Link>
