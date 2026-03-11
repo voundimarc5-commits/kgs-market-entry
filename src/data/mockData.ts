@@ -501,6 +501,7 @@ export const events: AfricaEvent[] = [
     ],
     audience: ["Entrepreneurs", "Investors", "Tech Professionals", "Corporates"],
     website: "https://gipc.gov.gh",
+  },
   {
     id: "9",
     name: "Cairo AI and Robotics Expo",
