@@ -73,15 +73,15 @@ const HomePage = () => {
                 <div className="flex items-center gap-8 mt-10">
                   <div className="flex items-center gap-2">
                     <TrendingUp size={14} className="text-primary" />
-                    <span className="text-xs text-muted-foreground"><strong className="text-foreground">10</strong> Active Opportunities</span>
+                    <span className="text-xs text-muted-foreground"><strong className="text-foreground">13</strong> Active Opportunities</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Shield size={14} className="text-primary" />
-                    <span className="text-xs text-muted-foreground"><strong className="text-foreground">11</strong> Countries Tracked</span>
+                    <span className="text-xs text-muted-foreground"><strong className="text-foreground">12</strong> Countries Tracked</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Zap size={14} className="text-primary" />
-                    <span className="text-xs text-muted-foreground"><strong className="text-foreground">10</strong> Business Events</span>
+                    <span className="text-xs text-muted-foreground"><strong className="text-foreground">11</strong> Business Events</span>
                   </div>
                 </div>
               </ScrollReveal>

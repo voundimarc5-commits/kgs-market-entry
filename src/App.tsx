@@ -9,6 +9,7 @@ import OpportunityDetailPage from "./pages/OpportunityDetailPage";
 import CountriesPage from "./pages/CountriesPage";
 import CountryDetailPage from "./pages/CountryDetailPage";
 import EventsPage from "./pages/EventsPage";
+import EventDetailPage from "./pages/EventDetailPage";
 import InsightsPage from "./pages/InsightsPage";
 import ServicesPage from "./pages/ServicesPage";
 import NewsletterPage from "./pages/NewsletterPage";
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/countries" element={<CountriesPage />} />
           <Route path="/countries/:code" element={<CountryDetailPage />} />
           <Route path="/events" element={<EventsPage />} />
+          <Route path="/events/:id" element={<EventDetailPage />} />
           <Route path="/insights" element={<InsightsPage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/newsletter" element={<NewsletterPage />} />
