@@ -459,7 +459,7 @@ export const events: AfricaEvent[] = [
       "Access data and insights on African VC performance benchmarks",
     ],
     audience: ["Venture Capitalists", "Limited Partners", "Family Offices", "Fund Managers"],
-  },
+    website: "https://savca.co.za",
   {
     id: "7",
     name: "Dakar Digital Economy Conference",
