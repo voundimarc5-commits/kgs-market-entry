@@ -158,9 +158,8 @@ export const opportunities: Opportunity[] = [
       "Participate in partnership matchmaking sessions",
       "Finalize joint venture or concession agreements",
     ],
+    website: "https://www.masen.ma",
   },
-  {
-    id: "5",
     title: "Rwanda Smart City Development Program",
     country: "Rwanda",
     sector: "Real Estate",
