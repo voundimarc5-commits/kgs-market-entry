@@ -4,7 +4,7 @@ import ScrollReveal from "@/components/platform/ScrollReveal";
 import LeadCaptureForm from "@/components/platform/LeadCaptureForm";
 import { opportunities } from "@/data/mockData";
 import ParallaxHero from "@/components/platform/ParallaxHero";
-import { ArrowLeft, MapPin, Calendar, DollarSign, Briefcase, ExternalLink, TrendingUp, Lightbulb } from "lucide-react";
+import { ArrowLeft, MapPin, Calendar, DollarSign, Briefcase, ExternalLink, TrendingUp, Lightbulb, Globe } from "lucide-react";
 
 const images = import.meta.glob("@/assets/*.jpg", { eager: true, import: "default" }) as Record<string, string>;
 
