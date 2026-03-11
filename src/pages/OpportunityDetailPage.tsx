@@ -91,6 +91,12 @@ const OpportunityDetailPage = () => {
                     <p className="text-sm font-medium text-foreground">{opportunity.investmentSize}</p>
                   </div>
                 )}
+                {opportunity.website && (
+                  <div>
+                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><Globe size={12} /> Website</div>
+                    <a href={opportunity.website} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-primary hover:underline">{opportunity.website}</a>
+                  </div>
+                )}
               </div>
               {opportunity.source && (
                 <div className="mt-4 pt-4 border-t border-border">
