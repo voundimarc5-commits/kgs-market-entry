@@ -1,13 +1,13 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Globe, TrendingUp, Shield, Zap, BarChart3, Clock, Calendar, MapPin, BookOpen } from "lucide-react";
+import { ArrowRight, Globe, TrendingUp, Shield, Zap, BarChart3, Clock, Calendar, MapPin, BookOpen, Radar } from "lucide-react";
 import AfricaGlobe from "@/components/platform/AfricaGlobe";
 import AfricaSVGMap from "@/components/platform/AfricaSVGMap";
-import OpportunityRadar from "@/components/platform/OpportunityRadar";
 import OpportunityCard from "@/components/platform/OpportunityCard";
 import EventCard from "@/components/platform/EventCard";
 import PlatformLayout from "@/components/platform/PlatformLayout";
 import ScrollReveal from "@/components/platform/ScrollReveal";
-import { opportunities, events, insights } from "@/data/mockData";
+import { opportunities, events, insights, sectors } from "@/data/mockData";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 import heroAfricaModern from "@/assets/hero-africa-modern.jpg";
