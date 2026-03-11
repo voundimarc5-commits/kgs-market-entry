@@ -2,9 +2,11 @@ import { useState } from "react";
 import { opportunities, sectors } from "@/data/mockData";
 import { MapPin, Calendar, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const OpportunityRadar = () => {
   const [selectedSector, setSelectedSector] = useState("All");
+  const { t } = useLanguage();
 
   const allFiltered = selectedSector === "All"
     ? opportunities
@@ -17,14 +19,13 @@ const OpportunityRadar = () => {
       <div className="container mx-auto px-6">
         <div className="mb-8">
           <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-2">
-            Africa Opportunity Radar
+            {t("radar.title")}
           </h2>
           <p className="text-sm text-muted-foreground">
-            The latest economic opportunities and programs across African markets.
+            {t("radar.desc")}
           </p>
         </div>
 
-        {/* Filters */}
         <div className="flex flex-wrap gap-2 mb-8">
           {sectors.map((sector) => (
             <button
@@ -41,16 +42,15 @@ const OpportunityRadar = () => {
           ))}
         </div>
 
-        {/* Table */}
         <div className="glass-card rounded-lg overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
                 <tr className="border-b border-border">
-                  <th className="text-left text-[10px] uppercase tracking-wider text-muted-foreground font-medium px-4 py-3">Country</th>
-                  <th className="text-left text-[10px] uppercase tracking-wider text-muted-foreground font-medium px-4 py-3">Opportunity</th>
-                  <th className="text-left text-[10px] uppercase tracking-wider text-muted-foreground font-medium px-4 py-3 hidden md:table-cell">Sector</th>
-                  <th className="text-left text-[10px] uppercase tracking-wider text-muted-foreground font-medium px-4 py-3 hidden md:table-cell">Deadline</th>
+                  <th className="text-left text-[10px] uppercase tracking-wider text-muted-foreground font-medium px-4 py-3">{t("radar.col_country")}</th>
+                  <th className="text-left text-[10px] uppercase tracking-wider text-muted-foreground font-medium px-4 py-3">{t("radar.col_opportunity")}</th>
+                  <th className="text-left text-[10px] uppercase tracking-wider text-muted-foreground font-medium px-4 py-3 hidden md:table-cell">{t("radar.col_sector")}</th>
+                  <th className="text-left text-[10px] uppercase tracking-wider text-muted-foreground font-medium px-4 py-3 hidden md:table-cell">{t("radar.col_deadline")}</th>
                   <th className="px-4 py-3"></th>
                 </tr>
               </thead>
@@ -87,7 +87,7 @@ const OpportunityRadar = () => {
 
         <div className="mt-6 text-center">
           <Link to="/opportunities" className="inline-flex items-center gap-2 text-sm text-primary font-medium hover:gap-3 transition-all">
-            View all opportunities <ArrowRight size={14} />
+            {t("radar.view_all")} <ArrowRight size={14} />
           </Link>
         </div>
       </div>

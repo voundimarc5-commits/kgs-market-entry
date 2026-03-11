@@ -5,6 +5,7 @@ import LeadCaptureForm from "@/components/platform/LeadCaptureForm";
 import { opportunities } from "@/data/mockData";
 import ParallaxHero from "@/components/platform/ParallaxHero";
 import { ArrowLeft, MapPin, Calendar, DollarSign, Briefcase, ExternalLink, TrendingUp, Lightbulb, Globe } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const images = import.meta.glob("@/assets/*.jpg", { eager: true, import: "default" }) as Record<string, string>;
 
@@ -28,6 +29,7 @@ const getImageForSector = (sector: string): string | undefined => {
 
 const OpportunityDetailPage = () => {
   const { id } = useParams();
+  const { t } = useLanguage();
   const opportunity = opportunities.find((o) => o.id === id);
 
   if (!opportunity) {
@@ -35,7 +37,7 @@ const OpportunityDetailPage = () => {
       <PlatformLayout>
         <div className="container mx-auto px-6 py-20 text-center">
           <h1 className="text-2xl font-bold text-foreground mb-4">Opportunity not found</h1>
-          <Link to="/opportunities" className="text-primary text-sm">← Back to opportunities</Link>
+          <Link to="/opportunities" className="text-primary text-sm">← {t("opp.back")}</Link>
         </div>
       </PlatformLayout>
     );
@@ -48,7 +50,7 @@ const OpportunityDetailPage = () => {
       <ParallaxHero image={bgImage}>
         <div className="container mx-auto max-w-4xl">
           <Link to="/opportunities" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground mb-4">
-            <ArrowLeft size={14} /> Back to opportunities
+            <ArrowLeft size={14} /> {t("opp.back")}
           </Link>
           <div className="flex items-center gap-2 mb-3">
             <span className="text-[10px] uppercase tracking-wider text-primary-foreground font-semibold bg-primary px-2.5 py-1 rounded-sm">
@@ -68,32 +70,31 @@ const OpportunityDetailPage = () => {
             <p className="text-base text-muted-foreground mb-8">{opportunity.summary}</p>
           </ScrollReveal>
 
-          {/* Key Info */}
           <ScrollReveal delay={100}>
             <div className="glass-card rounded-lg p-6 mb-8">
-              <h2 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-4">Key Information</h2>
+              <h2 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-4">{t("opp.key_info")}</h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div>
-                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><MapPin size={12} /> Country</div>
+                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><MapPin size={12} /> {t("opp.country")}</div>
                   <p className="text-sm font-medium text-foreground">{opportunity.country}</p>
                 </div>
                 <div>
-                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><Briefcase size={12} /> Sector</div>
+                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><Briefcase size={12} /> {t("opp.sector")}</div>
                   <p className="text-sm font-medium text-foreground">{opportunity.sector}</p>
                 </div>
                 <div>
-                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><Calendar size={12} /> Deadline</div>
+                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><Calendar size={12} /> {t("opp.deadline")}</div>
                   <p className="text-sm font-medium text-foreground">{new Date(opportunity.deadline).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}</p>
                 </div>
                 {opportunity.investmentSize && (
                   <div>
-                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><DollarSign size={12} /> Investment Size</div>
+                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><DollarSign size={12} /> {t("opp.investment_size")}</div>
                     <p className="text-sm font-medium text-foreground">{opportunity.investmentSize}</p>
                   </div>
                 )}
                 {opportunity.website && (
                   <div>
-                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><Globe size={12} /> Website</div>
+                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><Globe size={12} /> {t("opp.website")}</div>
                     <a href={opportunity.website} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-primary hover:underline">{opportunity.website}</a>
                   </div>
                 )}
@@ -101,43 +102,40 @@ const OpportunityDetailPage = () => {
               {opportunity.source && (
                 <div className="mt-4 pt-4 border-t border-border">
                   <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                    <ExternalLink size={12} /> Source: {opportunity.source}
+                    <ExternalLink size={12} /> {t("opp.source")}: {opportunity.source}
                   </div>
                 </div>
               )}
             </div>
           </ScrollReveal>
 
-          {/* Overview */}
           {opportunity.overview && (
             <ScrollReveal delay={200}>
               <div className="mb-8">
-                <h2 className="text-lg font-semibold text-foreground mb-3">Opportunity Overview</h2>
+                <h2 className="text-lg font-semibold text-foreground mb-3">{t("opp.overview")}</h2>
                 <p className="text-sm text-muted-foreground leading-relaxed">{opportunity.overview}</p>
               </div>
             </ScrollReveal>
           )}
 
-          {/* Investment Context */}
           {opportunity.investmentContext && (
             <ScrollReveal delay={250}>
               <div className="glass-card rounded-lg p-6 mb-8">
                 <div className="flex items-center gap-2 mb-3">
                   <TrendingUp size={16} className="text-primary" />
-                  <h2 className="text-lg font-semibold text-foreground">Investment Context</h2>
+                  <h2 className="text-lg font-semibold text-foreground">{t("opp.investment_context")}</h2>
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed">{opportunity.investmentContext}</p>
               </div>
             </ScrollReveal>
           )}
 
-          {/* How to Participate */}
           {opportunity.howToParticipate && (
             <ScrollReveal delay={300}>
               <div className="mb-10">
                 <div className="flex items-center gap-2 mb-3">
                   <Lightbulb size={16} className="text-primary" />
-                  <h2 className="text-lg font-semibold text-foreground">How to Participate</h2>
+                  <h2 className="text-lg font-semibold text-foreground">{t("opp.how_to_participate")}</h2>
                 </div>
                 <ol className="space-y-3">
                   {opportunity.howToParticipate.map((step, i) => (
@@ -151,12 +149,11 @@ const OpportunityDetailPage = () => {
             </ScrollReveal>
           )}
 
-          {/* CTA */}
           <ScrollReveal delay={350}>
             <div className="glass-card rounded-xl p-8 text-center animate-glow-pulse mb-8">
-              <h2 className="text-xl font-bold text-foreground mb-3">Need help entering this market?</h2>
+              <h2 className="text-xl font-bold text-foreground mb-3">{t("opp.need_help")}</h2>
               <p className="text-sm text-muted-foreground mb-6 max-w-md mx-auto">
-                Contact KGS Market Entry for strategic advisory, due diligence support and market access.
+                {t("opp.need_help_desc")}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 {opportunity.website && (
@@ -166,20 +163,19 @@ const OpportunityDetailPage = () => {
                     rel="noopener noreferrer"
                     className="btn-glow inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-md text-sm font-semibold transition-all"
                   >
-                    <ExternalLink size={14} /> Visit Official Website
+                    <ExternalLink size={14} /> {t("opp.visit_website")}
                   </a>
                 )}
                 <Link
                   to="/services"
                   className="inline-flex items-center justify-center gap-2 bg-secondary text-foreground px-6 py-3 rounded-md text-sm font-medium hover:bg-secondary/80 transition-colors border border-border"
                 >
-                  Contact KGS Market Entry
+                  {t("opp.contact_kgs")}
                 </Link>
               </div>
             </div>
           </ScrollReveal>
 
-          {/* Lead Capture Form */}
           <ScrollReveal delay={400}>
             <LeadCaptureForm opportunityTitle={opportunity.title} />
           </ScrollReveal>

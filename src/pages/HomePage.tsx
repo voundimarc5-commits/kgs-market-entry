@@ -8,6 +8,7 @@ import EventCard from "@/components/platform/EventCard";
 import PlatformLayout from "@/components/platform/PlatformLayout";
 import ScrollReveal from "@/components/platform/ScrollReveal";
 import { opportunities, events, insights } from "@/data/mockData";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 import heroAfricaModern from "@/assets/hero-africa-modern.jpg";
 import financialDistrict from "@/assets/financial-district.jpg";
@@ -20,6 +21,7 @@ const IMAGE_MAP: Record<string, string> = {
 };
 
 const HomePage = () => {
+  const { t } = useLanguage();
   const featuredOpps = opportunities.filter((o) => o.featured);
 
   return (
@@ -37,13 +39,13 @@ const HomePage = () => {
             <div>
               <ScrollReveal delay={150}>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-foreground leading-tight mb-6">
-                  Discover Opportunities{" "}
-                  <span className="text-gradient-gold">Across Africa</span>
+                  {t("home.hero.title")}{" "}
+                  <span className="text-gradient-gold">{t("home.hero.title_highlight")}</span>
                 </h1>
               </ScrollReveal>
               <ScrollReveal delay={250}>
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-lg">
-                  Explore investments, economic programs, business events and market opportunities across the African continent.
+                  {t("home.hero.subtitle")}
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={350}>
@@ -52,13 +54,13 @@ const HomePage = () => {
                     to="/opportunities"
                     className="btn-glow inline-flex items-center gap-2 bg-primary text-primary-foreground px-7 py-3.5 rounded-md text-sm font-semibold transition-all"
                   >
-                    Explore Opportunities <ArrowRight size={16} />
+                    {t("home.hero.cta_explore")} <ArrowRight size={16} />
                   </Link>
                   <Link
                     to="/newsletter"
                     className="inline-flex items-center gap-2 bg-secondary/80 backdrop-blur-sm text-foreground px-7 py-3.5 rounded-md text-sm font-medium hover:bg-secondary transition-colors border border-border"
                   >
-                    Join the Opportunity Brief
+                    {t("home.hero.cta_newsletter")}
                   </Link>
                 </div>
               </ScrollReveal>
@@ -67,15 +69,15 @@ const HomePage = () => {
                 <div className="flex items-center gap-8 mt-10">
                   <div className="flex items-center gap-2">
                     <TrendingUp size={14} className="text-primary" />
-                    <span className="text-xs text-muted-foreground"><strong className="text-foreground">13</strong> Active Opportunities</span>
+                    <span className="text-xs text-muted-foreground"><strong className="text-foreground">13</strong> {t("home.hero.stat_opps")}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Shield size={14} className="text-primary" />
-                    <span className="text-xs text-muted-foreground"><strong className="text-foreground">12</strong> Countries Tracked</span>
+                    <span className="text-xs text-muted-foreground"><strong className="text-foreground">12</strong> {t("home.hero.stat_countries")}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Zap size={14} className="text-primary" />
-                    <span className="text-xs text-muted-foreground"><strong className="text-foreground">11</strong> Business Events</span>
+                    <span className="text-xs text-muted-foreground"><strong className="text-foreground">11</strong> {t("home.hero.stat_events")}</span>
                   </div>
                 </div>
               </ScrollReveal>
@@ -83,7 +85,7 @@ const HomePage = () => {
               <ScrollReveal delay={600}>
                 <div className="inline-flex items-center gap-2 text-[10px] text-muted-foreground tracking-widest uppercase mt-8 opacity-60">
                   <Globe size={10} />
-                  African Market Intelligence Platform
+                  {t("home.hero.tagline")}
                 </div>
               </ScrollReveal>
             </div>
@@ -99,7 +101,6 @@ const HomePage = () => {
 
       {/* Interactive Africa Map */}
       <section className="relative py-20 section-divider overflow-hidden">
-        {/* Animated background */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
           <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl animate-float animation-delay-400" />
@@ -115,27 +116,27 @@ const HomePage = () => {
               <ScrollReveal>
                 <div className="inline-flex items-center gap-2 text-xs text-primary bg-primary/10 px-3 py-1.5 rounded-full mb-4">
                   <BarChart3 size={12} />
-                  Market Intelligence
+                  {t("home.map.badge")}
                 </div>
               </ScrollReveal>
               <ScrollReveal delay={100}>
-                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">Interactive Africa Map</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">{t("home.map.title")}</h2>
               </ScrollReveal>
               <ScrollReveal delay={200}>
                 <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-                  Click on any highlighted country to explore active opportunities, events and market insights. Our coverage spans 11 key African economies.
+                  {t("home.map.desc")}
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={300}>
                 <div className="flex items-center gap-6 text-xs text-muted-foreground">
                   <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-accent animate-dot-blink" /> Active opportunities
+                    <span className="w-3 h-3 rounded-full bg-accent animate-dot-blink" /> {t("home.map.legend_opps")}
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-primary animate-dot-blink animation-delay-300" /> Upcoming events
+                    <span className="w-3 h-3 rounded-full bg-primary animate-dot-blink animation-delay-300" /> {t("home.map.legend_events")}
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-sm bg-secondary border border-border" /> Untracked
+                    <span className="w-3 h-3 rounded-sm bg-secondary border border-border" /> {t("home.map.legend_untracked")}
                   </div>
                 </div>
               </ScrollReveal>
@@ -163,13 +164,13 @@ const HomePage = () => {
               <div>
                 <div className="inline-flex items-center gap-2 text-xs text-primary bg-primary/10 px-3 py-1.5 rounded-full mb-4">
                   <TrendingUp size={12} />
-                  Featured
+                  {t("home.featured.badge")}
                 </div>
-                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Featured Opportunities</h2>
-                <p className="text-sm text-muted-foreground">High-impact programs and investments across the continent.</p>
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">{t("home.featured.title")}</h2>
+                <p className="text-sm text-muted-foreground">{t("home.featured.desc")}</p>
               </div>
               <Link to="/opportunities" className="hidden md:inline-flex items-center gap-1.5 text-sm text-primary font-medium hover:gap-2.5 transition-all">
-                View all <ArrowRight size={14} />
+                {t("home.featured.view_all")} <ArrowRight size={14} />
               </Link>
             </div>
           </ScrollReveal>
@@ -191,13 +192,13 @@ const HomePage = () => {
               <div>
                 <div className="inline-flex items-center gap-2 text-xs text-primary bg-primary/10 px-3 py-1.5 rounded-full mb-4">
                   <Calendar size={12} />
-                  Events
+                  {t("home.events.badge")}
                 </div>
-                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Upcoming African Business Events</h2>
-                <p className="text-sm text-muted-foreground">Key conferences, summits, and networking opportunities.</p>
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">{t("home.events.title")}</h2>
+                <p className="text-sm text-muted-foreground">{t("home.events.desc")}</p>
               </div>
               <Link to="/events" className="hidden md:inline-flex items-center gap-1.5 text-sm text-primary font-medium hover:gap-2.5 transition-all">
-                View all <ArrowRight size={14} />
+                {t("home.events.view_all")} <ArrowRight size={14} />
               </Link>
             </div>
           </ScrollReveal>
@@ -211,7 +212,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Insights — visually enriched */}
+      {/* Insights */}
       <section className="relative py-20 section-divider overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]">
           <img src={nairobiTechHub} alt="" className="w-full h-full object-cover" loading="lazy" />
@@ -222,18 +223,17 @@ const HomePage = () => {
               <div>
                 <div className="inline-flex items-center gap-2 text-xs text-primary bg-primary/10 px-3 py-1.5 rounded-full mb-4">
                   <BookOpen size={12} />
-                  Intelligence
+                  {t("home.insights.badge")}
                 </div>
-                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Market Insights</h2>
-                <p className="text-sm text-muted-foreground">Intelligence and analysis on African markets.</p>
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">{t("home.insights.title")}</h2>
+                <p className="text-sm text-muted-foreground">{t("home.insights.desc")}</p>
               </div>
               <Link to="/insights" className="hidden md:inline-flex items-center gap-1.5 text-sm text-primary font-medium hover:gap-2.5 transition-all">
-                View all <ArrowRight size={14} />
+                {t("home.insights.view_all")} <ArrowRight size={14} />
               </Link>
             </div>
           </ScrollReveal>
 
-          {/* Featured insight large card */}
           <ScrollReveal delay={100}>
             <Link to="/insights" className="glass-card rounded-xl overflow-hidden mb-6 group cursor-pointer card-lift block hover:border-primary/30">
               <div className="grid grid-cols-1 md:grid-cols-2">
@@ -249,7 +249,7 @@ const HomePage = () => {
                 </div>
                 <div className="p-6 md:p-8 flex flex-col justify-center">
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="text-[10px] uppercase tracking-wider text-primary font-bold bg-primary/10 px-2 py-1 rounded border border-primary/20">Featured</span>
+                    <span className="text-[10px] uppercase tracking-wider text-primary font-bold bg-primary/10 px-2 py-1 rounded border border-primary/20">{t("insights.featured")}</span>
                     <span className="text-[10px] uppercase tracking-wider text-accent font-semibold">{insights[0].category}</span>
                   </div>
                   <h3 className="text-lg md:text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{insights[0].title}</h3>
@@ -300,19 +300,19 @@ const HomePage = () => {
           <ScrollReveal>
             <div className="glass-card rounded-xl p-10 md:p-16 text-center animate-glow-pulse">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-                Stay Ahead of African Opportunities
+                {t("home.newsletter.title")}
               </h2>
               <p className="text-sm text-muted-foreground mb-8 max-w-md mx-auto">
-                Receive curated opportunities, business events and investment insights across Africa.
+                {t("home.newsletter.desc")}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
                 <input
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder={t("home.newsletter.placeholder")}
                   className="flex-1 bg-secondary border border-border rounded-md px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
                 />
                 <button className="btn-glow bg-primary text-primary-foreground px-6 py-2.5 rounded-md text-sm font-semibold transition-all">
-                  Subscribe
+                  {t("home.newsletter.subscribe")}
                 </button>
               </div>
             </div>

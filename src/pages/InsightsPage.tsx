@@ -1,7 +1,8 @@
 import PlatformLayout from "@/components/platform/PlatformLayout";
 import ScrollReveal from "@/components/platform/ScrollReveal";
-import { insights, INSIGHT_IMAGES } from "@/data/mockData";
+import { insights } from "@/data/mockData";
 import { Clock, ArrowRight, TrendingUp, BookOpen } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 import financialDistrict from "@/assets/financial-district.jpg";
 import nairobiTechHub from "@/assets/nairobi-tech-hub.jpg";
@@ -24,10 +25,10 @@ const IMAGE_MAP: Record<string, string> = {
 const InsightsPage = () => {
   const featured = insights[0];
   const rest = insights.slice(1);
+  const { t } = useLanguage();
 
   return (
     <PlatformLayout>
-      {/* Hero header with background */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0">
           <img src={lagosSkyline} alt="" className="w-full h-full object-cover" />
@@ -37,23 +38,22 @@ const InsightsPage = () => {
           <ScrollReveal>
             <div className="inline-flex items-center gap-2 text-xs text-primary bg-primary/10 px-3 py-1.5 rounded-full mb-4 border border-primary/20">
               <BookOpen size={12} />
-              Market Intelligence
+              {t("insights.badge")}
             </div>
           </ScrollReveal>
           <ScrollReveal delay={100}>
             <h1 className="text-3xl md:text-5xl font-black text-foreground mb-3">
-              Market <span className="text-gradient-gold">Insights</span>
+              {t("insights.title")} <span className="text-gradient-gold">{t("insights.title_highlight")}</span>
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={200}>
             <p className="text-sm md:text-base text-muted-foreground max-w-xl leading-relaxed">
-              Intelligence, analysis, and trends shaping African markets. Curated research from the KGS intelligence desk.
+              {t("insights.desc")}
             </p>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Featured Article */}
       <section className="py-16 section-divider">
         <div className="container mx-auto px-6">
           <ScrollReveal>
@@ -71,7 +71,7 @@ const InsightsPage = () => {
                 <div className="bg-card p-8 md:p-12 flex flex-col justify-center">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="text-[10px] uppercase tracking-widest text-primary font-bold bg-primary/10 px-3 py-1 rounded-full border border-primary/20">
-                      Featured
+                      {t("insights.featured")}
                     </span>
                     <span className="text-[10px] uppercase tracking-wider text-accent font-semibold bg-accent/10 px-2 py-1 rounded">
                       {featured.category}
@@ -92,7 +92,7 @@ const InsightsPage = () => {
                       <span>{new Date(featured.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</span>
                     </div>
                     <span className="text-primary text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
-                      Read <ArrowRight size={14} />
+                      {t("insights.read")} <ArrowRight size={14} />
                     </span>
                   </div>
                 </div>
@@ -102,13 +102,12 @@ const InsightsPage = () => {
         </div>
       </section>
 
-      {/* Latest Analysis */}
       <section className="py-16 section-divider">
         <div className="container mx-auto px-6">
           <ScrollReveal>
             <div className="flex items-center gap-3 mb-10">
               <TrendingUp size={16} className="text-primary" />
-              <h2 className="text-xl font-bold text-foreground">Latest Analysis</h2>
+              <h2 className="text-xl font-bold text-foreground">{t("insights.latest")}</h2>
             </div>
           </ScrollReveal>
 
@@ -116,7 +115,6 @@ const InsightsPage = () => {
             {rest.map((article, i) => (
               <ScrollReveal key={article.id} delay={i * 100}>
                 <article className="glass-card rounded-xl overflow-hidden group cursor-pointer card-lift h-full flex flex-col">
-                  {/* Image */}
                   <div className="relative h-44 overflow-hidden">
                     <img
                       src={IMAGE_MAP[article.image || "financial-district"]}
@@ -131,8 +129,6 @@ const InsightsPage = () => {
                       </span>
                     </div>
                   </div>
-
-                  {/* Content */}
                   <div className="p-5 flex flex-col flex-1">
                     <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors leading-snug">
                       {article.title}
@@ -160,25 +156,24 @@ const InsightsPage = () => {
         </div>
       </section>
 
-      {/* Newsletter CTA */}
       <section className="py-20 section-divider">
         <div className="container mx-auto px-6">
           <ScrollReveal>
             <div className="glass-card rounded-xl p-10 md:p-16 text-center animate-glow-pulse">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-                Get the Weekly Intelligence Brief
+                {t("insights.newsletter_title")}
               </h2>
               <p className="text-sm text-muted-foreground mb-8 max-w-md mx-auto">
-                Curated insights on African markets, investment trends and business opportunities — delivered to your inbox.
+                {t("insights.newsletter_desc")}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
                 <input
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder={t("home.newsletter.placeholder")}
                   className="flex-1 bg-secondary border border-border rounded-md px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
                 />
                 <button className="btn-glow bg-primary text-primary-foreground px-6 py-2.5 rounded-md text-sm font-semibold transition-all">
-                  Subscribe
+                  {t("home.newsletter.subscribe")}
                 </button>
               </div>
             </div>

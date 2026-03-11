@@ -4,13 +4,15 @@ import AfricaSVGMap from "@/components/platform/AfricaSVGMap";
 import { countries } from "@/data/mockData";
 import { MapPin, ArrowRight, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 import africaCityscape from "@/assets/africa-cityscape.jpg";
 
 const CountriesPage = () => {
+  const { t } = useLanguage();
+
   return (
     <PlatformLayout>
-      {/* Hero */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0">
           <img src={africaCityscape} alt="" className="w-full h-full object-cover" />
@@ -20,17 +22,17 @@ const CountriesPage = () => {
           <ScrollReveal>
             <div className="inline-flex items-center gap-2 text-xs text-primary bg-primary/10 px-3 py-1.5 rounded-full mb-4 border border-primary/20">
               <Globe size={12} />
-              Country Coverage
+              {t("countries.badge")}
             </div>
           </ScrollReveal>
           <ScrollReveal delay={100}>
             <h1 className="text-3xl md:text-5xl font-black text-foreground mb-3">
-              Explore <span className="text-gradient-gold">Countries</span>
+              {t("countries.title")} <span className="text-gradient-gold">{t("countries.title_highlight")}</span>
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={200}>
             <p className="text-sm md:text-base text-muted-foreground max-w-xl">
-              Explore African markets with active opportunities and business events.
+              {t("countries.desc")}
             </p>
           </ScrollReveal>
         </div>
@@ -38,7 +40,6 @@ const CountriesPage = () => {
 
       <section className="py-12 section-divider">
         <div className="container mx-auto px-6">
-          {/* Interactive Map */}
           <ScrollReveal>
             <div className="mb-12 glass-card rounded-xl p-6">
               <AfricaSVGMap />
@@ -66,8 +67,8 @@ const CountriesPage = () => {
                     ))}
                   </div>
                   <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                    <span>{country.opportunities} opportunities</span>
-                    <span>{country.events} events</span>
+                    <span>{country.opportunities} {t("countries.opportunities")}</span>
+                    <span>{country.events} {t("countries.events")}</span>
                   </div>
                 </Link>
               </ScrollReveal>
