@@ -4,6 +4,7 @@ import { insights } from "@/data/mockData";
 import { Clock, ArrowRight, TrendingUp, BookOpen } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useLocalizedData } from "@/hooks/useLocalizedData";
+import { useNavigate } from "react-router-dom";
 
 import financialDistrict from "@/assets/financial-district.jpg";
 import nairobiTechHub from "@/assets/nairobi-tech-hub.jpg";
