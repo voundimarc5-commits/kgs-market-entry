@@ -425,6 +425,7 @@ export const events: AfricaEvent[] = [
     ],
     audience: ["Startups", "Angel Investors", "Accelerators", "Corporate Innovation Teams"],
     website: "https://kenyastartupfestival.com",
+  },
   {
     id: "5",
     name: "Morocco Renewable Energy Forum",
