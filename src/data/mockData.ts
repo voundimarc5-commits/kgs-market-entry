@@ -204,6 +204,8 @@ export const opportunities: Opportunity[] = [
     ],
     website: "https://cepici.ci",
   },
+  {
+    id: "7",
     title: "South Africa Mining Tech Investment Forum",
     country: "South Africa",
     sector: "Mining",
