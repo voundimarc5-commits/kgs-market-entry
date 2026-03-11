@@ -323,6 +323,7 @@ export const opportunities: Opportunity[] = [
       "Attend investor matchmaking sessions",
       "Negotiate concession or joint venture agreements",
     ],
+    website: "https://www.masen.ma",
   },
 ];
 
