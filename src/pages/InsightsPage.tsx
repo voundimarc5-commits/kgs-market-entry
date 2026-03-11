@@ -120,7 +120,7 @@ const InsightsPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {rest.map((article, i) => (
               <ScrollReveal key={article.id} delay={i * 100}>
-                <article className="glass-card rounded-xl overflow-hidden group cursor-pointer card-lift h-full flex flex-col">
+                <article onClick={() => navigate("/newsletter")} className="glass-card rounded-xl overflow-hidden group cursor-pointer card-lift h-full flex flex-col">
                   <div className="relative h-44 overflow-hidden">
                     <img
                       src={IMAGE_MAP[article.image || "financial-district"]}
