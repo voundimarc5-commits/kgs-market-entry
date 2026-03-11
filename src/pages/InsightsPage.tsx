@@ -82,6 +82,9 @@ const InsightsPage = () => {
                     <span className="text-[10px] uppercase tracking-wider text-accent font-semibold bg-accent/10 px-2 py-1 rounded">
                       {localizeCategory(featured.category)}
                     </span>
+                    <span className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider text-primary-foreground font-bold bg-primary px-2.5 py-1 rounded-full">
+                      <Lock size={10} /> Premium
+                    </span>
                   </div>
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
                     {featured.title}
