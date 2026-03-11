@@ -267,7 +267,7 @@ const HomePage = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {insights.slice(1, 4).map((article, i) => (
               <ScrollReveal key={article.id} delay={200 + i * 100}>
-                <div className="glass-card rounded-lg overflow-hidden group card-lift hover:border-primary/30 cursor-pointer h-full flex flex-col">
+                <Link to="/insights" className="glass-card rounded-lg overflow-hidden group card-lift hover:border-primary/30 cursor-pointer h-full flex flex-col block">
                   <div className="relative h-32 overflow-hidden">
                     <img
                       src={IMAGE_MAP[article.image || "financial-district"]}
@@ -287,7 +287,7 @@ const HomePage = () => {
                       <Clock size={9} /> {article.readTime}
                     </div>
                   </div>
-                </div>
+                </Link>
               </ScrollReveal>
             ))}
           </div>

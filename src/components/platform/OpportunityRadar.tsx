@@ -6,9 +6,11 @@ import { Link } from "react-router-dom";
 const OpportunityRadar = () => {
   const [selectedSector, setSelectedSector] = useState("All");
 
-  const filtered = selectedSector === "All"
+  const allFiltered = selectedSector === "All"
     ? opportunities
     : opportunities.filter((o) => o.sector === selectedSector);
+
+  const filtered = allFiltered.slice(0, 4);
 
   return (
     <section className="py-20 border-t border-border">
