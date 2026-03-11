@@ -549,7 +549,7 @@ export const events: AfricaEvent[] = [
       "Network with Cameroon's growing tech entrepreneurship ecosystem",
     ],
     audience: ["Tech Companies", "Investors", "Government Officials", "Entrepreneurs"],
-  },
+    website: "https://www.minpostel.gov.cm",
 ];
 
 export const INSIGHT_IMAGES: Record<string, string> = {
