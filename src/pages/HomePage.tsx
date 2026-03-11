@@ -152,38 +152,58 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Opportunity Radar */}
-      <ScrollReveal>
-        <OpportunityRadar />
-      </ScrollReveal>
-
-      {/* Featured Opportunities */}
+      {/* Africa Opportunity Radar — Featured Opportunities */}
       <section className="relative py-20 section-divider overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <img src={financialDistrict} alt="" className="w-full h-full object-cover" loading="lazy" />
         </div>
         <div className="container mx-auto px-6 relative z-10">
           <ScrollReveal>
-            <div className="flex items-end justify-between mb-10">
+            <div className="flex items-end justify-between mb-6">
               <div>
                 <div className="inline-flex items-center gap-2 text-xs text-primary bg-primary/10 px-3 py-1.5 rounded-full mb-4">
-                  <TrendingUp size={12} />
+                  <Radar size={12} />
                   {t("home.featured.badge")}
                 </div>
-                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">{t("home.featured.title")}</h2>
-                <p className="text-sm text-muted-foreground">{t("home.featured.desc")}</p>
+                <h2 className="text-3xl md:text-4xl font-black text-foreground mb-2">{t("radar.title")}</h2>
+                <p className="text-sm text-muted-foreground">{t("radar.desc")}</p>
               </div>
               <Link to="/opportunities" className="hidden md:inline-flex items-center gap-1.5 text-sm text-primary font-medium hover:gap-2.5 transition-all">
                 {t("home.featured.view_all")} <ArrowRight size={14} />
               </Link>
             </div>
           </ScrollReveal>
+
+          <ScrollReveal delay={100}>
+            <div className="flex flex-wrap gap-2 mb-8">
+              {sectors.map((sector) => (
+                <button
+                  key={sector}
+                  onClick={() => setSelectedSector(sector)}
+                  className={`text-xs px-4 py-2 rounded-md transition-all font-medium ${
+                    selectedSector === sector
+                      ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
+                      : "bg-secondary text-muted-foreground hover:text-foreground hover:bg-secondary/80"
+                  }`}
+                >
+                  {sector}
+                </button>
+              ))}
+            </div>
+          </ScrollReveal>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredOpps.map((opp, i) => (
+            {filteredOpps.slice(0, 6).map((opp, i) => (
               <ScrollReveal key={opp.id} delay={i * 120}>
                 <OpportunityCard opportunity={opp} />
               </ScrollReveal>
             ))}
+          </div>
+
+          <div className="mt-8 text-center md:hidden">
+            <Link to="/opportunities" className="inline-flex items-center gap-2 text-sm text-primary font-medium hover:gap-3 transition-all">
+              {t("radar.view_all")} <ArrowRight size={14} />
+            </Link>
           </div>
         </div>
       </section>
