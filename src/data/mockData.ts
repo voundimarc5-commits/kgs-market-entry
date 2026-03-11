@@ -143,6 +143,8 @@ export const opportunities: Opportunity[] = [
     ],
     website: "https://lagosinnovation.ng",
   },
+  {
+    id: "4",
     title: "Morocco Green Hydrogen Investment Initiative",
     country: "Morocco",
     sector: "Energy",
