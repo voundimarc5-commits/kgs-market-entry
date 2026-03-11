@@ -531,7 +531,7 @@ export const events: AfricaEvent[] = [
       "Access deal flow in Africa's $300B+ mining sector",
     ],
     audience: ["Mining Companies", "Institutional Investors", "Technology Providers", "ESG Analysts"],
-  },
+    website: "https://miningindaba.com",
   {
     id: "11",
     name: "Cameroon Digital Economy Forum",
