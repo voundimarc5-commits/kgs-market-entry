@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import kgsLogo from "@/assets/kgs-market-entry-logo.png";
 
 const PlatformFooter = () => {
   return (
@@ -7,9 +8,7 @@ const PlatformFooter = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
           <div>
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-7 h-7 rounded bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xs">K</span>
-              </div>
+              <img src={kgsLogo} alt="KGS Market Entry" className="w-8 h-8 object-contain" />
               <span className="text-sm font-semibold text-foreground">KGS Market Entry</span>
             </div>
             <p className="text-xs text-muted-foreground leading-relaxed">
