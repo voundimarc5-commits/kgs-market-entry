@@ -63,6 +63,29 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Interactive Africa Map */}
+      <section className="py-20 border-t border-border">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-2">Interactive Africa Map</h2>
+              <p className="text-sm text-muted-foreground mb-6">
+                Click on any highlighted country to explore active opportunities, events and market insights.
+              </p>
+              <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                <div className="flex items-center gap-1.5">
+                  <span className="w-3 h-3 rounded-sm bg-accent" /> Tracked markets
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="w-3 h-3 rounded-full bg-primary animate-pulse" /> Active opportunities
+                </div>
+              </div>
+            </div>
+            <AfricaSVGMap compact />
+          </div>
+        </div>
+      </section>
+
       {/* Opportunity Radar */}
       <OpportunityRadar />
 
