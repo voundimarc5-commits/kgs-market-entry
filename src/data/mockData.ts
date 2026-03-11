@@ -406,6 +406,7 @@ export const events: AfricaEvent[] = [
     ],
     audience: ["Entrepreneurs", "Tech Innovators", "Impact Investors", "Government Leaders"],
     website: "https://rdb.rw",
+  },
   {
     id: "4",
     name: "Nairobi Startup Festival",
