@@ -233,3 +233,38 @@
   min-width: 140%;
   margin-left: -20%;
 }
+
+/* Page transitions */
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes page-fade-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+.page-transition {
+  will-change: opacity, transform;
+}
+
+.page-enter {
+  animation: page-fade-in 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.page-exit {
+  animation: page-fade-out 0.2s cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards;
+}
