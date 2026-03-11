@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import kgsLogo from "@/assets/kgs-market-entry-logo.png";
 
 const PlatformFooter = () => {
   return (
