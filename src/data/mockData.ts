@@ -422,7 +422,7 @@ export const events: AfricaEvent[] = [
       "Explore Kenya's mobile-first innovation culture",
     ],
     audience: ["Startups", "Angel Investors", "Accelerators", "Corporate Innovation Teams"],
-  },
+    website: "https://kenyastartupfestival.com",
   {
     id: "5",
     name: "Morocco Renewable Energy Forum",
