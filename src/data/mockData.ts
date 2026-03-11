@@ -477,7 +477,7 @@ export const events: AfricaEvent[] = [
       "Network with Francophone Africa's growing tech community",
     ],
     audience: ["Tech Companies", "Government Officials", "Telcos", "Digital Infrastructure Providers"],
-  },
+    website: "https://www.numerique.gouv.sn",
   {
     id: "8",
     name: "Accra Tech and Investment Summit",
