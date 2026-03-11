@@ -27,6 +27,7 @@ const IMAGE_MAP: Record<string, string> = {
 const InsightsPage = () => {
   const { t } = useLanguage();
   const { localizeInsight, localizeCategory, dateLocale } = useLocalizedData();
+  const navigate = useNavigate();
 
   const localizedInsights = insights.map(localizeInsight);
   const featured = localizedInsights[0];
