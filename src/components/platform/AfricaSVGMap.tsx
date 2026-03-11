@@ -8,7 +8,6 @@ interface CountryPath {
   d: string;
 }
 
-// Simplified SVG paths for African countries (viewBox 0 0 600 700)
 const AFRICA_PATHS: CountryPath[] = [
   { code: "MA", name: "Morocco", d: "M200,80 L230,70 L260,75 L270,90 L265,110 L240,115 L220,110 L200,100 Z" },
   { code: "DZ", name: "Algeria", d: "M260,75 L310,65 L350,80 L360,120 L340,160 L300,170 L270,150 L265,110 Z" },
@@ -69,15 +68,15 @@ const AfricaSVGMap = ({ compact = false }: AfricaSVGMapProps) => {
   const getFill = (code: string) => {
     const isTracked = trackedCodes.has(code);
     const isHovered = hoveredCountry === code;
-    if (isHovered && isTracked) return "hsl(var(--primary))";
-    if (isTracked) return "hsl(var(--accent))";
-    return "hsl(var(--secondary))";
+    if (isHovered && isTracked) return "hsl(43 65% 55%)";
+    if (isTracked) return "hsl(155 40% 25%)";
+    return "hsl(0 0% 14%)";
   };
 
   const getStroke = (code: string) => {
     const isTracked = trackedCodes.has(code);
-    if (hoveredCountry === code && isTracked) return "hsl(var(--primary))";
-    return "hsl(var(--border))";
+    if (hoveredCountry === code && isTracked) return "hsl(43 65% 55%)";
+    return "hsl(0 0% 22%)";
   };
 
   return (
@@ -85,8 +84,17 @@ const AfricaSVGMap = ({ compact = false }: AfricaSVGMapProps) => {
       <svg
         viewBox="130 50 430 560"
         className="w-full h-auto"
-        style={{ filter: "drop-shadow(0 0 20px hsl(var(--primary) / 0.1))" }}
+        style={{ filter: "drop-shadow(0 0 30px hsl(43 65% 55% / 0.08))" }}
       >
+        {/* Subtle grid background */}
+        <defs>
+          <radialGradient id="mapGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="hsl(43 65% 55%)" stopOpacity="0.05" />
+            <stop offset="100%" stopColor="transparent" stopOpacity="0" />
+          </radialGradient>
+        </defs>
+        <rect x="130" y="50" width="430" height="560" fill="url(#mapGlow)" />
+
         {AFRICA_PATHS.map((cp) => {
           const isTracked = trackedCodes.has(cp.code);
           const data = getCountryData(cp.code);
@@ -96,49 +104,83 @@ const AfricaSVGMap = ({ compact = false }: AfricaSVGMapProps) => {
                 d={cp.d}
                 fill={getFill(cp.code)}
                 stroke={getStroke(cp.code)}
-                strokeWidth={hoveredCountry === cp.code ? 1.5 : 0.8}
-                className={`transition-all duration-200 ${isTracked ? "cursor-pointer" : "cursor-default"}`}
+                strokeWidth={hoveredCountry === cp.code ? 1.8 : 0.8}
+                className={`transition-all duration-300 ${isTracked ? "cursor-pointer" : "cursor-default"}`}
                 onMouseEnter={() => setHoveredCountry(cp.code)}
                 onMouseLeave={() => setHoveredCountry(null)}
                 onClick={() => handleClick(cp.code)}
                 style={{
-                  filter: hoveredCountry === cp.code && isTracked ? "drop-shadow(0 0 6px hsl(var(--primary) / 0.5))" : "none",
+                  filter: hoveredCountry === cp.code && isTracked ? "drop-shadow(0 0 8px hsl(43 65% 55% / 0.6))" : "none",
                 }}
               />
-              {/* Opportunity indicator dot for tracked countries */}
+              {/* Opportunity dot - green */}
               {isTracked && data && data.opportunities > 0 && (
+                <>
+                  <circle
+                    cx={getCenter(cp.d).x}
+                    cy={getCenter(cp.d).y}
+                    r={4 + data.opportunities}
+                    fill="hsl(155 40% 40%)"
+                    opacity={hoveredCountry === cp.code ? 1 : 0.6}
+                    className="pointer-events-none"
+                  >
+                    <animate attributeName="r" values={`${3 + data.opportunities};${5 + data.opportunities};${3 + data.opportunities}`} dur="2.5s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2.5s" repeatCount="indefinite" />
+                  </circle>
+                  <circle
+                    cx={getCenter(cp.d).x}
+                    cy={getCenter(cp.d).y}
+                    r={2}
+                    fill="hsl(155 50% 50%)"
+                    className="pointer-events-none"
+                  />
+                </>
+              )}
+              {/* Event dot - yellow/gold */}
+              {isTracked && data && data.events > 0 && (
                 <circle
-                  cx={getCenter(cp.d).x}
-                  cy={getCenter(cp.d).y}
-                  r={3 + data.opportunities}
-                  fill="hsl(var(--primary))"
-                  opacity={hoveredCountry === cp.code ? 1 : 0.7}
-                  className="pointer-events-none animate-pulse"
-                />
+                  cx={getCenter(cp.d).x + 10}
+                  cy={getCenter(cp.d).y - 5}
+                  r={3}
+                  fill="hsl(43 65% 55%)"
+                  opacity={hoveredCountry === cp.code ? 1 : 0.6}
+                  className="pointer-events-none"
+                >
+                  <animate attributeName="opacity" values="0.4;1;0.4" dur="3s" repeatCount="indefinite" />
+                </circle>
               )}
             </g>
           );
         })}
       </svg>
 
+      {/* Legend */}
+      <div className="flex items-center justify-center gap-6 mt-4 text-xs text-muted-foreground">
+        <div className="flex items-center gap-2">
+          <span className="w-3 h-3 rounded-full" style={{ background: "hsl(155 50% 50%)" }} /> Active opportunities
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="w-3 h-3 rounded-full" style={{ background: "hsl(43 65% 55%)" }} /> Upcoming events
+        </div>
+      </div>
+
       {/* Tooltip */}
       {hoveredCountry && trackedCodes.has(hoveredCountry) && (
         <div className="absolute top-4 right-4 bg-card/95 backdrop-blur-sm border border-border rounded-lg px-4 py-3 shadow-xl pointer-events-none">
-          <p className="text-sm font-semibold text-foreground">{countries.find(c => c.code === hoveredCountry)?.name}</p>
+          <p className="text-sm font-bold text-foreground">{countries.find(c => c.code === hoveredCountry)?.name}</p>
           <p className="text-xs text-primary mt-0.5">
             {countries.find(c => c.code === hoveredCountry)?.opportunities} opportunities
           </p>
           <p className="text-xs text-muted-foreground">
             {countries.find(c => c.code === hoveredCountry)?.events} events
           </p>
-          <p className="text-[10px] text-muted-foreground mt-1">Click to explore →</p>
+          <p className="text-[10px] text-primary/60 mt-1.5 font-medium">Click to explore →</p>
         </div>
       )}
     </div>
   );
 };
 
-// Helper to approximate center of an SVG path
 function getCenter(d: string): { x: number; y: number } {
   const nums = d.match(/[\d.]+/g)?.map(Number) || [];
   let sumX = 0, sumY = 0, count = 0;

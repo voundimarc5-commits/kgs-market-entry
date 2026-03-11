@@ -1,6 +1,6 @@
 import { useRef, useMemo, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Sphere, OrbitControls, Html } from "@react-three/drei";
+import { Sphere, OrbitControls, Html, Line } from "@react-three/drei";
 import * as THREE from "three";
 
 interface CountryMarker {
@@ -11,14 +11,32 @@ interface CountryMarker {
 }
 
 const COUNTRY_MARKERS: CountryMarker[] = [
-  { name: "Nigeria", lat: 9, lng: 8, opportunities: 3 },
-  { name: "Kenya", lat: -1, lng: 37, opportunities: 2 },
-  { name: "South Africa", lat: -29, lng: 24, opportunities: 1 },
-  { name: "Gabon", lat: -1, lng: 11.5, opportunities: 1 },
-  { name: "Morocco", lat: 32, lng: -5, opportunities: 1 },
-  { name: "Rwanda", lat: -2, lng: 29.5, opportunities: 1 },
-  { name: "Côte d'Ivoire", lat: 7.5, lng: -5.5, opportunities: 1 },
-  { name: "Senegal", lat: 14.5, lng: -14.5, opportunities: 1 },
+  { name: "Lagos", lat: 6.5, lng: 3.4, opportunities: 3 },
+  { name: "Nairobi", lat: -1.3, lng: 36.8, opportunities: 2 },
+  { name: "Cape Town", lat: -33.9, lng: 18.4, opportunities: 1 },
+  { name: "Kigali", lat: -1.9, lng: 30, opportunities: 1 },
+  { name: "Casablanca", lat: 33.6, lng: -7.6, opportunities: 1 },
+  { name: "Abidjan", lat: 5.3, lng: -4, opportunities: 1 },
+  { name: "Accra", lat: 5.6, lng: -0.2, opportunities: 1 },
+  { name: "Johannesburg", lat: -26.2, lng: 28, opportunities: 1 },
+  { name: "Cairo", lat: 30.0, lng: 31.2, opportunities: 1 },
+  { name: "Dakar", lat: 14.7, lng: -17.5, opportunities: 1 },
+];
+
+// Network connections between cities
+const CONNECTIONS: [number, number][] = [
+  [0, 5], // Lagos - Abidjan
+  [0, 6], // Lagos - Accra
+  [0, 9], // Lagos - Dakar
+  [1, 3], // Nairobi - Kigali
+  [1, 7], // Nairobi - Johannesburg
+  [1, 8], // Nairobi - Cairo
+  [2, 7], // Cape Town - Johannesburg
+  [4, 8], // Casablanca - Cairo
+  [4, 9], // Casablanca - Dakar
+  [5, 9], // Abidjan - Dakar
+  [3, 7], // Kigali - Johannesburg
+  [0, 8], // Lagos - Cairo
 ];
 
 const latLngToSphere = (lat: number, lng: number, r: number) => {
@@ -31,7 +49,46 @@ const latLngToSphere = (lat: number, lng: number, r: number) => {
   );
 };
 
-const PulsingMarker = ({ marker, groupRotation }: { marker: CountryMarker; groupRotation: React.MutableRefObject<number> }) => {
+// Generate curved arc between two points on sphere
+const getArcPoints = (start: THREE.Vector3, end: THREE.Vector3, segments: number = 32): THREE.Vector3[] => {
+  const points: THREE.Vector3[] = [];
+  for (let i = 0; i <= segments; i++) {
+    const t = i / segments;
+    const point = new THREE.Vector3().lerpVectors(start, end, t);
+    // Lift the arc above the sphere surface
+    const lift = 1 + Math.sin(t * Math.PI) * 0.15;
+    point.normalize().multiplyScalar(point.length() * lift);
+    points.push(point);
+  }
+  return points;
+};
+
+const NetworkLine = ({ from, to }: { from: CountryMarker; to: CountryMarker }) => {
+  const lineRef = useRef<any>(null);
+  const startPos = useMemo(() => latLngToSphere(from.lat, from.lng, 2.02), [from]);
+  const endPos = useMemo(() => latLngToSphere(to.lat, to.lng, 2.02), [to]);
+  const arcPoints = useMemo(() => getArcPoints(startPos, endPos, 24), [startPos, endPos]);
+
+  useFrame(({ clock }) => {
+    if (lineRef.current) {
+      const opacity = 0.15 + Math.sin(clock.getElapsedTime() * 1.5 + from.lat) * 0.1;
+      lineRef.current.material.opacity = Math.max(0.05, opacity);
+    }
+  });
+
+  return (
+    <Line
+      ref={lineRef}
+      points={arcPoints}
+      color="#2d6a4f"
+      lineWidth={0.8}
+      transparent
+      opacity={0.2}
+    />
+  );
+};
+
+const PulsingMarker = ({ marker }: { marker: CountryMarker }) => {
   const meshRef = useRef<THREE.Mesh>(null);
   const ringRef = useRef<THREE.Mesh>(null);
   const [hovered, setHovered] = useState(false);
@@ -51,30 +108,26 @@ const PulsingMarker = ({ marker, groupRotation }: { marker: CountryMarker; group
     }
   });
 
-  const size = 0.03 + marker.opportunities * 0.01;
+  const size = 0.03 + marker.opportunities * 0.008;
   const color = marker.opportunities >= 3 ? "#d4a843" : marker.opportunities >= 2 ? "#c4963a" : "#2d6a4f";
 
   return (
     <group position={position}>
-      {/* Core dot */}
       <mesh ref={meshRef} onPointerOver={() => setHovered(true)} onPointerOut={() => setHovered(false)}>
         <sphereGeometry args={[size, 16, 16]} />
         <meshBasicMaterial color={color} transparent opacity={0.95} />
       </mesh>
 
-      {/* Pulse ring */}
-      <mesh ref={ringRef} rotation={[0, 0, 0]}>
+      <mesh ref={ringRef}>
         <ringGeometry args={[size * 1.5, size * 2.5, 32]} />
         <meshBasicMaterial color={color} transparent opacity={0.3} side={THREE.DoubleSide} />
       </mesh>
 
-      {/* Glow sphere */}
       <mesh>
-        <sphereGeometry args={[size * 3, 16, 16]} />
-        <meshBasicMaterial color={color} transparent opacity={0.08} />
+        <sphereGeometry args={[size * 4, 16, 16]} />
+        <meshBasicMaterial color={color} transparent opacity={0.06} />
       </mesh>
 
-      {/* Tooltip on hover */}
       {hovered && (
         <Html distanceFactor={8} style={{ pointerEvents: "none" }}>
           <div className="bg-card/95 backdrop-blur-sm border border-border rounded-lg px-3 py-2 whitespace-nowrap shadow-xl">
@@ -93,14 +146,16 @@ const GlobeMesh = () => {
   const meshRef = useRef<THREE.Mesh>(null);
   const pointsRef = useRef<THREE.Points>(null);
   const markersGroupRef = useRef<THREE.Group>(null);
+  const networkGroupRef = useRef<THREE.Group>(null);
   const rotationRef = useRef(0);
 
   useFrame((_, delta) => {
-    const speed = delta * 0.12;
+    const speed = delta * 0.1;
     rotationRef.current += speed;
     if (meshRef.current) meshRef.current.rotation.y += speed;
     if (pointsRef.current) pointsRef.current.rotation.y += speed;
     if (markersGroupRef.current) markersGroupRef.current.rotation.y += speed;
+    if (networkGroupRef.current) networkGroupRef.current.rotation.y += speed;
   });
 
   const dotPositions = useMemo(() => {
@@ -119,7 +174,6 @@ const GlobeMesh = () => {
       { lat: -12, lng: 34 }, { lat: -20, lng: 47 }, { lat: -18, lng: 25 },
       { lat: 20, lng: -10 }, { lat: 15, lng: 45 }, { lat: -8, lng: 13 },
       { lat: 2, lng: 45 }, { lat: -25, lng: 33 },
-      // Additional density points
       { lat: 22, lng: 15 }, { lat: 18, lng: 20 }, { lat: 5, lng: 20 },
       { lat: -10, lng: 25 }, { lat: -5, lng: 20 }, { lat: 8, lng: 30 },
       { lat: 15, lng: -5 }, { lat: 20, lng: 0 }, { lat: -15, lng: 35 },
@@ -138,7 +192,7 @@ const GlobeMesh = () => {
     <group>
       {/* Globe wireframe */}
       <Sphere ref={meshRef} args={[2, 64, 64]}>
-        <meshBasicMaterial color="#1a1a1a" wireframe transparent opacity={0.2} />
+        <meshBasicMaterial color="#1a1a1a" wireframe transparent opacity={0.15} />
       </Sphere>
 
       {/* Solid dark sphere */}
@@ -154,10 +208,17 @@ const GlobeMesh = () => {
         <pointsMaterial color="#2d6a4f" size={0.04} sizeAttenuation transparent opacity={0.6} />
       </points>
 
-      {/* Country markers with opportunities */}
+      {/* Network connections */}
+      <group ref={networkGroupRef}>
+        {CONNECTIONS.map(([fromIdx, toIdx], i) => (
+          <NetworkLine key={i} from={COUNTRY_MARKERS[fromIdx]} to={COUNTRY_MARKERS[toIdx]} />
+        ))}
+      </group>
+
+      {/* Country markers */}
       <group ref={markersGroupRef}>
         {COUNTRY_MARKERS.map((marker) => (
-          <PulsingMarker key={marker.name} marker={marker} groupRotation={rotationRef} />
+          <PulsingMarker key={marker.name} marker={marker} />
         ))}
       </group>
 
@@ -174,7 +235,7 @@ const GlobeMesh = () => {
 
 const AfricaGlobe = () => {
   return (
-    <div className="w-full h-[400px] md:h-[500px]">
+    <div className="w-full h-[400px] md:h-[520px]">
       <Canvas camera={{ position: [0, 1.5, 5], fov: 40 }}>
         <ambientLight intensity={0.4} />
         <pointLight position={[10, 10, 10]} intensity={0.6} color="#d4a843" />
