@@ -98,8 +98,18 @@ const HomePage = () => {
       </section>
 
       {/* Interactive Africa Map */}
-      <section className="py-20 section-divider">
-        <div className="container mx-auto px-6">
+      <section className="relative py-20 section-divider overflow-hidden">
+        {/* Animated background */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
+          <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl animate-float animation-delay-400" />
+          <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-primary/3 rounded-full blur-2xl animate-float animation-delay-700" />
+          <div className="absolute top-10 right-1/4 w-px h-40 bg-gradient-to-b from-transparent via-primary/15 to-transparent animate-float animation-delay-200" />
+          <div className="absolute bottom-20 left-1/4 w-px h-32 bg-gradient-to-b from-transparent via-accent/15 to-transparent animate-float animation-delay-600" />
+          <div className="absolute top-1/3 right-10 w-40 h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent animate-float animation-delay-800" />
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <ScrollReveal>
@@ -225,7 +235,7 @@ const HomePage = () => {
 
           {/* Featured insight large card */}
           <ScrollReveal delay={100}>
-            <div className="glass-card rounded-xl overflow-hidden mb-6 group cursor-pointer card-lift">
+            <Link to="/insights" className="glass-card rounded-xl overflow-hidden mb-6 group cursor-pointer card-lift block hover:border-primary/30">
               <div className="grid grid-cols-1 md:grid-cols-2">
                 <div className="relative h-48 md:h-auto overflow-hidden">
                   <img
@@ -251,13 +261,13 @@ const HomePage = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {insights.slice(1, 4).map((article, i) => (
               <ScrollReveal key={article.id} delay={200 + i * 100}>
-                <div className="glass-card rounded-lg overflow-hidden group card-lift hover:border-primary/30 cursor-pointer h-full flex flex-col">
+                <Link to="/insights" className="glass-card rounded-lg overflow-hidden group card-lift hover:border-primary/30 cursor-pointer h-full flex flex-col block">
                   <div className="relative h-32 overflow-hidden">
                     <img
                       src={IMAGE_MAP[article.image || "financial-district"]}
@@ -277,7 +287,7 @@ const HomePage = () => {
                       <Clock size={9} /> {article.readTime}
                     </div>
                   </div>
-                </div>
+                </Link>
               </ScrollReveal>
             ))}
           </div>
