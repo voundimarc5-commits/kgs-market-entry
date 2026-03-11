@@ -13,6 +13,7 @@ export interface Opportunity {
   investmentContext?: string;
   howToParticipate?: string[];
   image?: string;
+  website?: string;
 }
 
 export interface AfricaEvent {
