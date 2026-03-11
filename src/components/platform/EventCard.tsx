@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { MapPin, Calendar, Users, ArrowRight } from "lucide-react";
 import type { AfricaEvent } from "@/data/mockData";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useLocalizedData } from "@/hooks/useLocalizedData";
 
 const images = import.meta.glob("@/assets/*.jpg", { eager: true, import: "default" }) as Record<string, string>;
 
@@ -34,6 +35,8 @@ const BADGE_COLORS: Record<string, string> = {
 const EventCard = ({ event }: { event: AfricaEvent }) => {
   const bgImage = getImageForEvent(event.sector);
   const { t } = useLanguage();
+  const { localizeEvent, localizeSector, dateLocale } = useLocalizedData();
+  const evt = localizeEvent(event);
 
   return (
     <Link
@@ -51,7 +54,7 @@ const EventCard = ({ event }: { event: AfricaEvent }) => {
       <div className="relative z-10 p-6 min-h-[200px] flex flex-col">
         <div className="flex items-center gap-2 mb-3">
           <span className="text-[10px] uppercase tracking-wider text-primary font-medium bg-primary/10 backdrop-blur-sm px-2 py-1 rounded">
-            {event.sector}
+            {localizeSector(event.sector)}
           </span>
           {event.badge && (
             <span className={`text-[9px] uppercase tracking-widest font-bold px-2 py-0.5 rounded-sm ${BADGE_COLORS[event.badge] || "bg-secondary text-foreground"}`}>
@@ -61,7 +64,7 @@ const EventCard = ({ event }: { event: AfricaEvent }) => {
         </div>
 
         <h3 className="text-base font-bold text-foreground mt-1 mb-3 group-hover:text-primary transition-colors">
-          {event.name}
+          {evt.name}
         </h3>
 
         <div className="space-y-2 mb-4 flex-1">
@@ -70,7 +73,7 @@ const EventCard = ({ event }: { event: AfricaEvent }) => {
           </div>
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Calendar size={13} className="text-primary/70" />
-            {new Date(event.date).toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" })}
+            {new Date(event.date).toLocaleDateString(dateLocale, { weekday: "long", month: "long", day: "numeric", year: "numeric" })}
           </div>
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Users size={13} className="text-primary/70" /> {event.organizer}
