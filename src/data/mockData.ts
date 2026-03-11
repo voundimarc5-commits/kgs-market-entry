@@ -558,7 +558,7 @@ export const events: AfricaEvent[] = [
     ],
     audience: ["Tech Companies", "Investors", "Government Officials", "Entrepreneurs"],
     website: "https://www.minpostel.gov.cm",
-];
+  },
 
 export const INSIGHT_IMAGES: Record<string, string> = {
   Investment: "financial-district",
