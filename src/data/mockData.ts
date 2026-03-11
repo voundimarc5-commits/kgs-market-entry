@@ -249,9 +249,8 @@ export const opportunities: Opportunity[] = [
       "Participate in public-private partnership tenders",
       "Complete feasibility and environmental assessments",
     ],
+    website: "https://gipc.gov.gh",
   },
-  {
-    id: "10",
     title: "Egypt AI Innovation Challenge",
     country: "Egypt",
     sector: "Artificial Intelligence",
