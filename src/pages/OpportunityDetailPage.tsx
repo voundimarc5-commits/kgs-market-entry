@@ -6,6 +6,7 @@ import { opportunities } from "@/data/mockData";
 import ParallaxHero from "@/components/platform/ParallaxHero";
 import { ArrowLeft, MapPin, Calendar, DollarSign, Briefcase, ExternalLink, TrendingUp, Lightbulb, Globe } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useLocalizedData } from "@/hooks/useLocalizedData";
 
 const images = import.meta.glob("@/assets/*.jpg", { eager: true, import: "default" }) as Record<string, string>;
 
@@ -30,20 +31,22 @@ const getImageForSector = (sector: string): string | undefined => {
 const OpportunityDetailPage = () => {
   const { id } = useParams();
   const { t } = useLanguage();
-  const opportunity = opportunities.find((o) => o.id === id);
+  const { localizeOpp, localizeSector, localizeType, dateLocale } = useLocalizedData();
+  const rawOpportunity = opportunities.find((o) => o.id === id);
 
-  if (!opportunity) {
+  if (!rawOpportunity) {
     return (
       <PlatformLayout>
         <div className="container mx-auto px-6 py-20 text-center">
-          <h1 className="text-2xl font-bold text-foreground mb-4">Opportunity not found</h1>
+          <h1 className="text-2xl font-bold text-foreground mb-4">{t("opp.not_found")}</h1>
           <Link to="/opportunities" className="text-primary text-sm">← {t("opp.back")}</Link>
         </div>
       </PlatformLayout>
     );
   }
 
-  const bgImage = getImageForSector(opportunity.sector);
+  const opportunity = localizeOpp(rawOpportunity);
+  const bgImage = getImageForSector(rawOpportunity.sector);
 
   return (
     <PlatformLayout>
@@ -54,10 +57,10 @@ const OpportunityDetailPage = () => {
           </Link>
           <div className="flex items-center gap-2 mb-3">
             <span className="text-[10px] uppercase tracking-wider text-primary-foreground font-semibold bg-primary px-2.5 py-1 rounded-sm">
-              {opportunity.type}
+              {localizeType(rawOpportunity.type)}
             </span>
             <span className="text-[10px] uppercase tracking-wider font-medium bg-accent/80 text-accent-foreground px-2 py-1 rounded-sm">
-              {opportunity.country}
+              {rawOpportunity.country}
             </span>
           </div>
           <h1 className="text-3xl md:text-4xl font-bold text-foreground">{opportunity.title}</h1>
@@ -76,33 +79,33 @@ const OpportunityDetailPage = () => {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div>
                   <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><MapPin size={12} /> {t("opp.country")}</div>
-                  <p className="text-sm font-medium text-foreground">{opportunity.country}</p>
+                  <p className="text-sm font-medium text-foreground">{rawOpportunity.country}</p>
                 </div>
                 <div>
                   <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><Briefcase size={12} /> {t("opp.sector")}</div>
-                  <p className="text-sm font-medium text-foreground">{opportunity.sector}</p>
+                  <p className="text-sm font-medium text-foreground">{localizeSector(rawOpportunity.sector)}</p>
                 </div>
                 <div>
                   <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><Calendar size={12} /> {t("opp.deadline")}</div>
-                  <p className="text-sm font-medium text-foreground">{new Date(opportunity.deadline).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}</p>
+                  <p className="text-sm font-medium text-foreground">{new Date(rawOpportunity.deadline).toLocaleDateString(dateLocale, { month: "long", day: "numeric", year: "numeric" })}</p>
                 </div>
-                {opportunity.investmentSize && (
+                {rawOpportunity.investmentSize && (
                   <div>
                     <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><DollarSign size={12} /> {t("opp.investment_size")}</div>
-                    <p className="text-sm font-medium text-foreground">{opportunity.investmentSize}</p>
+                    <p className="text-sm font-medium text-foreground">{rawOpportunity.investmentSize}</p>
                   </div>
                 )}
-                {opportunity.website && (
+                {rawOpportunity.website && (
                   <div>
                     <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><Globe size={12} /> {t("opp.website")}</div>
-                    <a href={opportunity.website} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-primary hover:underline">{opportunity.website}</a>
+                    <a href={rawOpportunity.website} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-primary hover:underline">{rawOpportunity.website}</a>
                   </div>
                 )}
               </div>
-              {opportunity.source && (
+              {rawOpportunity.source && (
                 <div className="mt-4 pt-4 border-t border-border">
                   <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                    <ExternalLink size={12} /> {t("opp.source")}: {opportunity.source}
+                    <ExternalLink size={12} /> {t("opp.source")}: {rawOpportunity.source}
                   </div>
                 </div>
               )}
@@ -156,9 +159,9 @@ const OpportunityDetailPage = () => {
                 {t("opp.need_help_desc")}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                {opportunity.website && (
+                {rawOpportunity.website && (
                   <a
-                    href={opportunity.website}
+                    href={rawOpportunity.website}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-glow inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-md text-sm font-semibold transition-all"

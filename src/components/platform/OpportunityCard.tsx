@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { MapPin, Calendar, ArrowRight } from "lucide-react";
 import type { Opportunity } from "@/data/mockData";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useLocalizedData } from "@/hooks/useLocalizedData";
 
 const images = import.meta.glob("@/assets/*.jpg", { eager: true, import: "default" }) as Record<string, string>;
 
@@ -26,10 +27,12 @@ const getImageForSector = (sector: string): string | undefined => {
 const OpportunityCard = ({ opportunity }: { opportunity: Opportunity }) => {
   const bgImage = getImageForSector(opportunity.sector);
   const { t } = useLanguage();
+  const { localizeOpp, localizeSector, localizeType, dateLocale } = useLocalizedData();
+  const opp = localizeOpp(opportunity);
 
   return (
     <Link
-      to={`/opportunities/${opportunity.id}`}
+      to={`/opportunities/${opp.id}`}
       className="group relative rounded-lg overflow-hidden border border-border hover:border-primary/40 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_12px_40px_hsl(0_0%_0%/0.4),0_0_20px_hsl(43_65%_55%/0.12)] block"
     >
       {bgImage && (
@@ -43,7 +46,7 @@ const OpportunityCard = ({ opportunity }: { opportunity: Opportunity }) => {
       <div className="relative z-10 p-5 min-h-[220px] flex flex-col">
         <div className="flex items-start justify-between mb-3">
           <span className="text-[10px] uppercase tracking-wider text-primary-foreground font-semibold bg-primary px-2.5 py-1 rounded-sm">
-            {opportunity.type}
+            {localizeType(opportunity.type)}
           </span>
           <span className="text-[10px] uppercase tracking-wider font-medium bg-accent/80 text-accent-foreground px-2 py-1 rounded-sm">
             {opportunity.country}
@@ -51,19 +54,19 @@ const OpportunityCard = ({ opportunity }: { opportunity: Opportunity }) => {
         </div>
 
         <h3 className="text-sm font-bold text-foreground mb-2 group-hover:text-primary transition-colors leading-snug">
-          {opportunity.title}
+          {opp.title}
         </h3>
 
-        <p className="text-xs text-muted-foreground mb-4 line-clamp-2 flex-1">{opportunity.summary}</p>
+        <p className="text-xs text-muted-foreground mb-4 line-clamp-2 flex-1">{opp.summary}</p>
 
         <div className="flex items-center gap-4 mb-4">
           <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
             <MapPin size={12} />
-            {opportunity.sector}
+            {localizeSector(opportunity.sector)}
           </div>
           <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
             <Calendar size={12} />
-            {new Date(opportunity.deadline).toLocaleDateString("en-US", { month: "short", year: "numeric" })}
+            {new Date(opportunity.deadline).toLocaleDateString(dateLocale, { month: "short", year: "numeric" })}
           </div>
         </div>
 

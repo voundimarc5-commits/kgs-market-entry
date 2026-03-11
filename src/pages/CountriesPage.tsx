@@ -5,11 +5,13 @@ import { countries } from "@/data/mockData";
 import { MapPin, ArrowRight, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useLocalizedData } from "@/hooks/useLocalizedData";
 
 import africaCityscape from "@/assets/africa-cityscape.jpg";
 
 const CountriesPage = () => {
   const { t } = useLanguage();
+  const { localizeCountry } = useLocalizedData();
 
   return (
     <PlatformLayout>
@@ -47,32 +49,35 @@ const CountriesPage = () => {
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {countries.map((country, i) => (
-              <ScrollReveal key={country.code} delay={i * 70}>
-                <Link
-                  to={`/countries/${country.code}`}
-                  className="glass-card rounded-lg p-5 hover:border-primary/30 transition-all group card-lift block"
-                >
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center gap-2">
-                      <MapPin size={14} className="text-primary" />
-                      <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors">{country.name}</h3>
+            {countries.map((rawCountry, i) => {
+              const country = localizeCountry(rawCountry);
+              return (
+                <ScrollReveal key={rawCountry.code} delay={i * 70}>
+                  <Link
+                    to={`/countries/${rawCountry.code}`}
+                    className="glass-card rounded-lg p-5 hover:border-primary/30 transition-all group card-lift block"
+                  >
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center gap-2">
+                        <MapPin size={14} className="text-primary" />
+                        <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors">{country.name}</h3>
+                      </div>
+                      <ArrowRight size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
                     </div>
-                    <ArrowRight size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
-                  </div>
-                  <p className="text-xs text-muted-foreground mb-4">{country.overview}</p>
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {country.keySectors.map((s) => (
-                      <span key={s} className="text-[10px] bg-secondary text-muted-foreground px-2 py-0.5 rounded">{s}</span>
-                    ))}
-                  </div>
-                  <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                    <span>{country.opportunities} {t("countries.opportunities")}</span>
-                    <span>{country.events} {t("countries.events")}</span>
-                  </div>
-                </Link>
-              </ScrollReveal>
-            ))}
+                    <p className="text-xs text-muted-foreground mb-4">{country.overview}</p>
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {country.keySectors.map((s) => (
+                        <span key={s} className="text-[10px] bg-secondary text-muted-foreground px-2 py-0.5 rounded">{s}</span>
+                      ))}
+                    </div>
+                    <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                      <span>{rawCountry.opportunities} {t("countries.opportunities")}</span>
+                      <span>{rawCountry.events} {t("countries.events")}</span>
+                    </div>
+                  </Link>
+                </ScrollReveal>
+              );
+            })}
           </div>
         </div>
       </section>

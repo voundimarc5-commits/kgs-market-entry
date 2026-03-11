@@ -404,6 +404,26 @@ const translations: Record<string, Record<Language, string>> = {
 
   // ─── NOT FOUND ───
   "notfound.title": { fr: "Page non trouvée", en: "Page not found" },
+  "notfound.back": { fr: "Retour à l'accueil", en: "Return to Home" },
+
+  // ─── OPPORTUNITY NOT FOUND ───
+  "opp.not_found": { fr: "Opportunité non trouvée", en: "Opportunity not found" },
+
+  // ─── LEAD CAPTURE FORM ───
+  "lead.title": { fr: "Besoin d'aide pour entrer sur ce marché ?", en: "Need help entering this market?" },
+  "lead.desc": { fr: "Notre équipe peut vous aider à naviguer cette opportunité. Remplissez vos coordonnées ci-dessous.", en: "Our team can help you navigate this opportunity. Fill in your details below." },
+  "lead.name": { fr: "Nom complet", en: "Full Name" },
+  "lead.name_placeholder": { fr: "Jean Dupont", en: "John Doe" },
+  "lead.email": { fr: "Email", en: "Email" },
+  "lead.email_placeholder": { fr: "jean@entreprise.com", en: "john@company.com" },
+  "lead.company": { fr: "Entreprise", en: "Company" },
+  "lead.company_placeholder": { fr: "Nom de votre entreprise", en: "Your company name" },
+  "lead.market": { fr: "Marché d'intérêt", en: "Market of Interest" },
+  "lead.market_placeholder": { fr: "ex. Nigeria, Kenya, Maroc...", en: "e.g. Nigeria, Kenya, Morocco..." },
+  "lead.submit": { fr: "Contacter KGS Market Entry", en: "Contact KGS Market Entry" },
+  "lead.field_required": { fr: "Ce champ est requis", en: "This field is required" },
+  "lead.success_title": { fr: "Merci pour votre intérêt", en: "Thank you for your interest" },
+  "lead.success_desc": { fr: "Notre équipe vous contactera prochainement concernant cette opportunité.", en: "Our team will contact you shortly about this opportunity." },
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);

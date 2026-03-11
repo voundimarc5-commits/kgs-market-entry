@@ -5,6 +5,7 @@ import { events } from "@/data/mockData";
 import ParallaxHero from "@/components/platform/ParallaxHero";
 import { ArrowLeft, MapPin, Calendar, Users, Briefcase, Globe, CheckCircle, ExternalLink } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useLocalizedData } from "@/hooks/useLocalizedData";
 
 const images = import.meta.glob("@/assets/*.jpg", { eager: true, import: "default" }) as Record<string, string>;
 
@@ -30,9 +31,10 @@ const getImageForEvent = (sector: string): string | undefined => {
 const EventDetailPage = () => {
   const { id } = useParams();
   const { t } = useLanguage();
-  const event = events.find((e) => e.id === id);
+  const { localizeEvent, localizeSector, dateLocale } = useLocalizedData();
+  const rawEvent = events.find((e) => e.id === id);
 
-  if (!event) {
+  if (!rawEvent) {
     return (
       <PlatformLayout>
         <div className="container mx-auto px-6 py-20 text-center">
@@ -43,7 +45,8 @@ const EventDetailPage = () => {
     );
   }
 
-  const bgImage = getImageForEvent(event.sector);
+  const event = localizeEvent(rawEvent);
+  const bgImage = getImageForEvent(rawEvent.sector);
 
   return (
     <PlatformLayout>
@@ -54,11 +57,11 @@ const EventDetailPage = () => {
           </Link>
           <div className="flex items-center gap-2 mb-3">
             <span className="text-[10px] uppercase tracking-wider text-primary-foreground font-semibold bg-primary px-2.5 py-1 rounded-sm">
-              {event.sector}
+              {localizeSector(rawEvent.sector)}
             </span>
-            {event.badge && (
+            {rawEvent.badge && (
               <span className="text-[10px] uppercase tracking-wider font-medium bg-accent/80 text-accent-foreground px-2 py-1 rounded-sm">
-                {event.badge}
+                {rawEvent.badge}
               </span>
             )}
           </div>
@@ -72,7 +75,7 @@ const EventDetailPage = () => {
             <div className="mb-8">
               <h2 className="text-lg font-semibold text-foreground mb-3">{t("event.overview")}</h2>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                {event.description || `${event.name} is a premier gathering of industry leaders, investors, entrepreneurs and policymakers in ${event.city}, ${event.country}. The event brings together key stakeholders from the ${event.sector.toLowerCase()} sector to explore partnerships, share insights and drive economic growth across Africa.`}
+                {event.description}
               </p>
             </div>
           </ScrollReveal>
@@ -83,26 +86,26 @@ const EventDetailPage = () => {
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 <div>
                   <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><MapPin size={12} /> {t("event.location")}</div>
-                  <p className="text-sm font-medium text-foreground">{event.city}, {event.country}</p>
+                  <p className="text-sm font-medium text-foreground">{rawEvent.city}, {rawEvent.country}</p>
                 </div>
                 <div>
                   <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><Calendar size={12} /> {t("event.date")}</div>
                   <p className="text-sm font-medium text-foreground">
-                    {new Date(event.date).toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" })}
+                    {new Date(rawEvent.date).toLocaleDateString(dateLocale, { weekday: "long", month: "long", day: "numeric", year: "numeric" })}
                   </p>
                 </div>
                 <div>
                   <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><Users size={12} /> {t("event.organizer")}</div>
-                  <p className="text-sm font-medium text-foreground">{event.organizer}</p>
+                  <p className="text-sm font-medium text-foreground">{rawEvent.organizer}</p>
                 </div>
                 <div>
                   <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><Briefcase size={12} /> {t("event.sector")}</div>
-                  <p className="text-sm font-medium text-foreground">{event.sector}</p>
+                  <p className="text-sm font-medium text-foreground">{localizeSector(rawEvent.sector)}</p>
                 </div>
-                {event.website && (
+                {rawEvent.website && (
                   <div>
                     <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><Globe size={12} /> {t("event.website")}</div>
-                    <a href={event.website} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-primary hover:underline">{event.website}</a>
+                    <a href={rawEvent.website} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-primary hover:underline">{rawEvent.website}</a>
                   </div>
                 )}
               </div>
@@ -113,12 +116,7 @@ const EventDetailPage = () => {
             <div className="mb-8">
               <h2 className="text-lg font-semibold text-foreground mb-3">{t("event.why_attend")}</h2>
               <ul className="space-y-3">
-                {(event.whyAttend || [
-                  `Connect with leading ${event.sector.toLowerCase()} stakeholders across Africa`,
-                  `Discover investment opportunities and strategic partnerships in ${event.country}`,
-                  "Access exclusive market intelligence and trend analysis from industry experts",
-                  "Network with entrepreneurs, institutional investors and government representatives",
-                ]).map((reason, i) => (
+                {(event.whyAttend || []).map((reason, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <CheckCircle size={16} className="text-primary shrink-0 mt-0.5" />
                     <span className="text-sm text-muted-foreground">{reason}</span>
@@ -132,7 +130,7 @@ const EventDetailPage = () => {
             <div className="mb-10">
               <h2 className="text-lg font-semibold text-foreground mb-3">{t("event.who_attend")}</h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                {(event.audience || ["Entrepreneurs", "Investors", "Startups", "Corporates"]).map((type) => (
+                {(event.audience || []).map((type) => (
                   <div key={type} className="glass-card rounded-lg p-4 text-center">
                     <p className="text-sm font-medium text-foreground">{type}</p>
                   </div>
@@ -145,12 +143,12 @@ const EventDetailPage = () => {
             <div className="glass-card rounded-xl p-8 text-center animate-glow-pulse">
               <h2 className="text-xl font-bold text-foreground mb-3">{t("event.interested")}</h2>
               <p className="text-sm text-muted-foreground mb-6 max-w-md mx-auto">
-                {t("event.register_desc").replace("{name}", event.name)}
+                {t("event.register_desc")}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                {event.website && (
+                {rawEvent.website && (
                   <a
-                    href={event.website}
+                    href={rawEvent.website}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-glow inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-md text-sm font-semibold transition-all"

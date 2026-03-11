@@ -9,6 +9,7 @@ import PlatformLayout from "@/components/platform/PlatformLayout";
 import ScrollReveal from "@/components/platform/ScrollReveal";
 import { opportunities, events, insights, sectors } from "@/data/mockData";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useLocalizedData } from "@/hooks/useLocalizedData";
 
 import heroAfricaModern from "@/assets/hero-africa-modern.jpg";
 import financialDistrict from "@/assets/financial-district.jpg";
@@ -22,11 +23,14 @@ const IMAGE_MAP: Record<string, string> = {
 
 const HomePage = () => {
   const { t } = useLanguage();
+  const { localizeInsight, localizeCategory, localizeSector, dateLocale } = useLocalizedData();
   const [selectedSector, setSelectedSector] = useState("All");
 
   const filteredOpps = selectedSector === "All"
     ? opportunities
     : opportunities.filter((o) => o.sector === selectedSector);
+
+  const localizedInsights = insights.map(localizeInsight);
 
   return (
     <PlatformLayout>
@@ -186,7 +190,7 @@ const HomePage = () => {
                       : "bg-secondary text-muted-foreground hover:text-foreground hover:bg-secondary/80"
                   }`}
                 >
-                  {sector}
+                  {localizeSector(sector)}
                 </button>
               ))}
             </div>
@@ -226,7 +230,7 @@ const HomePage = () => {
               </Link>
             </div>
           </ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {events.slice(0, 4).map((evt, i) => (
               <ScrollReveal key={evt.id} delay={i * 120}>
                 <EventCard event={evt} />
@@ -263,8 +267,8 @@ const HomePage = () => {
               <div className="grid grid-cols-1 md:grid-cols-2">
                 <div className="relative h-48 md:h-auto overflow-hidden">
                   <img
-                    src={IMAGE_MAP[insights[0].image || "financial-district"]}
-                    alt={insights[0].title}
+                    src={IMAGE_MAP[localizedInsights[0].image || "financial-district"]}
+                    alt={localizedInsights[0].title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                   />
@@ -274,14 +278,14 @@ const HomePage = () => {
                 <div className="p-6 md:p-8 flex flex-col justify-center">
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-[10px] uppercase tracking-wider text-primary font-bold bg-primary/10 px-2 py-1 rounded border border-primary/20">{t("insights.featured")}</span>
-                    <span className="text-[10px] uppercase tracking-wider text-accent font-semibold">{insights[0].category}</span>
+                    <span className="text-[10px] uppercase tracking-wider text-accent font-semibold">{localizeCategory(localizedInsights[0].category)}</span>
                   </div>
-                  <h3 className="text-lg md:text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{insights[0].title}</h3>
-                  <p className="text-xs text-muted-foreground line-clamp-3 mb-4">{insights[0].summary}</p>
+                  <h3 className="text-lg md:text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{localizedInsights[0].title}</h3>
+                  <p className="text-xs text-muted-foreground line-clamp-3 mb-4">{localizedInsights[0].summary}</p>
                   <div className="flex items-center gap-3 text-[10px] text-muted-foreground">
-                    <span className="font-medium text-foreground/70">{insights[0].author}</span>
+                    <span className="font-medium text-foreground/70">{localizedInsights[0].author}</span>
                     <span>•</span>
-                    <div className="flex items-center gap-1"><Clock size={9} /> {insights[0].readTime}</div>
+                    <div className="flex items-center gap-1"><Clock size={9} /> {localizedInsights[0].readTime}</div>
                   </div>
                 </div>
               </div>
@@ -289,7 +293,7 @@ const HomePage = () => {
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {insights.slice(1, 4).map((article, i) => (
+            {localizedInsights.slice(1, 4).map((article, i) => (
               <ScrollReveal key={article.id} delay={200 + i * 100}>
                 <Link to="/insights" className="glass-card rounded-lg overflow-hidden group card-lift hover:border-primary/30 cursor-pointer h-full flex flex-col block">
                   <div className="relative h-32 overflow-hidden">
@@ -301,7 +305,7 @@ const HomePage = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
                     <span className="absolute top-2 left-2 text-[9px] uppercase tracking-wider text-primary font-bold bg-background/80 backdrop-blur-sm px-2 py-0.5 rounded">
-                      {article.category}
+                      {localizeCategory(article.category)}
                     </span>
                   </div>
                   <div className="p-4 flex flex-col flex-1">
