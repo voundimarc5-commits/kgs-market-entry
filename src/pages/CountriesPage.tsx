@@ -1,4 +1,5 @@
 import PlatformLayout from "@/components/platform/PlatformLayout";
+import AfricaSVGMap from "@/components/platform/AfricaSVGMap";
 import { countries } from "@/data/mockData";
 import { MapPin, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -12,6 +13,11 @@ const CountriesPage = () => {
           <p className="text-sm text-muted-foreground mb-10">
             Explore African markets with active opportunities and business events.
           </p>
+
+          {/* Interactive Map */}
+          <div className="mb-12 glass-card rounded-xl p-6">
+            <AfricaSVGMap />
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {countries.map((country) => (
