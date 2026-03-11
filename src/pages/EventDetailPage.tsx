@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import PlatformLayout from "@/components/platform/PlatformLayout";
 import ScrollReveal from "@/components/platform/ScrollReveal";
 import { events } from "@/data/mockData";
+import ParallaxHero from "@/components/platform/ParallaxHero";
 import { ArrowLeft, MapPin, Calendar, Users, Briefcase, Globe, CheckCircle, ExternalLink } from "lucide-react";
 
 const images = import.meta.glob("@/assets/*.jpg", { eager: true, import: "default" }) as Record<string, string>;
