@@ -265,6 +265,8 @@ export const opportunities: Opportunity[] = [
     ],
     website: "https://gipc.gov.gh",
   },
+  {
+    id: "10",
     title: "Egypt AI Innovation Challenge",
     country: "Egypt",
     sector: "Artificial Intelligence",
