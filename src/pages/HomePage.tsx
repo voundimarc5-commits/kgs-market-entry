@@ -192,7 +192,7 @@ const HomePage = () => {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {filteredOpps.slice(0, 6).map((opp, i) => (
               <ScrollReveal key={opp.id} delay={i * 120}>
                 <OpportunityCard opportunity={opp} />
@@ -227,7 +227,7 @@ const HomePage = () => {
             </div>
           </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {events.slice(0, 3).map((evt, i) => (
+            {events.slice(0, 4).map((evt, i) => (
               <ScrollReveal key={evt.id} delay={i * 120}>
                 <EventCard event={evt} />
               </ScrollReveal>
