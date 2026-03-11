@@ -209,15 +209,14 @@
   box-shadow: 0 12px 40px hsl(0 0% 0% / 0.3), 0 0 20px hsl(43 65% 55% / 0.08);
 }
 
-/* Logo snap rotation every 5s */
-@keyframes logo-spin-snap {
-  0%, 70% { transform: rotateY(0deg); }
-  85% { transform: rotateY(180deg); }
+/* Logo slow continuous rotation */
+@keyframes logo-rotate-continuous {
+  0% { transform: rotateY(0deg); }
   100% { transform: rotateY(360deg); }
 }
 
-.logo-spin-slow {
-  animation: logo-spin-snap 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+.logo-rotate-slow {
+  animation: logo-rotate-continuous 12s linear infinite;
   transform-style: preserve-3d;
 }
 
