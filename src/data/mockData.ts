@@ -120,9 +120,8 @@ export const opportunities: Opportunity[] = [
       "Complete technical and financial assessment",
       "Attend selection committee review",
     ],
+    website: "https://www.investkenya.go.ke",
   },
-  {
-    id: "3",
     title: "Nigeria Fintech Startup Acceleration Program",
     country: "Nigeria",
     sector: "Technology",
