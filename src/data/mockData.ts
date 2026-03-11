@@ -33,6 +33,8 @@ export interface InsightArticle {
   category: string;
   date: string;
   readTime: string;
+  image?: string;
+  author?: string;
 }
 
 export interface CountryData {
