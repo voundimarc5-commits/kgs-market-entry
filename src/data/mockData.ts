@@ -513,7 +513,7 @@ export const events: AfricaEvent[] = [
       "Connect with 100M-consumer market for intelligent products",
     ],
     audience: ["AI Startups", "Research Institutions", "Government Agencies", "Corporate R&D Teams"],
-  },
+    website: "https://mcit.gov.eg/en",
   {
     id: "10",
     name: "Johannesburg Mining Innovation Forum",
