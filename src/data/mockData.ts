@@ -184,6 +184,8 @@ export const opportunities: Opportunity[] = [
     ],
     website: "https://rdb.rw",
   },
+  {
+    id: "6",
     title: "Côte d'Ivoire Agribusiness Development Fund",
     country: "Côte d'Ivoire",
     sector: "Agriculture",
