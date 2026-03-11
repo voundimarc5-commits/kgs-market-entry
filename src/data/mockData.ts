@@ -99,6 +99,7 @@ export const opportunities: Opportunity[] = [
       "Complete due diligence documentation",
       "Participate in the bond subscription window",
     ],
+    website: "https://www.tresor.economie.gouv.ga",
   },
   {
     id: "2",
