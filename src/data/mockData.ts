@@ -286,9 +286,8 @@ export const opportunities: Opportunity[] = [
       "Submit investment commitment through authorized intermediaries",
       "Participate in the bond issuance window",
     ],
+    website: "https://www.minepat.gov.cm",
   },
-  {
-    id: "12",
     title: "Ghana Fintech Innovation Program",
     country: "Ghana",
     sector: "Technology",
