@@ -4,6 +4,7 @@ import { insights } from "@/data/mockData";
 import { Clock, ArrowRight, TrendingUp, BookOpen } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useLocalizedData } from "@/hooks/useLocalizedData";
+import { useNavigate } from "react-router-dom";
 
 import financialDistrict from "@/assets/financial-district.jpg";
 import nairobiTechHub from "@/assets/nairobi-tech-hub.jpg";
@@ -26,6 +27,7 @@ const IMAGE_MAP: Record<string, string> = {
 const InsightsPage = () => {
   const { t } = useLanguage();
   const { localizeInsight, localizeCategory, dateLocale } = useLocalizedData();
+  const navigate = useNavigate();
 
   const localizedInsights = insights.map(localizeInsight);
   const featured = localizedInsights[0];
@@ -61,7 +63,7 @@ const InsightsPage = () => {
       <section className="py-16 section-divider">
         <div className="container mx-auto px-6">
           <ScrollReveal>
-            <article className="relative rounded-xl overflow-hidden group cursor-pointer card-lift">
+            <article onClick={() => navigate("/newsletter")} className="relative rounded-xl overflow-hidden group cursor-pointer card-lift">
               <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[360px]">
                 <div className="relative overflow-hidden">
                   <img
@@ -118,7 +120,7 @@ const InsightsPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {rest.map((article, i) => (
               <ScrollReveal key={article.id} delay={i * 100}>
-                <article className="glass-card rounded-xl overflow-hidden group cursor-pointer card-lift h-full flex flex-col">
+                <article onClick={() => navigate("/newsletter")} className="glass-card rounded-xl overflow-hidden group cursor-pointer card-lift h-full flex flex-col">
                   <div className="relative h-44 overflow-hidden">
                     <img
                       src={IMAGE_MAP[article.image || "financial-district"]}

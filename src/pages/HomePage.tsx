@@ -263,7 +263,7 @@ const HomePage = () => {
           </ScrollReveal>
 
           <ScrollReveal delay={100}>
-            <Link to="/insights" className="glass-card rounded-xl overflow-hidden mb-6 group cursor-pointer card-lift block hover:border-primary/30">
+            <Link to="/newsletter" className="glass-card rounded-xl overflow-hidden mb-6 group cursor-pointer card-lift block hover:border-primary/30">
               <div className="grid grid-cols-1 md:grid-cols-2">
                 <div className="relative h-48 md:h-auto overflow-hidden">
                   <img
@@ -295,7 +295,7 @@ const HomePage = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {localizedInsights.slice(1, 4).map((article, i) => (
               <ScrollReveal key={article.id} delay={200 + i * 100}>
-                <Link to="/insights" className="glass-card rounded-lg overflow-hidden group card-lift hover:border-primary/30 cursor-pointer h-full flex flex-col block">
+                <Link to="/newsletter" className="glass-card rounded-lg overflow-hidden group card-lift hover:border-primary/30 cursor-pointer h-full flex flex-col block">
                   <div className="relative h-32 overflow-hidden">
                     <img
                       src={IMAGE_MAP[article.image || "financial-district"]}
