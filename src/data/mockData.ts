@@ -326,6 +326,8 @@ export const opportunities: Opportunity[] = [
     ],
     website: "https://gipc.gov.gh",
   },
+  {
+    id: "13",
     title: "Morocco Green Energy Investment Initiative",
     country: "Morocco",
     sector: "Renewable Energy",
