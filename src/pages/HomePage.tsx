@@ -9,14 +9,14 @@ import PlatformLayout from "@/components/platform/PlatformLayout";
 import ScrollReveal from "@/components/platform/ScrollReveal";
 import { opportunities, events, insights } from "@/data/mockData";
 
-import lagosSkyline from "@/assets/lagos-skyline.jpg";
+import heroAfricaModern from "@/assets/hero-africa-modern.jpg";
 import financialDistrict from "@/assets/financial-district.jpg";
 import nairobiTechHub from "@/assets/nairobi-tech-hub.jpg";
 
 const IMAGE_MAP: Record<string, string> = {
   "financial-district": financialDistrict,
   "nairobi-tech-hub": nairobiTechHub,
-  "lagos-skyline": lagosSkyline,
+  "lagos-skyline": heroAfricaModern,
 };
 
 const HomePage = () => {
@@ -27,20 +27,14 @@ const HomePage = () => {
       {/* Hero */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={lagosSkyline} alt="African metropolis at night" className="w-full h-full object-cover" loading="eager" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/60" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
+          <img src={heroAfricaModern} alt="African metropolis" className="w-full h-full object-cover hero-3d-pan" loading="eager" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/50" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/30" />
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <ScrollReveal>
-                <div className="inline-flex items-center gap-2 text-xs text-primary bg-primary/10 backdrop-blur-sm px-3 py-1.5 rounded-full mb-6 border border-primary/20">
-                  <Globe size={12} />
-                  African Market Intelligence Platform
-                </div>
-              </ScrollReveal>
               <ScrollReveal delay={150}>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-foreground leading-tight mb-6">
                   Discover Opportunities{" "}
@@ -83,6 +77,13 @@ const HomePage = () => {
                     <Zap size={14} className="text-primary" />
                     <span className="text-xs text-muted-foreground"><strong className="text-foreground">11</strong> Business Events</span>
                   </div>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal delay={600}>
+                <div className="inline-flex items-center gap-2 text-[10px] text-muted-foreground tracking-widest uppercase mt-8 opacity-60">
+                  <Globe size={10} />
+                  African Market Intelligence Platform
                 </div>
               </ScrollReveal>
             </div>
