@@ -267,9 +267,8 @@ export const opportunities: Opportunity[] = [
       "Join the 6-month AI incubation program",
       "Present at the National AI Summit",
     ],
+    website: "https://mcit.gov.eg/en",
   },
-  {
-    id: "11",
     title: "Cameroon Infrastructure Development Bond",
     country: "Cameroon",
     sector: "Infrastructure",
