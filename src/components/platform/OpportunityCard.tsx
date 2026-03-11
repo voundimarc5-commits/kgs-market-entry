@@ -9,7 +9,7 @@ const getImageForSector = (sector: string): string | undefined => {
     Finance: "financial-district",
     Energy: "solar-farm-morocco",
     "Renewable Energy": "solar-farm-morocco",
-    Technology: "nairobi-tech-hub",
+    Technology: "fintech-conference",
     "Real Estate": "kigali-innovation",
     Agriculture: "agribusiness",
     Mining: "mining-tech",
