@@ -13,6 +13,7 @@ export interface Opportunity {
   investmentContext?: string;
   howToParticipate?: string[];
   image?: string;
+  website?: string;
 }
 
 export interface AfricaEvent {
@@ -98,6 +99,7 @@ export const opportunities: Opportunity[] = [
       "Complete due diligence documentation",
       "Participate in the bond subscription window",
     ],
+    website: "https://www.tresor.economie.gouv.ga",
   },
   {
     id: "2",
@@ -118,6 +120,7 @@ export const opportunities: Opportunity[] = [
       "Complete technical and financial assessment",
       "Attend selection committee review",
     ],
+    website: "https://www.investkenya.go.ke",
   },
   {
     id: "3",
@@ -138,6 +141,7 @@ export const opportunities: Opportunity[] = [
       "Join the 12-week acceleration cohort",
       "Present at Demo Day to investors",
     ],
+    website: "https://lagosinnovation.ng",
   },
   {
     id: "4",
@@ -158,6 +162,7 @@ export const opportunities: Opportunity[] = [
       "Participate in partnership matchmaking sessions",
       "Finalize joint venture or concession agreements",
     ],
+    website: "https://www.masen.ma",
   },
   {
     id: "5",
@@ -177,6 +182,7 @@ export const opportunities: Opportunity[] = [
       "Attend investor site visits and due diligence sessions",
       "Finalize development agreements",
     ],
+    website: "https://rdb.rw",
   },
   {
     id: "6",
@@ -196,6 +202,7 @@ export const opportunities: Opportunity[] = [
       "Complete environmental and social impact assessment",
       "Participate in fund allocation rounds",
     ],
+    website: "https://cepici.ci",
   },
   {
     id: "7",
@@ -215,6 +222,7 @@ export const opportunities: Opportunity[] = [
       "Schedule one-on-one investor meetings",
       "Participate in deal-making roundtables",
     ],
+    website: "https://miningindaba.com",
   },
   {
     id: "8",
@@ -234,6 +242,7 @@ export const opportunities: Opportunity[] = [
       "Complete technical evaluation process",
       "Sign partnership agreements with government agencies",
     ],
+    website: "https://www.numerique.gouv.sn",
   },
   {
     id: "9",
@@ -254,6 +263,7 @@ export const opportunities: Opportunity[] = [
       "Participate in public-private partnership tenders",
       "Complete feasibility and environmental assessments",
     ],
+    website: "https://gipc.gov.gh",
   },
   {
     id: "10",
@@ -273,6 +283,7 @@ export const opportunities: Opportunity[] = [
       "Join the 6-month AI incubation program",
       "Present at the National AI Summit",
     ],
+    website: "https://mcit.gov.eg/en",
   },
   {
     id: "11",
@@ -293,6 +304,7 @@ export const opportunities: Opportunity[] = [
       "Submit investment commitment through authorized intermediaries",
       "Participate in the bond issuance window",
     ],
+    website: "https://www.minepat.gov.cm",
   },
   {
     id: "12",
@@ -312,6 +324,7 @@ export const opportunities: Opportunity[] = [
       "Join the 6-month acceleration program",
       "Pitch to venture capital and banking partners",
     ],
+    website: "https://gipc.gov.gh",
   },
   {
     id: "13",
@@ -332,6 +345,7 @@ export const opportunities: Opportunity[] = [
       "Attend investor matchmaking sessions",
       "Negotiate concession or joint venture agreements",
     ],
+    website: "https://www.masen.ma",
   },
 ];
 
@@ -372,6 +386,7 @@ export const events: AfricaEvent[] = [
       "Network with founders behind Africa's most successful fintech companies",
     ],
     audience: ["Fintech Founders", "Investors", "Banking Executives", "Regulators"],
+    website: "https://africafintechsummit.com",
   },
   {
     id: "3",
@@ -390,6 +405,7 @@ export const events: AfricaEvent[] = [
       "Explore partnership opportunities with government innovation programs",
     ],
     audience: ["Entrepreneurs", "Tech Innovators", "Impact Investors", "Government Leaders"],
+    website: "https://rdb.rw",
   },
   {
     id: "4",
@@ -408,6 +424,7 @@ export const events: AfricaEvent[] = [
       "Explore Kenya's mobile-first innovation culture",
     ],
     audience: ["Startups", "Angel Investors", "Accelerators", "Corporate Innovation Teams"],
+    website: "https://kenyastartupfestival.com",
   },
   {
     id: "5",
@@ -445,6 +462,7 @@ export const events: AfricaEvent[] = [
       "Access data and insights on African VC performance benchmarks",
     ],
     audience: ["Venture Capitalists", "Limited Partners", "Family Offices", "Fund Managers"],
+    website: "https://savca.co.za",
   },
   {
     id: "7",
@@ -463,6 +481,7 @@ export const events: AfricaEvent[] = [
       "Network with Francophone Africa's growing tech community",
     ],
     audience: ["Tech Companies", "Government Officials", "Telcos", "Digital Infrastructure Providers"],
+    website: "https://www.numerique.gouv.sn",
   },
   {
     id: "8",
@@ -481,6 +500,7 @@ export const events: AfricaEvent[] = [
       "Learn about Ghana's digital infrastructure expansion plans",
     ],
     audience: ["Entrepreneurs", "Investors", "Tech Professionals", "Corporates"],
+    website: "https://gipc.gov.gh",
   },
   {
     id: "9",
@@ -499,6 +519,7 @@ export const events: AfricaEvent[] = [
       "Connect with 100M-consumer market for intelligent products",
     ],
     audience: ["AI Startups", "Research Institutions", "Government Agencies", "Corporate R&D Teams"],
+    website: "https://mcit.gov.eg/en",
   },
   {
     id: "10",
@@ -517,6 +538,7 @@ export const events: AfricaEvent[] = [
       "Access deal flow in Africa's $300B+ mining sector",
     ],
     audience: ["Mining Companies", "Institutional Investors", "Technology Providers", "ESG Analysts"],
+    website: "https://miningindaba.com",
   },
   {
     id: "11",
@@ -535,9 +557,9 @@ export const events: AfricaEvent[] = [
       "Network with Cameroon's growing tech entrepreneurship ecosystem",
     ],
     audience: ["Tech Companies", "Investors", "Government Officials", "Entrepreneurs"],
+    website: "https://www.minpostel.gov.cm",
   },
 ];
-
 export const INSIGHT_IMAGES: Record<string, string> = {
   Investment: "financial-district",
   Technology: "nairobi-tech-hub",

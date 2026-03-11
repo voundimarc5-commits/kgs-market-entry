@@ -4,7 +4,7 @@ import ScrollReveal from "@/components/platform/ScrollReveal";
 import LeadCaptureForm from "@/components/platform/LeadCaptureForm";
 import { opportunities } from "@/data/mockData";
 import ParallaxHero from "@/components/platform/ParallaxHero";
-import { ArrowLeft, MapPin, Calendar, DollarSign, Briefcase, ExternalLink, TrendingUp, Lightbulb } from "lucide-react";
+import { ArrowLeft, MapPin, Calendar, DollarSign, Briefcase, ExternalLink, TrendingUp, Lightbulb, Globe } from "lucide-react";
 
 const images = import.meta.glob("@/assets/*.jpg", { eager: true, import: "default" }) as Record<string, string>;
 
@@ -91,6 +91,12 @@ const OpportunityDetailPage = () => {
                     <p className="text-sm font-medium text-foreground">{opportunity.investmentSize}</p>
                   </div>
                 )}
+                {opportunity.website && (
+                  <div>
+                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><Globe size={12} /> Website</div>
+                    <a href={opportunity.website} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-primary hover:underline">{opportunity.website}</a>
+                  </div>
+                )}
               </div>
               {opportunity.source && (
                 <div className="mt-4 pt-4 border-t border-border">
@@ -144,6 +150,34 @@ const OpportunityDetailPage = () => {
               </div>
             </ScrollReveal>
           )}
+
+          {/* CTA */}
+          <ScrollReveal delay={350}>
+            <div className="glass-card rounded-xl p-8 text-center animate-glow-pulse mb-8">
+              <h2 className="text-xl font-bold text-foreground mb-3">Need help entering this market?</h2>
+              <p className="text-sm text-muted-foreground mb-6 max-w-md mx-auto">
+                Contact KGS Market Entry for strategic advisory, due diligence support and market access.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                {opportunity.website && (
+                  <a
+                    href={opportunity.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-glow inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-md text-sm font-semibold transition-all"
+                  >
+                    <ExternalLink size={14} /> Visit Official Website
+                  </a>
+                )}
+                <Link
+                  to="/services"
+                  className="inline-flex items-center justify-center gap-2 bg-secondary text-foreground px-6 py-3 rounded-md text-sm font-medium hover:bg-secondary/80 transition-colors border border-border"
+                >
+                  Contact KGS Market Entry
+                </Link>
+              </div>
+            </div>
+          </ScrollReveal>
 
           {/* Lead Capture Form */}
           <ScrollReveal delay={400}>
