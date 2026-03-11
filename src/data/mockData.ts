@@ -387,6 +387,7 @@ export const events: AfricaEvent[] = [
     ],
     audience: ["Fintech Founders", "Investors", "Banking Executives", "Regulators"],
     website: "https://africafintechsummit.com",
+  },
   {
     id: "3",
     name: "Kigali Innovation Week",
