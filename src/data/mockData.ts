@@ -194,9 +194,8 @@ export const opportunities: Opportunity[] = [
       "Complete environmental and social impact assessment",
       "Participate in fund allocation rounds",
     ],
+    website: "https://cepici.ci",
   },
-  {
-    id: "7",
     title: "South Africa Mining Tech Investment Forum",
     country: "South Africa",
     sector: "Mining",
