@@ -212,9 +212,8 @@ export const opportunities: Opportunity[] = [
       "Schedule one-on-one investor meetings",
       "Participate in deal-making roundtables",
     ],
+    website: "https://miningindaba.com",
   },
-  {
-    id: "8",
     title: "Senegal Digital Economy Innovation Program",
     country: "Senegal",
     sector: "Technology",
