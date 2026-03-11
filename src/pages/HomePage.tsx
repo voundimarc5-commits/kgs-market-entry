@@ -276,9 +276,12 @@ const HomePage = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent md:hidden" />
                 </div>
                 <div className="p-6 md:p-8 flex flex-col justify-center">
-                  <div className="flex items-center gap-2 mb-3">
+                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-[10px] uppercase tracking-wider text-primary font-bold bg-primary/10 px-2 py-1 rounded border border-primary/20">{t("insights.featured")}</span>
                     <span className="text-[10px] uppercase tracking-wider text-accent font-semibold">{localizeCategory(localizedInsights[0].category)}</span>
+                    <span className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider text-primary-foreground font-bold bg-primary px-2 py-1 rounded">
+                      <Lock size={9} /> Premium
+                    </span>
                   </div>
                   <h3 className="text-lg md:text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{localizedInsights[0].title}</h3>
                   <p className="text-xs text-muted-foreground line-clamp-3 mb-4">{localizedInsights[0].summary}</p>
