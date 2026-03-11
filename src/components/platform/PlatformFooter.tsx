@@ -11,7 +11,7 @@ const PlatformFooter = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img src={kgsLogo} alt="KGS Market Entry" className="w-20 h-20 object-contain logo-spin-slow" />
+              <img src={kgsLogo} alt="KGS Market Entry" className="w-[108px] h-[108px] object-contain logo-rotate-slow" />
               <div className="flex flex-col">
                 <span className="text-base font-bold text-foreground">KGS Market Entry</span>
                 <span className="text-[9px] text-muted-foreground tracking-[0.12em] uppercase">Kora Global Systems</span>
