@@ -285,6 +285,8 @@ export const opportunities: Opportunity[] = [
     ],
     website: "https://mcit.gov.eg/en",
   },
+  {
+    id: "11",
     title: "Cameroon Infrastructure Development Bond",
     country: "Cameroon",
     sector: "Infrastructure",
