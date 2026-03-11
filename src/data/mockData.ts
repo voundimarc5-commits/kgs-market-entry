@@ -230,9 +230,8 @@ export const opportunities: Opportunity[] = [
       "Complete technical evaluation process",
       "Sign partnership agreements with government agencies",
     ],
+    website: "https://www.numerique.gouv.sn",
   },
-  {
-    id: "9",
     title: "Ghana Infrastructure Investment Program",
     country: "Ghana",
     sector: "Infrastructure",
