@@ -224,6 +224,8 @@ export const opportunities: Opportunity[] = [
     ],
     website: "https://miningindaba.com",
   },
+  {
+    id: "8",
     title: "Senegal Digital Economy Innovation Program",
     country: "Senegal",
     sector: "Technology",
