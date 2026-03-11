@@ -1,8 +1,9 @@
 import { useParams, Link } from "react-router-dom";
 import PlatformLayout from "@/components/platform/PlatformLayout";
+import ScrollReveal from "@/components/platform/ScrollReveal";
 import LeadCaptureForm from "@/components/platform/LeadCaptureForm";
 import { opportunities } from "@/data/mockData";
-import { ArrowLeft, MapPin, Calendar, DollarSign, Briefcase, ExternalLink } from "lucide-react";
+import { ArrowLeft, MapPin, Calendar, DollarSign, Briefcase, ExternalLink, TrendingUp, Lightbulb } from "lucide-react";
 
 const images = import.meta.glob("@/assets/*.jpg", { eager: true, import: "default" }) as Record<string, string>;
 
@@ -10,6 +11,7 @@ const getImageForSector = (sector: string): string | undefined => {
   const mapping: Record<string, string> = {
     Finance: "financial-district",
     Energy: "solar-farm-morocco",
+    "Renewable Energy": "solar-farm-morocco",
     Technology: "nairobi-tech-hub",
     "Real Estate": "kigali-innovation",
     Agriculture: "agribusiness",
@@ -71,65 +73,91 @@ const OpportunityDetailPage = () => {
 
       <section className="py-12">
         <div className="container mx-auto px-6 max-w-4xl">
-          <p className="text-base text-muted-foreground mb-8">{opportunity.summary}</p>
+          <ScrollReveal>
+            <p className="text-base text-muted-foreground mb-8">{opportunity.summary}</p>
+          </ScrollReveal>
 
           {/* Key Info */}
-          <div className="glass-card rounded-lg p-6 mb-8">
-            <h2 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-4">Key Information</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div>
-                <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><MapPin size={12} /> Country</div>
-                <p className="text-sm font-medium text-foreground">{opportunity.country}</p>
-              </div>
-              <div>
-                <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><Briefcase size={12} /> Sector</div>
-                <p className="text-sm font-medium text-foreground">{opportunity.sector}</p>
-              </div>
-              <div>
-                <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><Calendar size={12} /> Deadline</div>
-                <p className="text-sm font-medium text-foreground">{new Date(opportunity.deadline).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}</p>
-              </div>
-              {opportunity.investmentSize && (
+          <ScrollReveal delay={100}>
+            <div className="glass-card rounded-lg p-6 mb-8">
+              <h2 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-4">Key Information</h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div>
-                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><DollarSign size={12} /> Investment Size</div>
-                  <p className="text-sm font-medium text-foreground">{opportunity.investmentSize}</p>
+                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><MapPin size={12} /> Country</div>
+                  <p className="text-sm font-medium text-foreground">{opportunity.country}</p>
+                </div>
+                <div>
+                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><Briefcase size={12} /> Sector</div>
+                  <p className="text-sm font-medium text-foreground">{opportunity.sector}</p>
+                </div>
+                <div>
+                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><Calendar size={12} /> Deadline</div>
+                  <p className="text-sm font-medium text-foreground">{new Date(opportunity.deadline).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}</p>
+                </div>
+                {opportunity.investmentSize && (
+                  <div>
+                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1"><DollarSign size={12} /> Investment Size</div>
+                    <p className="text-sm font-medium text-foreground">{opportunity.investmentSize}</p>
+                  </div>
+                )}
+              </div>
+              {opportunity.source && (
+                <div className="mt-4 pt-4 border-t border-border">
+                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                    <ExternalLink size={12} /> Source: {opportunity.source}
+                  </div>
                 </div>
               )}
             </div>
-            {opportunity.source && (
-              <div className="mt-4 pt-4 border-t border-border">
-                <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                  <ExternalLink size={12} /> Source: {opportunity.source}
-                </div>
-              </div>
-            )}
-          </div>
+          </ScrollReveal>
 
           {/* Overview */}
           {opportunity.overview && (
-            <div className="mb-8">
-              <h2 className="text-lg font-semibold text-foreground mb-3">Opportunity Overview</h2>
-              <p className="text-sm text-muted-foreground leading-relaxed">{opportunity.overview}</p>
-            </div>
+            <ScrollReveal delay={200}>
+              <div className="mb-8">
+                <h2 className="text-lg font-semibold text-foreground mb-3">Opportunity Overview</h2>
+                <p className="text-sm text-muted-foreground leading-relaxed">{opportunity.overview}</p>
+              </div>
+            </ScrollReveal>
+          )}
+
+          {/* Investment Context */}
+          {opportunity.investmentContext && (
+            <ScrollReveal delay={250}>
+              <div className="glass-card rounded-lg p-6 mb-8">
+                <div className="flex items-center gap-2 mb-3">
+                  <TrendingUp size={16} className="text-primary" />
+                  <h2 className="text-lg font-semibold text-foreground">Investment Context</h2>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">{opportunity.investmentContext}</p>
+              </div>
+            </ScrollReveal>
           )}
 
           {/* How to Participate */}
           {opportunity.howToParticipate && (
-            <div className="mb-10">
-              <h2 className="text-lg font-semibold text-foreground mb-3">How to Participate</h2>
-              <ol className="space-y-3">
-                {opportunity.howToParticipate.map((step, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="w-6 h-6 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-medium shrink-0 mt-0.5">{i + 1}</span>
-                    <span className="text-sm text-muted-foreground">{step}</span>
-                  </li>
-                ))}
-              </ol>
-            </div>
+            <ScrollReveal delay={300}>
+              <div className="mb-10">
+                <div className="flex items-center gap-2 mb-3">
+                  <Lightbulb size={16} className="text-primary" />
+                  <h2 className="text-lg font-semibold text-foreground">How to Participate</h2>
+                </div>
+                <ol className="space-y-3">
+                  {opportunity.howToParticipate.map((step, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <span className="w-6 h-6 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-medium shrink-0 mt-0.5">{i + 1}</span>
+                      <span className="text-sm text-muted-foreground">{step}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </ScrollReveal>
           )}
 
           {/* Lead Capture Form */}
-          <LeadCaptureForm opportunityTitle={opportunity.title} />
+          <ScrollReveal delay={400}>
+            <LeadCaptureForm opportunityTitle={opportunity.title} />
+          </ScrollReveal>
         </div>
       </section>
     </PlatformLayout>

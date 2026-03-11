@@ -1,4 +1,5 @@
-import { MapPin, Calendar, Users } from "lucide-react";
+import { Link } from "react-router-dom";
+import { MapPin, Calendar, Users, ArrowRight } from "lucide-react";
 import type { AfricaEvent } from "@/data/mockData";
 
 const images = import.meta.glob("@/assets/*.jpg", { eager: true, import: "default" }) as Record<string, string>;
@@ -14,6 +15,7 @@ const getImageForEvent = (sector: string): string | undefined => {
     "AI & Robotics": "smart-city",
     "Venture Capital": "financial-district",
     "Mining & Resources": "mining-tech",
+    Infrastructure: "port-infrastructure",
   };
   const key = mapping[sector];
   if (!key) return undefined;
@@ -32,11 +34,13 @@ const EventCard = ({ event }: { event: AfricaEvent }) => {
   const bgImage = getImageForEvent(event.sector);
 
   return (
-    <div className="group relative rounded-lg overflow-hidden border border-border hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_hsl(43_65%_55%/0.12)]">
-      {/* Background image */}
+    <Link
+      to={`/events/${event.id}`}
+      className="group relative rounded-lg overflow-hidden border border-border hover:border-primary/40 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_12px_40px_hsl(0_0%_0%/0.4),0_0_20px_hsl(43_65%_55%/0.12)] block"
+    >
       {bgImage && (
         <div className="absolute inset-0">
-          <img src={bgImage} alt="" className="w-full h-full object-cover" loading="lazy" />
+          <img src={bgImage} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/50" />
         </div>
       )}
@@ -70,8 +74,12 @@ const EventCard = ({ event }: { event: AfricaEvent }) => {
             <Users size={13} className="text-primary/70" /> {event.organizer}
           </div>
         </div>
+
+        <span className="inline-flex items-center gap-1.5 text-xs text-primary font-semibold group-hover:gap-2.5 transition-all">
+          View Event <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" />
+        </span>
       </div>
-    </div>
+    </Link>
   );
 };
 

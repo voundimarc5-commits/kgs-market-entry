@@ -7,9 +7,12 @@ const PlatformFooter = () => {
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
           <div>
-            <div className="flex items-center gap-2.5 mb-4">
-              <img src={kgsLogo} alt="KGS Market Entry" className="w-8 h-8 object-contain" />
-              <span className="text-sm font-semibold text-foreground">KGS Market Entry</span>
+            <div className="flex items-center gap-3 mb-4">
+              <img src={kgsLogo} alt="KGS Market Entry" className="w-14 h-14 object-contain logo-spin-slow" />
+              <div className="flex flex-col">
+                <span className="text-base font-bold text-foreground">KGS Market Entry</span>
+                <span className="text-[9px] text-muted-foreground tracking-[0.12em] uppercase">Kora Global Systems</span>
+              </div>
             </div>
             <p className="text-xs text-muted-foreground leading-relaxed">
               African Market Intelligence & Opportunity Platform by Kora Global Systems.

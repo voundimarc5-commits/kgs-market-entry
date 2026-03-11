@@ -10,6 +10,7 @@ export interface Opportunity {
   investmentSize?: string;
   source?: string;
   overview?: string;
+  investmentContext?: string;
   howToParticipate?: string[];
   image?: string;
 }
@@ -24,6 +25,10 @@ export interface AfricaEvent {
   organizer: string;
   image?: string;
   badge?: string;
+  description?: string;
+  whyAttend?: string[];
+  audience?: string[];
+  website?: string;
 }
 
 export interface InsightArticle {
@@ -50,6 +55,7 @@ export interface CountryData {
 export const SECTOR_IMAGES: Record<string, string> = {
   Finance: "financial-district",
   Energy: "solar-farm-morocco",
+  "Renewable Energy": "solar-farm-morocco",
   Technology: "nairobi-tech-hub",
   "Real Estate": "kigali-innovation",
   Agriculture: "agribusiness",
@@ -69,6 +75,7 @@ export const EVENT_IMAGES: Record<string, string> = {
   "Digital Economy": "smart-city",
   "AI & Robotics": "smart-city",
   "Venture Capital": "financial-district",
+  Infrastructure: "port-infrastructure",
 };
 
 export const opportunities: Opportunity[] = [
@@ -84,6 +91,7 @@ export const opportunities: Opportunity[] = [
     investmentSize: "$50M — $500M",
     source: "Ministry of Finance, Gabon",
     overview: "The Republic of Gabon has announced a new sovereign bond issuance dedicated to financing critical infrastructure projects. The program targets transport modernization, energy transition, and urban development in Libreville and Port-Gentil.",
+    investmentContext: "Gabon is diversifying its economy beyond oil dependency. With a GDP per capita among the highest in Sub-Saharan Africa, the country is channeling resources into infrastructure modernization to attract foreign investment and boost non-oil sectors. The bond program is backed by the government's 2025–2030 economic diversification strategy.",
     howToParticipate: [
       "Register as a qualified institutional investor",
       "Submit expression of interest through the Ministry of Finance portal",
@@ -103,6 +111,7 @@ export const opportunities: Opportunity[] = [
     investmentSize: "$5M — $50M",
     source: "Kenya Investment Authority",
     overview: "Kenya's Energy Innovation Program seeks to accelerate the adoption of clean energy technologies. The initiative provides funding, technical support, and market access for startups and established companies in solar, wind, and geothermal sectors.",
+    investmentContext: "Kenya generates over 90% of its electricity from renewables, making it a continental leader in clean energy. The country's geothermal potential is the largest in Africa, and government incentives — including tax breaks and feed-in tariffs — create a favorable investment environment for energy innovators.",
     howToParticipate: [
       "Apply through the Kenya Investment Authority portal",
       "Submit a project proposal and business plan",
@@ -122,6 +131,7 @@ export const opportunities: Opportunity[] = [
     investmentSize: "$500K — $5M",
     source: "Lagos State Innovation Hub",
     overview: "Nigeria's leading fintech acceleration program provides seed funding, mentorship, and access to banking partnerships for early-stage fintech companies operating across West Africa.",
+    investmentContext: "Nigeria is home to Africa's largest fintech ecosystem, with over $2B in venture funding in 2024. Lagos has emerged as the continent's fintech capital, with major players like Flutterwave, Paystack, and Moniepoint driving financial inclusion for 200M+ consumers.",
     howToParticipate: [
       "Apply online with pitch deck and financial projections",
       "Complete the screening interview",
@@ -141,6 +151,7 @@ export const opportunities: Opportunity[] = [
     investmentSize: "$100M+",
     source: "MASEN (Moroccan Agency for Sustainable Energy)",
     overview: "Morocco is positioning itself as a global leader in green hydrogen. This initiative supports the development of production facilities, export infrastructure, and R&D partnerships for clean hydrogen fuel.",
+    investmentContext: "Morocco's proximity to Europe and its world-class solar and wind resources make it an ideal green hydrogen production hub. The country has already invested $13B in renewable energy infrastructure and aims to produce 52% of its energy from renewables by 2030.",
     howToParticipate: [
       "Submit an expression of interest to MASEN",
       "Provide technical capabilities and financial capacity proof",
@@ -159,6 +170,7 @@ export const opportunities: Opportunity[] = [
     investmentSize: "$10M — $100M",
     source: "Rwanda Development Board",
     overview: "Kigali Innovation City is a flagship smart city development integrating technology companies, universities, and innovation centers into a world-class urban ecosystem.",
+    investmentContext: "Rwanda ranks as Africa's most business-friendly nation. Kigali Innovation City is part of a $2B vision to create a continental technology hub. The Rwandan government offers generous tax incentives, streamlined licensing, and strong IP protections for foreign investors.",
     howToParticipate: [
       "Contact Rwanda Development Board for investment prospectus",
       "Submit investment proposal and partnership model",
@@ -177,6 +189,7 @@ export const opportunities: Opportunity[] = [
     investmentSize: "$2M — $20M",
     source: "CEPICI",
     overview: "This fund targets the modernization of Côte d'Ivoire's agricultural sector, with a focus on cocoa processing, sustainable farming practices, and agritech solutions.",
+    investmentContext: "Côte d'Ivoire is the world's largest cocoa producer, accounting for 40% of global supply. The government's plan to process 50% of cocoa domestically by 2030 creates massive investment opportunities in processing plants, logistics, and agricultural technology.",
     howToParticipate: [
       "Register with CEPICI investment portal",
       "Submit project proposal aligned with national agri-strategy",
@@ -195,6 +208,7 @@ export const opportunities: Opportunity[] = [
     investmentSize: "$1M — $50M",
     source: "Mining Indaba Group",
     overview: "South Africa's premier mining technology event connects investors with innovative mining solutions, from AI-driven exploration to sustainable extraction technologies.",
+    investmentContext: "South Africa holds the world's largest reserves of platinum, manganese, and chromium. The mining sector contributes 8% of GDP and is undergoing a technology-driven transformation with autonomous equipment, AI exploration, and green mining practices attracting significant capital.",
     howToParticipate: [
       "Register for the annual Mining Tech Forum",
       "Submit technology showcase applications",
@@ -213,6 +227,7 @@ export const opportunities: Opportunity[] = [
     investmentSize: "$1M — $15M",
     source: "Senegal Ministry of Digital Economy",
     overview: "Senegal's digital economy strategy aims to create 35,000 tech jobs and attract $500M in digital infrastructure investment by 2028.",
+    investmentContext: "Senegal is rapidly emerging as a West African digital hub, supported by new submarine cable infrastructure, government digital transformation programs, and a young tech-savvy population. The country's political stability and bilingual workforce make it attractive for international tech companies.",
     howToParticipate: [
       "Apply through the Ministry of Digital Economy platform",
       "Submit digital infrastructure or services proposal",
@@ -232,6 +247,7 @@ export const opportunities: Opportunity[] = [
     investmentSize: "$20M — $200M",
     source: "Ghana Investment Promotion Centre",
     overview: "Ghana's Infrastructure Investment Program targets critical transport corridors, port expansion, and railway connectivity to boost regional trade and economic growth.",
+    investmentContext: "Ghana is a gateway to the West African market of 400M consumers. The country's infrastructure modernization plan — anchored by the $16B Tema Port expansion and Western Railway Line — is creating opportunities across construction, logistics, and transportation sectors.",
     howToParticipate: [
       "Register with Ghana Investment Promotion Centre",
       "Submit infrastructure project proposals",
@@ -250,11 +266,71 @@ export const opportunities: Opportunity[] = [
     investmentSize: "$500K — $10M",
     source: "Egypt National AI Strategy Office",
     overview: "Egypt's AI Innovation Challenge seeks to accelerate artificial intelligence adoption across key economic sectors, with prize funding, incubation support, and government procurement pathways.",
+    investmentContext: "Egypt is positioning itself as the Middle East and North Africa AI hub. With 100M consumers, strong engineering talent from top universities, and government backing through the National AI Strategy, the country offers a large and underserved market for AI solutions.",
     howToParticipate: [
       "Submit AI solution proposal and prototype",
       "Complete technical evaluation and demo rounds",
       "Join the 6-month AI incubation program",
       "Present at the National AI Summit",
+    ],
+  },
+  {
+    id: "11",
+    title: "Cameroon Infrastructure Development Bond",
+    country: "Cameroon",
+    sector: "Infrastructure",
+    type: "Sovereign Bond",
+    summary: "Government-backed bond supporting road and energy infrastructure projects across Cameroon.",
+    deadline: "2026-09-30",
+    featured: false,
+    investmentSize: "$30M — $300M",
+    source: "Ministry of Economy, Cameroon",
+    overview: "Cameroon is issuing infrastructure bonds to finance critical road networks connecting Douala's port to landlocked Central African nations, and energy projects including hydroelectric power expansion.",
+    investmentContext: "As Central Africa's largest economy, Cameroon serves as a trade corridor for Chad, Central African Republic, and northern Congo. The government's Vision 2035 plan prioritizes transport and energy infrastructure to support regional integration and economic diversification beyond oil.",
+    howToParticipate: [
+      "Register as a qualified investor with the Ministry of Economy",
+      "Review bond prospectus and terms",
+      "Submit investment commitment through authorized intermediaries",
+      "Participate in the bond issuance window",
+    ],
+  },
+  {
+    id: "12",
+    title: "Ghana Fintech Innovation Program",
+    country: "Ghana",
+    sector: "Technology",
+    type: "Innovation Program",
+    summary: "Program supporting fintech startups developing financial inclusion solutions in Ghana.",
+    deadline: "2026-08-31",
+    investmentSize: "$500K — $5M",
+    source: "Ghana Fintech & Payments Association",
+    overview: "This program supports early-stage fintech companies building solutions for mobile payments, microfinance, insurance, and remittances across Ghana and the broader West African market.",
+    investmentContext: "Ghana's mobile money ecosystem has grown rapidly, with interoperability between mobile operators driving financial inclusion. The central bank's regulatory sandbox and progressive fintech policies make Ghana an attractive testing ground for financial innovation.",
+    howToParticipate: [
+      "Apply with product demo and business plan",
+      "Complete regulatory compliance review",
+      "Join the 6-month acceleration program",
+      "Pitch to venture capital and banking partners",
+    ],
+  },
+  {
+    id: "13",
+    title: "Morocco Green Energy Investment Initiative",
+    country: "Morocco",
+    sector: "Renewable Energy",
+    type: "Investment Program",
+    summary: "Large-scale investment initiative supporting solar and hydrogen infrastructure development.",
+    deadline: "2026-12-31",
+    featured: true,
+    investmentSize: "$50M — $500M",
+    source: "MASEN",
+    overview: "Morocco's Green Energy Initiative targets the next phase of renewable energy development, including the Noor-Midelt solar complex, offshore wind projects, and green hydrogen production facilities for European export markets.",
+    investmentContext: "Morocco has invested $13B in renewable energy and aims for 52% renewable electricity by 2030. The Noor solar complex is the world's largest concentrated solar power plant. Strategic proximity to Europe positions Morocco as a clean energy exporter via submarine power cables and hydrogen pipelines.",
+    howToParticipate: [
+      "Submit expression of interest to MASEN",
+      "Provide technical and financial capacity documentation",
+      "Attend investor matchmaking sessions",
+      "Negotiate concession or joint venture agreements",
     ],
   },
 ];
@@ -269,6 +345,15 @@ export const events: AfricaEvent[] = [
     sector: "Finance & Investment",
     organizer: "African Development Bank",
     badge: "INVESTMENT",
+    description: "The Africa Investment Forum is the continent's premier investment marketplace, convening heads of state, pension funds, sovereign wealth funds, and private equity leaders to close deals on transformative projects across infrastructure, energy, agriculture, and technology.",
+    whyAttend: [
+      "Access $100B+ in investment deal flow across African markets",
+      "Meet directly with heads of state and finance ministers from 40+ countries",
+      "Participate in structured boardroom deal-making sessions",
+      "Network with the African Development Bank's global partner ecosystem",
+    ],
+    audience: ["Institutional Investors", "DFI Representatives", "Government Officials", "Corporate Executives"],
+    website: "https://www.africainvestmentforum.com",
   },
   {
     id: "2",
@@ -279,6 +364,14 @@ export const events: AfricaEvent[] = [
     sector: "Technology",
     organizer: "Fintech Association of Nigeria",
     badge: "TECH",
+    description: "West Africa's largest fintech event, bringing together 3,000+ fintech founders, banking executives, regulators and investors to explore the future of financial services across the continent.",
+    whyAttend: [
+      "Discover the latest fintech innovations from Africa's largest market",
+      "Connect with venture capitalists and corporate investors actively deploying capital",
+      "Gain regulatory insights from the Central Bank of Nigeria and SEC",
+      "Network with founders behind Africa's most successful fintech companies",
+    ],
+    audience: ["Fintech Founders", "Investors", "Banking Executives", "Regulators"],
   },
   {
     id: "3",
@@ -289,6 +382,14 @@ export const events: AfricaEvent[] = [
     sector: "Innovation & Tech",
     organizer: "Rwanda ICT Chamber",
     badge: "STARTUP",
+    description: "Rwanda's flagship innovation event showcasing the country's transformation into Africa's leading technology hub. Features startup pitches, smart city demonstrations, and investment roundtables.",
+    whyAttend: [
+      "Experience Kigali Innovation City's smart urban ecosystem firsthand",
+      "Pitch to East African and international investors",
+      "Learn from Rwanda's successful digital transformation model",
+      "Explore partnership opportunities with government innovation programs",
+    ],
+    audience: ["Entrepreneurs", "Tech Innovators", "Impact Investors", "Government Leaders"],
   },
   {
     id: "4",
@@ -299,6 +400,14 @@ export const events: AfricaEvent[] = [
     sector: "Startup",
     organizer: "Kenya Startup Association",
     badge: "STARTUP",
+    description: "East Africa's premier startup festival celebrating entrepreneurship, innovation and venture capital. Features pitch competitions, mentorship sessions and networking events across Nairobi's vibrant tech ecosystem.",
+    whyAttend: [
+      "Access East Africa's most dynamic startup ecosystem",
+      "Participate in pitch competitions with $1M+ in prize funding",
+      "Connect with accelerators, incubators and VC firms",
+      "Explore Kenya's mobile-first innovation culture",
+    ],
+    audience: ["Startups", "Angel Investors", "Accelerators", "Corporate Innovation Teams"],
   },
   {
     id: "5",
@@ -309,6 +418,15 @@ export const events: AfricaEvent[] = [
     sector: "Energy & Climate",
     organizer: "MASEN & Morocco Trade",
     badge: "ENERGY",
+    description: "North Africa's leading renewable energy conference, showcasing Morocco's world-class solar and wind infrastructure, green hydrogen roadmap, and clean energy export strategy to Europe.",
+    whyAttend: [
+      "Explore investment opportunities in the Noor solar complex expansion",
+      "Understand Morocco's green hydrogen export strategy",
+      "Meet leading EPCs, developers and financiers in African clean energy",
+      "Learn about cross-Mediterranean energy interconnection projects",
+    ],
+    audience: ["Energy Investors", "Project Developers", "Policy Makers", "Technology Providers"],
+    website: "https://www.masen.ma",
   },
   {
     id: "6",
@@ -319,6 +437,14 @@ export const events: AfricaEvent[] = [
     sector: "Venture Capital",
     organizer: "SA Venture Capital Association",
     badge: "INVESTMENT",
+    description: "Southern Africa's premier venture capital event bringing together LP and GP communities, family offices, and institutional investors to discuss African tech investment strategies.",
+    whyAttend: [
+      "Meet Africa-focused VCs managing $5B+ in assets",
+      "Attend LP-GP matchmaking sessions",
+      "Explore co-investment and syndication opportunities",
+      "Access data and insights on African VC performance benchmarks",
+    ],
+    audience: ["Venture Capitalists", "Limited Partners", "Family Offices", "Fund Managers"],
   },
   {
     id: "7",
@@ -329,6 +455,14 @@ export const events: AfricaEvent[] = [
     sector: "Digital Economy",
     organizer: "Senegal Ministry of Digital Economy",
     badge: "TECH",
+    description: "A government-led conference showcasing Senegal's digital transformation agenda, from submarine cable infrastructure to fintech regulation and digital public services.",
+    whyAttend: [
+      "Understand Senegal's digital economy strategy and investment incentives",
+      "Meet government procurement decision-makers",
+      "Explore partnerships in digital infrastructure and connectivity",
+      "Network with Francophone Africa's growing tech community",
+    ],
+    audience: ["Tech Companies", "Government Officials", "Telcos", "Digital Infrastructure Providers"],
   },
   {
     id: "8",
@@ -339,6 +473,14 @@ export const events: AfricaEvent[] = [
     sector: "Technology",
     organizer: "Ghana Tech Foundation",
     badge: "TECH",
+    description: "Ghana's premier technology and investment conference bringing together founders, investors and policymakers to advance the country's position as West Africa's tech innovation gateway.",
+    whyAttend: [
+      "Discover Ghana's most promising tech startups and scale-ups",
+      "Explore the country's progressive fintech regulatory framework",
+      "Meet investors actively deploying in Anglophone West Africa",
+      "Learn about Ghana's digital infrastructure expansion plans",
+    ],
+    audience: ["Entrepreneurs", "Investors", "Tech Professionals", "Corporates"],
   },
   {
     id: "9",
@@ -349,6 +491,14 @@ export const events: AfricaEvent[] = [
     sector: "AI & Robotics",
     organizer: "Egypt National AI Office",
     badge: "TECH",
+    description: "The largest AI and robotics exhibition in the Middle East and Africa, showcasing applications in healthcare, agriculture, logistics, and smart cities powered by Egyptian engineering talent.",
+    whyAttend: [
+      "Experience cutting-edge AI and robotics demonstrations",
+      "Meet the startups behind Egypt's AI revolution",
+      "Explore government procurement pathways for AI solutions",
+      "Connect with 100M-consumer market for intelligent products",
+    ],
+    audience: ["AI Startups", "Research Institutions", "Government Agencies", "Corporate R&D Teams"],
   },
   {
     id: "10",
@@ -359,6 +509,32 @@ export const events: AfricaEvent[] = [
     sector: "Mining & Resources",
     organizer: "Mining Indaba Group",
     badge: "INVESTMENT",
+    description: "The definitive mining innovation event in Africa, exploring autonomous mining, AI-driven exploration, sustainable extraction, and the future of critical minerals for the green energy transition.",
+    whyAttend: [
+      "Meet mining majors and junior explorers seeking technology partners",
+      "Explore investment in critical minerals (lithium, cobalt, rare earths)",
+      "Learn about ESG-compliant mining innovations",
+      "Access deal flow in Africa's $300B+ mining sector",
+    ],
+    audience: ["Mining Companies", "Institutional Investors", "Technology Providers", "ESG Analysts"],
+  },
+  {
+    id: "11",
+    name: "Cameroon Digital Economy Forum",
+    city: "Douala",
+    country: "Cameroon",
+    date: "2026-10-15",
+    sector: "Digital Economy",
+    organizer: "Cameroon Ministry of Posts & Telecoms",
+    badge: "TECH",
+    description: "Central Africa's leading digital economy conference, showcasing Cameroon's digital infrastructure expansion, mobile banking innovations, and e-government transformation.",
+    whyAttend: [
+      "Explore Central Africa's largest digital market",
+      "Meet government decision-makers driving digital transformation",
+      "Discover partnership opportunities in mobile banking and e-commerce",
+      "Network with Cameroon's growing tech entrepreneurship ecosystem",
+    ],
+    audience: ["Tech Companies", "Investors", "Government Officials", "Entrepreneurs"],
   },
 ];
 
@@ -459,14 +635,15 @@ export const countries: CountryData[] = [
   { code: "KE", name: "Kenya", overview: "East Africa's innovation hub with strong mobile and fintech sectors.", keySectors: ["Technology", "Energy", "Agriculture"], opportunities: 2, events: 1 },
   { code: "ZA", name: "South Africa", overview: "Continent's most industrialized economy with deep capital markets.", keySectors: ["Mining", "Finance", "Technology"], opportunities: 1, events: 2 },
   { code: "GA", name: "Gabon", overview: "Resource-rich Central African nation focused on diversification.", keySectors: ["Oil & Gas", "Mining", "Infrastructure"], opportunities: 1, events: 0 },
-  { code: "MA", name: "Morocco", overview: "North Africa's gateway with strong automotive and renewable energy sectors.", keySectors: ["Energy", "Manufacturing", "Real Estate"], opportunities: 1, events: 1 },
+  { code: "MA", name: "Morocco", overview: "North Africa's gateway with strong automotive and renewable energy sectors.", keySectors: ["Energy", "Manufacturing", "Real Estate"], opportunities: 2, events: 1 },
   { code: "RW", name: "Rwanda", overview: "Africa's most business-friendly nation with ambitious tech vision.", keySectors: ["Technology", "Tourism", "Real Estate"], opportunities: 1, events: 1 },
   { code: "CI", name: "Côte d'Ivoire", overview: "West Africa's francophone economic hub with strong agricultural sector.", keySectors: ["Agriculture", "Finance", "Infrastructure"], opportunities: 1, events: 1 },
   { code: "SN", name: "Senegal", overview: "Emerging West African economy with oil & gas discoveries.", keySectors: ["Energy", "Technology", "Agriculture"], opportunities: 1, events: 1 },
-  { code: "GH", name: "Ghana", overview: "Stable democracy with growing tech scene and natural resources.", keySectors: ["Mining", "Technology", "Infrastructure"], opportunities: 1, events: 1 },
+  { code: "GH", name: "Ghana", overview: "Stable democracy with growing tech scene and natural resources.", keySectors: ["Mining", "Technology", "Infrastructure"], opportunities: 2, events: 1 },
   { code: "ET", name: "Ethiopia", overview: "Africa's fastest-growing economy with massive infrastructure development.", keySectors: ["Manufacturing", "Agriculture", "Infrastructure"], opportunities: 0, events: 0 },
   { code: "EG", name: "Egypt", overview: "North Africa's largest economy with growing AI and tech sector.", keySectors: ["Technology", "Tourism", "Manufacturing"], opportunities: 1, events: 1 },
+  { code: "CM", name: "Cameroon", overview: "Central Africa's largest economy and key trade corridor for landlocked nations.", keySectors: ["Infrastructure", "Energy", "Agriculture"], opportunities: 1, events: 1 },
 ];
 
-export const sectors = ["All", "Finance", "Energy", "Technology", "Real Estate", "Agriculture", "Mining", "Infrastructure", "Artificial Intelligence"];
+export const sectors = ["All", "Finance", "Energy", "Renewable Energy", "Technology", "Real Estate", "Agriculture", "Mining", "Infrastructure", "Artificial Intelligence"];
 export const opportunityTypes = ["All", "Sovereign Bond", "Innovation Program", "Startup Initiative", "Investment Program", "Financial Program", "Business Event"];

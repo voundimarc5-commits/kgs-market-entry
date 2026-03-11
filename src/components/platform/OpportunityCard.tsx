@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 import { MapPin, Calendar, ArrowRight } from "lucide-react";
-import type { Opportunity, SECTOR_IMAGES } from "@/data/mockData";
+import type { Opportunity } from "@/data/mockData";
 
-// Dynamic image imports
 const images = import.meta.glob("@/assets/*.jpg", { eager: true, import: "default" }) as Record<string, string>;
 
 const getImageForSector = (sector: string): string | undefined => {
   const mapping: Record<string, string> = {
     Finance: "financial-district",
     Energy: "solar-farm-morocco",
+    "Renewable Energy": "solar-farm-morocco",
     Technology: "nairobi-tech-hub",
     "Real Estate": "kigali-innovation",
     Agriculture: "agribusiness",
@@ -26,11 +26,13 @@ const OpportunityCard = ({ opportunity }: { opportunity: Opportunity }) => {
   const bgImage = getImageForSector(opportunity.sector);
 
   return (
-    <div className="group relative rounded-lg overflow-hidden border border-border hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_hsl(43_65%_55%/0.12)]">
-      {/* Background image */}
+    <Link
+      to={`/opportunities/${opportunity.id}`}
+      className="group relative rounded-lg overflow-hidden border border-border hover:border-primary/40 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_12px_40px_hsl(0_0%_0%/0.4),0_0_20px_hsl(43_65%_55%/0.12)] block"
+    >
       {bgImage && (
         <div className="absolute inset-0">
-          <img src={bgImage} alt="" className="w-full h-full object-cover" loading="lazy" />
+          <img src={bgImage} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/60" />
         </div>
       )}
@@ -63,14 +65,11 @@ const OpportunityCard = ({ opportunity }: { opportunity: Opportunity }) => {
           </div>
         </div>
 
-        <Link
-          to={`/opportunities/${opportunity.id}`}
-          className="inline-flex items-center gap-1.5 text-xs text-primary font-semibold hover:gap-2.5 transition-all group/link"
-        >
-          View Opportunity <ArrowRight size={12} className="transition-transform group-hover/link:translate-x-1" />
-        </Link>
+        <span className="inline-flex items-center gap-1.5 text-xs text-primary font-semibold group-hover:gap-2.5 transition-all">
+          View Opportunity <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" />
+        </span>
       </div>
-    </div>
+    </Link>
   );
 };
 
