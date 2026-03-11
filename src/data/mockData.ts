@@ -495,7 +495,7 @@ export const events: AfricaEvent[] = [
       "Learn about Ghana's digital infrastructure expansion plans",
     ],
     audience: ["Entrepreneurs", "Investors", "Tech Professionals", "Corporates"],
-  },
+    website: "https://gipc.gov.gh",
   {
     id: "9",
     name: "Cairo AI and Robotics Expo",
