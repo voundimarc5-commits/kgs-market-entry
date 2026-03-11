@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Globe, TrendingUp, Shield, Zap, BarChart3, Clock, Calendar, MapPin, BookOpen, Radar } from "lucide-react";
+import { ArrowRight, Globe, TrendingUp, Shield, Zap, BarChart3, Clock, Calendar, MapPin, BookOpen, Radar, Lock } from "lucide-react";
 import AfricaGlobe from "@/components/platform/AfricaGlobe";
 import AfricaSVGMap from "@/components/platform/AfricaSVGMap";
 import OpportunityCard from "@/components/platform/OpportunityCard";
