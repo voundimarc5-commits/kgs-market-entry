@@ -139,9 +139,8 @@ export const opportunities: Opportunity[] = [
       "Join the 12-week acceleration cohort",
       "Present at Demo Day to investors",
     ],
+    website: "https://lagosinnovation.ng",
   },
-  {
-    id: "4",
     title: "Morocco Green Hydrogen Investment Initiative",
     country: "Morocco",
     sector: "Energy",
