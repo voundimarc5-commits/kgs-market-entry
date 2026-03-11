@@ -1,7 +1,27 @@
 import { useParams, Link } from "react-router-dom";
 import PlatformLayout from "@/components/platform/PlatformLayout";
+import LeadCaptureForm from "@/components/platform/LeadCaptureForm";
 import { opportunities } from "@/data/mockData";
 import { ArrowLeft, MapPin, Calendar, DollarSign, Briefcase, ExternalLink } from "lucide-react";
+
+const images = import.meta.glob("@/assets/*.jpg", { eager: true, import: "default" }) as Record<string, string>;
+
+const getImageForSector = (sector: string): string | undefined => {
+  const mapping: Record<string, string> = {
+    Finance: "financial-district",
+    Energy: "solar-farm-morocco",
+    Technology: "nairobi-tech-hub",
+    "Real Estate": "kigali-innovation",
+    Agriculture: "agribusiness",
+    Mining: "mining-tech",
+    Infrastructure: "port-infrastructure",
+    "Artificial Intelligence": "smart-city",
+  };
+  const key = mapping[sector];
+  if (!key) return undefined;
+  const match = Object.entries(images).find(([path]) => path.includes(key));
+  return match?.[1];
+};
 
 const OpportunityDetailPage = () => {
   const { id } = useParams();
@@ -18,21 +38,40 @@ const OpportunityDetailPage = () => {
     );
   }
 
+  const bgImage = getImageForSector(opportunity.sector);
+
   return (
     <PlatformLayout>
+      {/* Hero banner */}
+      <div className="relative h-64 md:h-80 overflow-hidden">
+        {bgImage && (
+          <>
+            <img src={bgImage} alt="" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/40" />
+          </>
+        )}
+        {!bgImage && <div className="absolute inset-0 bg-card" />}
+        <div className="absolute bottom-0 left-0 right-0 p-6">
+          <div className="container mx-auto max-w-4xl">
+            <Link to="/opportunities" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground mb-4">
+              <ArrowLeft size={14} /> Back to opportunities
+            </Link>
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-[10px] uppercase tracking-wider text-primary-foreground font-semibold bg-primary px-2.5 py-1 rounded-sm">
+                {opportunity.type}
+              </span>
+              <span className="text-[10px] uppercase tracking-wider font-medium bg-accent/80 text-accent-foreground px-2 py-1 rounded-sm">
+                {opportunity.country}
+              </span>
+            </div>
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground">{opportunity.title}</h1>
+          </div>
+        </div>
+      </div>
+
       <section className="py-12">
         <div className="container mx-auto px-6 max-w-4xl">
-          <Link to="/opportunities" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground mb-8">
-            <ArrowLeft size={14} /> Back to opportunities
-          </Link>
-
-          <div className="mb-8">
-            <span className="text-[10px] uppercase tracking-wider text-primary font-medium bg-primary/10 px-2 py-1 rounded">
-              {opportunity.type}
-            </span>
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground mt-3 mb-4">{opportunity.title}</h1>
-            <p className="text-base text-muted-foreground">{opportunity.summary}</p>
-          </div>
+          <p className="text-base text-muted-foreground mb-8">{opportunity.summary}</p>
 
           {/* Key Info */}
           <div className="glass-card rounded-lg p-6 mb-8">
@@ -76,7 +115,7 @@ const OpportunityDetailPage = () => {
 
           {/* How to Participate */}
           {opportunity.howToParticipate && (
-            <div className="mb-8">
+            <div className="mb-10">
               <h2 className="text-lg font-semibold text-foreground mb-3">How to Participate</h2>
               <ol className="space-y-3">
                 {opportunity.howToParticipate.map((step, i) => (
@@ -89,17 +128,8 @@ const OpportunityDetailPage = () => {
             </div>
           )}
 
-          {/* CTA */}
-          <div className="glass-card rounded-lg p-8 text-center glow-gold">
-            <h3 className="text-lg font-semibold text-foreground mb-2">Need help entering this market?</h3>
-            <p className="text-sm text-muted-foreground mb-4">Our team can help you navigate this opportunity.</p>
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-2.5 rounded-md text-sm font-medium hover:bg-primary/90 transition-colors"
-            >
-              Contact KGS Market Entry
-            </Link>
-          </div>
+          {/* Lead Capture Form */}
+          <LeadCaptureForm opportunityTitle={opportunity.title} />
         </div>
       </section>
     </PlatformLayout>

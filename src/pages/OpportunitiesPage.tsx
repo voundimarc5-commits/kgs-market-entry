@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import PlatformLayout from "@/components/platform/PlatformLayout";
 import OpportunityCard from "@/components/platform/OpportunityCard";
 import { opportunities, sectors, opportunityTypes } from "@/data/mockData";
@@ -35,7 +34,7 @@ const OpportunitiesPage = () => {
                 placeholder="Search opportunities..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full bg-secondary border border-border rounded-md pl-9 pr-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
+                className="w-full bg-secondary border border-border rounded-md pl-9 pr-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
               />
             </div>
             <select
@@ -54,9 +53,9 @@ const OpportunitiesPage = () => {
             </select>
           </div>
 
-          <p className="text-xs text-muted-foreground mb-4">{filtered.length} opportunities found</p>
+          <p className="text-xs text-muted-foreground mb-6">{filtered.length} opportunities found</p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((opp) => (
               <OpportunityCard key={opp.id} opportunity={opp} />
             ))}
