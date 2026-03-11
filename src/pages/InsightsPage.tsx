@@ -1,7 +1,7 @@
 import PlatformLayout from "@/components/platform/PlatformLayout";
 import ScrollReveal from "@/components/platform/ScrollReveal";
 import { insights } from "@/data/mockData";
-import { Clock, ArrowRight, TrendingUp, BookOpen } from "lucide-react";
+import { Clock, ArrowRight, TrendingUp, BookOpen, Lock } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useLocalizedData } from "@/hooks/useLocalizedData";
 import { useNavigate } from "react-router-dom";
