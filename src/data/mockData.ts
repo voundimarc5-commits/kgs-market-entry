@@ -33,6 +33,8 @@ export interface InsightArticle {
   category: string;
   date: string;
   readTime: string;
+  image?: string;
+  author?: string;
 }
 
 export interface CountryData {
@@ -360,38 +362,95 @@ export const events: AfricaEvent[] = [
   },
 ];
 
+export const INSIGHT_IMAGES: Record<string, string> = {
+  Investment: "financial-district",
+  Technology: "nairobi-tech-hub",
+  Finance: "lagos-skyline",
+  Energy: "solar-farm-morocco",
+  Infrastructure: "port-infrastructure",
+  "Market Analysis": "smart-city",
+};
+
 export const insights: InsightArticle[] = [
   {
     id: "1",
     title: "Investment Trends Reshaping Africa in 2026",
-    summary: "An analysis of the top investment trends driving capital flows into African markets, from fintech to green energy.",
+    summary: "An analysis of the top investment trends driving capital flows into African markets, from fintech to green energy. Institutional investors are increasingly diversifying portfolios with African sovereign bonds and tech-driven infrastructure.",
     category: "Investment",
     date: "2026-03-01",
     readTime: "6 min",
+    image: "financial-district",
+    author: "KGS Research",
   },
   {
     id: "2",
     title: "Emerging Tech Ecosystems Across the Continent",
-    summary: "How Lagos, Nairobi, Kigali, and Cape Town are building competitive tech ecosystems attracting global talent.",
+    summary: "How Lagos, Nairobi, Kigali, and Cape Town are building competitive tech ecosystems attracting global talent. A deep dive into the infrastructure, policies, and venture capital fueling Africa's digital transformation.",
     category: "Technology",
     date: "2026-02-18",
     readTime: "5 min",
+    image: "nairobi-tech-hub",
+    author: "KGS Intelligence",
   },
   {
     id: "3",
     title: "Where Capital is Flowing in Africa",
-    summary: "Mapping institutional and venture capital movements across key African markets and sectors.",
+    summary: "Mapping institutional and venture capital movements across key African markets and sectors. From fintech to agritech, discover which verticals are attracting the most funding in 2026.",
     category: "Finance",
     date: "2026-02-05",
     readTime: "7 min",
+    image: "lagos-skyline",
+    author: "KGS Market Desk",
   },
   {
     id: "4",
     title: "The Rise of African Sovereign Wealth Funds",
-    summary: "How African nations are leveraging sovereign wealth funds to attract foreign direct investment.",
+    summary: "How African nations are leveraging sovereign wealth funds to attract foreign direct investment and stabilize economies against commodity price volatility.",
     category: "Finance",
     date: "2026-01-20",
     readTime: "8 min",
+    image: "financial-district",
+    author: "KGS Research",
+  },
+  {
+    id: "5",
+    title: "Green Hydrogen: Africa's Next Energy Frontier",
+    summary: "Morocco, Namibia and Egypt lead Africa's green hydrogen race. Explore how the continent's renewable energy abundance positions it as a global clean fuel exporter.",
+    category: "Energy",
+    date: "2026-01-10",
+    readTime: "6 min",
+    image: "solar-farm-morocco",
+    author: "KGS Energy Desk",
+  },
+  {
+    id: "6",
+    title: "Port Infrastructure Modernization in West Africa",
+    summary: "Billions in investment are transforming West African ports into global logistics hubs. From Abidjan to Lagos, a look at the projects reshaping continental trade corridors.",
+    category: "Infrastructure",
+    date: "2025-12-15",
+    readTime: "5 min",
+    image: "port-infrastructure",
+    author: "KGS Infrastructure",
+  },
+  {
+    id: "7",
+    title: "AI Adoption Across African Economies",
+    summary: "Egypt, Kenya and South Africa lead artificial intelligence adoption in healthcare, agriculture and fintech. An analysis of policy frameworks and startup ecosystems driving AI growth.",
+    category: "Technology",
+    date: "2025-12-01",
+    readTime: "7 min",
+    image: "smart-city",
+    author: "KGS Intelligence",
+  },
+  {
+    id: "8",
+    title: "African Mining Sector: Technology-Driven Transformation",
+    summary: "From autonomous drilling in South Africa to AI-powered exploration in the DRC, mining technology is revolutionizing resource extraction across the continent.",
+    category: "Market Analysis",
+    date: "2025-11-18",
+    readTime: "6 min",
+    image: "mining-tech",
+    author: "KGS Market Desk",
   },
 ];
 
