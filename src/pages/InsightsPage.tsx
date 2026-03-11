@@ -63,7 +63,7 @@ const InsightsPage = () => {
       <section className="py-16 section-divider">
         <div className="container mx-auto px-6">
           <ScrollReveal>
-            <article className="relative rounded-xl overflow-hidden group cursor-pointer card-lift">
+            <article onClick={() => navigate("/newsletter")} className="relative rounded-xl overflow-hidden group cursor-pointer card-lift">
               <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[360px]">
                 <div className="relative overflow-hidden">
                   <img
