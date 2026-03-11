@@ -263,7 +263,7 @@ const HomePage = () => {
           </ScrollReveal>
 
           <ScrollReveal delay={100}>
-            <Link to="/insights" className="glass-card rounded-xl overflow-hidden mb-6 group cursor-pointer card-lift block hover:border-primary/30">
+            <Link to="/newsletter" className="glass-card rounded-xl overflow-hidden mb-6 group cursor-pointer card-lift block hover:border-primary/30">
               <div className="grid grid-cols-1 md:grid-cols-2">
                 <div className="relative h-48 md:h-auto overflow-hidden">
                   <img
