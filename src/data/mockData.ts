@@ -304,9 +304,8 @@ export const opportunities: Opportunity[] = [
       "Join the 6-month acceleration program",
       "Pitch to venture capital and banking partners",
     ],
+    website: "https://gipc.gov.gh",
   },
-  {
-    id: "13",
     title: "Morocco Green Energy Investment Initiative",
     country: "Morocco",
     sector: "Renewable Energy",
