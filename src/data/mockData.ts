@@ -404,7 +404,7 @@ export const events: AfricaEvent[] = [
       "Explore partnership opportunities with government innovation programs",
     ],
     audience: ["Entrepreneurs", "Tech Innovators", "Impact Investors", "Government Leaders"],
-  },
+    website: "https://rdb.rw",
   {
     id: "4",
     name: "Nairobi Startup Festival",
