@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Globe, TrendingUp, Shield } from "lucide-react";
 import AfricaGlobe from "@/components/platform/AfricaGlobe";
+import AfricaSVGMap from "@/components/platform/AfricaSVGMap";
 import OpportunityRadar from "@/components/platform/OpportunityRadar";
 import OpportunityCard from "@/components/platform/OpportunityCard";
 import PlatformLayout from "@/components/platform/PlatformLayout";
