@@ -67,10 +67,14 @@ export interface CountryData {
   opportunities: number;
   events: number;
   flag?: string;
-  population?: string;
   gdp?: string;
+  population?: string;
   capital?: string;
   capital_fr?: string;
+  topRanking?: string;
+  topRanking_fr?: string;
+  investmentRange?: string;
+  investmentRange_fr?: string;
 }
 
 // Image mapping by sector
@@ -927,7 +931,9 @@ export const countries: CountryData[] = [
     description: "Nigeria is Africa's most populous nation and its largest economy, with a GDP exceeding $470 billion. Lagos, the commercial capital, hosts one of the most vibrant tech startup ecosystems on the continent, having produced multiple unicorns including Flutterwave and Interswitch. The country's oil and gas sector remains a major driver of revenue, while agriculture employs over 35% of the workforce. Nigeria's young, tech-savvy population of over 220 million represents a massive consumer market, attracting significant foreign direct investment in fintech, e-commerce, and digital infrastructure. The government's ongoing reforms in banking, telecoms deregulation, and the Startup Act are creating new opportunities for international investors and partners.",
     description_fr: "Le Nigeria est la nation la plus peuplée d'Afrique et sa plus grande économie, avec un PIB dépassant 470 milliards de dollars. Lagos, la capitale commerciale, abrite l'un des écosystèmes de startups tech les plus dynamiques du continent, ayant produit plusieurs licornes dont Flutterwave et Interswitch. Le secteur pétrolier et gazier du pays reste un moteur majeur de revenus, tandis que l'agriculture emploie plus de 35% de la main-d'œuvre. La population jeune et technophile de plus de 220 millions de personnes représente un marché de consommation massif, attirant d'importants investissements directs étrangers dans la fintech, le e-commerce et l'infrastructure numérique. Les réformes en cours du gouvernement dans la banque, la déréglementation des télécoms et la Startup Act créent de nouvelles opportunités pour les investisseurs et partenaires internationaux.",
     keySectors: ["Technology", "Oil & Gas", "Agriculture"], keySectors_fr: ["Technologie", "Pétrole & Gaz", "Agriculture"],
-    opportunities: 3, events: 1, population: "220M+", gdp: "$470B+", capital: "Abuja", capital_fr: "Abuja"
+    opportunities: 3, events: 1, population: "220M+", gdp: "$470B+", capital: "Abuja", capital_fr: "Abuja",
+    topRanking: "#1 African Fintech Ecosystem", topRanking_fr: "#1 Écosystème Fintech Africain",
+    investmentRange: "$50M – $2B+", investmentRange_fr: "50M$ – 2Md$+"
   },
   {
     code: "KE", name: "Kenya", name_fr: "Kenya",
@@ -936,7 +942,9 @@ export const countries: CountryData[] = [
     description: "Kenya is East Africa's economic powerhouse and a global leader in mobile money innovation through M-Pesa. Nairobi, known as 'Silicon Savannah,' is home to hundreds of tech startups, major international tech offices, and Africa's most active venture capital ecosystem. The country's Vision 2030 strategy drives investment in infrastructure, green energy, and manufacturing. Kenya's geothermal energy capacity is among the world's largest, and its agricultural sector — particularly tea, coffee, and horticulture — remains vital. With a strategic position on the Indian Ocean and strong trade ties across East Africa, Kenya offers investors access to a rapidly growing regional market of over 300 million people through the East African Community.",
     description_fr: "Le Kenya est la puissance économique de l'Afrique de l'Est et un leader mondial de l'innovation en monnaie mobile grâce à M-Pesa. Nairobi, surnommée 'Silicon Savannah', abrite des centaines de startups tech, des bureaux de grandes entreprises technologiques internationales et l'écosystème de capital-risque le plus actif d'Afrique. La stratégie Vision 2030 du pays stimule l'investissement dans les infrastructures, l'énergie verte et l'industrie manufacturière. La capacité géothermique du Kenya est parmi les plus importantes au monde, et son secteur agricole — notamment le thé, le café et l'horticulture — reste vital. Avec une position stratégique sur l'océan Indien et de solides liens commerciaux à travers l'Afrique de l'Est, le Kenya offre aux investisseurs un accès à un marché régional en croissance rapide de plus de 300 millions de personnes via la Communauté d'Afrique de l'Est.",
     keySectors: ["Technology", "Energy", "Agriculture"], keySectors_fr: ["Technologie", "Énergie", "Agriculture"],
-    opportunities: 2, events: 1, population: "55M+", gdp: "$110B+", capital: "Nairobi", capital_fr: "Nairobi"
+    opportunities: 2, events: 1, population: "55M+", gdp: "$110B+", capital: "Nairobi", capital_fr: "Nairobi",
+    topRanking: "#1 Mobile Money Innovation (M-Pesa)", topRanking_fr: "#1 Innovation Mobile Money (M-Pesa)",
+    investmentRange: "$10M – $500M", investmentRange_fr: "10M$ – 500M$"
   },
   {
     code: "ZA", name: "South Africa", name_fr: "Afrique du Sud",
@@ -945,7 +953,9 @@ export const countries: CountryData[] = [
     description: "South Africa is the continent's most industrialized and diversified economy, home to the Johannesburg Stock Exchange — Africa's largest. The country boasts world-class financial services, mining operations, and manufacturing capabilities. South Africa holds over 80% of the world's platinum reserves and is a major producer of gold, diamonds, and chromium. Johannesburg and Cape Town serve as continental headquarters for many multinational corporations. The country's advanced legal framework, sophisticated banking system, and deep capital markets make it a preferred entry point for institutional investors targeting African markets. Key growth sectors include renewable energy, fintech, and automotive manufacturing.",
     description_fr: "L'Afrique du Sud est l'économie la plus industrialisée et diversifiée du continent, abritant la Bourse de Johannesburg — la plus grande d'Afrique. Le pays possède des services financiers de classe mondiale, des opérations minières et des capacités manufacturières avancées. L'Afrique du Sud détient plus de 80% des réserves mondiales de platine et est un producteur majeur d'or, de diamants et de chrome. Johannesburg et Le Cap servent de sièges continentaux pour de nombreuses multinationales. Le cadre juridique avancé du pays, son système bancaire sophistiqué et ses marchés financiers profonds en font un point d'entrée privilégié pour les investisseurs institutionnels ciblant les marchés africains. Les secteurs de croissance clés incluent l'énergie renouvelable, la fintech et l'industrie automobile.",
     keySectors: ["Mining", "Finance", "Technology"], keySectors_fr: ["Mines", "Finance", "Technologie"],
-    opportunities: 1, events: 2, population: "62M+", gdp: "$400B+", capital: "Pretoria", capital_fr: "Pretoria"
+    opportunities: 1, events: 2, population: "62M+", gdp: "$400B+", capital: "Pretoria", capital_fr: "Pretoria",
+    topRanking: "#1 African Stock Exchange (JSE)", topRanking_fr: "#1 Bourse Africaine (JSE)",
+    investmentRange: "$100M – $5B+", investmentRange_fr: "100M$ – 5Md$+"
   },
   {
     code: "GA", name: "Gabon", name_fr: "Gabon",
@@ -954,7 +964,9 @@ export const countries: CountryData[] = [
     description: "Gabon is one of Africa's most prosperous nations per capita, driven by its significant oil, manganese, and timber resources. The country is actively pursuing economic diversification through its Green Gabon initiative, focusing on eco-tourism, sustainable forestry, and agro-industry. Libreville, the capital, is emerging as a regional financial center for Central Africa. Gabon's strategic location on the Atlantic coast and membership in the CEMAC economic zone provide access to a regional market. The government's investment in Special Economic Zones and infrastructure modernization creates opportunities for foreign investors in logistics, processing, and green industries.",
     description_fr: "Le Gabon est l'une des nations les plus prospères d'Afrique par habitant, porté par ses importantes ressources pétrolières, de manganèse et de bois. Le pays poursuit activement la diversification économique à travers son initiative Gabon Vert, axée sur l'éco-tourisme, la foresterie durable et l'agro-industrie. Libreville, la capitale, émerge comme centre financier régional pour l'Afrique centrale. La position stratégique du Gabon sur la côte atlantique et son appartenance à la zone économique CEMAC offrent un accès au marché régional. Les investissements du gouvernement dans les Zones Économiques Spéciales et la modernisation des infrastructures créent des opportunités pour les investisseurs étrangers dans la logistique, la transformation et les industries vertes.",
     keySectors: ["Oil & Gas", "Mining", "Infrastructure"], keySectors_fr: ["Pétrole & Gaz", "Mines", "Infrastructure"],
-    opportunities: 1, events: 0, population: "2.3M+", gdp: "$20B+", capital: "Libreville", capital_fr: "Libreville"
+    opportunities: 1, events: 0, population: "2.3M+", gdp: "$20B+", capital: "Libreville", capital_fr: "Libreville",
+    topRanking: "#1 PIB/habitant Afrique Centrale", topRanking_fr: "#1 PIB/habitant Afrique Centrale",
+    investmentRange: "$5M – $200M", investmentRange_fr: "5M$ – 200M$"
   },
   {
     code: "MA", name: "Morocco", name_fr: "Maroc",
@@ -963,7 +975,9 @@ export const countries: CountryData[] = [
     description: "Morocco has positioned itself as Africa's gateway to Europe and a continental manufacturing powerhouse. The country hosts major automotive plants for Renault and PSA, making it Africa's top car producer. Morocco's Noor-Ouarzazate solar complex is one of the world's largest concentrated solar power facilities, reflecting the country's ambitious renewable energy targets. Casablanca Finance City serves as a leading financial hub bridging Africa, Europe, and the Middle East. The Tanger Med port is the Mediterranean's largest container port. Morocco's stable political environment, extensive free trade agreements, and strategic geographic position make it exceptionally attractive for companies seeking to serve both European and African markets.",
     description_fr: "Le Maroc s'est positionné comme la porte d'entrée de l'Afrique vers l'Europe et une puissance manufacturière continentale. Le pays abrite d'importantes usines automobiles pour Renault et PSA, faisant de lui le premier producteur automobile d'Afrique. Le complexe solaire Noor-Ouarzazate est l'une des plus grandes installations d'énergie solaire concentrée au monde, reflétant les objectifs ambitieux du pays en matière d'énergies renouvelables. Casablanca Finance City sert de hub financier de premier plan reliant l'Afrique, l'Europe et le Moyen-Orient. Le port Tanger Med est le plus grand port à conteneurs de la Méditerranée. L'environnement politique stable du Maroc, ses nombreux accords de libre-échange et sa position géographique stratégique le rendent exceptionnellement attractif pour les entreprises souhaitant servir à la fois les marchés européens et africains.",
     keySectors: ["Energy", "Manufacturing", "Real Estate"], keySectors_fr: ["Énergie", "Industrie", "Immobilier"],
-    opportunities: 2, events: 1, population: "37M+", gdp: "$140B+", capital: "Rabat", capital_fr: "Rabat"
+    opportunities: 2, events: 1, population: "37M+", gdp: "$140B+", capital: "Rabat", capital_fr: "Rabat",
+    topRanking: "#1 African Car Producer", topRanking_fr: "#1 Producteur Automobile Africain",
+    investmentRange: "$20M – $1B+", investmentRange_fr: "20M$ – 1Md$+"
   },
   {
     code: "RW", name: "Rwanda", name_fr: "Rwanda",
@@ -972,7 +986,9 @@ export const countries: CountryData[] = [
     description: "Rwanda has earned its reputation as Africa's most business-friendly country, consistently ranking at the top of the World Bank's Doing Business index for the continent. Kigali, the capital, is one of Africa's cleanest and safest cities, hosting major international conferences and serving as a continental hub for innovation. The country's ambitious Vision 2050 strategy focuses on transforming Rwanda into a knowledge-based economy through investments in ICT, fintech, and smart city infrastructure. Rwanda has attracted major tech investments, including Carnegie Mellon University's African campus and Volkswagen's first African assembly plant. The Kigali International Financial Centre and special economic zones offer competitive incentives for international businesses.",
     description_fr: "Le Rwanda a acquis sa réputation de pays le plus propice aux affaires en Afrique, se classant constamment en tête de l'indice Doing Business de la Banque mondiale pour le continent. Kigali, la capitale, est l'une des villes les plus propres et les plus sûres d'Afrique, accueillant d'importantes conférences internationales et servant de hub continental pour l'innovation. La stratégie ambitieuse Vision 2050 du pays vise à transformer le Rwanda en une économie basée sur la connaissance grâce à des investissements dans les TIC, la fintech et l'infrastructure des villes intelligentes. Le Rwanda a attiré d'importants investissements tech, notamment le campus africain de Carnegie Mellon University et la première usine d'assemblage africaine de Volkswagen. Le Centre Financier International de Kigali et les zones économiques spéciales offrent des incitations compétitives pour les entreprises internationales.",
     keySectors: ["Technology", "Tourism", "Real Estate"], keySectors_fr: ["Technologie", "Tourisme", "Immobilier"],
-    opportunities: 1, events: 1, population: "14M+", gdp: "$12B+", capital: "Kigali", capital_fr: "Kigali"
+    opportunities: 1, events: 1, population: "14M+", gdp: "$12B+", capital: "Kigali", capital_fr: "Kigali",
+    topRanking: "#1 Ease of Doing Business (Africa)", topRanking_fr: "#1 Facilité des Affaires (Afrique)",
+    investmentRange: "$5M – $300M", investmentRange_fr: "5M$ – 300M$"
   },
   {
     code: "CI", name: "Côte d'Ivoire", name_fr: "Côte d'Ivoire",
@@ -981,7 +997,9 @@ export const countries: CountryData[] = [
     description: "Côte d'Ivoire is the economic engine of francophone West Africa and the world's largest cocoa producer, accounting for over 40% of global production. Abidjan, the economic capital, is a cosmopolitan city hosting the African Development Bank headquarters and numerous multinational regional offices. The country has experienced robust economic growth averaging 7% annually over the past decade, driven by infrastructure development, agro-industry expansion, and financial sector modernization. The Autonomous Port of Abidjan is West Africa's largest, serving as a vital trade gateway for landlocked Sahelian countries. Key investment opportunities span agribusiness processing, renewable energy, real estate development, and digital financial services.",
     description_fr: "La Côte d'Ivoire est le moteur économique de l'Afrique de l'Ouest francophone et le premier producteur mondial de cacao, représentant plus de 40% de la production mondiale. Abidjan, la capitale économique, est une ville cosmopolite abritant le siège de la Banque Africaine de Développement et de nombreux bureaux régionaux de multinationales. Le pays a connu une croissance économique robuste de 7% en moyenne par an au cours de la dernière décennie, portée par le développement des infrastructures, l'expansion agro-industrielle et la modernisation du secteur financier. Le Port Autonome d'Abidjan est le plus grand d'Afrique de l'Ouest, servant de porte d'entrée commerciale vitale pour les pays sahéliens enclavés. Les principales opportunités d'investissement couvrent la transformation agro-industrielle, les énergies renouvelables, le développement immobilier et les services financiers numériques.",
     keySectors: ["Agriculture", "Finance", "Infrastructure"], keySectors_fr: ["Agriculture", "Finance", "Infrastructure"],
-    opportunities: 1, events: 1, population: "28M+", gdp: "$70B+", capital: "Yamoussoukro", capital_fr: "Yamoussoukro"
+    opportunities: 1, events: 1, population: "28M+", gdp: "$70B+", capital: "Yamoussoukro", capital_fr: "Yamoussoukro",
+    topRanking: "#1 World Cocoa Producer (40%+)", topRanking_fr: "#1 Producteur Mondial de Cacao (40%+)",
+    investmentRange: "$10M – $500M", investmentRange_fr: "10M$ – 500M$"
   },
   {
     code: "SN", name: "Senegal", name_fr: "Sénégal",
@@ -990,7 +1008,9 @@ export const countries: CountryData[] = [
     description: "Senegal is experiencing a transformative period driven by major offshore oil and gas discoveries — the Sangomar field and the Grand Tortue Ahmeyim project — set to make the country a significant hydrocarbon producer. Dakar, the vibrant capital, is a cultural and economic hub for West Africa with a growing tech and creative industries ecosystem. The country's Plan Sénégal Émergent (PSE) is driving massive infrastructure investments including the new Blaise Diagne International Airport, the Dakar-Diamniadio toll highway, and the ambitious Diamniadio smart city project. Senegal's political stability, democratic traditions, and strategic Atlantic coast position make it an increasingly attractive destination for foreign investors seeking exposure to West Africa's growth story.",
     description_fr: "Le Sénégal connaît une période de transformation portée par d'importantes découvertes pétrolières et gazières offshore — le champ Sangomar et le projet Grand Tortue Ahmeyim — qui feront du pays un producteur d'hydrocarbures significatif. Dakar, la capitale dynamique, est un hub culturel et économique pour l'Afrique de l'Ouest avec un écosystème croissant de tech et d'industries créatives. Le Plan Sénégal Émergent (PSE) du pays conduit des investissements massifs en infrastructures incluant le nouvel aéroport international Blaise Diagne, l'autoroute à péage Dakar-Diamniadio et l'ambitieux projet de ville intelligente de Diamniadio. La stabilité politique du Sénégal, ses traditions démocratiques et sa position stratégique sur la côte atlantique en font une destination de plus en plus attractive pour les investisseurs étrangers cherchant une exposition à la croissance de l'Afrique de l'Ouest.",
     keySectors: ["Energy", "Technology", "Agriculture"], keySectors_fr: ["Énergie", "Technologie", "Agriculture"],
-    opportunities: 1, events: 1, population: "18M+", gdp: "$28B+", capital: "Dakar", capital_fr: "Dakar"
+    opportunities: 1, events: 1, population: "18M+", gdp: "$28B+", capital: "Dakar", capital_fr: "Dakar",
+    topRanking: "#1 New Oil & Gas Producer (West Africa)", topRanking_fr: "#1 Nouveau Producteur Pétrole & Gaz (Afrique Ouest)",
+    investmentRange: "$15M – $800M", investmentRange_fr: "15M$ – 800M$"
   },
   {
     code: "GH", name: "Ghana", name_fr: "Ghana",
@@ -999,7 +1019,9 @@ export const countries: CountryData[] = [
     description: "Ghana is one of Africa's most stable democracies and a major producer of gold, cocoa, and oil. Accra, the capital, has emerged as a key tech hub in West Africa, attracting major investments from Google, Twitter, and other global tech companies establishing their African operations. The country's gold mining sector is Africa's largest, while new oil production from the Jubilee and TEN fields has added a significant revenue stream. Ghana's AfCFTA headquarters location underscores its central role in continental trade integration. The government's digitalization drive, including the national digital ID system and mobile money interoperability platform, positions Ghana as a leader in Africa's digital economy transformation.",
     description_fr: "Le Ghana est l'une des démocraties les plus stables d'Afrique et un producteur majeur d'or, de cacao et de pétrole. Accra, la capitale, est devenue un hub tech clé en Afrique de l'Ouest, attirant d'importants investissements de Google, Twitter et d'autres entreprises tech mondiales établissant leurs opérations africaines. Le secteur aurifère du pays est le plus grand d'Afrique, tandis que la nouvelle production pétrolière des champs Jubilee et TEN a ajouté une source de revenus significative. La localisation du siège de la ZLECAf au Ghana souligne son rôle central dans l'intégration commerciale continentale. La dynamique de digitalisation du gouvernement, incluant le système national d'identité numérique et la plateforme d'interopérabilité de la monnaie mobile, positionne le Ghana comme leader de la transformation de l'économie numérique africaine.",
     keySectors: ["Mining", "Technology", "Infrastructure"], keySectors_fr: ["Mines", "Technologie", "Infrastructure"],
-    opportunities: 2, events: 1, population: "33M+", gdp: "$75B+", capital: "Accra", capital_fr: "Accra"
+    opportunities: 2, events: 1, population: "33M+", gdp: "$75B+", capital: "Accra", capital_fr: "Accra",
+    topRanking: "#1 Gold Producer in Africa", topRanking_fr: "#1 Producteur d'Or en Afrique",
+    investmentRange: "$10M – $600M", investmentRange_fr: "10M$ – 600M$"
   },
   {
     code: "ET", name: "Ethiopia", name_fr: "Éthiopie",
@@ -1008,7 +1030,9 @@ export const countries: CountryData[] = [
     description: "Ethiopia is Africa's second most populous country and has been one of the fastest-growing economies globally over the past decade. Addis Ababa, the capital, hosts the African Union headquarters and serves as a diplomatic hub for the continent. The country's ambitious industrialization strategy has created multiple industrial parks attracting textile, leather, and pharmaceutical manufacturing. Ethiopia's Grand Ethiopian Renaissance Dam (GERD) is Africa's largest hydroelectric project. The recent partial liberalization of the telecoms sector and planned stock exchange launch signal major reforms opening the economy to foreign investment. With a domestic market of over 120 million people, Ethiopia represents one of Africa's most significant untapped consumer markets.",
     description_fr: "L'Éthiopie est le deuxième pays le plus peuplé d'Afrique et a été l'une des économies à la croissance la plus rapide au monde au cours de la dernière décennie. Addis-Abeba, la capitale, abrite le siège de l'Union Africaine et sert de hub diplomatique pour le continent. La stratégie ambitieuse d'industrialisation du pays a créé de multiples parcs industriels attirant la fabrication textile, du cuir et pharmaceutique. Le Grand Barrage de la Renaissance Éthiopienne (GERD) est le plus grand projet hydroélectrique d'Afrique. La libéralisation partielle récente du secteur des télécoms et le lancement prévu d'une bourse signalent des réformes majeures ouvrant l'économie aux investissements étrangers. Avec un marché intérieur de plus de 120 millions de personnes, l'Éthiopie représente l'un des marchés de consommation inexploités les plus importants d'Afrique.",
     keySectors: ["Manufacturing", "Agriculture", "Infrastructure"], keySectors_fr: ["Industrie", "Agriculture", "Infrastructure"],
-    opportunities: 0, events: 0, population: "120M+", gdp: "$155B+", capital: "Addis Ababa", capital_fr: "Addis-Abeba"
+    opportunities: 0, events: 0, population: "120M+", gdp: "$155B+", capital: "Addis Ababa", capital_fr: "Addis-Abeba",
+    topRanking: "#1 Largest Hydroelectric Dam (GERD)", topRanking_fr: "#1 Plus Grand Barrage Hydroélectrique (GERD)",
+    investmentRange: "$20M – $1B+", investmentRange_fr: "20M$ – 1Md$+"
   },
   {
     code: "EG", name: "Egypt", name_fr: "Égypte",
@@ -1017,7 +1041,9 @@ export const countries: CountryData[] = [
     description: "Egypt is Africa's third-largest economy and a strategic bridge between Africa, the Middle East, and Europe through the Suez Canal — one of the world's most vital trade arteries. Cairo is emerging as a major tech and AI hub, with the Egyptian government investing heavily in its national AI strategy. The New Administrative Capital project represents one of the world's largest urban development initiatives. Egypt's diversified economy spans tourism, manufacturing, natural gas production, and a rapidly growing tech startup ecosystem. The country's 105 million population makes it Africa's and the Middle East's largest consumer market. Recent economic reforms, currency liberalization, and IMF-backed programs have improved the investment climate significantly.",
     description_fr: "L'Égypte est la troisième plus grande économie d'Afrique et un pont stratégique entre l'Afrique, le Moyen-Orient et l'Europe grâce au Canal de Suez — l'une des artères commerciales les plus vitales au monde. Le Caire émerge comme un hub majeur de tech et d'IA, le gouvernement égyptien investissant massivement dans sa stratégie nationale d'IA. Le projet de Nouvelle Capitale Administrative représente l'une des plus grandes initiatives de développement urbain au monde. L'économie diversifiée de l'Égypte couvre le tourisme, l'industrie manufacturière, la production de gaz naturel et un écosystème de startups tech en pleine croissance. La population de 105 millions de personnes en fait le plus grand marché de consommation d'Afrique et du Moyen-Orient. Les récentes réformes économiques, la libéralisation monétaire et les programmes soutenus par le FMI ont considérablement amélioré le climat d'investissement.",
     keySectors: ["Technology", "Tourism", "Manufacturing"], keySectors_fr: ["Technologie", "Tourisme", "Industrie"],
-    opportunities: 1, events: 1, population: "105M+", gdp: "$475B+", capital: "Cairo", capital_fr: "Le Caire"
+    opportunities: 1, events: 1, population: "105M+", gdp: "$475B+", capital: "Cairo", capital_fr: "Le Caire",
+    topRanking: "#1 AI Strategy in Africa", topRanking_fr: "#1 Stratégie IA en Afrique",
+    investmentRange: "$50M – $2B+", investmentRange_fr: "50M$ – 2Md$+"
   },
   {
     code: "CM", name: "Cameroon", name_fr: "Cameroun",
@@ -1026,7 +1052,9 @@ export const countries: CountryData[] = [
     description: "Cameroon is often called 'Africa in miniature' due to its geographic and cultural diversity, spanning from coastal rainforests to northern savannahs. As Central Africa's largest economy, Cameroon serves as a critical trade corridor for landlocked neighbors Chad and Central African Republic through the port of Douala. The country's economy is diversified across agriculture (cocoa, coffee, bananas), oil production, and a growing services sector. The government's National Development Strategy 2030 prioritizes infrastructure modernization, digital transformation, and industrialization. Cameroon's bilingual advantage (French and English) and central geographic position make it a natural hub for businesses seeking to operate across both francophone and anglophone African markets.",
     description_fr: "Le Cameroun est souvent appelé 'l'Afrique en miniature' en raison de sa diversité géographique et culturelle, allant des forêts tropicales côtières aux savanes du nord. En tant que plus grande économie d'Afrique centrale, le Cameroun sert de corridor commercial critique pour ses voisins enclavés, le Tchad et la République centrafricaine, à travers le port de Douala. L'économie du pays est diversifiée entre l'agriculture (cacao, café, bananes), la production pétrolière et un secteur des services en croissance. La Stratégie Nationale de Développement 2030 du gouvernement priorise la modernisation des infrastructures, la transformation numérique et l'industrialisation. L'avantage bilingue du Cameroun (français et anglais) et sa position géographique centrale en font un hub naturel pour les entreprises cherchant à opérer à travers les marchés africains francophones et anglophones.",
     keySectors: ["Infrastructure", "Energy", "Agriculture"], keySectors_fr: ["Infrastructure", "Énergie", "Agriculture"],
-    opportunities: 1, events: 1, population: "28M+", gdp: "$45B+", capital: "Yaoundé", capital_fr: "Yaoundé"
+    opportunities: 1, events: 1, population: "28M+", gdp: "$45B+", capital: "Yaoundé", capital_fr: "Yaoundé",
+    topRanking: "#1 Bilingual Hub (FR/EN) Central Africa", topRanking_fr: "#1 Hub Bilingue (FR/EN) Afrique Centrale",
+    investmentRange: "$5M – $400M", investmentRange_fr: "5M$ – 400M$"
   },
 ];
 

@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import PlatformLayout from "@/components/platform/PlatformLayout";
 import ScrollReveal from "@/components/platform/ScrollReveal";
 import { countries, opportunities, events } from "@/data/mockData";
-import { ArrowLeft, MapPin, Calendar, ArrowRight, Users, DollarSign, Building2 } from "lucide-react";
+import { ArrowLeft, MapPin, DollarSign, Trophy, TrendingUp } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useLocalizedData } from "@/hooks/useLocalizedData";
 import EventCard from "@/components/platform/EventCard";
@@ -57,18 +57,11 @@ const CountryDetailPage = () => {
           {/* Key stats */}
           <ScrollReveal delay={100}>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
-              {country.capital && (
+              {country.topRanking && (
                 <div className="glass-card rounded-lg p-4 text-center">
-                  <Building2 size={16} className="text-primary mx-auto mb-2" />
-                  <p className="text-[10px] uppercase tracking-wider text-muted-foreground mb-1">{t("country.capital")}</p>
-                  <p className="text-sm font-semibold text-foreground">{country.capital}</p>
-                </div>
-              )}
-              {rawCountry.population && (
-                <div className="glass-card rounded-lg p-4 text-center">
-                  <Users size={16} className="text-primary mx-auto mb-2" />
-                  <p className="text-[10px] uppercase tracking-wider text-muted-foreground mb-1">Population</p>
-                  <p className="text-sm font-semibold text-foreground">{rawCountry.population}</p>
+                  <Trophy size={16} className="text-primary mx-auto mb-2" />
+                  <p className="text-[10px] uppercase tracking-wider text-muted-foreground mb-1">{t("country.top_ranking")}</p>
+                  <p className="text-xs font-semibold text-foreground">{country.topRanking}</p>
                 </div>
               )}
               {rawCountry.gdp && (
@@ -76,6 +69,13 @@ const CountryDetailPage = () => {
                   <DollarSign size={16} className="text-primary mx-auto mb-2" />
                   <p className="text-[10px] uppercase tracking-wider text-muted-foreground mb-1">PIB / GDP</p>
                   <p className="text-sm font-semibold text-foreground">{rawCountry.gdp}</p>
+                </div>
+              )}
+              {country.investmentRange && (
+                <div className="glass-card rounded-lg p-4 text-center">
+                  <TrendingUp size={16} className="text-primary mx-auto mb-2" />
+                  <p className="text-[10px] uppercase tracking-wider text-muted-foreground mb-1">{t("country.investment_range")}</p>
+                  <p className="text-xs font-semibold text-foreground">{country.investmentRange}</p>
                 </div>
               )}
               <div className="glass-card rounded-lg p-4 text-center">
