@@ -60,10 +60,17 @@ export interface CountryData {
   name_fr?: string;
   overview: string;
   overview_fr?: string;
+  description?: string;
+  description_fr?: string;
   keySectors: string[];
   keySectors_fr?: string[];
   opportunities: number;
   events: number;
+  flag?: string;
+  population?: string;
+  gdp?: string;
+  capital?: string;
+  capital_fr?: string;
 }
 
 // Image mapping by sector
