@@ -1,7 +1,7 @@
 import PlatformLayout from "@/components/platform/PlatformLayout";
 import ScrollReveal from "@/components/platform/ScrollReveal";
 import AfricaSVGMap from "@/components/platform/AfricaSVGMap";
-import { countries } from "@/data/mockData";
+import { countries, opportunities, events } from "@/data/mockData";
 import { MapPin, ArrowRight, Globe, Users, DollarSign } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
