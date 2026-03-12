@@ -964,7 +964,9 @@ export const countries: CountryData[] = [
     description: "Gabon is one of Africa's most prosperous nations per capita, driven by its significant oil, manganese, and timber resources. The country is actively pursuing economic diversification through its Green Gabon initiative, focusing on eco-tourism, sustainable forestry, and agro-industry. Libreville, the capital, is emerging as a regional financial center for Central Africa. Gabon's strategic location on the Atlantic coast and membership in the CEMAC economic zone provide access to a regional market. The government's investment in Special Economic Zones and infrastructure modernization creates opportunities for foreign investors in logistics, processing, and green industries.",
     description_fr: "Le Gabon est l'une des nations les plus prospères d'Afrique par habitant, porté par ses importantes ressources pétrolières, de manganèse et de bois. Le pays poursuit activement la diversification économique à travers son initiative Gabon Vert, axée sur l'éco-tourisme, la foresterie durable et l'agro-industrie. Libreville, la capitale, émerge comme centre financier régional pour l'Afrique centrale. La position stratégique du Gabon sur la côte atlantique et son appartenance à la zone économique CEMAC offrent un accès au marché régional. Les investissements du gouvernement dans les Zones Économiques Spéciales et la modernisation des infrastructures créent des opportunités pour les investisseurs étrangers dans la logistique, la transformation et les industries vertes.",
     keySectors: ["Oil & Gas", "Mining", "Infrastructure"], keySectors_fr: ["Pétrole & Gaz", "Mines", "Infrastructure"],
-    opportunities: 1, events: 0, population: "2.3M+", gdp: "$20B+", capital: "Libreville", capital_fr: "Libreville"
+    opportunities: 1, events: 0, population: "2.3M+", gdp: "$20B+", capital: "Libreville", capital_fr: "Libreville",
+    topRanking: "#1 PIB/habitant Afrique Centrale", topRanking_fr: "#1 PIB/habitant Afrique Centrale",
+    investmentRange: "$5M – $200M", investmentRange_fr: "5M$ – 200M$"
   },
   {
     code: "MA", name: "Morocco", name_fr: "Maroc",
