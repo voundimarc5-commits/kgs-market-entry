@@ -2,7 +2,7 @@ import { useState } from "react";
 import PlatformLayout from "@/components/platform/PlatformLayout";
 import ScrollReveal from "@/components/platform/ScrollReveal";
 import OpportunityCard from "@/components/platform/OpportunityCard";
-import { opportunities, sectors, opportunityTypes } from "@/data/mockData";
+import { opportunities, sectors, opportunityCountries } from "@/data/mockData";
 import { Search, TrendingUp } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useLocalizedData } from "@/hooks/useLocalizedData";
