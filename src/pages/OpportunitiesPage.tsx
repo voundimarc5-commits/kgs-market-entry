@@ -21,7 +21,7 @@ const OpportunitiesPage = () => {
     const matchCountry = selectedCountry === "All" || o.country === selectedCountry;
     const lo = localizeOpp(o);
     const matchSearch = !search || lo.title.toLowerCase().includes(search.toLowerCase()) || o.country.toLowerCase().includes(search.toLowerCase());
-    return matchSector && matchType && matchSearch;
+    return matchSector && matchCountry && matchSearch;
   });
 
   return (
