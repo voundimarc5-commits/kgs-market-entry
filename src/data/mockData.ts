@@ -102,6 +102,15 @@ export const EVENT_IMAGES: Record<string, string> = {
   "AI & Robotics": "smart-city",
   "Venture Capital": "financial-district",
   Infrastructure: "port-infrastructure",
+  "Finance & Trade": "financial-district",
+  "Trade & Investment": "financial-district",
+  "Technology / Space": "smart-city",
+  Mining: "mining-tech",
+  "Renewable Energy": "solar-farm-morocco",
+  "Technology / AI": "smart-city",
+  Agriculture: "agribusiness",
+  Energy: "solar-farm-morocco",
+  Hospitality: "hospitality-interior",
 };
 
 export const opportunities: Opportunity[] = [
