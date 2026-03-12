@@ -14,7 +14,7 @@ const OpportunitiesPage = () => {
   const [selectedCountry, setSelectedCountry] = useState("All");
   const [search, setSearch] = useState("");
   const { t } = useLanguage();
-  const { localizeSector, localizeType, localizeOpp } = useLocalizedData();
+  const { localizeSector, localizeOpp } = useLocalizedData();
 
   const filtered = opportunities.filter((o) => {
     const matchSector = selectedSector === "All" || o.sector === selectedSector;
