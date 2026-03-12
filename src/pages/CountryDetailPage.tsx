@@ -90,6 +90,42 @@ const CountryDetailPage = () => {
 
       <section className="pb-16">
         <div className="container mx-auto px-6 max-w-5xl">
+          {/* Opportunities */}
+          <div className="mb-10">
+            <ScrollReveal>
+              <h2 className="text-xl font-bold text-foreground mb-6">{t("country.active_opps")} ({countryOpps.length})</h2>
+            </ScrollReveal>
+            {countryOpps.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {countryOpps.map((opp, i) => (
+                  <ScrollReveal key={opp.id} delay={i * 80}>
+                    <OpportunityCard opportunity={opp} />
+                  </ScrollReveal>
+                ))}
+              </div>
+            ) : (
+              <p className="text-sm text-muted-foreground">{t("country.no_opps")}</p>
+            )}
+          </div>
+
+          {/* Events */}
+          <div className="mb-10">
+            <ScrollReveal>
+              <h2 className="text-xl font-bold text-foreground mb-6">{t("country.upcoming_events")} ({countryEvents.length})</h2>
+            </ScrollReveal>
+            {countryEvents.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {countryEvents.map((evt, i) => (
+                  <ScrollReveal key={evt.id} delay={i * 80}>
+                    <EventCard event={evt} />
+                  </ScrollReveal>
+                ))}
+              </div>
+            ) : (
+              <p className="text-sm text-muted-foreground">{t("country.no_events")}</p>
+            )}
+          </div>
+
           {/* Description */}
           {country.description && (
             <ScrollReveal>
@@ -111,42 +147,6 @@ const CountryDetailPage = () => {
               </div>
             </div>
           </ScrollReveal>
-
-          {/* Opportunities */}
-          <div className="mb-10">
-            <ScrollReveal>
-              <h2 className="text-xl font-bold text-foreground mb-6">{t("country.active_opps")} ({countryOpps.length})</h2>
-            </ScrollReveal>
-            {countryOpps.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {countryOpps.map((opp, i) => (
-                  <ScrollReveal key={opp.id} delay={i * 80}>
-                    <OpportunityCard opportunity={opp} />
-                  </ScrollReveal>
-                ))}
-              </div>
-            ) : (
-              <p className="text-sm text-muted-foreground">{t("country.no_opps")}</p>
-            )}
-          </div>
-
-          {/* Events */}
-          <div>
-            <ScrollReveal>
-              <h2 className="text-xl font-bold text-foreground mb-6">{t("country.upcoming_events")} ({countryEvents.length})</h2>
-            </ScrollReveal>
-            {countryEvents.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {countryEvents.map((evt, i) => (
-                  <ScrollReveal key={evt.id} delay={i * 80}>
-                    <EventCard event={evt} />
-                  </ScrollReveal>
-                ))}
-              </div>
-            ) : (
-              <p className="text-sm text-muted-foreground">{t("country.no_events")}</p>
-            )}
-          </div>
         </div>
       </section>
     </PlatformLayout>
