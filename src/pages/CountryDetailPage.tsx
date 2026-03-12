@@ -8,6 +8,26 @@ import { useLocalizedData } from "@/hooks/useLocalizedData";
 import EventCard from "@/components/platform/EventCard";
 import OpportunityCard from "@/components/platform/OpportunityCard";
 
+import heroNG from "@/assets/country-hero-ng.jpg";
+import heroKE from "@/assets/country-hero-ke.jpg";
+import heroZA from "@/assets/country-hero-za.jpg";
+import heroGA from "@/assets/country-hero-ga.jpg";
+import heroMA from "@/assets/country-hero-ma.jpg";
+import heroRW from "@/assets/country-hero-rw.jpg";
+import heroCI from "@/assets/country-hero-ci.jpg";
+import heroSN from "@/assets/country-hero-sn.jpg";
+import heroGH from "@/assets/country-hero-gh.jpg";
+import heroET from "@/assets/country-hero-et.jpg";
+import heroEG from "@/assets/country-hero-eg.jpg";
+import heroCM from "@/assets/country-hero-cm.jpg";
+import heroTN from "@/assets/country-hero-tn.jpg";
+
+const COUNTRY_HERO_IMAGES: Record<string, string> = {
+  NG: heroNG, KE: heroKE, ZA: heroZA, GA: heroGA, MA: heroMA,
+  RW: heroRW, CI: heroCI, SN: heroSN, GH: heroGH, ET: heroET,
+  EG: heroEG, CM: heroCM, TN: heroTN,
+};
+
 const CountryDetailPage = () => {
   const { code } = useParams();
   const { t } = useLanguage();
