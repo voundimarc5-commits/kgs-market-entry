@@ -1,7 +1,7 @@
 import PlatformLayout from "@/components/platform/PlatformLayout";
 import ScrollReveal from "@/components/platform/ScrollReveal";
 import { insights } from "@/data/mockData";
-import { Clock, ArrowRight, TrendingUp, BookOpen } from "lucide-react";
+import { Clock, ArrowRight, TrendingUp, BookOpen, Lock } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useLocalizedData } from "@/hooks/useLocalizedData";
 import { useNavigate } from "react-router-dom";
@@ -82,6 +82,9 @@ const InsightsPage = () => {
                     <span className="text-[10px] uppercase tracking-wider text-accent font-semibold bg-accent/10 px-2 py-1 rounded">
                       {localizeCategory(featured.category)}
                     </span>
+                    <span className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider text-primary-foreground font-bold bg-primary px-2.5 py-1 rounded-full">
+                      <Lock size={10} /> Premium
+                    </span>
                   </div>
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
                     {featured.title}
@@ -129,11 +132,14 @@ const InsightsPage = () => {
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
-                    <div className="absolute top-3 left-3 flex items-center gap-2">
+                     <div className="absolute top-3 left-3 flex items-center gap-2">
                       <span className="text-[10px] uppercase tracking-wider text-primary font-bold bg-background/80 backdrop-blur-sm px-2 py-1 rounded border border-primary/20">
                         {localizeCategory(article.category)}
                       </span>
                     </div>
+                     <span className="absolute top-3 right-3 inline-flex items-center gap-1 text-[9px] uppercase tracking-wider text-primary-foreground font-bold bg-primary px-2 py-1 rounded">
+                       <Lock size={9} /> Premium
+                     </span>
                   </div>
                   <div className="p-5 flex flex-col flex-1">
                     <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors leading-snug">

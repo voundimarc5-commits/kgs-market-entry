@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Globe, TrendingUp, Shield, Zap, BarChart3, Clock, Calendar, MapPin, BookOpen, Radar } from "lucide-react";
+import { ArrowRight, Globe, TrendingUp, Shield, Zap, BarChart3, Clock, Calendar, MapPin, BookOpen, Radar, Lock } from "lucide-react";
 import AfricaGlobe from "@/components/platform/AfricaGlobe";
 import AfricaSVGMap from "@/components/platform/AfricaSVGMap";
 import OpportunityCard from "@/components/platform/OpportunityCard";
@@ -276,9 +276,12 @@ const HomePage = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent md:hidden" />
                 </div>
                 <div className="p-6 md:p-8 flex flex-col justify-center">
-                  <div className="flex items-center gap-2 mb-3">
+                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-[10px] uppercase tracking-wider text-primary font-bold bg-primary/10 px-2 py-1 rounded border border-primary/20">{t("insights.featured")}</span>
                     <span className="text-[10px] uppercase tracking-wider text-accent font-semibold">{localizeCategory(localizedInsights[0].category)}</span>
+                    <span className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider text-primary-foreground font-bold bg-primary px-2 py-1 rounded">
+                      <Lock size={9} /> Premium
+                    </span>
                   </div>
                   <h3 className="text-lg md:text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{localizedInsights[0].title}</h3>
                   <p className="text-xs text-muted-foreground line-clamp-3 mb-4">{localizedInsights[0].summary}</p>
@@ -304,9 +307,12 @@ const HomePage = () => {
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
-                    <span className="absolute top-2 left-2 text-[9px] uppercase tracking-wider text-primary font-bold bg-background/80 backdrop-blur-sm px-2 py-0.5 rounded">
-                      {localizeCategory(article.category)}
-                    </span>
+                     <span className="absolute top-2 left-2 text-[9px] uppercase tracking-wider text-primary font-bold bg-background/80 backdrop-blur-sm px-2 py-0.5 rounded">
+                       {localizeCategory(article.category)}
+                     </span>
+                     <span className="absolute top-2 right-2 inline-flex items-center gap-1 text-[9px] uppercase tracking-wider text-primary-foreground font-bold bg-primary px-2 py-0.5 rounded">
+                       <Lock size={9} /> Premium
+                     </span>
                   </div>
                   <div className="p-4 flex flex-col flex-1">
                     <h3 className="text-sm font-semibold text-foreground mb-2 group-hover:text-primary transition-colors leading-snug">{article.title}</h3>
