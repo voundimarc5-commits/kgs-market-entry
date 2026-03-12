@@ -2,7 +2,7 @@ import PlatformLayout from "@/components/platform/PlatformLayout";
 import ScrollReveal from "@/components/platform/ScrollReveal";
 import AfricaSVGMap from "@/components/platform/AfricaSVGMap";
 import { countries } from "@/data/mockData";
-import { MapPin, ArrowRight, Globe } from "lucide-react";
+import { MapPin, ArrowRight, Globe, Users, DollarSign } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useLocalizedData } from "@/hooks/useLocalizedData";
@@ -58,13 +58,27 @@ const CountriesPage = () => {
                     className="glass-card rounded-lg p-5 hover:border-primary/30 transition-all group card-lift block"
                   >
                     <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-2">
-                        <MapPin size={14} className="text-primary" />
+                      <div className="flex items-center gap-3">
+                        <img
+                          src={`https://flagcdn.com/w40/${rawCountry.code.toLowerCase()}.png`}
+                          srcSet={`https://flagcdn.com/w80/${rawCountry.code.toLowerCase()}.png 2x`}
+                          alt={`${country.name} flag`}
+                          className="w-8 h-6 object-cover rounded shadow-sm border border-border"
+                        />
                         <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors">{country.name}</h3>
                       </div>
                       <ArrowRight size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
                     </div>
                     <p className="text-xs text-muted-foreground mb-4">{country.overview}</p>
+
+                    {rawCountry.capital && (
+                      <div className="flex items-center gap-4 text-[11px] text-muted-foreground mb-3">
+                        <span className="flex items-center gap-1"><MapPin size={10} /> {country.capital}</span>
+                        {rawCountry.population && <span className="flex items-center gap-1"><Users size={10} /> {rawCountry.population}</span>}
+                        {rawCountry.gdp && <span className="flex items-center gap-1"><DollarSign size={10} /> {rawCountry.gdp}</span>}
+                      </div>
+                    )}
+
                     <div className="flex flex-wrap gap-1.5 mb-4">
                       {country.keySectors.map((s) => (
                         <span key={s} className="text-[10px] bg-secondary text-muted-foreground px-2 py-0.5 rounded">{s}</span>

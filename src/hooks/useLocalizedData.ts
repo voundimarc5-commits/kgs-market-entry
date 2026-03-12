@@ -33,7 +33,9 @@ export const useLocalizedData = () => {
     ...country,
     name: (isFr ? country.name_fr : undefined) || country.name,
     overview: (isFr ? country.overview_fr : undefined) || country.overview,
+    description: (isFr ? country.description_fr : undefined) || country.description,
     keySectors: (isFr ? country.keySectors_fr : undefined) || country.keySectors,
+    capital: (isFr ? country.capital_fr : undefined) || country.capital,
   });
 
   const localizeSector = (sector: string) => isFr ? (SECTOR_TRANSLATIONS[sector] || sector) : sector;

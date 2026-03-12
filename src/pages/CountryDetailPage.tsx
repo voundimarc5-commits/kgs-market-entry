@@ -1,14 +1,17 @@
 import { useParams, Link } from "react-router-dom";
 import PlatformLayout from "@/components/platform/PlatformLayout";
+import ScrollReveal from "@/components/platform/ScrollReveal";
 import { countries, opportunities, events } from "@/data/mockData";
-import { ArrowLeft, MapPin, Calendar, ArrowRight } from "lucide-react";
+import { ArrowLeft, MapPin, Calendar, ArrowRight, Users, DollarSign, Building2 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useLocalizedData } from "@/hooks/useLocalizedData";
+import EventCard from "@/components/platform/EventCard";
+import OpportunityCard from "@/components/platform/OpportunityCard";
 
 const CountryDetailPage = () => {
   const { code } = useParams();
   const { t } = useLanguage();
-  const { localizeCountry, localizeOpp, localizeEvent, dateLocale } = useLocalizedData();
+  const { localizeCountry, dateLocale } = useLocalizedData();
   const rawCountry = countries.find((c) => c.code === code);
 
   if (!rawCountry) {
@@ -23,46 +26,103 @@ const CountryDetailPage = () => {
   }
 
   const country = localizeCountry(rawCountry);
-  const countryOpps = opportunities.filter((o) => o.country === rawCountry.name).map(localizeOpp);
-  const countryEvents = events.filter((e) => e.country === rawCountry.name).map(localizeEvent);
+  const countryOpps = opportunities.filter((o) => o.country === rawCountry.name);
+  const countryEvents = events.filter((e) => e.country === rawCountry.name);
 
   return (
     <PlatformLayout>
-      <section className="py-12">
-        <div className="container mx-auto px-6 max-w-4xl">
-          <Link to="/countries" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground mb-8">
+      {/* Hero */}
+      <section className="relative py-16 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-background" />
+        <div className="container mx-auto px-6 max-w-5xl relative z-10">
+          <Link to="/countries" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground mb-8 transition-colors">
             <ArrowLeft size={14} /> {t("country.back")}
           </Link>
 
-          <div className="flex items-center gap-3 mb-4">
-            <MapPin size={20} className="text-primary" />
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground">{country.name}</h1>
-          </div>
-          <p className="text-base text-muted-foreground mb-8">{country.overview}</p>
+          <ScrollReveal>
+            <div className="flex items-center gap-4 mb-6">
+              <img
+                src={`https://flagcdn.com/w80/${rawCountry.code.toLowerCase()}.png`}
+                srcSet={`https://flagcdn.com/w160/${rawCountry.code.toLowerCase()}.png 2x`}
+                alt={`${country.name} flag`}
+                className="w-16 h-12 object-cover rounded-lg shadow-md border border-border"
+              />
+              <div>
+                <h1 className="text-3xl md:text-4xl font-black text-foreground">{country.name}</h1>
+                <p className="text-sm text-muted-foreground mt-1">{country.overview}</p>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Key stats */}
+          <ScrollReveal delay={100}>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+              {country.capital && (
+                <div className="glass-card rounded-lg p-4 text-center">
+                  <Building2 size={16} className="text-primary mx-auto mb-2" />
+                  <p className="text-[10px] uppercase tracking-wider text-muted-foreground mb-1">{t("country.capital")}</p>
+                  <p className="text-sm font-semibold text-foreground">{country.capital}</p>
+                </div>
+              )}
+              {rawCountry.population && (
+                <div className="glass-card rounded-lg p-4 text-center">
+                  <Users size={16} className="text-primary mx-auto mb-2" />
+                  <p className="text-[10px] uppercase tracking-wider text-muted-foreground mb-1">Population</p>
+                  <p className="text-sm font-semibold text-foreground">{rawCountry.population}</p>
+                </div>
+              )}
+              {rawCountry.gdp && (
+                <div className="glass-card rounded-lg p-4 text-center">
+                  <DollarSign size={16} className="text-primary mx-auto mb-2" />
+                  <p className="text-[10px] uppercase tracking-wider text-muted-foreground mb-1">PIB / GDP</p>
+                  <p className="text-sm font-semibold text-foreground">{rawCountry.gdp}</p>
+                </div>
+              )}
+              <div className="glass-card rounded-lg p-4 text-center">
+                <MapPin size={16} className="text-primary mx-auto mb-2" />
+                <p className="text-[10px] uppercase tracking-wider text-muted-foreground mb-1">{t("countries.opportunities")}</p>
+                <p className="text-sm font-semibold text-foreground">{rawCountry.opportunities}</p>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <section className="pb-16">
+        <div className="container mx-auto px-6 max-w-5xl">
+          {/* Description */}
+          {country.description && (
+            <ScrollReveal>
+              <div className="glass-card rounded-xl p-6 md:p-8 mb-10">
+                <h2 className="text-lg font-bold text-foreground mb-4">{t("country.about")} {country.name}</h2>
+                <p className="text-sm text-muted-foreground leading-relaxed">{country.description}</p>
+              </div>
+            </ScrollReveal>
+          )}
 
           {/* Key Sectors */}
-          <div className="glass-card rounded-lg p-6 mb-8">
-            <h2 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-3">{t("country.key_sectors")}</h2>
-            <div className="flex flex-wrap gap-2">
-              {country.keySectors.map((s) => (
-                <span key={s} className="text-xs bg-primary/10 text-primary px-3 py-1.5 rounded-md">{s}</span>
-              ))}
+          <ScrollReveal delay={100}>
+            <div className="glass-card rounded-xl p-6 mb-10">
+              <h2 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-4">{t("country.key_sectors")}</h2>
+              <div className="flex flex-wrap gap-2">
+                {country.keySectors.map((s) => (
+                  <span key={s} className="text-xs bg-primary/10 text-primary px-4 py-2 rounded-md font-medium">{s}</span>
+                ))}
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Opportunities */}
-          <div className="mb-8">
-            <h2 className="text-lg font-semibold text-foreground mb-4">{t("country.active_opps")} ({countryOpps.length})</h2>
+          <div className="mb-10">
+            <ScrollReveal>
+              <h2 className="text-xl font-bold text-foreground mb-6">{t("country.active_opps")} ({countryOpps.length})</h2>
+            </ScrollReveal>
             {countryOpps.length > 0 ? (
-              <div className="space-y-3">
-                {countryOpps.map((opp) => (
-                  <Link key={opp.id} to={`/opportunities/${opp.id}`} className="glass-card rounded-lg p-4 flex items-center justify-between hover:border-primary/30 transition-all group block">
-                    <div>
-                      <h3 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">{opp.title}</h3>
-                      <p className="text-xs text-muted-foreground mt-1">{opp.sector} • {t("opp.deadline")}: {new Date(opp.deadline).toLocaleDateString(dateLocale, { month: "short", year: "numeric" })}</p>
-                    </div>
-                    <ArrowRight size={14} className="text-muted-foreground shrink-0" />
-                  </Link>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {countryOpps.map((opp, i) => (
+                  <ScrollReveal key={opp.id} delay={i * 80}>
+                    <OpportunityCard opportunity={opp} />
+                  </ScrollReveal>
                 ))}
               </div>
             ) : (
@@ -72,20 +132,15 @@ const CountryDetailPage = () => {
 
           {/* Events */}
           <div>
-            <h2 className="text-lg font-semibold text-foreground mb-4">{t("country.upcoming_events")} ({countryEvents.length})</h2>
+            <ScrollReveal>
+              <h2 className="text-xl font-bold text-foreground mb-6">{t("country.upcoming_events")} ({countryEvents.length})</h2>
+            </ScrollReveal>
             {countryEvents.length > 0 ? (
-              <div className="space-y-3">
-                {countryEvents.map((evt) => (
-                  <Link key={evt.id} to={`/events/${evt.id}`} className="glass-card rounded-lg p-4 flex items-center justify-between hover:border-primary/30 transition-all group block">
-                    <div>
-                      <h3 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">{evt.name}</h3>
-                      <div className="flex items-center gap-4 mt-2">
-                        <div className="flex items-center gap-1 text-xs text-muted-foreground"><MapPin size={11} /> {evt.city}</div>
-                        <div className="flex items-center gap-1 text-xs text-muted-foreground"><Calendar size={11} /> {new Date(evt.date).toLocaleDateString(dateLocale, { month: "long", day: "numeric", year: "numeric" })}</div>
-                      </div>
-                    </div>
-                    <ArrowRight size={14} className="text-muted-foreground shrink-0" />
-                  </Link>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {countryEvents.map((evt, i) => (
+                  <ScrollReveal key={evt.id} delay={i * 80}>
+                    <EventCard event={evt} />
+                  </ScrollReveal>
                 ))}
               </div>
             ) : (
