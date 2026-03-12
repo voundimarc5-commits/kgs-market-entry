@@ -27,6 +27,14 @@ const HomePage = () => {
   const { localizeInsight, localizeCategory, localizeSector, dateLocale } = useLocalizedData();
   const [selectedSector, setSelectedSector] = useState("All");
 
+  const totalOpps = opportunities.length;
+  const totalCountries = countries.length;
+  const totalEvents = events.length;
+
+  const animOpps = useCountUp(totalOpps, 2000, 600);
+  const animCountries = useCountUp(totalCountries, 2000, 800);
+  const animEvents = useCountUp(totalEvents, 2000, 1000);
+
   const filteredOpps = selectedSector === "All"
     ? opportunities
     : opportunities.filter((o) => o.sector === selectedSector);
