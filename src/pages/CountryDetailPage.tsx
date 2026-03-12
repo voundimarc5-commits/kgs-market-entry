@@ -8,6 +8,26 @@ import { useLocalizedData } from "@/hooks/useLocalizedData";
 import EventCard from "@/components/platform/EventCard";
 import OpportunityCard from "@/components/platform/OpportunityCard";
 
+import heroNG from "@/assets/country-hero-ng.jpg";
+import heroKE from "@/assets/country-hero-ke.jpg";
+import heroZA from "@/assets/country-hero-za.jpg";
+import heroGA from "@/assets/country-hero-ga.jpg";
+import heroMA from "@/assets/country-hero-ma.jpg";
+import heroRW from "@/assets/country-hero-rw.jpg";
+import heroCI from "@/assets/country-hero-ci.jpg";
+import heroSN from "@/assets/country-hero-sn.jpg";
+import heroGH from "@/assets/country-hero-gh.jpg";
+import heroET from "@/assets/country-hero-et.jpg";
+import heroEG from "@/assets/country-hero-eg.jpg";
+import heroCM from "@/assets/country-hero-cm.jpg";
+import heroTN from "@/assets/country-hero-tn.jpg";
+
+const COUNTRY_HERO_IMAGES: Record<string, string> = {
+  NG: heroNG, KE: heroKE, ZA: heroZA, GA: heroGA, MA: heroMA,
+  RW: heroRW, CI: heroCI, SN: heroSN, GH: heroGH, ET: heroET,
+  EG: heroEG, CM: heroCM, TN: heroTN,
+};
+
 const CountryDetailPage = () => {
   const { code } = useParams();
   const { t } = useLanguage();
@@ -28,12 +48,18 @@ const CountryDetailPage = () => {
   const country = localizeCountry(rawCountry);
   const countryOpps = opportunities.filter((o) => o.country === rawCountry.name);
   const countryEvents = events.filter((e) => e.country === rawCountry.name);
+  const heroImage = COUNTRY_HERO_IMAGES[rawCountry.code];
 
   return (
     <PlatformLayout>
       {/* Hero */}
       <section className="relative py-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-background" />
+        <div className="absolute inset-0">
+          {heroImage && (
+            <img src={heroImage} alt={`${country.name} skyline`} className="w-full h-full object-cover" loading="eager" />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/90 to-background" />
+        </div>
         <div className="container mx-auto px-6 max-w-5xl relative z-10">
           <Link to="/countries" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground mb-8 transition-colors">
             <ArrowLeft size={14} /> {t("country.back")}
