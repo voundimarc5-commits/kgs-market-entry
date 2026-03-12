@@ -11,7 +11,7 @@ import financialDistrict from "@/assets/financial-district.jpg";
 
 const OpportunitiesPage = () => {
   const [selectedSector, setSelectedSector] = useState("All");
-  const [selectedType, setSelectedType] = useState("All");
+  const [selectedCountry, setSelectedCountry] = useState("All");
   const [search, setSearch] = useState("");
   const { t } = useLanguage();
   const { localizeSector, localizeType, localizeOpp } = useLocalizedData();
