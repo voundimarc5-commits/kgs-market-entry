@@ -1921,6 +1921,11 @@ export const SECTOR_TRANSLATIONS: Record<string, string> = {
   "AI & Robotics": "IA & Robotique",
   "Venture Capital": "Capital-risque",
   "Mining & Resources": "Mines & Ressources",
+  "Finance & Trade": "Finance & Commerce",
+  "Trade & Investment": "Commerce & Investissement",
+  "Technology / Space": "Technologie / Spatial",
+  "Technology / AI": "Technologie / IA",
+  "Hospitality": "Hôtellerie",
 };
 
 // Opportunity type translations
