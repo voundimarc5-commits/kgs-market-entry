@@ -307,9 +307,12 @@ const HomePage = () => {
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
-                    <span className="absolute top-2 left-2 text-[9px] uppercase tracking-wider text-primary font-bold bg-background/80 backdrop-blur-sm px-2 py-0.5 rounded">
-                      {localizeCategory(article.category)}
-                    </span>
+                     <span className="absolute top-2 left-2 text-[9px] uppercase tracking-wider text-primary font-bold bg-background/80 backdrop-blur-sm px-2 py-0.5 rounded">
+                       {localizeCategory(article.category)}
+                     </span>
+                     <span className="absolute top-2 right-2 inline-flex items-center gap-1 text-[9px] uppercase tracking-wider text-primary-foreground font-bold bg-primary px-2 py-0.5 rounded">
+                       <Lock size={9} /> Premium
+                     </span>
                   </div>
                   <div className="p-4 flex flex-col flex-1">
                     <h3 className="text-sm font-semibold text-foreground mb-2 group-hover:text-primary transition-colors leading-snug">{article.title}</h3>

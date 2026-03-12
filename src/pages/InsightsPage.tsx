@@ -132,11 +132,14 @@ const InsightsPage = () => {
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
-                    <div className="absolute top-3 left-3 flex items-center gap-2">
+                     <div className="absolute top-3 left-3 flex items-center gap-2">
                       <span className="text-[10px] uppercase tracking-wider text-primary font-bold bg-background/80 backdrop-blur-sm px-2 py-1 rounded border border-primary/20">
                         {localizeCategory(article.category)}
                       </span>
                     </div>
+                     <span className="absolute top-3 right-3 inline-flex items-center gap-1 text-[9px] uppercase tracking-wider text-primary-foreground font-bold bg-primary px-2 py-1 rounded">
+                       <Lock size={9} /> Premium
+                     </span>
                   </div>
                   <div className="p-5 flex flex-col flex-1">
                     <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors leading-snug">
