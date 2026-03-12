@@ -7,9 +7,10 @@ import OpportunityCard from "@/components/platform/OpportunityCard";
 import EventCard from "@/components/platform/EventCard";
 import PlatformLayout from "@/components/platform/PlatformLayout";
 import ScrollReveal from "@/components/platform/ScrollReveal";
-import { opportunities, events, insights, sectors } from "@/data/mockData";
+import { opportunities, events, insights, sectors, countries } from "@/data/mockData";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useLocalizedData } from "@/hooks/useLocalizedData";
+import { useCountUp } from "@/hooks/useCountUp";
 
 import heroAfricaModern from "@/assets/hero-africa-modern.jpg";
 import financialDistrict from "@/assets/financial-district.jpg";
