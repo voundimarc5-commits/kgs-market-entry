@@ -9,7 +9,11 @@ const images = import.meta.glob("@/assets/*.jpg", { eager: true, import: "defaul
 const getImageForEvent = (sector: string): string | undefined => {
   const mapping: Record<string, string> = {
     "Finance & Investment": "financial-district",
+    "Finance & Trade": "financial-district",
+    "Trade & Investment": "financial-district",
     Technology: "nairobi-tech-hub",
+    "Technology / AI": "smart-city",
+    "Technology / Space": "smart-city",
     "Innovation & Tech": "kigali-innovation",
     "Energy & Climate": "solar-farm-morocco",
     Startup: "nairobi-tech-hub",
@@ -18,6 +22,8 @@ const getImageForEvent = (sector: string): string | undefined => {
     "Venture Capital": "financial-district",
     "Mining & Resources": "mining-tech",
     Infrastructure: "port-infrastructure",
+    Agriculture: "agribusiness",
+    Hospitality: "hospitality-interior",
   };
   const key = mapping[sector];
   if (!key) return undefined;

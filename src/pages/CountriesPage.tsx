@@ -49,8 +49,16 @@ const CountriesPage = () => {
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {countries.map((rawCountry, i) => {
+            {[...countries]
+              .sort((a, b) => {
+                const aTotal = opportunities.filter(o => o.country === a.name).length + events.filter(e => e.country === a.name).length;
+                const bTotal = opportunities.filter(o => o.country === b.name).length + events.filter(e => e.country === b.name).length;
+                return bTotal - aTotal;
+              })
+              .map((rawCountry, i) => {
               const country = localizeCountry(rawCountry);
+              const countryOpps = opportunities.filter(o => o.country === rawCountry.name).length;
+              const countryEvents = events.filter(e => e.country === rawCountry.name).length;
               return (
                 <ScrollReveal key={rawCountry.code} delay={i * 70}>
                   <Link
@@ -85,8 +93,8 @@ const CountriesPage = () => {
                       ))}
                     </div>
                     <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                      <span>{opportunities.filter(o => o.country === rawCountry.name).length} {t("countries.opportunities")}</span>
-                      <span>{events.filter(e => e.country === rawCountry.name).length} {t("countries.events")}</span>
+                      <span>{countryOpps} {t("countries.opportunities")}</span>
+                      <span>{countryEvents} {t("countries.events")}</span>
                     </div>
                   </Link>
                 </ScrollReveal>
