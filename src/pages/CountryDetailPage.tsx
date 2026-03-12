@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import PlatformLayout from "@/components/platform/PlatformLayout";
 import ScrollReveal from "@/components/platform/ScrollReveal";
 import { countries, opportunities, events } from "@/data/mockData";
-import { ArrowLeft, MapPin, Calendar, ArrowRight, Users, DollarSign, Building2 } from "lucide-react";
+import { ArrowLeft, MapPin, DollarSign, Trophy, TrendingUp } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useLocalizedData } from "@/hooks/useLocalizedData";
 import EventCard from "@/components/platform/EventCard";
