@@ -86,15 +86,15 @@ const HomePage = () => {
                 <div className="flex items-center gap-8 mt-10">
                   <div className="flex items-center gap-2">
                     <TrendingUp size={14} className="text-primary" />
-                    <span className="text-xs text-muted-foreground"><strong className="text-foreground">13</strong> {t("home.hero.stat_opps")}</span>
+                    <span className="text-xs text-muted-foreground"><strong className="text-foreground tabular-nums">{animOpps}</strong> {t("home.hero.stat_opps")}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Shield size={14} className="text-primary" />
-                    <span className="text-xs text-muted-foreground"><strong className="text-foreground">12</strong> {t("home.hero.stat_countries")}</span>
+                    <span className="text-xs text-muted-foreground"><strong className="text-foreground tabular-nums">{animCountries}</strong> {t("home.hero.stat_countries")}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Zap size={14} className="text-primary" />
-                    <span className="text-xs text-muted-foreground"><strong className="text-foreground">11</strong> {t("home.hero.stat_events")}</span>
+                    <span className="text-xs text-muted-foreground"><strong className="text-foreground tabular-nums">{animEvents}</strong> {t("home.hero.stat_events")}</span>
                   </div>
                 </div>
               </ScrollReveal>
