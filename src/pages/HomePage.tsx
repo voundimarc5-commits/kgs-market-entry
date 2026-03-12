@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Globe, TrendingUp, Shield, Zap, BarChart3, Clock, Calendar, MapPin, BookOpen, Radar, Lock } from "lucide-react";
 import AfricaGlobe from "@/components/platform/AfricaGlobe";
@@ -7,9 +7,10 @@ import OpportunityCard from "@/components/platform/OpportunityCard";
 import EventCard from "@/components/platform/EventCard";
 import PlatformLayout from "@/components/platform/PlatformLayout";
 import ScrollReveal from "@/components/platform/ScrollReveal";
-import { opportunities, events, insights, sectors } from "@/data/mockData";
+import { opportunities, events, insights, sectors, countries } from "@/data/mockData";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useLocalizedData } from "@/hooks/useLocalizedData";
+import { useCountUp } from "@/hooks/useCountUp";
 
 import heroAfricaModern from "@/assets/hero-africa-modern.jpg";
 import financialDistrict from "@/assets/financial-district.jpg";
@@ -25,6 +26,14 @@ const HomePage = () => {
   const { t } = useLanguage();
   const { localizeInsight, localizeCategory, localizeSector, dateLocale } = useLocalizedData();
   const [selectedSector, setSelectedSector] = useState("All");
+
+  const totalOpps = opportunities.length;
+  const totalCountries = countries.length;
+  const totalEvents = events.length;
+
+  const animOpps = useCountUp(totalOpps, 2000, 600);
+  const animCountries = useCountUp(totalCountries, 2000, 800);
+  const animEvents = useCountUp(totalEvents, 2000, 1000);
 
   const filteredOpps = selectedSector === "All"
     ? opportunities
@@ -77,15 +86,15 @@ const HomePage = () => {
                 <div className="flex items-center gap-8 mt-10">
                   <div className="flex items-center gap-2">
                     <TrendingUp size={14} className="text-primary" />
-                    <span className="text-xs text-muted-foreground"><strong className="text-foreground">13</strong> {t("home.hero.stat_opps")}</span>
+                    <span className="text-xs text-muted-foreground"><strong className="text-foreground tabular-nums">{animOpps}</strong> {t("home.hero.stat_opps")}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Shield size={14} className="text-primary" />
-                    <span className="text-xs text-muted-foreground"><strong className="text-foreground">12</strong> {t("home.hero.stat_countries")}</span>
+                    <span className="text-xs text-muted-foreground"><strong className="text-foreground tabular-nums">{animCountries}</strong> {t("home.hero.stat_countries")}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Zap size={14} className="text-primary" />
-                    <span className="text-xs text-muted-foreground"><strong className="text-foreground">11</strong> {t("home.hero.stat_events")}</span>
+                    <span className="text-xs text-muted-foreground"><strong className="text-foreground tabular-nums">{animEvents}</strong> {t("home.hero.stat_events")}</span>
                   </div>
                 </div>
               </ScrollReveal>
