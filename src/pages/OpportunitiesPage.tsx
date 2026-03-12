@@ -18,7 +18,7 @@ const OpportunitiesPage = () => {
 
   const filtered = opportunities.filter((o) => {
     const matchSector = selectedSector === "All" || o.sector === selectedSector;
-    const matchType = selectedType === "All" || o.type === selectedType;
+    const matchCountry = selectedCountry === "All" || o.country === selectedCountry;
     const lo = localizeOpp(o);
     const matchSearch = !search || lo.title.toLowerCase().includes(search.toLowerCase()) || o.country.toLowerCase().includes(search.toLowerCase());
     return matchSector && matchType && matchSearch;
