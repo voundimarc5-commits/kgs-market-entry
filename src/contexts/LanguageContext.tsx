@@ -293,6 +293,8 @@ const translations: Record<string, Record<Language, string>> = {
   // ─── COUNTRY DETAIL ───
   "country.not_found": { fr: "Pays non trouvé", en: "Country not found" },
   "country.back": { fr: "Retour aux pays", en: "Back to countries" },
+  "country.capital": { fr: "Capitale", en: "Capital" },
+  "country.about": { fr: "À propos :", en: "About" },
   "country.key_sectors": { fr: "Secteurs clés", en: "Key Sectors" },
   "country.active_opps": { fr: "Opportunités actives", en: "Active Opportunities" },
   "country.no_opps": { fr: "Aucune opportunité active pour le moment.", en: "No active opportunities at this time." },
