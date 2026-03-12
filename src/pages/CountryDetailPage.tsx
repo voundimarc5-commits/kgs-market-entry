@@ -81,7 +81,7 @@ const CountryDetailPage = () => {
               <div className="glass-card rounded-lg p-4 text-center">
                 <MapPin size={16} className="text-primary mx-auto mb-2" />
                 <p className="text-[10px] uppercase tracking-wider text-muted-foreground mb-1">{t("countries.opportunities")}</p>
-                <p className="text-sm font-semibold text-foreground">{rawCountry.opportunities}</p>
+                <p className="text-sm font-semibold text-foreground">{countryOpps.length}</p>
               </div>
             </div>
           </ScrollReveal>

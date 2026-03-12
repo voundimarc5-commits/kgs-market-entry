@@ -1,7 +1,7 @@
 import PlatformLayout from "@/components/platform/PlatformLayout";
 import ScrollReveal from "@/components/platform/ScrollReveal";
 import AfricaSVGMap from "@/components/platform/AfricaSVGMap";
-import { countries } from "@/data/mockData";
+import { countries, opportunities, events } from "@/data/mockData";
 import { MapPin, ArrowRight, Globe, Users, DollarSign } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -85,8 +85,8 @@ const CountriesPage = () => {
                       ))}
                     </div>
                     <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                      <span>{rawCountry.opportunities} {t("countries.opportunities")}</span>
-                      <span>{rawCountry.events} {t("countries.events")}</span>
+                      <span>{opportunities.filter(o => o.country === rawCountry.name).length} {t("countries.opportunities")}</span>
+                      <span>{events.filter(e => e.country === rawCountry.name).length} {t("countries.events")}</span>
                     </div>
                   </Link>
                 </ScrollReveal>
