@@ -67,10 +67,14 @@ export interface CountryData {
   opportunities: number;
   events: number;
   flag?: string;
-  population?: string;
   gdp?: string;
+  population?: string;
   capital?: string;
   capital_fr?: string;
+  topRanking?: string;
+  topRanking_fr?: string;
+  investmentRange?: string;
+  investmentRange_fr?: string;
 }
 
 // Image mapping by sector
