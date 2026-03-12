@@ -1900,6 +1900,7 @@ export const countries: CountryData[] = [
 
 export const sectors = ["All", "Finance", "Energy", "Renewable Energy", "Technology", "Real Estate", "Agriculture", "Mining", "Infrastructure", "Artificial Intelligence"];
 export const opportunityTypes = ["All", "Sovereign Bond", "Innovation Program", "Startup Initiative", "Investment Program", "Financial Program", "Business Event"];
+export const opportunityCountries = ["All", "Cameroon", "Gabon", "Nigeria", "Morocco", "Ghana", "Egypt", "Ethiopia", "Kenya", "Rwanda", "Côte d'Ivoire", "Senegal", "South Africa", "Tunisia"];
 
 // Sector translations
 export const SECTOR_TRANSLATIONS: Record<string, string> = {

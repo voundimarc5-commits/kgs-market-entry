@@ -2,7 +2,7 @@ import { useState } from "react";
 import PlatformLayout from "@/components/platform/PlatformLayout";
 import ScrollReveal from "@/components/platform/ScrollReveal";
 import OpportunityCard from "@/components/platform/OpportunityCard";
-import { opportunities, sectors, opportunityTypes } from "@/data/mockData";
+import { opportunities, sectors, opportunityCountries } from "@/data/mockData";
 import { Search, TrendingUp } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useLocalizedData } from "@/hooks/useLocalizedData";
@@ -11,17 +11,17 @@ import financialDistrict from "@/assets/financial-district.jpg";
 
 const OpportunitiesPage = () => {
   const [selectedSector, setSelectedSector] = useState("All");
-  const [selectedType, setSelectedType] = useState("All");
+  const [selectedCountry, setSelectedCountry] = useState("All");
   const [search, setSearch] = useState("");
   const { t } = useLanguage();
-  const { localizeSector, localizeType, localizeOpp } = useLocalizedData();
+  const { localizeSector, localizeOpp } = useLocalizedData();
 
   const filtered = opportunities.filter((o) => {
     const matchSector = selectedSector === "All" || o.sector === selectedSector;
-    const matchType = selectedType === "All" || o.type === selectedType;
+    const matchCountry = selectedCountry === "All" || o.country === selectedCountry;
     const lo = localizeOpp(o);
     const matchSearch = !search || lo.title.toLowerCase().includes(search.toLowerCase()) || o.country.toLowerCase().includes(search.toLowerCase());
-    return matchSector && matchType && matchSearch;
+    return matchSector && matchCountry && matchSearch;
   });
 
   return (
@@ -73,11 +73,11 @@ const OpportunitiesPage = () => {
                 {sectors.map((s) => <option key={s} value={s}>{s === "All" ? t("opps.all_sectors") : localizeSector(s)}</option>)}
               </select>
               <select
-                value={selectedType}
-                onChange={(e) => setSelectedType(e.target.value)}
+                value={selectedCountry}
+                onChange={(e) => setSelectedCountry(e.target.value)}
                 className="bg-secondary border border-border rounded-md px-3 py-2.5 text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-primary"
               >
-                {opportunityTypes.map((tp) => <option key={tp} value={tp}>{tp === "All" ? t("opps.all_types") : localizeType(tp)}</option>)}
+                {opportunityCountries.map((c) => <option key={c} value={c}>{c === "All" ? t("opps.all_countries") : c}</option>)}
               </select>
             </div>
           </ScrollReveal>

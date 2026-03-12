@@ -261,7 +261,7 @@ const translations: Record<string, Record<Language, string>> = {
   "opps.desc": { fr: "Explorez les opportunités d'investissement, programmes et initiatives à travers les marchés africains.", en: "Explore investment opportunities, programs and initiatives across African markets." },
   "opps.search": { fr: "Rechercher des opportunités...", en: "Search opportunities..." },
   "opps.all_sectors": { fr: "Tous les secteurs", en: "All Sectors" },
-  "opps.all_types": { fr: "Tous les types", en: "All Types" },
+  "opps.all_countries": { fr: "Tous les pays", en: "All Countries" },
   "opps.found": { fr: "opportunités trouvées", en: "opportunities found" },
   "opps.no_match": { fr: "Aucune opportunité ne correspond à vos filtres.", en: "No opportunities match your filters." },
 
