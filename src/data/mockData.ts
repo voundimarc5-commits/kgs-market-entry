@@ -953,7 +953,9 @@ export const countries: CountryData[] = [
     description: "South Africa is the continent's most industrialized and diversified economy, home to the Johannesburg Stock Exchange — Africa's largest. The country boasts world-class financial services, mining operations, and manufacturing capabilities. South Africa holds over 80% of the world's platinum reserves and is a major producer of gold, diamonds, and chromium. Johannesburg and Cape Town serve as continental headquarters for many multinational corporations. The country's advanced legal framework, sophisticated banking system, and deep capital markets make it a preferred entry point for institutional investors targeting African markets. Key growth sectors include renewable energy, fintech, and automotive manufacturing.",
     description_fr: "L'Afrique du Sud est l'économie la plus industrialisée et diversifiée du continent, abritant la Bourse de Johannesburg — la plus grande d'Afrique. Le pays possède des services financiers de classe mondiale, des opérations minières et des capacités manufacturières avancées. L'Afrique du Sud détient plus de 80% des réserves mondiales de platine et est un producteur majeur d'or, de diamants et de chrome. Johannesburg et Le Cap servent de sièges continentaux pour de nombreuses multinationales. Le cadre juridique avancé du pays, son système bancaire sophistiqué et ses marchés financiers profonds en font un point d'entrée privilégié pour les investisseurs institutionnels ciblant les marchés africains. Les secteurs de croissance clés incluent l'énergie renouvelable, la fintech et l'industrie automobile.",
     keySectors: ["Mining", "Finance", "Technology"], keySectors_fr: ["Mines", "Finance", "Technologie"],
-    opportunities: 1, events: 2, population: "62M+", gdp: "$400B+", capital: "Pretoria", capital_fr: "Pretoria"
+    opportunities: 1, events: 2, population: "62M+", gdp: "$400B+", capital: "Pretoria", capital_fr: "Pretoria",
+    topRanking: "#1 African Stock Exchange (JSE)", topRanking_fr: "#1 Bourse Africaine (JSE)",
+    investmentRange: "$100M – $5B+", investmentRange_fr: "100M$ – 5Md$+"
   },
   {
     code: "GA", name: "Gabon", name_fr: "Gabon",
