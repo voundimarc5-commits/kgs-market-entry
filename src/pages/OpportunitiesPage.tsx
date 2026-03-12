@@ -73,11 +73,11 @@ const OpportunitiesPage = () => {
                 {sectors.map((s) => <option key={s} value={s}>{s === "All" ? t("opps.all_sectors") : localizeSector(s)}</option>)}
               </select>
               <select
-                value={selectedType}
-                onChange={(e) => setSelectedType(e.target.value)}
+                value={selectedCountry}
+                onChange={(e) => setSelectedCountry(e.target.value)}
                 className="bg-secondary border border-border rounded-md px-3 py-2.5 text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-primary"
               >
-                {opportunityTypes.map((tp) => <option key={tp} value={tp}>{tp === "All" ? t("opps.all_types") : localizeType(tp)}</option>)}
+                {opportunityCountries.map((c) => <option key={c} value={c}>{c === "All" ? t("opps.all_countries") : c}</option>)}
               </select>
             </div>
           </ScrollReveal>
