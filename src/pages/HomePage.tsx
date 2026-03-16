@@ -108,7 +108,7 @@ const HomePage = () => {
             </div>
 
             <ScrollReveal delay={400} className="hidden lg:block">
-              <AfricaGlobe />
+              <AfricaSVGMap compact />
             </ScrollReveal>
           </div>
         </div>
